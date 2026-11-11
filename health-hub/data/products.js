@@ -1,0 +1,128 @@
+/* Primal Health Hub — products. Sources: OP 2 "Products Library", products named across OP 1 + OP 2,
+   and the "Products to buy" tab of the Max doc (struck-through items there start as owned).
+   Fields: n name · g group · src "op" | "max" | "both" | "mention" · p price in £ · own · u link · note */
+(function (P) {
+  const A = (id, tld) => "https://www.amazon." + (tld || "co.uk") + "/dp/" + id;
+  P.productGroups = [
+    ["tape", "Tape & mouth devices"],
+    ["tools", "Fascia & training tools"],
+    ["posture", "Posture, feet & sleep surface"],
+    ["skin", "Face oils & natural care"],
+    ["oral", "Oral care"],
+    ["home", "Water, air, light & kitchen"],
+    ["food", "Food & supplements"],
+    ["groom", "Skincare, hair & cosmetic (Max doc)"],
+  ];
+  P.products = [
+    /* tape & devices */
+    { n: "Zygotape", g: "tape", src: "both", own: true, u: "https://zygotape.com/", note: "Code skooldiscount20 for 20% off. Male version: zygotape.com/products/male" },
+    { n: "Airofit Active", g: "tape", src: "both", p: 110.99, own: true, u: "https://airofit.com/products/airofit-active", note: "Set to F-6. The OP library also links the Airofit Core." },
+    { n: "Myobrace A1 (then A2)", g: "tape", src: "both", u: "https://nl.aliexpress.com/item/1005012161100169.html", note: "A1 Medium under 34 mm intermolar width, A1 Large at 34 mm+. K1 for children, T1 for teens." },
+    { n: "Froggy Mouth", g: "tape", src: "op", u: "http://froggymouth.com/", note: "Search resellers if it isn't sold in your country." },
+    { n: "Mastic gum", g: "tape", src: "both", p: 20, u: "https://grecogum.com", note: "Tongue chewing, masseter work, vagal tone." },
+    { n: "Kinesiology tape", g: "tape", src: "max", p: 5.99, own: true },
+    { n: "Button on a string", g: "tape", src: "mention", note: "For the Button Hold." },
+
+    /* fascia & training tools */
+    { n: "Fascia ball / tennis balls", g: "tools", src: "both", p: 7, own: true },
+    { n: "Foam roller", g: "tools", src: "both", p: 12, own: true, u: A("B07Q8CYRJ1", "com") },
+    { n: "Gua sha", g: "tools", src: "both", own: true },
+    { n: "Macebell or club (2–3 kg to start)", g: "tools", src: "both", u: A("B084RG31DJ", "com") },
+    { n: "Slant board (dual for squats)", g: "tools", src: "mention" },
+    { n: "Balance board", g: "tools", src: "mention" },
+    { n: "Marbles", g: "tools", src: "mention", note: "Marble carry." },
+    { n: "Resistance band", g: "tools", src: "mention", note: "Banded squats, hip abduction, tendon work." },
+    { n: "Pull-up bar", g: "tools", src: "mention", note: "Bar hang pandiculation, daily." },
+    { n: "Weighted vest or ankle weights", g: "tools", src: "mention", note: "Weighted sprints, pull-ups, dips." },
+    { n: "Dip belt", g: "tools", src: "mention" },
+    { n: "Medicine ball / slam ball", g: "tools", src: "mention" },
+    { n: "Kettlebell and heavy dumbbells", g: "tools", src: "mention", note: "Turkish get-up, farmers carries." },
+    { n: "Jump rope", g: "tools", src: "mention" },
+    { n: "Plyo box", g: "tools", src: "mention" },
+    { n: "Yoga block", g: "tools", src: "mention", note: "Psoas release." },
+    { n: "Neck brace for gym", g: "tools", src: "max", p: 16, own: true },
+    { n: "Food scale", g: "tools", src: "max", own: true },
+
+    /* posture, feet, sleep surface */
+    { n: "Barefoot shoes", g: "posture", src: "both", u: "https://anyasreviews.com/", note: "Wide toe box, flat, minimal." },
+    { n: "Toe spacers", g: "posture", src: "max", u: A("B079BY3X9K") },
+    { n: "Kneeling chair", g: "posture", src: "mention" },
+    { n: "Seiza bench", g: "posture", src: "mention", note: "For coffee-table work and meals." },
+    { n: "Futon or firm sleep surface", g: "posture", src: "mention" },
+    { n: "Real silk pillowcases", g: "posture", src: "max", own: true },
+
+    /* face oils & natural care */
+    { n: "Rose water (Alteya Organics)", g: "skin", src: "op", u: "https://alteyaorganics.eu/products/organic-bulgarian-rose-water-glass-bottle", note: "Morning cleanse on a cotton pad." },
+    { n: "Jojoba oil (Fushi)", g: "skin", src: "op", u: "https://fushiwellbeing.com/products/organic-jojoba-oil-100ml" },
+    { n: "Castor oil (Fushi)", g: "skin", src: "both", own: true, u: "https://fushiwellbeing.com/products/organic-castor-oil-250ml", note: "Fushi brand is best. Lymph drainage lubricant." },
+    { n: "Camellia oil (Fushi)", g: "skin", src: "op", u: "https://fushiwellbeing.com/products/organic-camellia-oil-100ml" },
+    { n: "Beef tallow moisturiser (CJ Tallow)", g: "skin", src: "both", u: "https://cjtallow.com/product/100-pure-organic-whipped-tallow-skin-moisturiser/", note: "Code SKOOL15. Amazon UK: B0CHZWZS98 · US: B0DGVH382L." },
+    { n: "Argan oil (Fushi)", g: "skin", src: "max", u: A("B007X468SY"), note: "Fushi brand is best." },
+    { n: "Emu oil", g: "skin", src: "max", u: A("B008RV6TU4") },
+    { n: "Rosemary oil", g: "skin", src: "max", own: true },
+    { n: "Coconut oil (organic extra virgin)", g: "skin", src: "both", u: A("B00SNGY12G"), note: "Oil pulling, lymph work, deodorant base, cooking." },
+    { n: "Non-nano zinc oxide sunscreen", g: "skin", src: "mention" },
+    { n: "Natural deodorant (Salt of the Earth)", g: "skin", src: "max", p: 5.55, own: true, note: "Or baking soda with coconut oil." },
+    { n: "Magnesium chloride spray", g: "skin", src: "mention" },
+    { n: "Organic cotton pads", g: "skin", src: "mention" },
+
+    /* oral care */
+    { n: "Fluoride-free hydroxyapatite toothpaste (Gutology)", g: "oral", src: "both", u: A("B0CBQF7BJD") },
+    { n: "Boar bristle bamboo toothbrush", g: "oral", src: "max", u: A("B073HCMYPR", "com") },
+    { n: "Copper tongue scraper", g: "oral", src: "max", u: A("B0721MSKNJ") },
+    { n: "Water flosser", g: "oral", src: "max", p: 19.99 },
+
+    /* water, air, light, kitchen */
+    { n: "Shower filter (Hello Klean, UK)", g: "home", src: "both", p: 75, u: "https://helloklean.com/en-eu/products/hello-klean-shower-head", note: "US: organicjaguar.com/products/shower-filter · also theshowerheadstore.com metal filter." },
+    { n: "Reverse osmosis water filter (Waterdrop countertop)", g: "home", src: "both", u: A("B0CPHPZJF4") },
+    { n: "Air purifier", g: "home", src: "max", p: 99.99 },
+    { n: "Blue light blockers (TrueDark Twilights Classic)", g: "home", src: "both", own: true, u: "https://truedark.com/shop/twilights/twilights-classic/", note: "Your Max list has blue light glasses as bought and these as “the best red light glasses”." },
+    { n: "Cast iron pan", g: "home", src: "both", own: true },
+    { n: "Stainless steel or ceramic cookware", g: "home", src: "mention" },
+    { n: "Glass bottles and food storage", g: "home", src: "mention" },
+    { n: "Baking soda + apple cider vinegar", g: "home", src: "mention", note: "Cleaning swaps; ACV also before meals." },
+    { n: "Linen or organic cotton underwear", g: "home", src: "mention" },
+
+    /* food & supplements */
+    { n: "Celtic sea salt", g: "food", src: "both", p: 8.99 },
+    { n: "Raw honey", g: "food", src: "both", u: A("B0CQNKPD1K"), note: "UK link. US: reallyrawhoney.com" },
+    { n: "Organic loose-leaf chamomile tea", g: "food", src: "both", u: A("B09JB8PCZ5") },
+    { n: "Liquid nano magnesium", g: "food", src: "both", u: "https://www.nanominerals.co.uk/products/the-health-factory-nano-magnesium-extra-strong" },
+    { n: "Colostrum powder", g: "food", src: "both", u: "https://www.bulk.com/uk/products/colostrum/bpb-colo-0000" },
+    { n: "Raw royal jelly", g: "food", src: "max", u: "https://rawroyaljelly.com/" },
+    { n: "Grass-fed beef gelatin powder", g: "food", src: "mention" },
+    { n: "Shilajit", g: "food", src: "mention" },
+    { n: "TUDCA", g: "food", src: "mention" },
+    { n: "Taurine", g: "food", src: "mention" },
+    { n: "Boron glycinate", g: "food", src: "mention" },
+    { n: "Grapeseed extract", g: "food", src: "mention" },
+    { n: "L-glutamine", g: "food", src: "mention" },
+    { n: "Eggshell powder", g: "food", src: "mention" },
+    { n: "Vitamin D3 (winter)", g: "food", src: "mention", note: "3,000–4,000 IU." },
+    { n: "Rhodiola rosea", g: "food", src: "mention" },
+    { n: "Holy basil / tulsi", g: "food", src: "mention" },
+    { n: "Nettle tea", g: "food", src: "mention" },
+    { n: "Ginkgo biloba", g: "food", src: "mention" },
+    { n: "Tamarind paste or tea", g: "food", src: "mention" },
+    { n: "Bee pollen", g: "food", src: "mention" },
+    { n: "Qi Gong book: The Master Key (middle chapters)", g: "food", src: "max", u: A("1622031393") },
+
+    /* skincare, hair, cosmetic — Max doc */
+    { n: "Electric microneedling pen", g: "groom", src: "max", p: 89.99, own: true, u: A("B0DCK4CW35") },
+    { n: "The Ordinary eyelash serum", g: "groom", src: "max", p: 14.2, own: true },
+    { n: "BB cream", g: "groom", src: "max", p: 20, own: true },
+    { n: "Volufiline", g: "groom", src: "max", p: 79 },
+    { n: "Cleanser: Round Lab Dokdo", g: "groom", src: "max", p: 8, note: "Alternative: Anua Heartleaf." },
+    { n: "Oil cleanser: Beauty of Joseon Ginseng", g: "groom", src: "max", p: 12, note: "Alternative: Skin1004." },
+    { n: "Moisturiser: Beauty of Joseon", g: "groom", src: "max", p: 16, note: "Alternatives: Dr.G Red Blemish, The Ordinary Phyto, Dr. Althea 345." },
+    { n: "Tinted mineral SPF", g: "groom", src: "max", p: 16, note: "Options: Australian Botanical, CeraVe, Beauty of Joseon, La Roche-Posay." },
+    { n: "The Ordinary caffeine + retinal", g: "groom", src: "max", p: 23.6 },
+    { n: "Eye peptide", g: "groom", src: "max", p: 19.9 },
+    { n: "Multi peptide", g: "groom", src: "max", p: 28.9 },
+    { n: "Minoxidil", g: "groom", src: "max", p: 50 },
+    { n: "Based for Hair: powder / sea salt spray", g: "groom", src: "max" },
+    { n: "Hair powder", g: "groom", src: "max", p: 7 },
+    { n: "Eyebrow dye", g: "groom", src: "max", p: 7 },
+    { n: "Haircut", g: "groom", src: "max", p: 14 },
+  ];
+})(window.PHH);
