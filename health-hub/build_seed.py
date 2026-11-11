@@ -1,5 +1,5 @@
-"""Builds seed.json (the hub's cards) from the diet framework, 'Max - 4' and the 'Max' doc export.
-Usage: python3 build_seed.py <max_doc_export.txt> > seed.json"""
+"""Builds seed.json (the hub's cards) from the diet framework, 'Max - 4', the 'Max' doc export
+and the Skool course export. Usage: python3 build_seed.py <max_doc_export.txt> <skool_export.md> > seed.json"""
 import re, json, sys
 
 cards = []
@@ -21,7 +21,7 @@ def card(area, group, title, kind, items, doc, sec, note='', days=None):
 ALL = [0, 1, 2, 3, 4, 5, 6]  # 0 = Monday
 # ---------------- Max - 4 : current routines ----------------
 M4, RX = 'Max - 4', 'Routine exercises'
-card('routines', 'Fascia & mobility', 'Full body fascia and stretches', 'routine', [
+card('routines', 'Fascia & release', 'Full body fascia and stretches', 'routine', [
  'Fascia pulling', 'Seiza position', 'Fascia hops', 'Foot release', 'Calf release', 'Hamstring release', 'Psoas release',
  'Glute release', 'Quad release', 'Ribcage release', 'Chest gua sha and ball', 'Ribcage', 'Traps', 'Back of neck', 'Base of skull',
  'Elevated towel scrunches', 'Marble carry with slant board', 'Slant board single leg hold', 'Calf taps',
@@ -32,17 +32,17 @@ card('routines', 'Face & myo', 'Face fascia', 'routine', ['SCM + gua sha', 'Floo
 card('routines', 'Face & myo', 'Myo face', 'routine', [('Cheek puff and suck', '7 reps'), 'Tongue resistance stretch',
  ('Buccinator-masseter corridor release', '5 reps'), 'Palate massage', ('Light one-sided thumbpulling', 'Both sides'), 'Zygo-massaging',
  'One-sided zygopulling', 'T-spot tongue hold', 'Tongue pulls with a towel'], M4, RX, days=ALL)
-card('routines', 'Breath & lymph', 'Breathwork', 'routine', ['Buteyko breathing', 'Nasal reset breathing', 'Vortex breath', 'Wim Hof'], M4, RX, days=ALL)
-card('routines', 'Breath & lymph', 'Lymphatic drainage: face', 'routine', ['Zygopushing + drain downwards', 'Maxilla release', 'Neck drainage',
+card('routines', 'Breath & nervous system', 'Breathwork', 'routine', ['Buteyko breathing', 'Nasal reset breathing', 'Vortex breath', 'Wim Hof'], M4, RX, days=ALL)
+card('routines', 'Lymphatic', 'Lymphatic drainage: face', 'routine', ['Zygopushing + drain downwards', 'Maxilla release', 'Neck drainage',
  'Neck glides', 'Digastric glide'], M4, RX, days=ALL)
-card('routines', 'Breath & lymph', 'Lymphatic drainage: body Big 6', 'routine', ['Collarbone', 'Behind jaw', 'Armpit', 'Abdomen', 'Groin',
+card('routines', 'Lymphatic', 'Lymphatic drainage: body Big 6', 'routine', ['Collarbone', 'Behind jaw', 'Armpit', 'Abdomen', 'Groin',
  'Behind knees', 'Bounces'], M4, RX, days=ALL)
 card('routines', 'Training', 'Sprints', 'routine', [('6-8 sprints', '15-20 seconds / 100m each'), ('Rest 3-4 min between sprints', ''),
  ('Weighted', '')], M4, RX, note='2 x a week, in the morning.', days=[1, 4])
 card('routines', 'Training', 'Gym', 'routine', [('Hanging', '2 sets'), 'Pull-ups', 'Dips', 'Barbell row', 'Overhead press', 'Macebell swings',
  'Half kneeling cable rotation', 'Cable pull to push', 'Hip thrust on toes', 'Turkish get-up (kettlebell)', 'Rotational medicine ball lunge',
  'Rotator cuff rotations', 'SLRDL', 'Squat', 'Back extensions'], M4, RX, days=[0, 3, 5])
-card('routines', 'Fascia & mobility', 'Other movements', 'routine', ['GOATA hip rockers', 'Trevor full body waves', '90 90 10 10', 'Couch stretch',
+card('routines', 'Fascia & release', 'Other movements', 'routine', ['GOATA hip rockers', 'Trevor full body waves', '90 90 10 10', 'Couch stretch',
  'Pigeon stretch', 'Behind-back scapular rotations in seiza', 'Seated leg raises over a tall object'], M4, RX + ' > Other')
 card('library', 'Focus & plans', 'Max 2 focus', 'list', ['Whole body fascia and face', 'Mobility and movement', 'Myo', 'Functional muscle', 'Posture',
  'GOATA movement', 'Breathwork, meditation and nervous system regulation', 'Pelvic floor and back-chain dominance', 'Calisthenics'], M4, 'Max 2 Focus')
@@ -151,14 +151,14 @@ MAP = {  # heading prefix -> (area, group, kind)
  'Holistic': ('library', 'Diet archive', 'list'), 'Supplements': ('food', 'Supplements', 'list'),
  'Raw primal': ('library', 'Diet archive', 'note'), 'rp diet': ('library', 'Diet archive', 'note'),
  'Optimised Daily Plate': ('library', 'Diet archive', 'note'), 'Products to buy': ('library', 'Products', 'list'),
- 'Max Week Lifestyle': ('library', 'Lifestyle', 'note'), 'M/N Routine': ('routines', 'Morning & night', 'routine'),
- 'Most Optimal': ('routines', 'Morning & night', 'routine'), 'Bad habits': ('methods', 'Habits', 'list'),
- 'FULL ROUTINE': ('routines', 'Fascia & mobility', 'routine'), 'Methods / Facial': ('methods', 'Face methods', 'list'),
+ 'Max Week Lifestyle': ('library', 'Lifestyle', 'note'), 'M/N Routine': ('routines', 'Daily rhythm', 'routine'),
+ 'Most Optimal': ('routines', 'Daily rhythm', 'routine'), 'Bad habits': ('methods', 'Habits', 'list'),
+ 'FULL ROUTINE': ('routines', 'Fascia & release', 'routine'), 'Methods / Facial': ('methods', 'Face methods', 'list'),
  'Misc Methods': ('methods', 'Misc methods', 'list'), 'Active Methods': ('methods', 'Face methods', 'list'),
  'Hard maxxs': ('methods', 'Hard maxx', 'list'), 'Physical / Recovery': ('library', 'Lifestyle', 'list'),
- 'Stretching': ('routines', 'Fascia & mobility', 'routine'), 'Gym': ('routines', 'Training', 'routine'),
+ 'Stretching': ('routines', 'Fascia & release', 'routine'), 'Gym': ('routines', 'Training', 'routine'),
  'Yo talks': ('routines', 'Training', 'routine'), 'Sprints': ('routines', 'Training', 'routine'),
- 'Meditation': ('routines', 'Breath & lymph', 'routine'), 'Sleep': ('routines', 'Sleep', 'routine'),
+ 'Meditation': ('routines', 'Breath & nervous system', 'routine'), 'Sleep': ('routines', 'Daily rhythm', 'routine'),
  'Surgery': ('methods', 'Surgery & peptides', 'list'), 'Professional health': ('library', 'Professional help', 'list'),
  'Charisma': ('library', 'Mindset & productivity', 'list'), 'Productivity': ('library', 'Mindset & productivity', 'note'),
  'The 1-Week Dopamine': ('library', 'Mindset & productivity', 'note'), 'Post-Detox': ('library', 'Mindset & productivity', 'note'),
@@ -230,4 +230,88 @@ def import_max(path):
         cur.append(it)
     flush()
 import_max(sys.argv[1])
+
+# ---------------- Skool course: one card per lesson, in course order ----------------
+SK = 'Skool: Health IS Looks'
+GENERIC = {'Routine', 'Importance', 'Introduction', 'Daily Routine', 'Daily Rhythm', 'Sleep'}
+def lesson_group(title, sec, ch):
+    s = (title + ' ' + sec).lower()
+    if 'posture' in ch.lower(): return 'Posture'
+    if 'lymph' in s: return 'Lymphatic'
+    if re.search(r'breath|pandicul|lajin|fascial endpoints', s): return 'Breath & nervous system'
+    if re.search(r'workout|tendon|bone density', s): return 'Training'
+    if re.search(r'facial|zygotape|myo|tongue|hollow cheeks|double chin|tmj', s): return 'Face & myo'
+    if re.search(r'daily r|morning|midday|evening|puberty', s): return 'Daily rhythm'
+    return 'Fascia & release'
+def is_routine(title, sec):
+    if re.search(r'importance|understanding|why |how to achieve|what |introduction|problems|philosophy', title, re.I): return False
+    return bool(re.search(r'routine|workout|reset|drainage|full body release|breathwork|vortex breathing|pandiculation|lajin|'
+                          r'how to walk|how to fix flat feet|tendon training|bone density training|the protocol|engaging fascial|daily rhythm',
+                          title + ' ' + (sec if title == 'Routine' else ''), re.I))
+def ctext(s):
+    s = re.sub(r'\[\d+:\d+\]\(#t=[^)]*\)(\s*-\s*)?', '', s)
+    s = re.sub(r'!\[[^\]]*\]\([^)]*\)', '', s)
+    s = re.sub(r'\[([^\]]+)\]\((https?://[^)]+)\)', r'\1 (\2)', s)
+    return re.sub(r'\s+', ' ', s.replace('**', '')).strip()
+def import_course(path):
+    t = open(path, encoding='utf8').read().split('\nTab Context:')[0]
+    parts = re.split(r'^=====FILE: (.*?)=====\n', t, flags=re.M)[1:]
+    n = 0
+    for fpath, body in zip(parts[::2], parts[1::2]):
+        if 'README' in fpath: continue
+        n += 1
+        title = re.search(r'^# (.*)$', body, re.M).group(1).strip()
+        m = re.search(r'^\*(.+?) › (.+?)\*$', body, re.M)
+        ch = re.sub(r'\s+', ' ', m.group(1)).strip(); sec = m.group(2).strip()
+        sec = '' if sec == '(lessons)' else re.sub(r'^\d+-\s*', '', sec)
+        title = re.sub(r'^\d+-\s*', '', title)
+        shown = sec if title == 'Release Routine' and sec else title
+        if title in GENERIC:
+            if title.startswith('Daily R'): shown = title + ' (' + ch + ')'
+            elif title == 'Routine' and sec: shown = sec if 'routine' in sec.lower() else sec + ' routine'
+            elif sec: shown = sec + ': ' + title
+            else: shown = title + ' (' + ch + ')'
+        url = re.search(r'^Source: (\S+)', body, re.M); dur = re.search(r'Duration: (\d+)s', body)
+        items, cur = [], None
+        for l in body.split('\n'):
+            raw = l.strip()
+            if not raw or raw.startswith(('# ', 'Source:', '**Video', '*Duration')) or re.match(r'^\*.+ › .+\*$', raw): continue
+            if re.match(r'^-{3,}$', raw): cur = None; continue
+            h = re.match(r'^#{2,4}\s+(.*)$', raw)
+            if h: items.append({'t': ctext(h.group(1)), 'h': True}); cur = None; continue
+            x = ctext(raw)
+            if not x: continue
+            st = re.match(r'^\*\*(.+?)\*\*\s*(\([^)]*\))?$', re.sub(r'\[\d+:\d+\]\(#t=[^)]*\)(\s*-\s*)?', '', raw).strip())
+            if st and '](' not in st.group(1):
+                name = re.sub(r'^\d+\.\s*', '', ctext(st.group(1)))
+                if name.endswith(':'): items.append({'t': name.strip(':'), 'h': True}); cur = None; continue
+                meas = (st.group(2) or '').strip('()')
+                mm = re.match(r'^(.*?)\s+-\s+(\d[^-]*)$', name) or re.match(r'^(.*?)\s*\(([^)]*)\)$', name)
+                if mm and not meas: name, meas = mm.group(1), mm.group(2)
+                cur = {'t': name, 'd': ''}
+                if meas: cur['m'] = meas
+                items.append(cur); continue
+            b = re.match(r'^-\s+(.*)$', raw)
+            if b:
+                x = ctext(b.group(1))
+                if cur is not None: cur['d'] = (cur['d'] + '\n• ' + x).strip()
+                else:
+                    mm = re.match(r'^(.*?)\s*\((https?://[^)]+)\)\s*(.*)$', x)
+                    items.append({'t': mm.group(1), 'd': (mm.group(2) + ' ' + mm.group(3)).strip()} if mm else {'t': x})
+                continue
+            x = re.sub(r'^\*(.*)\*$', r'\1', x)
+            if cur is not None: cur['d'] = (cur['d'] + '\n' + x).strip()
+            else: items.append({'t': x, 'p': True})
+        routine = is_routine(title, sec) and 'Products' not in ch and 'Puberty' not in sec
+        if title == 'Diet': area, group = 'food', 'Course guide'
+        elif routine: area, group = 'routines', lesson_group(title, sec, ch)
+        else: area, group = 'library', ch
+        card(area, group, shown, 'routine' if routine else 'note', items, SK, ch + (' › ' + sec if sec else ''))
+        c = cards[-1]
+        c['id'] = 'hil-%03d' % n
+        c['course'] = {'ch': ch, 'sec': sec, 'n': n}
+        if url: c['url'] = url.group(1)
+        if dur: c['dur'] = int(dur.group(1))
+        if title in ('The Ultimate Routine (Routine Only)', 'Facial Routine', 'Zygotape Routine'): c['days'] = ALL
+if len(sys.argv) > 2: import_course(sys.argv[2])
 json.dump(cards, sys.stdout, ensure_ascii=False)
