@@ -12,11 +12,13 @@
 | `health-hub/data/systems.js` | Body-system do / don't lists and the bonus extras |
 | `health-hub/data/nutrition.js` | Approved foods, avoid list, plates, targets, recipes, nutrient map |
 | `health-hub/data/products.js` | Every product, with source, price and link |
+| `health-hub/data/schedule.js` | The week timetable: which routine runs on which day, at what time, for how long |
+| `health-hub/tests/schedule.test.js` | Self-check that every day of the timetable fits (`node health-hub/tests/schedule.test.js`) |
 | `health-hub/data/meta.js` | Equipment per routine, topic icons, metric portions, coverage-review additions |
 | `health-hub/data/library.js` | 274 exercise illustrations: crop rectangles, picture type, source notes, and the map from routine steps to illustrations |
 | `health-hub/assets/` | Icons, the 18 cleaned exercise-library sheets (`assets/library/`), the nutrition banner |
 
-To add content, edit the matching file in `health-hub/data/`; each is a plain list. Ticks, streaks, favourites, wishlist and owned products are saved in the browser (`localStorage`) on the device you use.
+To add content, use the Add buttons inside the hub (foods, products, notes, routines, daily habits) or Edit my day for the timetable; these are saved in the browser and can be exported from My edits. To make something permanent, edit the matching file in `health-hub/data/`; each is a plain list. Ticks, streaks, favourites, wishlist and owned products are saved in the browser (`localStorage`) on the device you use.
 
 ## Source key
 
