@@ -41,6 +41,10 @@
   const catIcons = { fascia: "fasciaball", myo: "tooth", face: "tmj", tape: "ktape", breath: "diaphragm", lymph: "lymphnodes", sprint: "shoe", gym: "kettlebell", posture: "spine", nervous: "meditate" };
   (P.cats || []).forEach((c) => { if (catIcons[c.id]) c.icon = catIcons[c.id]; });
 
+  /* where each block came from: "op" = OP docs, "me" = the owner's own notes, "both". Unmarked blocks are "op".
+     Rule for new content: ask whose it is, then set src here or on the item (see CLAUDE.md). */
+  (P.nutrition.approved || []).forEach((g, i) => { g.src = i < 4 ? "me" : "op"; });
+
   /* day-of-eating portions in metric, with the unit as the source file wrote it */
   P.portions = [
     {

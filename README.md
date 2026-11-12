@@ -17,3 +17,7 @@
 | `health-hub/assets/` | Icons, the 18 cleaned exercise-library sheets (`assets/library/`), the nutrition banner |
 
 To add content, edit the matching file in `health-hub/data/`; each is a plain list. Ticks, streaks, favourites, wishlist and owned products are saved in the browser (`localStorage`) on the device you use.
+
+## Source key
+
+Every block is marked with where it came from: a round olive dot for the OP docs, a gold diamond for the owner's own notes, a split dot for both. The rule for adding new information is in `CLAUDE.md`.
