@@ -315,6 +315,29 @@ img.ic { display: block; flex: none; object-fit: contain; }
 .stage img.move { width: 100%; max-width: 560px; height: auto; border-radius: var(--r-sm); background: var(--paper); }
 .fig-far { stroke: var(--clay); opacity: .55; } .fig-near { stroke: var(--clay); } .fig-head { fill: var(--clay); } .fig-ground { stroke: var(--line-2); stroke-width: 1.5; } .fig-prop { fill: var(--sage-soft); stroke: var(--sel); stroke-width: 1.5; }
 .fig-arrow { stroke: var(--sage-ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.pic { display: block; width: 100%; height: 100%; }
+.ex > summary { gap: 6px 12px; }
+.exthumb { flex: none; width: 64px; height: 44px; border-radius: 8px; background: var(--paper); overflow: hidden; border: 1px solid var(--line); padding: 2px; }
+.film { display: flex; gap: 4px; align-self: center; }
+.film .pic { width: 66px; height: 46px; border-radius: 8px; background: var(--paper); border: 1px solid var(--line); padding: 2px; }
+.rt > summary { grid-template-columns: auto minmax(0, 1fr) auto auto; }
+@media (max-width: 760px) { .film { display: none; } }
+.libgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); gap: 14px; }
+@media (max-width: 560px) { .libgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .libmeta { padding: 10px; } .libmeta .badges .badge + .badge { display: none; } }
+.tabs button { white-space: nowrap; }
+.libcard { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; text-align: left; transition: border-color .2s var(--ease), transform .25s var(--ease); }
+.libcard:hover { border-color: var(--line-2); transform: translateY(-2px); }
+.libpic { display: block; aspect-ratio: 3 / 2; background: var(--paper); border-bottom: 1px solid var(--line); padding: 6px; }
+.libmeta { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px 14px; } .libmeta b { font-weight: 600; line-height: 1.35; }
+.scrim.center { align-items: center; padding: 16px; }
+.libpanel { background: var(--surface); width: 100%; max-width: 640px; max-height: 88vh; overflow-y: auto; border-radius: 18px; padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 12px; animation: up .35s var(--ease); box-shadow: var(--shadow); }
+.libbig { background: var(--paper); border-radius: var(--r-sm); aspect-ratio: 16 / 10; padding: 8px; }
+.libfig { width: 100%; max-width: 640px; display: flex; flex-direction: column; gap: 10px; } .libfig figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; justify-content: center; }
+.upthumb { aspect-ratio: 16 / 9; background: var(--paper); border-radius: 8px; padding: 4px; }
+.thumbs button .tpic { display: block; width: 100%; height: 52px; margin-bottom: 2px; background: var(--paper); border-radius: 6px; }
+.thumbs button { min-width: 116px; }
+.next-art { display: none; }
+@media (min-width: 900px) { .next.has-art { grid-template-columns: minmax(0, 1fr) 210px auto; } .next-art { display: block; order: 2; height: 132px; background: var(--paper); border-radius: var(--r-sm); padding: 6px; } .next.has-art > .row { order: 3; flex-direction: column; align-items: stretch; } }
 .ph { display: flex; flex-direction: column; align-items: center; gap: 10px; color: var(--ink-3); max-width: 36ch; }
 .thumbs { display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 8px; }
 .thumbs button { flex: 0 0 auto; min-width: 104px; max-width: 150px; min-height: 56px; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); font-size: .8125rem; font-weight: 600; line-height: 1.3; display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
@@ -364,12 +387,13 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
   <footer class="fine">Compiled from OP 1, OP 2, Approved Foods and the Max doc product list. Personal notes, not medical advice. Ticks, streaks, favourites and product lists are saved in this browser only.</footer>
 </div></div>
 <div class="scrim" id="sheet" hidden></div>
+<div class="scrim center" id="libdlg" hidden></div>
 <div class="overlay" id="player" role="dialog" aria-modal="true" aria-label="Follow along" hidden></div>
 <div class="overlay" id="pacer" role="dialog" aria-modal="true" aria-label="Breath pacer" hidden></div>
 <div class="sr" aria-live="polite" id="live"></div>
 
 <script src="data/routines-a.js"></script><script src="data/routines-b.js"></script><script src="data/systems.js"></script>
-<script src="data/nutrition.js"></script><script src="data/products.js"></script><script src="data/today.js"></script><script src="data/meta.js"></script>
+<script src="data/nutrition.js"></script><script src="data/products.js"></script><script src="data/today.js"></script><script src="data/meta.js"></script><script src="data/library.js"></script>
 <script>
 (function () {
   "use strict";
@@ -385,6 +409,14 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
   const say = (t) => { $("#live").textContent = t; };
   const VIEWS = ["today", "progress", "routines", "nutrition", "systems", "products", "extras"];
   const byId = {}; (P.routines || []).forEach((r) => (byId[r.id] = r));
+  /* ── exercise illustration library ── */
+  const LIB = {}; (P.library || []).forEach((x) => (LIB[x.id] = x));
+  const exName = (e) => (Array.isArray(e) ? (P.X[e[0]] || { n: e[0] }).n : e.n);
+  const libFor = (name, rid) => LIB[(P.exMapR || {})[rid + "|" + name] || (P.exMap || {})[name]];
+  const USED = {}; (P.routines || []).forEach((r) => r.ex.forEach((e) => { if (typeof e === "string") return; const l = libFor(exName(e), r.id); if (l) { USED[l.id] = USED[l.id] || []; if (USED[l.id].indexOf(r.id) < 0) USED[l.id].push(r.id); } }));
+  const DEP = { movement: ["Start to finish", "sage"], static: ["Held position", "gold"], reference: ["Reference image", "info"] };
+  const pic = (x, cls) => { const im = x.img, f = P.libSheets[im[0]]; return `<svg class="pic ${cls || ""}" viewBox="0 0 ${im[3]} ${im[4]}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(x.n)}${x.pose ? ": " + esc(x.pose) : ""}"><svg width="${im[3]}" height="${im[4]}" viewBox="${im[1]} ${im[2]} ${im[3]} ${im[4]}"><image href="assets/library/${f}" width="${P.libSize[0]}" height="${P.libSize[1]}"/></svg></svg>`; };
+  const routineThumbs = (r) => { const seen = {}, out = []; r.ex.forEach((e) => { if (typeof e === "string" || out.length >= 4) return; const l = libFor(exName(e), r.id); if (l && !seen[l.id]) { seen[l.id] = 1; out.push(l); } }); return out; };
 
   /* saved state, this browser only. Same key and shape as the first version; new fields are additive. */
   const KEY = "phh:v1";
@@ -450,7 +482,7 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
     const sel = S.ui.period && S.ui.pday === TK ? S.ui.period : nu ? nu.b.id : P.blocks[curPeriod()].id, whole = !!S.ui.whole;
     const dateStr = now.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" });
     const nextCard = nu
-      ? `<section class="next" aria-label="Next up"><div><p class="label">Next up · ${esc(nu.b.name)}</p><h2>${esc(nu.it.t)}</h2>${nu.it.d ? `<p>${esc(nu.it.d)}</p>` : ""}${nu.it.n ? `<p>${day().d[nu.it.id] || 0} of ${nu.it.n} sessions done</p>` : ""}</div>
+      ? `<section class="next${(() => { const r = nu.it.go && byId[nu.it.go]; return r && routineThumbs(r).length ? " has-art" : ""; })()}" aria-label="Next up">${(() => { const r = nu.it.go && byId[nu.it.go], th = r ? routineThumbs(r) : []; return th.length ? `<div class="next-art" aria-hidden="true">${pic(th[0])}</div>` : ""; })()}<div><p class="label">Next up · ${esc(nu.b.name)}</p><h2>${esc(nu.it.t)}</h2>${nu.it.d ? `<p>${esc(nu.it.d)}</p>` : ""}${nu.it.n ? `<p>${day().d[nu.it.id] || 0} of ${nu.it.n} sessions done</p>` : ""}</div>
           <div class="row"><button class="btn" data-nextdone="${nu.it.id}">${gl(G.check, "s")}${nu.it.n ? "Log a session" : "Mark done"}</button>${nu.it.go && byId[nu.it.go] ? `<button class="btn ghost" data-play="${nu.it.go}">Follow along</button>` : ""}</div></section>`
       : `<section class="next done" aria-label="Next up"><div><p class="label">All core tasks done</p><h2>Day complete.</h2><p>${t.done} of ${t.total} ticked. Optional items stay open under each period.</p></div><div class="row"><a class="btn" href="#progress">View progress</a></div></section>`;
     const periods = P.blocks.map((b) => {
@@ -511,11 +543,11 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
 
   /* ── routines ── */
   const normEx = (e) => { if (Array.isArray(e)) { const b = P.X[e[0]] || { n: e[0], s: [] }; return { n: b.n, d: e[1], s: b.s.concat(e[2] || []) }; } return e; };
-  function exHtml(e) {
+  function exHtml(e, rid) {
     if (typeof e === "string") return `<div class="sec label">${esc(e.slice(1))}</div>`;
-    const x = normEx(e), steps = x.s || [];
-    return `<details class="ex${steps.length ? "" : " nosteps"}"><summary><b>${esc(x.n)}</b>${x.d ? `<span class="badge clay wrapok">${esc(x.d)}</span>` : ""}</summary>${steps.length ? `<ol class="steps">${steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>` : ""}
-      ${x.go && byId[x.go] ? `<div class="exlink"><button class="linkbtn" data-go="${x.go}">Open ${esc(byId[x.go].name)}</button></div>` : ""}${x.link ? `<div class="exlink"><a class="linkbtn" href="${esc(x.link[1])}" target="_blank" rel="noopener">${esc(x.link[0])}</a></div>` : ""}</details>`;
+    const x = normEx(e), steps = x.s || [], l = libFor(x.n, rid);
+    return `<details class="ex${steps.length ? "" : " nosteps"}"><summary>${l ? `<span class="exthumb">${pic(l)}</span>` : ""}<b>${esc(x.n)}</b>${x.d ? `<span class="badge clay wrapok">${esc(x.d)}</span>` : ""}</summary>${steps.length ? `<ol class="steps">${steps.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>` : ""}
+      ${x.go && byId[x.go] ? `<div class="exlink"><button class="linkbtn" data-go="${x.go}">Open ${esc(byId[x.go].name)}</button></div>` : ""}${x.link ? `<div class="exlink"><a class="linkbtn" href="${esc(x.link[1])}" target="_blank" rel="noopener">${esc(x.link[0])}</a></div>` : ""}${l ? `<div class="exlink"><button class="linkbtn" data-lib="${l.id}">View illustration</button></div>` : ""}</details>`;
   }
   const exCount = (r) => r.ex.filter((e) => typeof e !== "string").length;
   const rtBadges = (r) => { const eq = (P.equip || {})[r.id]; return `<div class="badges">${r.dur ? `<span class="badge sage wrapok">${gl(G.clock, "s")}${esc(r.dur)}</span>` : ""}<span class="badge${eq ? "" : " info"} wrapok">${gl(G.kit, "s")}${eq ? esc(eq.join(", ")) : "No equipment"}</span><span class="badge">${exCount(r)} ${exCount(r) === 1 ? "part" : "parts"}</span></div>`; };
@@ -528,13 +560,41 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
   function renderRoutines() {
     const ui = S.ui;
     $("#v-routines").innerHTML = `
-      <header class="view-head"><div><h1>Routines</h1><p class="lede">${P.routines.length} routines in ${P.cats.length} groups. Open one for the steps, or follow along one movement at a time.</p></div></header>
-      <div class="toolbar stick"><input class="search" id="rSearch" type="search" placeholder="Search routines and exercises" aria-label="Search routines and exercises" value="${esc(ui.rq || "")}">
+      <header class="view-head"><div><h1>Routines</h1><p class="lede">${P.routines.length} routines in ${P.cats.length} groups, and an illustrated library of ${P.library.length} exercises.</p></div></header>
+      <div class="tabs" role="tablist" aria-label="Routines or exercise library"><button role="tab" aria-selected="${ui.rtab !== "lib"}" data-rtab="">Routines<span class="badge">${P.routines.length}</span></button><button role="tab" aria-selected="${ui.rtab === "lib"}" data-rtab="lib">Exercise library<span class="badge">${P.library.length}</span></button></div>
+      ${ui.rtab === "lib" ? libHtml() : `<div class="toolbar stick"><input class="search" id="rSearch" type="search" placeholder="Search routines and exercises" aria-label="Search routines and exercises" value="${esc(ui.rq || "")}">
         <button class="btn ghost sm only-m" data-sheet="rcat">${gl(G.filter, "s")}Groups</button><span class="badge sage only-m" id="rcatLabel"></span></div>
       <div class="chips only-d" role="group" aria-label="Filter by group"><button class="chip plain" data-cat="" aria-pressed="${!ui.rcat}">All</button>${P.cats.map((c) => `<button class="chip" data-cat="${c.id}" aria-pressed="${ui.rcat === c.id}">${ic(c.icon, 26)}${esc(c.name)}</button>`).join("")}</div>
-      <div id="rStrips" class="strip"></div><div id="rList" style="display:flex;flex-direction:column;gap:34px"></div>`;
-    drawRoutines();
+      <div id="rStrips" class="strip"></div><div id="rList" style="display:flex;flex-direction:column;gap:34px"></div>`}`;
+    if (ui.rtab === "lib") drawLib(); else drawRoutines();
   }
+  const LTYPES = [["", "All"], ["movement", "Start to finish"], ["static", "Held position"], ["reference", "Reference image"]];
+  function libHtml() {
+    const ui = S.ui;
+    return `<div class="toolbar stick"><input class="search" id="lSearch" type="search" placeholder="Search exercises, body areas, equipment" aria-label="Search the exercise library" value="${esc(ui.lq || "")}"></div>
+      <div class="chips" role="group" aria-label="Filter by picture type">${LTYPES.map((t) => `<button class="chip plain" data-ltype="${t[0]}" aria-pressed="${(ui.ltype || "") === t[0]}">${t[1]}<b>${t[0] ? P.library.filter((x) => x.dep === t[0]).length : P.library.length}</b></button>`).join("")}</div>
+      <p class="small muted" id="lCount"></p><div class="libgrid" id="lGrid"></div>`;
+  }
+  function drawLib() {
+    const q = (S.ui.lq || "").trim().toLowerCase(), ty = S.ui.ltype || "";
+    const xs = P.library.filter((x) => (!ty || x.dep === ty) && (!q || (x.n + " " + x.al.join(" ") + " " + x.cat + " " + x.pose).toLowerCase().indexOf(q) > -1));
+    $("#lCount").textContent = xs.length === P.library.length ? `Showing all ${xs.length} exercises.` : `Showing ${xs.length} of ${P.library.length} exercises.`;
+    $("#lGrid").innerHTML = xs.length ? xs.map((x) => `<button class="libcard" data-lib="${x.id}"><span class="libpic">${pic(x)}</span><span class="libmeta"><b>${esc(x.n)}</b><span class="badges"><span class="badge ${DEP[x.dep][1]}">${DEP[x.dep][0]}</span>${USED[x.id] ? `<span class="badge">In ${USED[x.id].length} routine${USED[x.id].length === 1 ? "" : "s"}</span>` : ""}</span></span></button>`).join("")
+      : `<div class="empty" style="grid-column:1/-1"><p>No exercise matches “${esc(S.ui.lq || "")}”.</p><button class="btn sm ghost" id="lClear">Clear search and filter</button></div>`;
+  }
+  function openLib(id) {
+    const x = LIB[id]; if (!x) return; if ($("#libdlg").hidden) lastFocus = document.activeElement;
+    const dep = { movement: "Shows the start and finish positions.", static: "Shows the position to hold.", reference: "A labelled reference image of the area or equipment. It does not demonstrate the technique." }[x.dep];
+    $("#libdlg").innerHTML = `<div class="libpanel" role="dialog" aria-modal="true" aria-labelledby="ldName"><div class="sheet-head"><span class="badge ${DEP[x.dep][1]}">${DEP[x.dep][0]}</span><button class="btn ghost sm" id="libClose">Close</button></div>
+      <div class="libbig">${pic(x)}</div><h2 class="serif" id="ldName" style="font-size:2rem">${esc(x.n)}</h2><p class="muted">${dep}</p>
+      ${x.al.length ? `<p class="small"><b>Also called:</b> ${esc(x.al.join(", "))}</p>` : ""}
+      ${x.notes.length ? `<div class="status warn">${gl(G.warn)}<div><b>Source note.</b> ${esc(x.notes.join(" "))}</div></div>` : ""}
+      ${USED[x.id] ? `<div><p class="label">Used in</p><div class="chips" style="margin-top:6px">${USED[x.id].map((rid) => `<button class="chip plain" data-go="${rid}">${esc(byId[rid].name)}</button>`).join("")}</div></div>` : `<p class="small muted">Not part of a hub routine. Listed in the source docs.</p>`}
+      ${x.src.length ? `<details class="opt"><summary>Where this appears in the docs · ${x.src.length}${CARET}</summary><ul class="bullets small" style="padding-bottom:12px">${x.src.map((s) => `<li><a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a></li>`).join("")}</ul></details>` : ""}
+      <p class="small muted">Illustrations are visual concepts from your exercise-player pack. Check form against the written cues.</p></div>`;
+    $("#libdlg").hidden = false; document.body.style.overflow = "hidden"; $("#libClose").focus();
+  }
+  function closeLib() { $("#libdlg").hidden = true; $("#libdlg").innerHTML = ""; if ($("#player").hidden && $("#pacer").hidden) document.body.style.overflow = ""; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
   function drawRoutines() {
     const q = (S.ui.rq || "").trim().toLowerCase(), cat = S.ui.rcat || "";
     const hit = (r) => !q || (r.name + " " + r.when + " " + r.ex.map((e) => (typeof e === "string" ? e : normEx(e).n)).join(" ")).toLowerCase().indexOf(q) > -1;
@@ -544,9 +604,9 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
       if (cat && cat !== c.id) return; const rs = P.routines.filter((r) => r.cat === c.id && hit(r)); if (!rs.length) return;
       html += `<section class="cat"><div class="cat-head">${ic(c.icon, 46)}<div><h2>${esc(c.name)}</h2><p>${esc(c.blurb)}</p></div></div>${rs.map((r) => `
         <details class="rt" id="r-${r.id}" data-rt="${r.id}"><summary><button class="star" data-fav="${r.id}" aria-pressed="${!!S.fav[r.id]}" aria-label="Favourite ${esc(r.name)}">${STAR}</button>
-          <div class="rt-main"><h3>${esc(r.name)}</h3>${r.when ? `<p>${esc(r.when)}</p>` : ""}${rtBadges(r)}</div>${CARET}</summary>
+          <div class="rt-main"><h3>${esc(r.name)}</h3>${r.when ? `<p>${esc(r.when)}</p>` : ""}${rtBadges(r)}</div>${(() => { const th = routineThumbs(r); return th.length ? `<span class="film" aria-hidden="true">${th.map((l) => pic(l)).join("")}</span>` : "<span></span>"; })()}${CARET}</summary>
           <div class="rt-body"><div class="row"><button class="btn sm" data-play="${r.id}">${gl(G.play, "s")}Follow along</button>${r.pacer ? `<button class="btn sm ghost" data-pacer="${r.pacer}">${r.pacer === "co2" ? "Open hold timer" : "Open breath pacer"}</button>` : ""}<button class="btn sm ghost" data-expand="${r.id}">Show all steps</button></div>
-            ${r.note ? `<p class="note">${esc(r.note)}</p>` : ""}<div class="card exlist">${r.ex.map(exHtml).join("")}</div>
+            ${r.note ? `<p class="note">${esc(r.note)}</p>` : ""}<div class="card exlist">${r.ex.map((e) => exHtml(e, r.id)).join("")}</div>
             ${r.tips ? `<ul class="badges">${r.tips.map((t) => `<li class="badge wrapok">${esc(t)}</li>`).join("")}</ul>` : ""}${r.links ? r.links.map((l) => `<a class="linkbtn" href="${esc(l[1])}" target="_blank" rel="noopener">${esc(l[0])}</a>`).join("") : ""}</div></details>`).join("")}</section>`;
     });
     $("#rList").innerHTML = html || `<div class="empty"><p>No routine matches “${esc(S.ui.rq || "")}”${cat ? " in " + esc(catName(cat)) : ""}.</p><button class="btn sm ghost" id="rClear">Clear search and filter</button></div>`;
@@ -666,38 +726,12 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
   }
   function closeSheet() { $("#sheet").hidden = true; $("#sheet").innerHTML = ""; document.body.style.overflow = ""; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
 
-  /* ── movement illustrations ──
-     MOVES: supplied start-to-finish drawings, matched to the exercise they depict.
-     POSE:  schematic side views, only for positions the written instructions pin down.
-     Everything else gets a labelled placeholder rather than a guessed pose. */
-  const MOVES = [[/dead bug/i, "deadbug", "Dead bug"], [/single leg romanian/i, "slrdl", "Single-leg Romanian deadlift"], [/hip thrust/i, "hipthrust", "Hip thrust"], [/side plank/i, "sideplank", "Side plank"], [/hip abduction/i, "abduction", "Banded hip abduction"], [/overhead press/i, "ohp", "Overhead press"]];
-  const POSE = {
-    hops: { h: [100, 20], n: [100, 36], p: [100, 82], a: [[[104, 58], [108, 78]], [[97, 58], [94, 78]]], l: [[[102, 108], [103, 132]], [[98, 108], [97, 132]]], x: '<path class="fig-arrow" d="M72 120v-22M66 104l6-6 6 6M128 120v-22M122 104l6-6 6 6"/>' },
-    seiza: { h: [97, 52], n: [96, 68], p: [92, 112], a: [[[104, 92], [120, 110]], [[100, 92], [116, 112]]], l: [[[128, 134], [92, 136]], [[126, 136], [90, 138]]] },
-    rocking: { h: [130, 68], n: [118, 80], p: [90, 110], a: [[[132, 106], [146, 136]], [[128, 106], [140, 136]]], l: [[[126, 134], [90, 136]], [[124, 136], [88, 138]]], x: '<path class="fig-arrow" d="M150 60q16 14 6 34M160 86l-4 8-8-4"/>' },
-    squat: { h: [110, 56], n: [106, 72], p: [92, 112], a: [[[124, 92], [138, 110]], [[120, 94], [132, 112]]], l: [[[126, 96], [114, 138]], [[122, 98], [110, 138]]] },
-    halfkneel: { h: [100, 38], n: [100, 54], p: [96, 98], a: [[[106, 78], [112, 100]], [[98, 78], [100, 100]]], l: [[[130, 100], [130, 138]], [[98, 136], [64, 136]]] },
-    lunge: { h: [112, 36], n: [108, 52], p: [100, 92], a: [[[126, 62], [116, 44]], [[122, 64], [112, 46]]], l: [[[132, 102], [134, 134]], [[76, 116], [54, 130]]] },
-    hang: { h: [100, 46], n: [100, 60], p: [100, 104], a: [[[104, 36], [106, 14]], [[96, 36], [94, 14]]], l: [[[102, 126], [102, 148]], [[98, 126], [98, 148]]], x: '<line x1="60" y1="12" x2="140" y2="12" stroke="var(--ink-2)" stroke-width="5" stroke-linecap="round"/>', air: 1 },
-    allfours: { h: [146, 80], n: [128, 90], p: [70, 92], a: [[[128, 114], [128, 138]], [[124, 114], [122, 138]]], l: [[[70, 136], [46, 132]], [[66, 136], [42, 132]]] },
-    supine90: { h: [42, 128], n: [58, 130], p: [108, 130], a: [[[78, 136], [96, 138]]], l: [[[110, 100], [146, 98]]], x: '<rect class="fig-prop" x="118" y="106" width="44" height="34" rx="4"/>' },
-    plank: { h: [46, 90], n: [62, 100], p: [110, 112], a: [[[60, 120], [60, 138]]], l: [[[138, 124], [164, 136]]] },
-    sprint: { h: [120, 34], n: [112, 48], p: [100, 88], a: [[[126, 68], [140, 54]], [[96, 66], [82, 78]]], l: [[[128, 92], [122, 118]], [[84, 112], [60, 104]]], air: 1 },
-    hinge: { h: [144, 62], n: [128, 70], p: [88, 86], a: [[[130, 92], [130, 112]], [[126, 92], [126, 112]]], l: [[[92, 114], [92, 140]], [[88, 114], [88, 140]]] },
-  };
-  const POSEMAP = [[/^seiza|seiza breath/i, "seiza"], [/light rocking/i, "rocking"], [/deep squat/i, "squat"], [/half-kneel/i, "halfkneel"], [/fascia hops|hopping/i, "hops"], [/lunge thumbpulling|get into position|arm transfer/i, "lunge"],
-    [/bar hang|hanging/i, "hang"], [/crawl position/i, "allfours"], [/static back|psoas release on a block/i, "supine90"], [/push-ups/i, "plank"], [/^sprints$|uphill sprints|barefoot sprints|weighted sprints/i, "sprint"], [/barbell row/i, "hinge"]];
-  function figure(name, cat) {
-    const mv = MOVES.find((p) => p[0].test(name));
-    if (mv) return `<figure><img class="move" src="assets/moves/${mv[1]}.webp" width="480" height="300" alt="${mv[2]}: start and finish positions"><figcaption>${mv[2]}, start to finish.${/tiptoes/i.test(name) ? " This variation adds a rise onto tiptoes at the top." : ""}</figcaption></figure>`;
-    const m = POSEMAP.find((p) => p[0].test(name));
-    if (!m) { const face = /myo|face|tape/.test(cat), br = cat === "breath", lymph = cat === "lymph";
-      return `<div class="ph">${ic(face ? "tmj" : br ? "diaphragm" : lymph ? "lymphnodes" : "stretch", 76)}<p><b>${face ? "Face and mouth work" : br ? "Breathing drill" : lymph ? "Hands-on drainage" : "No drawing for this movement yet"}</b></p><p class="small">${face || lymph ? "Hand placement is too fine to draw reliably. Follow the cues." : br ? "Use the cues, or the breath pacer from the routine page." : "The source gives written cues only. Follow them rather than a guessed pose."}</p></div>`; }
-    const p = POSE[m[1]], limb = (a, b, c, cls) => `<polyline class="${cls}" points="${a} ${b} ${c}" fill="none" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>`;
-    let far = "", near = "";
-    p.l.forEach((l, i) => { const s = limb(p.p, l[0], l[1], i ? "fig-far" : "fig-near"); if (i) far += s; else near += s; });
-    p.a.forEach((a, i) => { const s = limb(p.n, a[0], a[1], i ? "fig-far" : "fig-near"); if (i) far += s; else near += s; });
-    return `<figure><svg viewBox="20 0 160 156" role="img" aria-label="Schematic of ${esc(name)}">${p.air ? "" : '<line class="fig-ground" x1="24" y1="145" x2="176" y2="145"/>'}${p.x || ""}${far}<line class="fig-near" x1="${p.n[0]}" y1="${p.n[1]}" x2="${p.p[0]}" y2="${p.p[1]}" stroke-width="13" stroke-linecap="round"/>${near}<circle class="fig-head" cx="${p.h[0]}" cy="${p.h[1]}" r="11"/></svg><figcaption>Schematic side view. The cues are the instruction.</figcaption></figure>`;
+  /* ── movement illustrations: the exercise library first, a labelled placeholder otherwise ── */
+  function figure(name, cat, rid) {
+    const l = libFor(name, rid);
+    if (l) return `<figure class="libfig"><div class="libbig">${pic(l)}</div><figcaption><span class="badge ${DEP[l.dep][1]}">${DEP[l.dep][0]}</span>${l.dep === "reference" ? " Reference image of the area. Follow the cues for technique." : l.dep === "static" ? " The position to hold." : " Start on the left, finish on the right."} <button class="linkbtn" data-lib="${l.id}">Details</button></figcaption>${l.notes.length ? `<p class="small muted" style="margin-top:6px">Source note: ${esc(l.notes[0])}</p>` : ""}</figure>`;
+    const face = /myo|face|tape/.test(cat), br = cat === "breath", lymph = cat === "lymph";
+    return `<div class="ph">${ic(face ? "tmj" : br ? "diaphragm" : lymph ? "lymphnodes" : "book", 76)}<p><b>Guidance step</b></p><p class="small">No illustration here. Follow the written cues.</p></div>`;
   }
 
   /* ── follow-along player: ready → running ⇄ paused → finished ── */
@@ -718,13 +752,13 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
     const x = PL.steps[PL.i], nx = PL.steps[PL.i + 1], tg = target(x.d), stLabel = { ready: "Ready", running: "Running", paused: "Paused" }[PL.state];
     $("#player").innerHTML = `${top}<div class="pl-head ov-in"><div class="dots"><span class="label">Step ${PL.i + 1} of ${n}${x.sec ? " · " + esc(x.sec) : ""}</span><ol aria-hidden="true">${PL.steps.map((s, k) => `<li class="${k < PL.i ? "past" : k === PL.i ? "on" : ""}"></li>`).join("")}</ol></div>
         <div class="pl-title"><h2 id="plName">${esc(x.n)}</h2>${x.d ? `<span class="badge sage wrapok">${esc(x.d)}</span>` : ""}</div></div>
-      <div class="pl-grid ov-in"><div class="pl-left"><div class="card stage o2">${figure(x.n, PL.r.cat)}</div>
-          <div class="thumbs o4" role="group" aria-label="All steps">${PL.steps.map((s, k) => `<button data-step="${k}" class="${k < PL.i ? "past" : ""}" ${k === PL.i ? 'aria-current="step"' : ""}><small>${k + 1}</small>${esc(s.n)}</button>`).join("")}</div></div>
+      <div class="pl-grid ov-in"><div class="pl-left"><div class="card stage o2">${figure(x.n, PL.r.cat, PL.r.id)}</div>
+          <div class="thumbs o4" role="group" aria-label="All steps">${PL.steps.map((s, k) => `<button data-step="${k}" class="${k < PL.i ? "past" : ""}" ${k === PL.i ? 'aria-current="step"' : ""}>${(() => { const l = libFor(s.n, PL.r.id); return l ? `<span class="tpic">${pic(l)}</span>` : ""; })()}<small>${k + 1}</small>${esc(s.n)}</button>`).join("")}</div></div>
         <div class="pl-right"><div class="card box o1"><div class="row" style="justify-content:space-between"><span class="label">Elapsed</span><span class="badge ${PL.state === "running" ? "sage" : PL.state === "paused" ? "gold" : ""}" id="plState">${stLabel}</span></div>
             <b class="clock" id="plClock" aria-label="Stopwatch">${fmt(PL.t)}</b>${tg ? `<div class="tbar"><i id="plBar" style="width:0"></i></div><p class="small muted">Suggested: ${esc(x.d.split(" · video")[0])}</p>` : `<p class="small muted">${x.d ? esc(x.d.split(" · video")[0]) : "No set duration. Use the stopwatch if it helps."}</p>`}
             <div class="row"><button class="btn" id="plRun" style="flex:1">${PL.state === "running" ? gl(G.pause, "s") + "Pause timer" : gl(G.play, "s") + (PL.state === "paused" ? "Resume timer" : "Start timer")}</button><button class="linkbtn" id="plReset">Reset</button></div></div>
           <div class="card box o3"><h3 class="serif" style="font-size:1.6rem">Cues</h3>${(x.s || []).length ? `<ol class="steps">${x.s.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>` : `<p class="muted small">No written cues for this step in the source.</p>`}${x.go && byId[x.go] ? `<button class="linkbtn" data-go="${x.go}">Open ${esc(byId[x.go].name)}</button>` : ""}</div>
-          <div class="card box o5"><span class="label">Up next</span>${nx ? `<h3 class="serif" style="font-size:1.5rem">${esc(nx.n)}</h3>${nx.d ? `<span class="badge sage wrapok" style="align-self:flex-start">${esc(nx.d)}</span>` : ""}` : `<h3 class="serif" style="font-size:1.5rem">Last movement</h3><p class="small muted">Finish to log the session.</p>`}</div></div></div>
+          <div class="card box o5"><span class="label">Up next</span>${nx ? `${(() => { const l = libFor(nx.n, PL.r.id); return l ? `<div class="upthumb">${pic(l)}</div>` : ""; })()}<h3 class="serif" style="font-size:1.5rem">${esc(nx.n)}</h3>${nx.d ? `<span class="badge sage wrapok" style="align-self:flex-start">${esc(nx.d)}</span>` : ""}` : `<h3 class="serif" style="font-size:1.5rem">Last movement</h3><p class="small muted">Finish to log the session.</p>`}</div></div></div>
       <div class="pl-foot ov-in"><button class="btn ghost" id="plPrev" ${PL.i === 0 ? "disabled" : ""}>${gl(G.back, "s")}Back</button><span>Step ${PL.i + 1} of ${n}</span><button class="btn" id="plNext">${PL.i === n - 1 ? "Finish" : "Next step"}${gl(G.arrow, "s")}</button></div>`;
     paintTimer();
   }
@@ -783,12 +817,13 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
     if (!first) { window.scrollTo(0, 0); $("#main").focus({ preventScroll: true }); }
     if (v === "routines" && pendingOpen) { const id = pendingOpen; pendingOpen = null; openRoutine(id); }
   }
-  window.addEventListener("hashchange", () => route(false));
+  window.addEventListener("hashchange", () => { if (!$("#libdlg").hidden) closeLib(); if (!$("#sheet").hidden) closeSheet(); route(false); });
 
   /* ── events ── */
   const refocus = (sel) => { const b = $(sel); if (b) b.focus({ preventScroll: true }); };
   document.addEventListener("click", (e) => {
     if (e.target.id === "sheet") { closeSheet(); return; }
+    if (e.target.id === "libdlg") { closeLib(); return; }
     const t = e.target.closest("button, a"); if (!t) return; const d = t.dataset;
     if (d.tick) { const it = findItem(d.tick); if (it) setItem(d.tick, isDone(it) ? 0 : it.n || 1, `[data-tick="${d.tick}"]`); }
     else if (d.pip) { const k = +d.k, cur = day().d[d.pip] || 0; setItem(d.pip, cur === k ? k - 1 : k, `[data-pip="${d.pip}"][data-k="${d.k}"]`); }
@@ -798,13 +833,18 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
     else if (d.wk) { const w = week(), k = +d.k; w[d.wk] = (w[d.wk] || 0) === k ? k - 1 : k; save(); if (current === "progress") renderProgress(); else renderToday(); refocus(`[data-wk="${d.wk}"][data-k="${d.k}"]`); }
     else if (d.mo) { const mk = mkey(now), m = (S.months[mk] = S.months[mk] || {}); if (m[d.mo]) delete m[d.mo]; else m[d.mo] = now.toLocaleDateString("en-GB", { day: "numeric", month: "short" }); save(); renderProgress(); refocus(`[data-mo="${d.mo}"]`); }
     else if (d.fav) { e.preventDefault(); if (S.fav[d.fav]) delete S.fav[d.fav]; else S.fav[d.fav] = 1; save(); t.setAttribute("aria-pressed", !!S.fav[d.fav]); say(S.fav[d.fav] ? "Added to favourites" : "Removed from favourites"); if (!(S.ui.rq || "").trim()) $("#rStrips").innerHTML = stripsHtml(); }
-    else if (d.go) { if (!$("#player").hidden) closeOverlay($("#player")); openRoutine(d.go); }
+    else if (d.go) { if (!$("#libdlg").hidden) closeLib(); if (!$("#player").hidden) closeOverlay($("#player")); S.ui.rtab = ""; openRoutine(d.go); }
     else if (d.cat !== undefined) { S.ui.rcat = d.cat; save(); $$("[data-cat]").forEach((c) => c.setAttribute("aria-pressed", c.dataset.cat === d.cat)); drawRoutines(); }
     else if (d.sheet) openSheet(d.sheet);
     else if (d.sheetpick !== undefined) { S.ui[sheetKey] = d.sheetpick; save(); const k = sheetKey; closeSheet(); if (k === "rcat") renderRoutines(); else renderProducts(); refocus(`[data-sheet="${k}"]`); }
     else if (t.id === "sheetClose") closeSheet();
     else if (t.id === "rClear") { S.ui.rq = ""; S.ui.rcat = ""; save(); renderRoutines(); refocus("#rSearch"); }
     else if (t.id === "pClear") { S.ui.pq = ""; S.ui.pg = ""; save(); renderProducts(); refocus("#pSearch"); }
+    else if (d.lib) openLib(d.lib);
+    else if (t.id === "libClose") closeLib();
+    else if (d.rtab !== undefined) { S.ui.rtab = d.rtab; save(); renderRoutines(); const b = $(`[data-rtab="${d.rtab}"]`); if (b) b.focus(); }
+    else if (d.ltype !== undefined) { S.ui.ltype = d.ltype; save(); $$("[data-ltype]").forEach((c) => c.setAttribute("aria-pressed", c.dataset.ltype === d.ltype)); drawLib(); }
+    else if (t.id === "lClear") { S.ui.lq = ""; S.ui.ltype = ""; save(); renderRoutines(); const b = $("#lSearch"); if (b) b.focus(); }
     else if (d.play) openPlayer(d.play);
     else if (d.pacer) openPacer(d.pacer);
     else if (d.expand) { const box = $("#r-" + d.expand), all = $$(".ex:not(.nosteps)", box), open = all.some((x) => !x.open); all.forEach((x) => (x.open = open)); t.textContent = open ? "Hide all steps" : "Show all steps"; }
@@ -830,10 +870,10 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
     else if (t.id === "pcAgain") openPacer("co2");
   });
   document.addEventListener("toggle", (e) => { const r = e.target.dataset && e.target.dataset.rt; if (r && e.target.open) touch(r); }, true);
-  document.addEventListener("input", (e) => { if (e.target.id === "rSearch") { S.ui.rq = e.target.value; drawRoutines(); } if (e.target.id === "pSearch") { S.ui.pq = e.target.value; drawProducts(); } });
+  document.addEventListener("input", (e) => { if (e.target.id === "rSearch") { S.ui.rq = e.target.value; drawRoutines(); } if (e.target.id === "pSearch") { S.ui.pq = e.target.value; drawProducts(); } if (e.target.id === "lSearch") { S.ui.lq = e.target.value; drawLib(); } });
   document.addEventListener("keydown", (e) => {
-    const ov = !$("#sheet").hidden ? $("#sheet") : !$("#player").hidden ? $("#player") : !$("#pacer").hidden ? $("#pacer") : null; if (!ov) return;
-    if (e.key === "Escape") { if (ov.id === "sheet") closeSheet(); else closeOverlay(ov); return; }
+    const ov = !$("#libdlg").hidden ? $("#libdlg") : !$("#sheet").hidden ? $("#sheet") : !$("#player").hidden ? $("#player") : !$("#pacer").hidden ? $("#pacer") : null; if (!ov) return;
+    if (e.key === "Escape") { if (ov.id === "libdlg") closeLib(); else if (ov.id === "sheet") closeSheet(); else closeOverlay(ov); return; }
     if (e.key === "Tab") { const f = $$("button:not([disabled]), a[href]", ov); if (!f.length) return; const a = f[0], z = f[f.length - 1]; if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); } }
     if (ov.id === "player" && PL && !PL.fin) { if (e.key === "ArrowRight") $("#plNext").click(); if (e.key === "ArrowLeft" && PL.i > 0) $("#plPrev").click(); }
   });
