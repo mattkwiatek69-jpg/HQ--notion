@@ -62,14 +62,46 @@ img.ic { display: block; flex: none; object-fit: contain; }
 .label { font-size: .75rem; line-height: 1.5; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--clay-ink); }
 .metric { font: 600 2.25rem/1.1 var(--sans); letter-spacing: -.02em; }
 
+:root { --op-line: #5F7556; --op-tint: #DCE3CF; --me-line: #C6A25A; --me-tint: #F3E2B0; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --op-line: #8FA07C; --op-tint: #263022; --me-line: #C6A25A; --me-tint: #3C311A; } }
+:root[data-theme="dark"] { --op-line: #8FA07C; --op-tint: #263022; --me-line: #C6A25A; --me-tint: #3C311A; }
+/* source panels: thick rounded frame in the source colour, tint pooling at the edges, a name tab in the corner */
+.sbox.sbox { --sl: var(--op-line); --stt: var(--op-tint); position: relative; border: 3px solid var(--sl); border-radius: 22px; background: radial-gradient(ellipse 75% 70% at 50% 45%, var(--surface) 55%, var(--stt) 130%); box-shadow: inset 0 0 26px -6px var(--stt), 0 8px 22px -16px rgba(35, 42, 35, .35); padding: 24px 20px 20px; }
+.sbox.s-me { --sl: var(--me-line); --stt: var(--me-tint); }
+.sbox.s-both { border-color: transparent; --stt: color-mix(in srgb, var(--op-tint) 50%, var(--me-tint)); background: radial-gradient(ellipse 75% 70% at 50% 45%, var(--surface) 55%, var(--stt) 130%) padding-box, linear-gradient(115deg, var(--op-line) 0 42%, var(--me-line) 58% 100%) border-box; }
+.sbox:not(.slim)::before { content: attr(data-src); position: absolute; top: -13px; right: 20px; font: 700 .6875rem/1 var(--sans); padding: 5px 11px; border-radius: 999px; background: var(--surface); border: 2px solid var(--sl); color: var(--ink); z-index: 2; }
+.sbox.s-both:not(.slim)::before { border-color: transparent; background: linear-gradient(var(--surface), var(--surface)) padding-box, linear-gradient(90deg, var(--op-line), var(--me-line)) border-box; }
+.sbox.slim { border-width: 2px; border-radius: 14px; padding: 12px 14px; box-shadow: inset 0 0 18px -6px var(--stt); }
+.sbox.libcard { padding: 0; overflow: hidden; } .sbox.libcard .libpic { background: transparent; border-bottom-color: color-mix(in srgb, var(--sl) 40%, transparent); }
+.sbox.cat { padding-top: 18px; } .sbox.cat .cat-head { border-bottom-color: color-mix(in srgb, var(--sl) 60%, transparent); }
+.sbox .fg-head { border-bottom-color: color-mix(in srgb, var(--sl) 70%, var(--ink)); }
+.sbox.side { position: sticky; } .sbox.side section + section { border-top-color: color-mix(in srgb, var(--sl) 35%, transparent); }
+.sbox.periods { padding-inline: 18px; } .sbox.topic { box-shadow: inset 0 0 26px -6px var(--stt); }
+.sbox.topic:hover { transform: translateY(-2px); }
+.sbody.sbox { display: flex; flex-direction: column; gap: 22px; }
+.sbody .more:first-child, .sbody .grp:first-child { border-top: 0; padding-top: 0; }
+.cols:has(.sbox) { gap: 30px 24px; } .recipes:has(.sbox) { gap: 26px 20px; } .recipe.sbox { border-top: 3px solid var(--sl); }
+.prod.sbox { margin-top: 10px; border-bottom-width: 2px; } .pgroup ul { display: flex; flex-direction: column; }
+@media (max-width: 560px) { .sbox.sbox { padding: 22px 14px 16px; border-radius: 18px; } .sbox.slim { padding: 10px 12px; }
+  .chips[role="tablist"] { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: -16px; padding-inline: 16px; } .chips[role="tablist"] .chip { flex: none; } }
+/* plain mode: same layout, no source colour */
+html.plain .sbox.sbox { border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
+html.plain .sbox.slim { box-shadow: none; } html.plain .sbox::before { display: none; }
+html.plain .src:not(.key .src) { display: none; } html.plain .key .src { opacity: .45; }
+html.plain .bullets.me li::before { background: var(--sel); transform: none; border-radius: 50%; }
+html.plain .kv.me dt::before, html.plain .portion.me b::before { display: none; }
+.srcswitch { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: .8125rem; font-weight: 600; color: inherit; }
+.srcswitch i { width: 34px; height: 20px; border-radius: 999px; background: var(--op-line); position: relative; flex: none; transition: background .2s var(--ease); }
+.srcswitch i::after { content: ""; position: absolute; top: 3px; left: 17px; width: 14px; height: 14px; border-radius: 50%; background: #F3F0E6; transition: left .2s var(--ease); }
+.srcswitch[aria-checked="false"] i { background: rgba(140, 140, 130, .55); } .srcswitch[aria-checked="false"] i::after { left: 3px; }
 /* source key: every block says where it came from. Shape and colour both carry it. */
 .src { display: inline-flex; align-items: center; gap: 6px; font-size: .75rem; line-height: 1.5; font-weight: 600; color: var(--ink-2); white-space: nowrap; }
-.src::before { content: ""; flex: none; width: 9px; height: 9px; }
-.src.op::before { border-radius: 50%; background: var(--primary); }
-.src.me::before { background: var(--gold); transform: rotate(45deg); border-radius: 1.5px; }
-.src.both::before { border-radius: 50%; background: linear-gradient(90deg, var(--primary) 50%, var(--gold) 50%); }
-.src.dot { gap: 0; } .rail .src { color: var(--rail-dim); } .rail .src.op::before { background: var(--sel); }
-.rail .src.both::before { background: linear-gradient(90deg, var(--sel) 50%, var(--gold) 50%); }
+.src::before { content: ""; flex: none; width: 18px; height: 12px; border-radius: 4px; border: 2px solid var(--op-line); background: radial-gradient(ellipse at 50% 45%, var(--surface) 30%, var(--op-tint) 120%); }
+.src.me::before { border-color: var(--me-line); background: radial-gradient(ellipse at 50% 45%, var(--surface) 30%, var(--me-tint) 120%); }
+.src.both::before { border-color: transparent; background: linear-gradient(var(--surface), var(--surface)) padding-box, linear-gradient(110deg, var(--op-line) 0 45%, var(--me-line) 55%) border-box; }
+.src.dot::before { width: 14px; height: 10px; }
+.src.dot { gap: 0; } .rail .src { color: var(--rail-dim); } .rail .src::before { --surface: #2E3B2B; } .rail .src.op::before { border-color: var(--sel); }
+.rail .srcswitch i { background: var(--gold); } .rail .srcswitch[aria-checked="false"] i { background: rgba(243, 240, 230, .25); }
 .key { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
 .bullets.me li::before { background: var(--gold); border-radius: 1.5px; transform: rotate(45deg); }
 .kv.me dt::before, .portion.me b::before { content: ""; display: inline-block; width: 7px; height: 7px; background: var(--gold); transform: rotate(45deg); border-radius: 1px; margin-right: 8px; vertical-align: middle; }
@@ -400,17 +432,17 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
     <a href="#products" data-nav="products"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8.5h14l-1 11.5H6L5 8.5zM9 8.5V7a3 3 0 0 1 6 0v1.5"/></svg>Products</a>
     <a href="#extras" data-nav="extras"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19C5 10.5 10 5.6 19 5c0 8.6-4.6 14-12.5 14M5 19c2.6-4.6 5.6-7.6 9.5-9.5"/></svg>Extras</a>
   </div>
-  <div class="rail-foot"><b id="railStreak">0</b><span id="railStreakLabel">day streak</span><div class="key" aria-label="Source key"><span>Where it came from</span><span class="src op">OP docs</span><span class="src me">Mine</span><span class="src both">Both</span></div></div>
+  <div class="rail-foot"><b id="railStreak">0</b><span id="railStreakLabel">day streak</span><div class="key" aria-label="Source key"><span>Where it came from</span><span class="src op">OP docs</span><span class="src me">My notes</span><span class="src both">OP docs + mine</span><button class="srcswitch" role="switch" aria-checked="true" data-srctoggle="1"><i aria-hidden="true"></i>Source colours</button></div></div>
 </nav>
 <div class="page"><div class="wrap">
-  <div class="topbar"><div><div class="brand">PRIMAL</div><span id="topStreak"></span></div><button class="findbtn" data-find="1"><svg class="gl s" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4"/></svg>Find</button><div class="key" aria-label="Source key"><span class="src op">OP docs</span><span class="src me">Mine</span><span class="src both">Both</span></div></div>
+  <div class="topbar"><div><div class="brand">PRIMAL</div><span id="topStreak"></span></div><button class="findbtn" data-find="1"><svg class="gl s" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4"/></svg>Find</button><div class="key" aria-label="Source key"><span class="src op">OP docs</span><span class="src me">My notes</span><span class="src both">OP + mine</span><button class="srcswitch" role="switch" aria-checked="true" data-srctoggle="1"><i aria-hidden="true"></i>Source colours</button></div></div>
   <main id="main" tabindex="-1">
     <section class="view" id="v-today"></section><section class="view" id="v-progress" hidden></section>
     <section class="view" id="v-routines" hidden></section><section class="view" id="v-nutrition" hidden></section>
     <section class="view" id="v-systems" hidden></section><section class="view" id="v-products" hidden></section>
     <section class="view" id="v-extras" hidden></section>
   </main>
-  <footer class="fine">Round green marks are from the OP docs; gold diamonds are your own notes (Approved Foods, Max doc). Personal notes, not medical advice. Ticks, streaks, favourites and product lists are saved in this browser only.</footer>
+  <footer class="fine">Olive panels come from the OP docs; gold panels are your own notes (Approved Foods, Max doc); panels with both borders mix the two. Turn the colours off with the Source colours switch. Personal notes, not medical advice. Ticks, streaks, favourites and product lists are saved in this browser only.</footer>
 </div></div>
 <div class="scrim" id="sheet" hidden></div>
 <div class="scrim center" id="libdlg" hidden></div>
@@ -439,6 +471,8 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
   /* ── sources: "op" (OP docs), "me" (the owner's own notes), "both". Anything without a src is "op". ── */
   const SRCN = { op: "OP docs", me: "Mine", both: "Both" };
   const srcOf = (v) => (v === "max" || v === "me" ? "me" : v === "both" ? "both" : "op");
+  /* sb(): class + label for a source panel. Use inside a class attribute: class="fg ${sb(src)}" */
+  const sb = (v) => { const k = srcOf(v); return `sbox s-${k}" data-src="${SRCN[k] === "Mine" ? "My notes" : SRCN[k] === "Both" ? "OP docs + mine" : "OP docs"}`; };
   const srcTag = (v, dot) => { const k = srcOf(v); return `<span class="src ${k}${dot ? " dot" : ""}"${dot ? ` title="${SRCN[k]}"` : ""}>${dot ? `<span class="sr">Source: ${SRCN[k]}</span>` : SRCN[k]}</span>`; };
   /* ── exercise illustration library ── */
   const LIB = {}; (P.library || []).forEach((x) => (LIB[x.id] = x));
@@ -513,7 +547,7 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
     const sel = S.ui.period && S.ui.pday === TK ? S.ui.period : nu ? nu.b.id : P.blocks[curPeriod()].id, whole = !!S.ui.whole;
     const dateStr = now.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" });
     const nextCard = nu
-      ? `<section class="next${(() => { const r = nu.it.go && byId[nu.it.go]; return r && routineThumbs(r).length ? " has-art" : ""; })()}" aria-label="Next up">${(() => { const r = nu.it.go && byId[nu.it.go], th = r ? routineThumbs(r) : []; return th.length ? `<div class="next-art" aria-hidden="true">${pic(th[0])}</div>` : ""; })()}<div><p class="label">Next up · ${esc(nu.b.name)}</p><h2>${esc(nu.it.t)}</h2>${nu.it.d ? `<p>${esc(nu.it.d)}</p>` : ""}${nu.it.n ? `<p>${day().d[nu.it.id] || 0} of ${nu.it.n} sessions done</p>` : ""}</div>
+      ? `<section class="next${(() => { const r = nu.it.go && byId[nu.it.go]; return r && routineThumbs(r).some((l) => l.dep !== "reference") ? " has-art" : ""; })()}" aria-label="Next up">${(() => { const r = nu.it.go && byId[nu.it.go], th = (r ? routineThumbs(r) : []).filter((l) => l.dep !== "reference"); return th.length ? `<div class="next-art" aria-hidden="true">${pic(th[0])}</div>` : ""; })()}<div><p class="label">Next up · ${esc(nu.b.name)}</p><h2>${esc(nu.it.t)}</h2>${nu.it.d ? `<p>${esc(nu.it.d)}</p>` : ""}${nu.it.n ? `<p>${day().d[nu.it.id] || 0} of ${nu.it.n} sessions done</p>` : ""}</div>
           <div class="row"><button class="btn" data-nextdone="${nu.it.id}">${gl(G.check, "s")}${nu.it.n ? "Log a session" : "Mark done"}</button>${nu.it.go && byId[nu.it.go] ? `<button class="btn ghost" data-play="${nu.it.go}">Follow along</button>` : ""}</div></section>`
       : `<section class="next done" aria-label="Next up"><div><p class="label">All core tasks done</p><h2>Day complete.</h2><p>${t.done} of ${t.total} ticked. Optional items stay open under each period.</p></div><div class="row"><a class="btn" href="#progress">View progress</a></div></section>`;
     const periods = P.blocks.map((b) => {
@@ -528,8 +562,8 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
         <div class="head-side"><div class="streak"><b class="metric">${st}</b><span>day streak<br>a day counts at 80%</span></div><a class="btn ghost" href="#progress">View progress${gl(G.arrow, "s")}</a></div></header>
       <div class="card arc"><div id="arcSvg"></div><div class="arc-cols" role="group" aria-label="Period">${P.blocks.map((b) => `<button data-period="${b.id}" data-arc="1" aria-pressed="${!whole && b.id === sel}">${SHORT[b.id]}<small>${t.per[b.id][0]}/${t.per[b.id][1]}</small></button>`).join("")}</div></div>
       ${nextCard}
-      <div class="today-grid"><div class="periods"><div class="periods-bar"><h2>${whole ? "Whole day" : "Showing: " + esc((P.blocks.find((b) => b.id === sel) || {}).name)}</h2>${srcTag("op")}<span style="flex:1"></span><button class="chip plain" id="wholeDay" aria-pressed="${whole}">View whole day</button></div>${periods}</div>
-        <aside class="card side" aria-label="Week and habits">
+      <div class="today-grid"><div class="periods ${sb("op")}"><div class="periods-bar"><h2>${whole ? "Whole day" : "Showing: " + esc((P.blocks.find((b) => b.id === sel) || {}).name)}</h2><span style="flex:1"></span><button class="chip plain" id="wholeDay" aria-pressed="${whole}">View whole day</button></div>${periods}</div>
+        <aside class="side ${sb("op")}" aria-label="Week and habits">
           <section><h3>This week</h3><div class="rows">${weeklyHtml(week())}</div></section>
           <section><h3>Training week</h3><ul class="days">${order.map((d) => `<li class="${d === dow ? "now" : ""}"><b>${names[d]}</b>${esc(P.dayFocus[d])}</li>`).join("")}</ul></section>
           <section><h3>Hold all day</h3><ul class="bullets small">${P.habits.map((h) => `<li>${esc(h)}</li>`).join("")}</ul></section>
@@ -610,7 +644,7 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
     const q = (S.ui.lq || "").trim().toLowerCase(), ty = S.ui.ltype || "";
     const xs = P.library.filter((x) => (!ty || x.dep === ty) && (!q || (x.n + " " + x.al.join(" ") + " " + x.cat + " " + x.pose).toLowerCase().indexOf(q) > -1));
     $("#lCount").textContent = xs.length === P.library.length ? `Showing all ${xs.length} exercises.` : `Showing ${xs.length} of ${P.library.length} exercises.`;
-    $("#lGrid").innerHTML = xs.length ? xs.map((x) => `<button class="libcard" data-lib="${x.id}"><span class="libpic">${pic(x)}</span><span class="libmeta"><b>${esc(x.n)}</b><span class="badges">${srcTag("op", 1)}<span class="badge ${DEP[x.dep][1]}">${DEP[x.dep][0]}</span>${USED[x.id] ? `<span class="badge">In ${USED[x.id].length} routine${USED[x.id].length === 1 ? "" : "s"}</span>` : ""}</span></span></button>`).join("")
+    $("#lGrid").innerHTML = xs.length ? xs.map((x) => `<button class="libcard slim ${sb("op")}" data-lib="${x.id}"><span class="libpic">${pic(x)}</span><span class="libmeta"><b>${esc(x.n)}</b><span class="badges"><span class="badge ${DEP[x.dep][1]}">${DEP[x.dep][0]}</span>${USED[x.id] ? `<span class="badge">In ${USED[x.id].length} routine${USED[x.id].length === 1 ? "" : "s"}</span>` : ""}</span></span></button>`).join("")
       : `<div class="empty" style="grid-column:1/-1"><p>No exercise matches “${esc(S.ui.lq || "")}”.</p><button class="btn sm ghost" id="lClear">Clear search and filter</button></div>`;
   }
   let keepLib = false;
@@ -634,7 +668,7 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
     let html = "";
     P.cats.forEach((c) => {
       if (cat && cat !== c.id) return; const rs = P.routines.filter((r) => r.cat === c.id && hit(r)); if (!rs.length) return;
-      html += `<section class="cat"><div class="cat-head">${ic(c.icon, 46)}<div style="flex:1"><h2>${esc(c.name)}</h2><p>${esc(c.blurb)}</p></div>${srcTag(c.src)}</div>${rs.map((r) => `
+      html += `<section class="cat ${sb(c.src)}"><div class="cat-head">${ic(c.icon, 46)}<div style="flex:1"><h2>${esc(c.name)}</h2><p>${esc(c.blurb)}</p></div></div>${rs.map((r) => `
         <details class="rt" id="r-${r.id}" data-rt="${r.id}"><summary><button class="star" data-fav="${r.id}" aria-pressed="${!!S.fav[r.id]}" aria-label="Favourite ${esc(r.name)}">${STAR}</button>
           <div class="rt-main"><h3>${esc(r.name)}</h3>${r.when ? `<p>${esc(r.when)}</p>` : ""}${rtBadges(r)}</div>${(() => { const th = routineThumbs(r); return th.length ? `<span class="film" aria-hidden="true">${th.map((l) => pic(l)).join("")}</span>` : "<span></span>"; })()}${CARET}</summary>
           <div class="rt-body"><div class="row"><button class="btn sm" data-play="${r.id}">${gl(G.play, "s")}Follow along</button>${r.pacer ? `<button class="btn sm ghost" data-pacer="${r.pacer}">${r.pacer === "co2" ? "Open hold timer" : "Open breath pacer"}</button>` : ""}<button class="btn sm ghost" data-expand="${r.id}">Show all steps</button></div>
@@ -657,7 +691,7 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
     const sel = list.find((x) => x.id === S.ui[key]), el = $("#v-" + view);
     if (!sel) {
       el.innerHTML = `<header class="view-head"><div><h1>${title}</h1><p class="lede">${lede}</p></div></header>
-        <div class="topics">${list.map((x) => { const dn = x.dont ? x.dont.length : x.groups.reduce((s, g) => s + g.dont.length, 0), dd = x.do ? x.do.length : x.groups.reduce((s, g) => s + g.do.length, 0); return `<button class="card topic" data-topic="${key}" data-id="${x.id}">${ic(x.icon, 56)}<h3>${esc(x.name)}</h3><p>${esc(x.intro || (x.key || [])[0] || "")}</p><span class="badges">${srcTag(x.src)}<span class="badge clay">${dn} don't</span><span class="badge sage">${dd} do</span></span></button>`; }).join("")}</div>`;
+        <div class="topics">${list.map((x) => { const dn = x.dont ? x.dont.length : x.groups.reduce((s, g) => s + g.dont.length, 0), dd = x.do ? x.do.length : x.groups.reduce((s, g) => s + g.do.length, 0); return `<button class="topic ${sb(x.src)}" data-topic="${key}" data-id="${x.id}">${ic(x.icon, 56)}<h3>${esc(x.name)}</h3><p>${esc(x.intro || (x.key || [])[0] || "")}</p><span class="badges"><span class="badge clay">${dn} don't</span><span class="badge sage">${dd} do</span></span></button>`; }).join("")}</div>`;
       return;
     }
     const i = list.indexOf(sel), anchors = [], sec = (id, label) => { anchors.push([id, label]); return id; };
@@ -669,8 +703,8 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
     }
     el.innerHTML = `<div class="detail"><div class="row"><button class="btn ghost sm" data-topic="${key}" data-id="">${gl(G.back, "s")}All ${title.toLowerCase()}</button><span style="flex:1"></span>
         <button class="btn ghost sm" data-topic="${key}" data-id="${list[(i + list.length - 1) % list.length].id}">Previous</button><button class="btn ghost sm" data-topic="${key}" data-id="${list[(i + 1) % list.length].id}">Next topic</button></div>
-      <div class="md-title">${ic(sel.icon, 72)}<div><h1>${esc(sel.name)}</h1>${sel.intro ? `<p class="lede">${esc(sel.intro)}</p>` : ""}${srcTag(sel.src)}</div></div>
-      ${anchors.length > 1 ? `<nav class="anchors" aria-label="On this page">${anchors.map((a) => `<button class="chip plain" data-anchor="${a[0]}">${esc(a[1])}</button>`).join("")}</nav>` : ""}${body}</div>`;
+      <div class="md-title">${ic(sel.icon, 72)}<div><h1>${esc(sel.name)}</h1>${sel.intro ? `<p class="lede">${esc(sel.intro)}</p>` : ""}</div></div>
+      ${anchors.length > 1 ? `<nav class="anchors" aria-label="On this page">${anchors.map((a) => `<button class="chip plain" data-anchor="${a[0]}">${esc(a[1])}</button>`).join("")}</nav>` : ""}<div class="sbody ${sb(sel.src)}">${body}</div></div>`;
   }
   const renderSystems = () => renderTopics("systems", P.systems, "sys", "Systems", "Pick a system for what to cut, what to do and the numbers worth remembering.");
   const renderExtras = () => renderTopics("extras", P.extras, "ext", "Bonus extras", "Toxin avoidance, the allergy guide and the other side protocols.");
@@ -680,23 +714,23 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
   const ul = (a, src) => `<ul class="bullets${srcOf(src) === "me" ? " me" : ""}">${a.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>`, kvw = (a) => `<dl class="kv wide">${a.map((r) => `<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join("")}</dl>`;
   function nutPanel(id) {
     const N = P.nutrition;
-    if (id === "approved") return `<div class="cols">${N.approved.map((g) => `<div class="fg"><div class="fg-head">${ic(g.icon, 40)}<h3>${esc(g.h)}</h3>${srcTag(g.src)}${g.tier ? `<span class="badge ${g.tier === "S" ? "clay" : "gold"}">${g.tier} tier</span>` : ""}</div>${ul(g.items, g.src)}</div>`).join("")}</div><div class="more"><h2>How the carbs were ranked</h2>${srcTag("me")}${ul(N.criteria, "me")}</div>`;
-    if (id === "avoid") return `<div class="cols">${N.avoid.map((g) => `<div class="fg"><div class="fg-head"><h3>${esc(g.h)}</h3>${srcTag("op")}</div>${ul(g.items)}</div>`).join("")}</div>`;
+    if (id === "approved") return `<div class="cols">${N.approved.map((g) => `<div class="fg ${sb(g.src)}"><div class="fg-head">${ic(g.icon, 40)}<h3>${esc(g.h)}</h3>${g.tier ? `<span class="badge ${g.tier === "S" ? "clay" : "gold"}">${g.tier} tier</span>` : ""}</div>${ul(g.items, g.src)}</div>`).join("")}</div><div class="more"><h2>How the carbs were ranked</h2>${srcTag("me")}${ul(N.criteria, "me")}</div>`;
+    if (id === "avoid") return `<div class="cols">${N.avoid.map((g) => `<div class="fg ${sb("op")}"><div class="fg-head"><h3>${esc(g.h)}</h3></div>${ul(g.items)}</div>`).join("")}</div>`;
     if (id === "plate") {
       const pick = S.ui.macro || "";
-      return P.portions.map((d) => `<section class="card plate"><div class="fg-head">${ic(d.icon, 40)}<h3>${esc(d.name)}</h3>${srcTag("me")}</div>
+      return P.portions.map((d) => `<section class="plate ${sb("me")}"><div class="fg-head">${ic(d.icon, 40)}<h3>${esc(d.name)}</h3></div>
         <div class="portions">${d.items.map((p) => `<div class="portion me"><b>${esc(p[0])}</b><span>${esc(p[1])}</span>${p[2] ? `<small>Written as ${esc(p[2])}</small>` : ""}</div>`).join("")}</div>
         ${d.totals.length ? `<div class="status warn">${gl(G.warn)}<div><b>The source lists two different totals for this day.</b> Carbs differ by about 100 g. Pick the set you are working to; the other stays visible.</div></div>
           <div class="sets">${d.totals.map((t) => `<div class="set" data-on="${pick === t.id}"><div class="row" style="justify-content:space-between"><b>${esc(t.label)}</b>${pick === t.id ? '<span class="badge sage">Your target</span>' : '<span class="badge">Source note</span>'}</div>
             <dl class="kv">${t.rows.map((r) => `<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join("")}</dl><p class="small muted">${esc(t.note)}</p><button class="btn sm ${pick === t.id ? "" : "ghost"}" data-macro="${t.id}">${pick === t.id ? gl(G.check, "s") + "Selected as my target" : "Use as my target"}</button></div>`).join("")}</div>` : `<p class="small muted">The source gives no totals for this day.</p>`}</section>`).join("") +
-        `<div class="cols"><div class="fg"><div class="fg-head">${ic("target", 40)}<h3>Daily targets from the sources</h3>${srcTag("both")}</div><dl class="kv wide">${N.targets.map((r) => `<dt>${esc(r[0])}${(P.targetNotes || {})[r[0]] ? ' <span class="badge gold">sources differ</span>' : ""}</dt><dd>${esc(r[1])}</dd>`).join("")}</dl></div>
-        <div class="fg"><div class="fg-head">${ic("oyster", 40)}<h3>Daily and weekly staples</h3>${srcTag("op")}</div>${kvw(N.staples)}</div></div>
-        <div class="fg"><div class="fg-head">${ic("liver", 40)}<h3>What the plate is optimised for</h3>${srcTag("me")}</div><div class="cols" style="gap:7px 36px">${ul(N.principles.slice(0, 9), "me")}${ul(N.principles.slice(9), "me")}</div></div>`;
+        `<div class="cols"><div class="fg ${sb("both")}"><div class="fg-head">${ic("target", 40)}<h3>Daily targets from the sources</h3></div><dl class="kv wide">${N.targets.map((r) => `<dt>${esc(r[0])}${(P.targetNotes || {})[r[0]] ? ' <span class="badge gold">sources differ</span>' : ""}</dt><dd>${esc(r[1])}</dd>`).join("")}</dl></div>
+        <div class="fg ${sb("op")}"><div class="fg-head">${ic("oyster", 40)}<h3>Daily and weekly staples</h3></div>${kvw(N.staples)}</div></div>
+        <div class="fg ${sb("me")}"><div class="fg-head">${ic("liver", 40)}<h3>What the plate is optimised for</h3></div><div class="cols" style="gap:7px 36px">${ul(N.principles.slice(0, 9), "me")}${ul(N.principles.slice(9), "me")}</div></div>`;
     }
     if (id === "timing") return `<div class="status info">${gl(G.info)}<div><b>Source note.</b> The carrot salad is “empty stomach” on one page and “with a meal” on another, and its dressing is coconut oil in one place and EVOO in another.</div></div>
-      <div class="cols"><div class="fg"><div class="fg-head">${ic("clock", 40)}<h3>When to eat what</h3>${srcTag("op")}</div>${kvw(N.timing)}</div><div class="fg"><div class="fg-head">${ic("butter", 40)}<h3>Kitchen rules</h3>${srcTag("op")}</div>${ul(N.kitchen)}</div></div>`;
-    if (id === "recipes") return `<div class="recipes">${N.recipes.map((r) => `<div class="recipe"><h3>${esc(r.name)}</h3>${srcTag("op")}<span class="badge clay" style="align-self:flex-start">${esc(r.when)}</span>${ul(r.items)}</div>`).join("")}</div>`;
-    return `<div class="cols"><div class="fg"><div class="fg-head">${ic("pomegranate", 40)}<h3>Where each nutrient comes from</h3>${srcTag("op")}</div>${kvw(N.nutrients)}</div><div class="fg"><div class="fg-head">${ic("leaf", 40)}<h3>Supplements and herbs named in the docs</h3>${srcTag("op")}</div>${ul(N.supplements)}</div></div>`;
+      <div class="cols"><div class="fg ${sb("op")}"><div class="fg-head">${ic("clock", 40)}<h3>When to eat what</h3></div>${kvw(N.timing)}</div><div class="fg ${sb("op")}"><div class="fg-head">${ic("butter", 40)}<h3>Kitchen rules</h3></div>${ul(N.kitchen)}</div></div>`;
+    if (id === "recipes") return `<div class="recipes">${N.recipes.map((r) => `<div class="recipe ${sb("op")}"><h3>${esc(r.name)}</h3><span class="badge clay" style="align-self:flex-start">${esc(r.when)}</span>${ul(r.items)}</div>`).join("")}</div>`;
+    return `<div class="cols"><div class="fg ${sb("op")}"><div class="fg-head">${ic("pomegranate", 40)}<h3>Where each nutrient comes from</h3></div>${kvw(N.nutrients)}</div><div class="fg ${sb("op")}"><div class="fg-head">${ic("leaf", 40)}<h3>Supplements and herbs named in the docs</h3></div>${ul(N.supplements)}</div></div>`;
   }
   function renderNutrition() {
     const cur = S.ui.nut || "approved";
@@ -726,7 +760,7 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
       const lab = $("#pgLabel"); if (lab) lab.textContent = ui.pg ? (P.productGroups.find((g) => g[0] === ui.pg) || [])[1] : "All types";
       P.productGroups.forEach((g) => {
         if (ui.pg && ui.pg !== g[0]) return; const ps = P.products.filter((p) => p.g === g[0] && (!q || (p.n + " " + (p.note || "")).toLowerCase().indexOf(q) > -1)); if (!ps.length) return;
-        html += `<section class="pgroup"><h2 class="rule">${esc(g[1])}</h2><ul>${ps.map((p) => `<li class="prod">${prodMain(p)}<div class="prod-act">${prodLink(p)}
+        html += `<section class="pgroup"><h2 class="rule">${esc(g[1])}</h2><ul>${ps.map((p) => `<li class="prod slim ${sb(p.src)}">${prodMain(p)}<div class="prod-act">${prodLink(p)}
           ${o[p.n] ? "" : `<button class="btn sm ghost" data-wish="${esc(p.n)}" aria-pressed="${!!S.wish[p.n]}">${S.wish[p.n] ? gl(G.check, "s") + "On wishlist" : "Add to wishlist"}</button>`}<button class="btn sm ghost" data-own="${esc(p.n)}" aria-pressed="${!!o[p.n]}">${o[p.n] ? gl(G.check, "s") + "Owned" : "Mark owned"}</button></div></li>`).join("")}</ul></section>`;
       });
       html = html || `<div class="empty"><p>No product matches that search.</p><button class="btn sm ghost" id="pClear">Clear search and filter</button></div>`;
@@ -736,12 +770,12 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
       else { const known = ws.filter((p) => p.p), miss = ws.length - known.length;
         html = `<div class="stats"><div class="card stat"><span class="label">Known cost</span><b class="metric">${money(known.reduce((s, p) => s + p.p, 0))}</b><span class="small muted">across ${known.length} priced item${known.length === 1 ? "" : "s"}</span></div>
           <div class="card stat"><span class="label">Price missing</span><b class="metric">${miss}</b><span class="small muted">${miss ? "not included in the total" : "every item has a price"}</span></div></div>` +
-          PRI.map((pr) => { const ps = ws.filter((p) => String(S.wish[p.n]) === pr[0]); return ps.length ? `<section class="pgroup"><h2 class="rule">${pr[1]} priority</h2><ul>${ps.map((p) => `<li class="prod">${prodMain(p)}<div class="prod-act">${prodLink(p)}
+          PRI.map((pr) => { const ps = ws.filter((p) => String(S.wish[p.n]) === pr[0]); return ps.length ? `<section class="pgroup"><h2 class="rule">${pr[1]} priority</h2><ul>${ps.map((p) => `<li class="prod slim ${sb(p.src)}">${prodMain(p)}<div class="prod-act">${prodLink(p)}
             <div class="seg" role="group" aria-label="Priority for ${esc(p.n)}">${PRI.map((x) => `<button data-pri="${esc(p.n)}" data-v="${x[0]}" aria-pressed="${String(S.wish[p.n]) === x[0]}">${x[1]}</button>`).join("")}</div>
             <button class="btn sm" data-own="${esc(p.n)}">Mark owned</button><button class="btn sm ghost" data-wish="${esc(p.n)}">Remove</button></div></li>`).join("")}</ul></section>` : ""; }).join(""); }
     } else {
       const os = P.products.filter((p) => o[p.n]);
-      html = os.length ? `<section class="pgroup"><ul>${os.map((p) => `<li class="prod">${prodMain(p)}<div class="prod-act">${prodLink(p)}<button class="btn sm ghost" data-own="${esc(p.n)}">Not owned</button></div></li>`).join("")}</ul></section>` : `<div class="empty"><p>Nothing marked as owned yet.</p><button class="btn sm" data-ptab="library">Browse the library</button></div>`;
+      html = os.length ? `<section class="pgroup"><ul>${os.map((p) => `<li class="prod slim ${sb(p.src)}">${prodMain(p)}<div class="prod-act">${prodLink(p)}<button class="btn sm ghost" data-own="${esc(p.n)}">Not owned</button></div></li>`).join("")}</ul></section>` : `<div class="empty"><p>Nothing marked as owned yet.</p><button class="btn sm" data-ptab="library">Browse the library</button></div>`;
     }
     $("#pList").innerHTML = html;
   }
@@ -916,6 +950,7 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
     else if (t.id === "sheetClose") closeSheet();
     else if (t.id === "rClear") { S.ui.rq = ""; S.ui.rcat = ""; save(); renderRoutines(); refocus("#rSearch"); }
     else if (t.id === "pClear") { S.ui.pq = ""; S.ui.pg = ""; save(); renderProducts(); refocus("#pSearch"); }
+    else if (d.srctoggle) { S.ui.plain = !S.ui.plain; save(); applyPlain(); say(S.ui.plain ? "Source colours off" : "Source colours on"); }
     else if (d.find) openFind();
     else if (t.id === "findClose") closeFind();
     else if (d.findgo) findGo(JSON.parse(d.findgo));
@@ -965,6 +1000,7 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
   let rz, lastW = window.innerWidth; window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { if (current === "today" && window.innerWidth !== lastW) { lastW = window.innerWidth; renderToday(); } }, 150); });
 
   Object.keys(S.days).sort().slice(0, -90).forEach((k) => delete S.days[k]); Object.keys(S.weeks).sort().slice(0, -12).forEach((k) => delete S.weeks[k]);
-  route(true); tally(); chrome(streak());
+  function applyPlain() { document.documentElement.classList.toggle("plain", !!S.ui.plain); $$("[data-srctoggle]").forEach((b) => b.setAttribute("aria-checked", !S.ui.plain)); }
+  applyPlain(); route(true); tally(); chrome(streak());
 })();
 </script>
