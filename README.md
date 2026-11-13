@@ -2,6 +2,8 @@
 
 ## Primal Health Hub
 
+Four sections: Today (next action, session, progress), Plan (week timetable, routines, exercise library), Library (nutrition and every topic, grouped) and Products. Run the checks with `node health-hub/tests/schedule.test.js`.
+
 `health-hub/` is a single-page health dashboard compiled from the OP 1 and OP 2 docs, the Approved Foods list and the product list in the Max doc.
 
 | Path | What it holds |

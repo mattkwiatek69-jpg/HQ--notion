@@ -5,16 +5,16 @@
 /* Layout: olive rail for six sections (bottom bar on phones). Each view is a working list built from the shared
    components below: chip, btn, badge, status, card, tick, sheet. Tokens follow the Primal type and colour boards. */
 :root {
-  --bg: #F3F0E6; --surface: #FBF9F2; --sunk: #E9E5D6; --paper: #F6F2E8;
-  --ink: #232A23; --ink-2: #47523F; --ink-3: #5F6A5A;
+  --bg: #F5F2E8; --surface: #FFFCF4; --sunk: #E9E5D6; --paper: #F6F2E8;
+  --ink: #252D24; --ink-2: #47523F; --ink-3: #5E5A50;
   --line: rgba(35, 42, 35, .14); --line-2: rgba(35, 42, 35, .28);
-  --primary: #394B35; --on-primary: #F3F0E6;
+  --primary: #394B34; --on-primary: #F3F0E6;
   --sel: #A8B596; --on-sel: #232A23;
   --sage-soft: #E1E7D5; --sage-ink: #37502F;
-  --clay: #B76A4C; --clay-soft: #F2DED3; --clay-ink: #8E4933; --link: #8E4933;
-  --gold: #C6A25A; --gold-soft: #F3E7C8; --gold-ink: #6E5417;
+  --clay: #B86B50; --clay-soft: #F2DED3; --clay-ink: #8E4933; --link: #8E4933;
+  --gold: #C89B3C; --gold-soft: #F3E7C8; --gold-ink: #6E5417;
   --info-soft: #DCE9E6; --info-ink: #2B5560;
-  --rail: #394B35; --rail-ink: #F3F0E6; --rail-dim: #CCD5BF; --rail-active: #5F7556;
+  --rail: #394B34; --rail-ink: #F3F0E6; --rail-dim: #CCD5BF; --rail-active: #5F7556;
   --shadow: 0 1px 2px rgba(35, 42, 35, .05), 0 10px 26px -14px rgba(35, 42, 35, .25);
   --serif: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --sans: "Manrope", "Avenir Next", "Segoe UI", system-ui, sans-serif;
@@ -62,7 +62,7 @@ img.ic { display: block; flex: none; object-fit: contain; }
 .label { font-size: .75rem; line-height: 1.5; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--clay-ink); }
 .metric { font: 600 2.25rem/1.1 var(--sans); letter-spacing: -.02em; }
 
-:root { --op-line: #5F7556; --op-tint: #DCE3CF; --me-line: #C6A25A; --me-tint: #F3E2B0; }
+:root { --op-line: #707B4F; --op-tint: #DCE3CF; --me-line: #C89B3C; --me-tint: #F3E2B0; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --op-line: #8FA07C; --op-tint: #263022; --me-line: #C6A25A; --me-tint: #3C311A; } }
 :root[data-theme="dark"] { --op-line: #8FA07C; --op-tint: #263022; --me-line: #C6A25A; --me-tint: #3C311A; }
 /* source panels: thick rounded frame in the source colour, tint pooling at the edges, a name tab in the corner */
@@ -123,9 +123,9 @@ html.plain .kv.me dt::before, html.plain .portion.me b::before { display: none; 
 .brand { font: 600 1.7rem/1 var(--serif); letter-spacing: .14em; padding-left: 12px; }
 .brand small { display: block; font: 600 .6875rem/1 var(--sans); letter-spacing: .2em; color: var(--rail-dim); margin-top: 8px; }
 .nav { display: flex; flex-direction: column; gap: 4px; }
-.nav a { display: flex; align-items: center; gap: 12px; min-height: 46px; padding: 0 12px; border-radius: 10px; text-decoration: none; color: var(--rail-dim); font-weight: 500; transition: background .2s var(--ease), color .2s var(--ease); }
-.nav a:hover { color: var(--rail-ink); background: color-mix(in srgb, var(--rail-active) 45%, transparent); }
-.nav a[aria-current="page"] { background: var(--rail-active); color: var(--rail-ink); font-weight: 600; }
+.nav :is(a, button) { display: flex; align-items: center; gap: 12px; min-height: 46px; padding: 0 12px; border-radius: 10px; text-decoration: none; color: var(--rail-dim); font-weight: 500; transition: background .2s var(--ease), color .2s var(--ease); }
+.nav :is(a, button):hover { color: var(--rail-ink); background: color-mix(in srgb, var(--rail-active) 45%, transparent); }
+.nav :is(a, button)[aria-current="page"] { background: var(--rail-active); color: var(--rail-ink); font-weight: 600; }
 .nav svg, .gl { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .gl.s { width: 16px; height: 16px; stroke-width: 2; }
 .rail-foot { margin-top: auto; padding: 14px 12px 0; border-top: 1px solid rgba(243, 240, 230, .16); color: var(--rail-dim); font-size: .8125rem; line-height: 1.45; }
@@ -143,7 +143,7 @@ html.plain .kv.me dt::before, html.plain .portion.me b::before { display: none; 
   .rail { inset: auto 0 0 0; width: auto; flex-direction: row; gap: 0; padding: 6px max(6px, env(safe-area-inset-right, 0px)) calc(6px + env(safe-area-inset-bottom, 0px)) max(6px, env(safe-area-inset-left, 0px)); box-shadow: 0 -8px 24px -14px rgba(0, 0, 0, .45); }
   .rail > .brand, .rail-foot, .rail > .findbtn { display: none; }
   .nav { flex-direction: row; flex: 1; gap: 2px; }
-  .nav a { flex: 1; flex-direction: column; justify-content: center; gap: 3px; min-height: 52px; padding: 4px 2px; font-size: .6875rem; font-weight: 600; min-width: 0; }
+  .nav :is(a, button) { flex: 1; flex-direction: column; justify-content: center; gap: 3px; min-height: 52px; padding: 4px 2px; font-size: .6875rem; font-weight: 600; min-width: 0; }
   .page { margin-left: 0; padding-block: 18px calc(104px + env(safe-area-inset-bottom, 0px)); }
   .topbar { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8px 12px; margin-bottom: 20px; }
   .topbar .key { grid-column: 1 / -1; padding-top: 8px; border-top: 1px solid var(--line); }
@@ -521,6 +521,37 @@ footer.fine { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--l
 .empty b { color: var(--ink); }
 @media (max-width: 999px) { .topbar .key .linkbtn { margin-left: auto; } }
 html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid var(--line); }
+
+/* ── v7: Today · Plan · Library · Products, compact source badges, highlight only for the current action and key points ── */
+:root { color-scheme: light; --focus: #394B34; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark; --focus: #C89B3C; } } :root[data-theme="dark"] { color-scheme: dark; --focus: #C89B3C; }
+:focus-visible { outline-color: var(--focus); } .rail :focus-visible, .next :focus-visible, .toast :focus-visible { outline-color: var(--gold); }
+.nav button.more { display: none; } .nav .only-rail { margin-top: 10px; }
+@media (max-width: 999px) { .nav button.more { display: flex; } .nav .only-rail { display: none; } .topbar { margin-bottom: 12px; } }
+.subnav button { min-height: 44px; padding: 0 20px; display: inline-flex; align-items: center; border-radius: 9px; font-weight: 600; font-size: .9375rem; color: var(--ink-2); }
+.subnav button:hover { color: var(--ink); } .subnav button[aria-current] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+@media (max-width: 520px) { .subnav { width: 100%; } .subnav :is(a, button) { flex: 1; justify-content: center; padding: 0 6px; font-size: .875rem; white-space: nowrap; } }
+.sbox.sbox { border-width: 1.5px; }
+.sbox:not(.slim)::before { top: -10px; right: 16px; font-size: .625rem; padding: 3px 8px; border-width: 1.5px; }
+.item.is-next, .keys { border: 1.5px solid color-mix(in srgb, var(--gold) 65%, transparent); border-radius: 14px; background: radial-gradient(ellipse 85% 130% at 50% 50%, var(--surface) 45%, var(--gold-soft) 160%); }
+.keys { padding: 14px; }
+.item.skipped strong { color: var(--ink-3); }
+.next .linkbtn { color: inherit; }
+#v-today .view-head { flex-wrap: nowrap; align-items: flex-end; }
+.ncard.card { padding: 16px; display: flex; flex-direction: row; align-items: center; gap: 14px; text-align: left; } .ncard.card:hover { border-color: var(--ink-3); }
+.lgroup { display: flex; flex-direction: column; gap: 14px; } .lgroup h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; } .ncard h3 { font-size: 1rem; }
+.srcline { color: var(--ink-3); font-size: .8125rem; margin-top: 12px; }
+.sbody .bullets li { max-width: 72ch; } .more, .grp, .dd > div { scroll-margin-top: 16px; }
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(24px + env(safe-area-inset-bottom, 0px)); z-index: 120; display: flex; align-items: center; gap: 12px; width: max-content; max-width: min(92vw, 460px); padding: 4px 6px 4px 16px; min-height: 52px; border-radius: 12px; background: var(--ink); color: var(--bg); font-size: .9375rem; line-height: 1.35; font-weight: 500; box-shadow: 0 10px 30px -10px rgba(0, 0, 0, .5); }
+.toast button { min-height: 44px; padding: 0 12px; font-weight: 700; color: var(--gold); text-decoration: underline; text-underline-offset: 3px; flex: none; }
+@media (max-width: 999px) { .toast { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); } }
+.sheet, .findres, .overlay { overscroll-behavior: contain; }
+a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px solid var(--line); }
+.findres .more-row { color: var(--link); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+#fFilt { padding: 0 14px 10px; gap: 6px; flex-wrap: nowrap; overflow-x: auto; } #fFilt:empty { display: none; } #fFilt .chip { flex: none; }
+#xMsg .row { margin-top: 10px; flex-wrap: wrap; }
+@media (max-width: 760px) { .view { gap: 18px; } .view-head h1 { font-size: 2rem; } }
+@media (max-width: 440px) { .tabs button { padding: 0 4px; gap: 4px; font-size: .875rem; min-width: 0; } .tabs .badge { padding: 1px 6px; } }
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -528,30 +559,31 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
   <div class="brand">PRIMAL<small>HEALTH HUB</small></div>
   <button class="findbtn" data-find="1"><svg class="gl s" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4"/></svg>Find anything<kbd>/</kbd></button>
   <div class="nav" id="nav">
-    <a href="#today" data-nav="today"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v13H4zM4 10.5h16M8 4v4M16 4v4"/></svg>Today</a>
-    <a href="#routines" data-nav="routines"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 9A8 8 0 0 0 5.2 7.5L4 9M4 4.5V9h4.5M4.5 15a8 8 0 0 0 14.3 1.5L20 15M20 19.5V15h-4.5"/></svg>Routines</a>
-    <a href="#nutrition" data-nav="nutrition"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8c-1.6-1.6-6.5-1.4-6.5 4 0 4 2.6 8 4.6 8 1 0 1.2-.6 1.9-.6s.9.6 1.9.6c2 0 4.6-4 4.6-8 0-5.4-4.9-5.6-6.5-4zM12 8c0-2 .8-3.6 2.6-4.5"/></svg>Nutrition</a>
-    <a href="#systems" data-nav="systems"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l8.5 4.5L12 13 3.5 8.5 12 4zM3.5 12.5L12 17l8.5-4.5M3.5 16.5L12 21l8.5-4.5"/></svg>Systems</a>
+    <a href="#today" data-nav="today"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19h18M7.5 15a4.5 4.5 0 0 1 9 0M12 4v3M4.6 8.6l2 2M19.4 8.6l-2 2"/></svg>Today</a>
+    <a href="#week" data-nav="plan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v13H4zM4 10.5h16M8 4v4M16 4v4"/></svg>Plan</a>
+    <a href="#library" data-nav="library"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l8.5 4.5L12 13 3.5 8.5 12 4zM3.5 12.5L12 17l8.5-4.5M3.5 16.5L12 21l8.5-4.5"/></svg>Library</a>
     <a href="#products" data-nav="products"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 3.5h5v3h-5zM8 9a1.5 1.5 0 0 1 1.5-1.5h5A1.5 1.5 0 0 1 16 9v10.5a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V9zM8 12.5h8"/></svg>Products</a>
-    <a href="#extras" data-nav="extras"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zM12 8.5v7M8.5 12h7"/></svg>Extras</a>
+    <button class="only-rail" data-saved="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v16l-5-3.5L7 20V4z"/></svg>Saved</button>
+    <button class="more" data-more="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 12h.01M12 12h.01M18.5 12h.01" stroke-width="3"/></svg>More</button>
   </div>
   <div class="rail-foot"><b id="railStreak">0</b><span id="railStreakLabel">day streak</span><div class="key" aria-label="Source key"><span>Where it came from</span><span class="src op">OP docs</span><span class="src me">My notes</span><span class="src both">OP docs + mine</span><span class="src x" hidden>Other source</span><button class="srcswitch" role="switch" aria-checked="true" data-srctoggle="1"><i aria-hidden="true"></i>Source colours</button></div><div class="rail-save"><span>Saved on this device</span><button data-manage="1">My edits</button></div></div>
 </nav>
 <div class="page"><div class="wrap">
-  <div class="topbar"><div><div class="brand">PRIMAL</div><span id="topStreak"></span></div><button class="findbtn" data-find="1"><svg class="gl s" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4"/></svg>Find</button><div class="key" aria-label="Source key"><span class="src op">OP docs</span><span class="src me">My notes</span><span class="src both">OP + mine</span><span class="src x" hidden>Other</span><button class="srcswitch" role="switch" aria-checked="true" data-srctoggle="1"><i aria-hidden="true"></i>Source colours</button><button class="linkbtn" data-manage="1">My edits</button></div></div>
+  <div class="topbar"><div><div class="brand" translate="no">PRIMAL</div><span id="topStreak"></span></div><button class="findbtn" data-find="1"><svg class="gl s" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4"/></svg>Find</button></div>
   <main id="main" tabindex="-1">
-    <section class="view" id="v-today"></section><section class="view" id="v-week" hidden></section><section class="view" id="v-progress" hidden></section>
+    <section class="view" id="v-today"></section><section class="view" id="v-week" hidden></section><section class="view" id="v-library" hidden></section><section class="view" id="v-progress" hidden></section>
     <section class="view" id="v-routines" hidden></section><section class="view" id="v-nutrition" hidden></section>
     <section class="view" id="v-systems" hidden></section><section class="view" id="v-products" hidden></section>
     <section class="view" id="v-extras" hidden></section>
   </main>
-  <footer class="fine">Olive frames come from the OP docs; gold frames are your own notes; frames with both colours mix the two; a dashed frame is from someone else you named. Turn the colours off with the Source colours switch. Personal notes, not medical advice. Ticks, streaks, favourites, product lists and your edits are saved in this browser only; export a copy from My edits.</footer>
+  <footer class="fine">Olive frames come from the OP docs; gold frames are your own notes; frames with both colours mix the two; a dashed frame is from someone else you named. Each frame also carries a name tab, so the source never depends on colour; the Source colours switch is under More. Personal notes, not medical advice. Ticks, streaks, favourites, product lists and your edits are saved in this browser only; export a copy from My edits.</footer>
 </div></div>
 <div class="scrim" id="sheet" hidden></div>
 <div class="scrim center" id="libdlg" hidden></div>
 <div class="scrim center" id="find" hidden></div>
 <div class="overlay" id="player" role="dialog" aria-modal="true" aria-label="Follow along" hidden></div>
 <div class="overlay" id="pacer" role="dialog" aria-modal="true" aria-label="Breath pacer" hidden></div>
+<div class="toast" id="toast" role="status" hidden></div>
 <div class="sr" aria-live="polite" id="live"></div>
 
 <script src="data/routines-a.js"></script><script src="data/routines-b.js"></script><script src="data/systems.js"></script>
@@ -562,14 +594,14 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
   const P = window.PHH || {};
   const $ = (s, r) => (r || document).querySelector(s), $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const ic = (n, z) => `<img class="ic" src="assets/icons/${n}.webp" width="${z || 40}" height="${z || 40}" alt="">`;
+  const ic = (n, z) => `<img class="ic" src="assets/icons/${n}.webp" width="${z || 40}" height="${z || 40}" alt="" loading="lazy" decoding="async">`;
   const gl = (d, c) => `<svg class="gl ${c || ""}" viewBox="0 0 24 24" aria-hidden="true"><path d="${d}"/></svg>`;
   const G = { check: "M5 12.5l4.5 4.5L19 7.5", x: "M6 6l12 12M18 6L6 18", down: "M6 9l6 6 6-6", clock: "M12 7v5l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z", kit: "M4 9h16v10H4zM9 9V6h6v3", arrow: "M5 12h14M13 6l6 6-6 6", back: "M19 12H5M11 6l-6 6 6 6", warn: "M12 4l9 16H3L12 4zM12 10v4M12 17v.5", info: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 11v5M12 7.5v.5", filter: "M4 6h16M7 12h10M10 18h4", pen: "M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4", plus: "M12 5v14M5 12h14", right: "M9 6l6 6-6 6", up: "M6 15l6-6 6 6", play: "M8 5v14l11-7z", pause: "M8 5v14M16 5v14" };
   const STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.6 6 .7-4.5 4.1 1.2 6-5.3-3-5.3 3 1.2-6L3.4 9.8l6-.7z"/></svg>';
   const CHECK = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>';
   const CARET = `<span class="caret" aria-hidden="true">${gl(G.down, "s")}</span>`;
   const say = (t) => { $("#live").textContent = t; };
-  const VIEWS = ["today", "week", "progress", "routines", "nutrition", "systems", "products", "extras"];
+  const VIEWS = ["today", "week", "progress", "library", "routines", "nutrition", "systems", "products", "extras"];
   const byId = {}; (P.routines || []).forEach((r) => (byId[r.id] = r));
   /* ── sources: "op" (OP docs), "me" (the owner's own notes), "both". Anything without a src is "op". ── */
   const SRCN = { op: "OP docs", me: "Mine", both: "Both", x: "Other source" };
@@ -602,7 +634,7 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
 
   /* ── today: data/schedule.js places the routines; S.plan holds the days the owner has edited ── */
   const SC = P.sched, DAYN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], ORDER = [1, 2, 3, 4, 5, 6, 0];
-  const itemsFor = (b, dow) => SC.items(b, dow, S.plan);
+  const itemsFor = (b, dow) => SC.items(b, dow, S.plan, S.core);
   const blockItems = (b) => itemsFor(b, now.getDay());
   const isDone = (i) => { const v = day().d[i.id]; return i.n ? (v || 0) >= i.n : !!v; };
   const findItem = (id) => { for (const b of P.blocks) for (const i of blockItems(b)) if (i.id === id) return i; };
@@ -616,52 +648,53 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
   const curPeriod = (rows) => { const m = now.getHours() * 60 + now.getMinutes(); let k = 0; rows.forEach((r, i) => { if (r.at <= m) k = i; }); return k; };
   function nextUp(rows) {
     const n = rows.length, start = curPeriod(rows);
-    for (let k = 0; k < n; k++) { const r = rows[(start + k) % n], it = r.items.find((i) => !i.opt && !isDone(i)); if (it) return { b: r.b, it }; }
+    for (let k = 0; k < n; k++) { const r = rows[(start + k) % n], it = r.items.find((i) => !i.opt && !isDone(i) && !skipped(i)); if (it) return { b: r.b, it }; }
     return null;
   }
-  const subnav = (cur) => `<nav class="subnav" aria-label="Today, week and progress">${[["today", "Today"], ["week", "Week"], ["progress", "Progress"]].map((t) => `<a href="#${t[0]}"${t[0] === cur ? ' aria-current="page"' : ""}>${t[1]}</a>`).join("")}</nav>`;
+  const SUBS = { today: [["#today", "today", "Today"], ["#progress", "progress", "Progress"]], plan: [["#week", "week", "Timetable"], ["", "routines", "Routines"], ["lib", "lib", "Exercise library"]], library: [["#library", "library", "All topics"], ["#nutrition", "nutrition", "Nutrition"]] };
+  const subnav = (grp, cur) => `<nav class="subnav" aria-label="${grp === "plan" ? "Plan" : grp === "library" ? "Library" : "Today"} sections">${SUBS[grp].map((t) => (t[0][0] === "#" ? `<a href="${t[0]}"${t[1] === cur ? ' aria-current="page"' : ""}>${t[2]}</a>` : `<button data-rtab="${t[0]}"${t[1] === cur ? ' aria-current="page"' : ""}>${t[2]}</button>`)).join("")}</nav>`;
   const ring = (pct) => { const c = 2 * Math.PI * 32; return `<svg class="ring" viewBox="0 0 80 80" role="img" aria-label="${pct}% of today complete"><circle cx="40" cy="40" r="32"/><circle class="on" cx="40" cy="40" r="32" stroke-dasharray="${((pct / 100) * c).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 40 40)"/><text x="40" y="41" text-anchor="middle" dominant-baseline="middle">${pct}%</text></svg>`; };
   function weekDots() { const m = monday(now); return `<ol class="wdots">${ORDER.map((d, i) => { const k = dkey(addDays(m, i)), p = (S.days[k] || {}).pct || 0; return `<li class="${p >= 0.8 ? "full" : p > 0 ? "part" : ""}${k === TK ? " now" : ""}"><span aria-hidden="true">${DAYN[d][0]}</span><i></i><span class="sr">${DAYN[d]}: ${Math.round(p * 100)}% done</span></li>`; }).join("")}</ol>`; }
   const stepsHtml = (rows, t, sel) => `<ol class="dsteps" style="--n:${rows.length}" aria-label="Your day, wake to bed">${rows.map((r) => { const p = t.per[r.b.id], full = p[1] > 0 && p[0] >= p[1]; return `<li class="${full ? "full" : ""}"><button data-period="${r.b.id}" aria-pressed="${r.b.id === sel}"><i>${full ? CHECK : ""}</i><b>${SHORT[r.b.id]}</b><small>${SC.C(r.at)}<span class="sr">, ${p[0]} of ${p[1]} done</span></small></button></li>`; }).join("")}</ol>`;
   function itemHtml(i, nextId) {
     const done = isDone(i), v = day().d[i.id] || 0, r = i.go && byId[i.go]; let pips = "";
     if (i.n) { pips = '<div class="pips" role="group" aria-label="Sessions done">'; for (let k = 1; k <= i.n; k++) pips += `<button class="pip" data-pip="${i.id}" data-k="${k}" aria-pressed="${v >= k}" aria-label="Session ${k}">${k}</button>`; pips += "</div>"; }
-    return `<li class="item${done ? " done" : ""}${i.id === nextId ? " is-next" : ""}" data-item="${i.id}">
+    return `<li class="item${done ? " done" : ""}${skipped(i) && !done ? " skipped" : ""}${i.id === nextId ? " is-next" : ""}" data-item="${i.id}">
       <button class="tick" data-tick="${i.id}" aria-pressed="${done}" aria-label="${esc(i.t)}"><i>${CHECK}</i></button>
       <div class="item-body"><strong>${esc(i.t)}${i.uid ? " " + srcTag(i.src, true, i.who) : ""}</strong>${i.d ? `<p>${esc(i.d)}</p>` : ""}${pips}</div>
-      ${i.clock ? `<time>${i.clock}</time>` : ""}${i.min ? `<span class="badge sage">${i.min} min</span>` : ""}${i.uid ? `<button class="linkbtn" data-add="item" data-id="${i.id}">Edit</button>` : ""}
+      ${S.ui.pick ? `<button class="chip plain" data-core="${i.id}" aria-pressed="${!i.opt}">${i.opt ? "Optional" : "Core"}</button>` : skipped(i) && !done ? `<span class="badge clay">Skipped</span><button class="linkbtn" data-unskip="${i.id}">Undo<span class="sr"> skip</span></button>` : `${i.clock ? `<time>${i.clock}</time>` : ""}${i.min ? `<span class="badge sage">${i.min}&nbsp;min</span>` : ""}`}${i.uid ? `<button class="linkbtn" data-add="item" data-id="${i.id}">Edit</button>` : ""}
       ${r ? `<button class="chev" data-go="${i.go}" aria-label="Open ${esc(r.name)}">${gl(G.right, "s")}</button>` : '<span class="chev"></span>'}</li>`;
   }
   function blockHtml(r, t, nextId) {
     const core = r.items.filter((i) => !i.opt), opt = r.items.filter((i) => i.opt), p = t.per[r.b.id];
-    return `<section class="blk" id="b-${r.b.id}"><header class="blk-head"><time>${SC.C(r.at)}</time><div><h3>${esc(r.b.name)}</h3><p>${p[0]} of ${p[1]} complete${r.used ? ` · until ${SC.C(r.end)}` : ""}</p></div></header>
+    return `<section class="blk" id="b-${r.b.id}"><header class="blk-head"><time>${SC.C(r.at)}</time><div><h3>${esc(r.b.name)}</h3><p>Core: ${p[0]} of ${p[1]} done${r.used ? ` · until ${SC.C(r.end)}` : ""}</p></div></header>
       ${r.over ? `<div class="status warn">${gl(G.warn)}<div>Runs ${r.over} min into the next block. Open Edit my day to shorten it.</div></div>` : ""}
       <ul>${core.map((i) => itemHtml(i, nextId)).join("")}</ul>
-      ${opt.length ? `<details class="opt"${opt.some(isDone) ? " open" : ""}><summary>Optional · ${opt.filter(isDone).length} of ${opt.length} ticked${CARET}</summary><ul>${opt.map((i) => itemHtml(i)).join("")}</ul></details>` : ""}</section>`;
+      ${opt.length ? `<details class="opt"${opt.some(isDone) || S.ui.pick ? " open" : ""}><summary>Optional check-ins · ${opt.filter(isDone).length} of ${opt.length} ticked${CARET}</summary><ul>${opt.map((i) => itemHtml(i)).join("")}</ul></details>` : ""}</section>`;
   }
   const weeklyHtml = (w) => P.weekly.map((x) => { const v = w[x.id] || 0; let dots = ""; for (let k = 1; k <= x.n; k++) dots += `<button data-wk="${x.id}" data-k="${k}" aria-pressed="${v >= k}" aria-label="${esc(x.t)}, ${k} of ${x.n}"><i></i></button>`; return `<div class="wk"><span>${esc(x.t)}${x.range ? `<small>${esc(x.range)}</small>` : ""}</span><div class="wk-dots">${dots}</div></div>`; }).join("");
   function chrome(st) { const pct = Math.round(day().pct * 100); $("#railStreak").textContent = st; $("#railStreakLabel").textContent = "day streak · " + pct + "% today"; $("#topStreak").textContent = st + " day streak · " + pct + "% today"; }
   function renderToday(keep) {
     now = new Date(); TK = dkey(now);
-    const dow = now.getDay(), rows = SC.day(dow, S.plan), t = tally(), nu = nextUp(rows), st = streak(); save();
+    const dow = now.getDay(), rows = SC.day(dow, S.plan, S.core), t = tally(), nu = nextUp(rows), nsk = Object.keys(day().s || {}).length, st = streak(); save();
     const sel = S.ui.period && S.ui.pday === TK && rows.some((r) => r.b.id === S.ui.period) ? S.ui.period : nu ? nu.b.id : rows[curPeriod(rows)].b.id, whole = !!S.ui.whole;
     const pct = Math.round(day().pct * 100), pl = SC.plan(dow, S.plan), nr = nu && nu.it.go && byId[nu.it.go], art = nr ? routineThumbs(nr).filter((l) => l.dep !== "reference")[0] : null;
     const meta = nu ? [nu.it.clock, nu.it.min ? nu.it.min + " min" : "", nr ? exCount(nr) + " steps" : "", nu.it.n ? `${day().d[nu.it.id] || 0} of ${nu.it.n} sessions done` : ""].filter(Boolean).join(" · ") : "";
     const nextCard = nu
       ? `<section class="next${art ? " has-art" : ""}" aria-label="Next up">${art ? `<div class="next-art" aria-hidden="true">${pic(art)}</div>` : ""}<div><p class="label">Next up · ${esc(nu.b.name)}</p><h2>${esc(nu.it.t)}</h2><p>${esc(meta || nu.it.d || "")}</p></div>
-          <div class="row">${nr ? `<button class="btn" data-play="${nu.it.go}">Start routine${gl(G.arrow, "s")}</button>` : ""}<button class="btn${nr ? " ghost" : ""}" data-nextdone="${nu.it.id}">${gl(G.check, "s")}${nu.it.n ? "Log a session" : "Mark done"}</button></div></section>`
-      : `<section class="next done" aria-label="Next up"><div><p class="label">All core tasks done</p><h2>Day complete.</h2><p>${t.done} of ${t.total} ticked. Optional items stay open under each part of the day.</p></div><div class="row"><a class="btn" href="#progress">View progress</a></div></section>`;
+          <div class="row">${nr ? `<button class="btn" data-play="${nu.it.go}">Start routine${gl(G.arrow, "s")}</button>` : ""}<button class="btn${nr ? " ghost" : ""}" data-nextdone="${nu.it.id}">${gl(G.check, "s")}${nu.it.n ? "Log a session" : "Mark done"}</button><button class="linkbtn" data-skip="${nu.it.id}">Skip today</button></div></section>`
+      : `<section class="next done" aria-label="Next up"><div><p class="label">${t.done >= t.total ? "All core items done" : "Nothing left on Next up"}</p><h2>${t.done >= t.total ? "Day complete." : "The rest of today is skipped."}</h2><p>${t.done} of ${t.total} core items done${nsk ? `, ${nsk} skipped` : ""}. Optional check-ins stay open under each part of the day.</p></div><div class="row"><a class="btn" href="#progress">View progress</a></div></section>`;
     const tr = (pl.train || []).filter((x) => byId[x[0]]);
     $("#v-today").innerHTML = `
       <header class="view-head"><div><p class="label">${DAYN[dow]}, ${now.getDate()} ${now.toLocaleDateString("en-GB", { month: "long" })}</p><h1>Your daily rhythm</h1><p class="lede">${esc(pl.focus || "")}</p></div>
-        <div class="head-side"><button class="btn ghost" data-editday="${dow}">${gl(G.pen, "s")}Edit my day</button></div></header>
-      ${subnav("today")}${stepsHtml(rows, t, whole ? null : sel)}
-      <div class="today-grid"><div class="tmain">${nextCard}
-        <section class="sess ${sb("both")}"><div class="sess-head"><h2>${whole ? "Day timetable" : "Today's session"}</h2><button class="chip plain" id="wholeDay" aria-pressed="${whole}">Whole day</button></div>
+        <div class="head-side"><button class="btn ghost" data-editday="${dow}" aria-label="Edit my day">${gl(G.pen, "s")}<span class="only-d">Edit my day</span></button></div></header>
+      ${subnav("today", "today")}${nextCard}${stepsHtml(rows, t, whole ? null : sel)}
+      <div class="today-grid"><div class="tmain">
+        <section class="sess ${sb("both")}"><div class="sess-head"><h2>${whole ? "Day timetable" : "Today's session"}</h2><button class="chip plain" id="pickCore" aria-pressed="${!!S.ui.pick}">Choose core</button><button class="chip plain" id="wholeDay" aria-pressed="${whole}">Whole day</button></div>${S.ui.pick ? `<p class="small muted">Core items count towards the day and the streak. Optional check-ins never do.${Object.keys(S.core || {}).length ? ' <button class="linkbtn" id="coreReset">Back to the default</button>' : ""}</p>` : ""}
           ${(whole ? rows : rows.filter((r) => r.b.id === sel)).map((r) => blockHtml(r, t, nu && nu.it.id)).join("")}
           <div class="row"><button class="btn ghost sm" data-add="item" data-g="${sel}">${gl(G.plus, "s")}Add a habit</button></div></section></div>
         <aside class="tside" aria-label="Progress, week and training">
-          <section class="tcard"><h3>Today's progress</h3><div class="prog">${ring(pct)}<p id="dayCount">${t.done} of ${t.total} complete<small>${st} day streak · a day counts at 80%</small></p></div></section>
+          <section class="tcard"><h3>Today's progress</h3><div class="prog">${ring(pct)}<p id="dayCount">${t.done} of ${t.total} complete<small>${st} day streak · a day counts at 80% of core items</small></p></div><button class="linkbtn" data-more="1">How the streak is counted</button></section>
           <section class="tcard"><h3>This week</h3>${weekDots()}<a class="linkbtn" href="#week">Open the week timetable</a></section>
           <section class="tcard ${sb("both")}"><h3>Today's training</h3>${tr.length ? tr.map((x) => `<div class="tr"><div><b>${esc(byId[x[0]].name)}</b><span>${x[1]} min · ${esc(catName(byId[x[0]].cat))}</span></div><button class="btn ghost sm" data-go="${x[0]}">Open</button></div>`).join("") : `<p class="muted small">No training block today. Walk your 10,000 steps.</p>`}</section>
           <details class="tcard ${sb("op")}"><summary>Hold all day${CARET}</summary><ul class="bullets small">${P.habits.map((h) => `<li>${esc(h)}</li>`).join("")}</ul></details>
@@ -669,7 +702,11 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
     chrome(st);
     if (keep) { const el = $(keep); if (el) el.focus({ preventScroll: true }); }
   }
-  function setItem(id, val, keep) { const d = day().d; if (val) d[id] = val; else delete d[id]; renderToday(keep); const t = tally(); say(`${t.done} of ${t.total} done today`); }
+  function setItem(id, val, keep) {
+    const rec = day(), d = rec.d, prev = d[id], ps = (rec.s || {})[id]; if (val) { d[id] = val; if (rec.s) delete rec.s[id]; } else delete d[id];
+    renderToday(keep); const t = tally(); say(`${t.done} of ${t.total} done today`);
+    toast(val ? "Marked done" : "Unticked", () => { const r = day(); if (prev) r.d[id] = prev; else delete r.d[id]; if (ps) (r.s = r.s || {})[id] = 1; renderToday(); });
+  }
 
   /* ── week timetable ── */
   const SLOTS = [["morning", "am", "Morning"], ["train", "train", "Training"], ["evening", "pm", "Evening"], ["bed", "bed", "Before bed"]];
@@ -683,13 +720,13 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
         const list = (pl[s[1]] || []).filter((x) => byId[x[0]]), tot = list.reduce((a, x) => a + (+x[1] || 0), 0); list.forEach((x) => (placed[x[0]] = 1));
         return `<div class="wk-cell"><p class="wk-slot">${s[2]}${list.length ? `<time>${SC.at(s[0], d, S.plan)}</time>` : ""}</p>${list.length ? `<ul>${list.map((x) => `<li><button data-go="${x[0]}">${ic(catIcon(byId[x[0]].cat), 22)}<span>${esc(byId[x[0]].name)}</span><small>${x[1]} min</small></button></li>`).join("")}</ul><p class="wk-tot">${tot} min</p>` : `<p class="wk-rest">${s[0] === "train" ? "Rest from training" : "Nothing set"}</p>`}</div>`;
       }).join("");
-      return `<section class="wk-day${d === dow ? " now" : ""}" aria-label="${DAYN[d]}"><header><b>${DAYN[d].slice(0, 3)}<span>${d === dow ? "Today" : addDays(m, n).getDate()}</span></b><p>${esc(pl.focus || "")}${over.length ? ' <span class="badge clay">does not fit</span>' : ""}</p><button class="linkbtn" data-editday="${d}">Edit<span class="sr"> ${DAYN[d]}</span></button></header>${cells}</section>`;
+      return `<section class="wk-day${d === dow ? " now" : ""}" aria-label="${DAYN[d]}"><header><b>${DAYN[d].slice(0, 3)}<span>${d === dow ? "Today" : addDays(m, n).getDate()}</span></b><p>${esc(pl.focus || "")}${over.length ? ' <span class="badge clay">does not fit</span>' : ""}${(S.plan || {})[d] ? ' <span class="badge gold">Edited by you</span>' : ""}</p><button class="linkbtn" data-editday="${d}">Edit<span class="sr"> ${DAYN[d]}</span></button></header>${cells}</section>`;
     }).join("");
     const loose = P.routines.filter((r) => !placed[r.id] && /min/.test(r.dur || ""));
     $("#v-week").innerHTML = `
       <header class="view-head"><div><p class="label">Week of ${m.getDate()} ${m.toLocaleDateString("en-GB", { month: "long" })}</p><h1>Your week</h1><p class="lede">Wake ${P.plan.times.wake}, bed ${P.plan.bedtime}. Gym every other day, sprints in between, the long sessions in the evening.</p></div>
         <div class="head-side"><button class="btn ghost" data-editday="${dow}">${gl(G.pen, "s")}Edit the timetable</button></div></header>
-      ${subnav("week")}
+      ${subnav("plan", "week")}
       <ul class="balance" aria-label="Days a week for each kind of routine">${P.cats.filter((c) => bal[c.id]).map((c) => `<li>${ic(c.icon, 28)}<b>${bal[c.id]}×</b>${esc(c.name)}</li>`).join("")}</ul>
       <div class="wk-grid ${sb("both")}">${cols}</div>
       <div class="cols"><section class="fg ${sb("op")}"><div class="fg-head"><h3>Weekly targets</h3></div><div class="rows">${weeklyHtml(week())}</div></section>
@@ -714,7 +751,7 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
     const optCounts = []; P.blocks.forEach((b) => b.items.filter((i) => i.opt).forEach((i) => { const c = tracked.filter((x) => x.rec.d[i.id]).length; if (c) optCounts.push([i.t, c]); }));
     const m = S.months[mkey(now)] || {};
     $("#v-progress").innerHTML = `
-      <header class="view-head"><div><a class="linkbtn" href="#today">${gl(G.back, "s")}&nbsp;Back to Today</a><h1>Progress</h1><p class="lede">Built only from what you have ticked on this device. Nothing here is estimated.</p></div></header>${subnav("progress")}
+      <header class="view-head"><div><a class="linkbtn" href="#today">${gl(G.back, "s")}&nbsp;Back to Today</a><h1>Progress</h1><p class="lede">Built only from what you have ticked on this device. Nothing here is estimated.</p></div></header>${subnav("today", "progress")}
       <div class="stats"><div class="card stat"><span class="label">Streak</span><b class="metric">${streak()}</b><span class="small muted">consecutive days at 80% or more</span></div>
         <div class="card stat"><span class="label">Days counted this week</span><b class="metric">${tracked.length ? counted + " of 7" : "–"}</b><span class="small muted">${tracked.length} day${tracked.length === 1 ? "" : "s"} with data</span></div>
         <div class="card stat"><span class="label">Average completion</span><b class="metric">${avg == null ? "–" : avg + "%"}</b><span class="small muted">${avg == null ? "no data this week" : "across tracked days this week"}</span></div></div>
@@ -749,7 +786,7 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
     const ui = S.ui;
     $("#v-routines").innerHTML = `
       <header class="view-head"><div><h1>Routines</h1><p class="lede">${P.routines.length} routines in ${P.cats.length} groups, and an illustrated library of ${P.library.length} exercises.</p></div><div class="head-side"><button class="btn ghost" data-add="routine">${gl(G.plus, "s")}Add a routine</button></div></header>
-      <div class="tabs" role="tablist" aria-label="Routines or exercise library"><button role="tab" aria-selected="${ui.rtab !== "lib"}" data-rtab="">Routines<span class="badge">${P.routines.length}</span></button><button role="tab" aria-selected="${ui.rtab === "lib"}" data-rtab="lib">Exercise library<span class="badge">${P.library.length}</span></button></div>
+      ${subnav("plan", ui.rtab === "lib" ? "lib" : "routines")}
       ${ui.rtab === "lib" ? libHtml() : `<div class="toolbar stick"><input class="search" id="rSearch" type="search" placeholder="Search routines and exercises" aria-label="Search routines and exercises" value="${esc(ui.rq || "")}">
         <button class="btn ghost sm only-m" data-sheet="rcat">${gl(G.filter, "s")}Groups</button><span class="badge sage only-m" id="rcatLabel"></span></div>
       <div class="chips only-d" role="group" aria-label="Filter by group"><button class="chip plain" data-cat="" aria-pressed="${!ui.rcat}">All</button>${P.cats.map((c) => `<button class="chip" data-cat="${c.id}" aria-pressed="${ui.rcat === c.id}">${ic(c.icon, 26)}${esc(c.name)}</button>`).join("")}</div>
@@ -810,12 +847,13 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
 
   /* ── topics: systems and extras ── */
   const ddHtml = (d, n, pre) => `<div class="dd">${n && n.length ? `<div class="dont" id="${pre}-dont"><h3>${gl(G.x, "s")}Don't</h3><ul class="bullets">${n.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}${d && d.length ? `<div class="do" id="${pre}-do"><h3>${gl(G.check, "s")}Do</h3><ul class="bullets">${d.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}</div>`;
-  const userNotes = (tid) => { const l = userOf("note").filter((a) => a.g === tid); return `<div class="more" id="t-mine"><h2>Your additions</h2>${l.length ? `<ul class="mg">${l.map((a) => `<li class="slim ${sb(a.src, a.who)}"><span class="badge ${a.list === "dont" ? "clay" : "sage"}">${a.list === "dont" ? "Don't" : "Do"}</span><span>${esc(a.n)}</span><button class="linkbtn" data-add="note" data-id="${a.id}">Edit</button></li>`).join("")}</ul>` : '<p class="small muted">Nothing added to this topic yet.</p>'}<div class="row"><button class="btn ghost sm" data-add="note" data-g="${tid}">${gl(G.plus, "s")}Add a note here</button></div></div>`; };
+  const topicCard = (x, key) => { const dn = x.dont ? x.dont.length : x.groups.reduce((s, g) => s + g.dont.length, 0), dd = x.do ? x.do.length : x.groups.reduce((s, g) => s + g.do.length, 0); return `<button class="topic ${sb(x.src, x.who)}" data-topic="${key}" data-id="${esc(x.id)}">${ic(x.icon, 56)}<h3>${esc(x.name)}</h3><p>${esc(x.intro || (x.key || [])[0] || "")}</p><span class="badges"><span class="badge clay">${dn} don't</span><span class="badge sage">${dd} do</span></span></button>`; };
+  const userNotes = (tid) => { const l = userOf("note").filter((a) => a.g === tid); return `<div class="more" id="t-mine"><h2>Your additions</h2>${userOf("topic").some((a) => a.id === tid) ? `<p><button class="linkbtn" data-add="topic" data-id="${tid}">Edit this topic</button></p>` : ""}${l.length ? `<ul class="mg">${l.map((a) => `<li class="slim ${sb(a.src, a.who)}"><span class="badge ${a.list === "dont" ? "clay" : "sage"}">${a.list === "dont" ? "Don't" : "Do"}</span><span>${esc(a.n)}</span><button class="linkbtn" data-add="note" data-id="${a.id}">Edit</button></li>`).join("")}</ul>` : '<p class="small muted">Nothing added to this topic yet.</p>'}<div class="row"><button class="btn ghost sm" data-add="note" data-g="${tid}">${gl(G.plus, "s")}Add a note here</button></div></div>`; };
   function renderTopics(view, list, key, title, lede) {
     const sel = list.find((x) => x.id === S.ui[key]), el = $("#v-" + view);
     if (!sel) {
       el.innerHTML = `<header class="view-head"><div><h1>${title}</h1><p class="lede">${lede}</p></div><div class="head-side"><button class="btn ghost" data-add="note">${gl(G.plus, "s")}Add a note</button></div></header>
-        <div class="topics">${list.map((x) => { const dn = x.dont ? x.dont.length : x.groups.reduce((s, g) => s + g.dont.length, 0), dd = x.do ? x.do.length : x.groups.reduce((s, g) => s + g.do.length, 0); return `<button class="topic ${sb(x.src)}" data-topic="${key}" data-id="${x.id}">${ic(x.icon, 56)}<h3>${esc(x.name)}</h3><p>${esc(x.intro || (x.key || [])[0] || "")}</p><span class="badges"><span class="badge clay">${dn} don't</span><span class="badge sage">${dd} do</span></span></button>`; }).join("")}</div>`;
+        <div class="topics">${list.map((x) => topicCard(x, key)).join("")}</div>`;
       return;
     }
     const i = list.indexOf(sel), anchors = [], sec = (id, label) => { anchors.push([id, label]); return id; };
@@ -825,10 +863,10 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
       if (sel.dont.length) sec("t-dont", "Don't"); if (sel.do.length) sec("t-do", "Do");
       body = `${sel.key && sel.key.length ? `<ul class="keys">${sel.key.map((k) => `<li>${esc(k)}</li>`).join("")}</ul>` : ""}${ddHtml(sel.do, sel.dont, "t")}${(sel.more || []).map((m, k) => `<div class="more" id="${sec("m" + k, m.h)}"><h2>${esc(m.h)}</h2><ul class="bullets">${m.items.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>`).join("")}`;
     }
-    el.innerHTML = `<div class="detail"><div class="row"><button class="btn ghost sm" data-topic="${key}" data-id="">${gl(G.back, "s")}All ${title.toLowerCase()}</button><span style="flex:1"></span>
+    el.innerHTML = `<div class="detail"><div class="row"><a class="btn ghost sm" href="#library">${gl(G.back, "s")}Library</a><span style="flex:1"></span>
         <button class="btn ghost sm" data-topic="${key}" data-id="${list[(i + list.length - 1) % list.length].id}">Previous</button><button class="btn ghost sm" data-topic="${key}" data-id="${list[(i + 1) % list.length].id}">Next topic</button></div>
       <div class="md-title">${ic(sel.icon, 72)}<div><h1>${esc(sel.name)}</h1>${sel.intro ? `<p class="lede">${esc(sel.intro)}</p>` : ""}</div></div>
-      ${anchors.length > 1 ? `<nav class="anchors" aria-label="On this page">${anchors.map((a) => `<button class="chip plain" data-anchor="${a[0]}">${esc(a[1])}</button>`).join("")}</nav>` : ""}<div class="sbody ${sb(sel.src)}">${body}${userNotes(sel.id)}</div></div>`;
+      ${anchors.length > 1 ? `<nav class="anchors" aria-label="On this page">${anchors.map((a) => `<button class="chip plain" data-anchor="${a[0]}">${esc(a[1])}</button>`).join("")}</nav>` : ""}<div class="sbody ${sb(sel.src, sel.who)}">${body}${userNotes(sel.id)}${relatedHtml(sel)}</div></div>`;
   }
   const renderSystems = () => renderTopics("systems", P.systems, "sys", "Systems", "Pick a system for what to cut, what to do and the numbers worth remembering.");
   const renderExtras = () => renderTopics("extras", P.extras, "ext", "Bonus extras", "Toxin avoidance, the allergy guide and the other side protocols.");
@@ -867,7 +905,7 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
     const cur = S.ui.nut || "approved";
     $("#v-nutrition").innerHTML = `<div class="hero"><div><h1>Nutrition</h1><p class="lede">Raw and rare animal foods, ripe fruit, honey. No seed oils. Approved Foods merged with the diet pages of OP 1 and OP 2.</p></div>
         <img src="assets/primal-table.webp" width="1440" height="960" alt="Papaya, oranges, raw liver, eggs, raw milk, oysters, figs, pomegranate and berries on a table"></div>
-      <div class="chips" role="tablist" aria-label="Nutrition sections">${NT.map((t) => `<button class="chip plain" role="tab" aria-selected="${t[0] === cur}" data-nut="${t[0]}">${t[1]}</button>`).join("")}</div><div class="panel" role="tabpanel" id="nutPanel">${nutPanel(cur)}</div>`;
+      ${subnav("library", "nutrition")}<div class="chips" role="tablist" aria-label="Nutrition sections">${NT.map((t) => `<button class="chip plain" role="tab" aria-selected="${t[0] === cur}" data-nut="${t[0]}">${t[1]}</button>`).join("")}</div><div class="panel" role="tabpanel" id="nutPanel">${nutPanel(cur)}</div>`;
   }
 
   /* ── products: library, wishlist, owned ── */
@@ -931,21 +969,12 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
   }
   function openFind() {
     if ($("#find").hidden) lastFocus = document.activeElement;
-    $("#find").innerHTML = `<div class="findpanel" role="dialog" aria-modal="true" aria-label="Find anything"><header><input class="search" id="fInput" type="search" placeholder="Find a routine, exercise, food, product, topic…" aria-label="Find anything" autocomplete="off"><button class="btn ghost sm" id="findClose">Close</button></header><div class="findres" id="fRes"></div></div>`;
-    $("#find").hidden = false; document.body.style.overflow = "hidden"; drawFind(""); $("#fInput").focus();
+    $("#find").innerHTML = `<div class="findpanel" role="dialog" aria-modal="true" aria-label="Find anything"><header><input class="search" id="fInput" type="search" placeholder="Find a routine, exercise, food, product, topic…" aria-label="Find anything" autocomplete="off"><button class="btn ghost sm" id="findClose">Close</button></header><div class="chips" id="fFilt" role="group" aria-label="Filter by type"></div><div class="findres" id="fRes"></div></div>`;
+    $("#find").hidden = false; document.body.style.overflow = "hidden"; $("#fInput").value = S.ui.fq || ""; drawFind(S.ui.fq || "", true); $("#fInput").focus(); $("#fInput").select();
   }
   function closeFind(keep) { $("#find").hidden = true; $("#find").innerHTML = ""; document.body.style.overflow = ""; if (!keep && lastFocus && lastFocus.focus) lastFocus.focus(); }
-  function drawFind(q) {
-    q = q.trim().toLowerCase(); const box = $("#fRes");
-    if (q.length < 2) { box.innerHTML = `<h3>Jump to</h3>${[["Today's routine", "today"], ["Routines", "routines"], ["Exercise library", "routines-lib"], ["Nutrition", "nutrition"], ["Systems", "systems"], ["Products", "products"], ["Bonus extras", "extras"], ["Progress", "progress"]].map((j) => `<button data-jumpto="${j[1]}"><b>${j[0]}</b></button>`).join("")}<p class="small muted" style="padding:12px 6px">Type two or more letters to search all ${findIndex().length} entries.</p>`; return; }
-    const words = q.split(/\s+/), hits = findIndex().filter((x) => words.every((w) => x.k.indexOf(w) > -1)), groups = {};
-    hits.forEach((h) => (groups[h.kind] = groups[h.kind] || []).push(h));
-    const hl = (t) => { let o = esc(t); words.forEach((w) => { o = o.replace(new RegExp("(" + w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig"), "<mark>$1</mark>"); }); return o; };
-    box.innerHTML = hits.length ? Object.keys(groups).map((g) => { const rows = groups[g].sort((a, b) => (a.t.toLowerCase().indexOf(q) < 0) - (b.t.toLowerCase().indexOf(q) < 0) || a.t.length - b.t.length); return `<h3>${g}<span>${rows.length}</span></h3>${rows.slice(0, 7).map((h) => `<button data-findgo='${esc(JSON.stringify(h.act))}'>${srcTag(h.src, 1)}<b>${hl(h.t)}</b>${h.sub ? `<small>${esc(h.sub.slice(0, 60))}</small>` : ""}</button>`).join("")}`; }).join("")
-      : `<div class="empty" style="margin-top:14px"><p>Nothing matches “${esc(q)}”. Try one word, such as “thyroid”, “oyster” or “squat”.</p></div>`;
-  }
   function findGo(a) {
-    closeFind(true); const go = (h) => { if (location.hash === "#" + h) route(false); else location.hash = "#" + h; };
+    S.ui.fy = ($("#fRes") || {}).scrollTop || 0; save(); closeFind(true); const go = (h) => { if (location.hash === "#" + h) route(false); else location.hash = "#" + h; };
     if (a[0] === "routine") { S.ui.rtab = ""; openRoutine(a[1]); }
     else if (a[0] === "lib") { S.ui.rtab = "lib"; save(); if (location.hash !== "#routines") keepLib = true; go("routines"); openLib(a[1]); }
     else if (a[0] === "sys") { S.ui.sys = a[1]; save(); go("systems"); }
@@ -965,7 +994,7 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
       ${rows.map((r) => `<button class="opt-row" data-sheetpick="${r[0]}" aria-pressed="${cur === r[0]}">${r[3] ? ic(r[3], 28) : ""}${esc(r[1])}<span>${r[2]}</span></button>`).join("")}</div>`;
     $("#sheet").hidden = false; document.body.style.overflow = "hidden"; $("#sheetClose").focus();
   }
-  function closeSheet() { ED = null; $("#sheet").hidden = true; $("#sheet").innerHTML = ""; document.body.style.overflow = ""; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+  function closeSheet(force) { if (!force && ED && Object.keys(ED.dirty).length && !ED.warned) { ED.warned = 1; const b = $("#sheetClose"); b.textContent = "Discard changes?"; b.focus(); say("You have unsaved timetable changes. Press again to discard them."); return; } ED = null; IMP = null; $("#sheet").hidden = true; $("#sheet").innerHTML = ""; document.body.style.overflow = ""; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
 
   /* ── movement illustrations: the exercise library first, a labelled placeholder otherwise ── */
   function figure(name, cat, rid) {
@@ -1047,13 +1076,80 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
   }
   requestAnimationFrame(loop);
 
+  /* ── library: nutrition plus every system and extra, grouped by topic.grp (data/meta.js). A new topic only needs a grp ── */
+  const LGROUPS = [["move", "Movement & posture"], ["sleep", "Sleep & recovery"], ["energy", "Energy & hormones"], ["env", "Environment & personal care"], ["ref", "Reference"]];
+  const NTIC = { approved: "steak", avoid: "leaf", plate: "target", timing: "clock", recipes: "carrotsalad", map: "pomegranate" };
+  const topicsAll = () => P.systems.map((t) => [t, "sys"]).concat(P.extras.map((t) => [t, "ext"]));
+  function renderLibrary() {
+    $("#v-library").innerHTML = `<header class="view-head"><div><h1>Library</h1><p class="lede">What to do, what to cut and the numbers worth knowing, grouped by topic.</p></div><div class="head-side"><button class="btn ghost" data-add="topic">${gl(G.plus, "s")}Add a topic</button></div></header>
+      ${subnav("library", "library")}
+      <section class="lgroup"><h2>Nutrition</h2><div class="topics">${NT.map((t) => `<button class="topic ncard card" data-jumpnut="${t[0]}">${ic(NTIC[t[0]], 56)}<h3>${t[1]}</h3></button>`).join("")}</div></section>
+      ${LGROUPS.map((g) => { const l = topicsAll().filter((x) => (x[0].grp || "ref") === g[0]); return l.length ? `<section class="lgroup"><h2>${g[1]}<span class="badge">${l.length}</span></h2><div class="topics">${l.map((x) => topicCard(x[0], x[1])).join("")}</div></section>` : ""; }).join("")}`;
+  }
+  const relatedHtml = (sel) => { const rs = ((P.related || {})[sel.id] || []).map((id) => byId[id]).filter(Boolean), ts = topicsAll().filter((x) => x[0].id !== sel.id && (x[0].grp || "ref") === (sel.grp || "ref"));
+    return `${rs.length || ts.length ? `<div class="more" id="t-related"><h2>Related in the hub</h2><div class="chips">${rs.map(pill).join("")}${ts.map((x) => `<button class="chip plain" data-topic="${x[1]}" data-id="${esc(x[0].id)}">${esc(x[0].name)}</button>`).join("")}</div></div>` : ""}<p class="srcline">Source: ${srcOf(sel.src) === "x" ? esc(sel.who || "Other source") : srcOf(sel.src) === "me" ? "my notes" : srcOf(sel.src) === "both" ? "OP docs and my notes" : "OP docs"}.</p>`; };
+
+  /* ── toast with one undo ── */
+  let undoFn = null, toastT = 0;
+  function toast(msg, undo) { undoFn = undo || null; const el = $("#toast"); el.innerHTML = `<span>${esc(msg)}</span>${undo ? '<button data-undo="1">Undo</button>' : ""}`; el.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => { el.hidden = true; undoFn = null; }, undo ? 8000 : 3200); }
+
+  /* ── more: the utility area (phones reach it from the bottom bar) ── */
+  const sheetUp = (html, label) => { if ($("#sheet").hidden) lastFocus = document.activeElement; $("#sheet").innerHTML = `<div class="sheet ed" role="dialog" aria-modal="true" aria-label="${label}"><div class="sheet-head"><h3>${label}</h3><button class="btn ghost sm" id="sheetClose">Close</button></div>${html}</div>`; $("#sheet").hidden = false; document.body.style.overflow = "hidden"; $("#sheetClose").focus(); };
+  const STREAK = "A day counts when at least 80% of its core items are ticked. Optional check-ins never add to the count. A skipped core item still counts as not done; skipping only takes it off Next up. Use Choose core on Today to change what counts.";
+  function openMore() {
+    sheetUp(`<a class="opt-row" href="#progress">Progress<span>${streak()} day streak</span></a><button class="opt-row" data-saved="1">Saved routines<span>${Object.keys(S.fav || {}).length}</span></button><button class="opt-row" data-manage="1">My edits, backup and restore<span>${(S.adds || []).length}</span></button><button class="opt-row" data-find="1">Find anything</button>
+      <h4>Sources</h4><p class="small muted">Each block carries a name tab saying where it came from. The frame colour repeats it.</p><div class="key"><span class="src op">OP docs</span><span class="src me">My notes</span><span class="src both">OP docs + mine</span><span class="src x"${(S.adds || []).some((a) => a.src === "x") ? "" : " hidden"}>Someone else, named</span></div><button class="srcswitch" role="switch" aria-checked="${!S.ui.plain}" data-srctoggle="1"><i aria-hidden="true"></i>Source colours</button>
+      <h4>How the streak is counted</h4><p class="small">${STREAK}</p>`, "More");
+  }
+  function openSaved() {
+    const favs = P.routines.filter((r) => S.fav[r.id]), rec = (S.recent || []).map((id) => byId[id]).filter(Boolean).slice(0, 5), row = (r) => `<button class="opt-row" data-go="${esc(r.id)}">${esc(r.name)}<span>${esc(catName(r.cat) || "")}</span></button>`;
+    sheetUp(`${favs.length ? favs.map(row).join("") : '<div class="empty"><b>No saved routines yet</b>Tap the star on a routine to keep it here.</div>'}${rec.length ? `<h4>Recently opened</h4>${rec.map(row).join("")}` : ""}`, "Saved routines");
+  }
+
+  /* ── find: best matches first, filter by type, every match reachable, state kept for the return trip ── */
+  let FOPEN = {};
+  function drawFind(q, keepScroll) {
+    S.ui.fq = q; q = q.trim().toLowerCase(); const box = $("#fRes"), filt = $("#fFilt");
+    if (q.length < 2) { filt.innerHTML = ""; box.innerHTML = `<h3>Jump to</h3>${[["Today", "today"], ["Timetable", "week"], ["Routines", "routines"], ["Exercise library", "routines-lib"], ["Library", "library"], ["Nutrition", "nutrition"], ["Products", "products"], ["Progress", "progress"]].map((j) => `<button data-jumpto="${j[1]}"><b>${j[0]}</b></button>`).join("")}<p class="small muted" style="padding:12px 6px">Type two or more letters to search all ${findIndex().length} entries.</p>`; return; }
+    const words = q.split(/\s+/), all = findIndex().filter((x) => words.every((w) => x.k.indexOf(w) > -1)), groups = {}, kinds = {};
+    all.forEach((h) => (kinds[h.kind] = (kinds[h.kind] || 0) + 1)); if (S.ui.fk && !kinds[S.ui.fk]) S.ui.fk = "";
+    const hits = S.ui.fk ? all.filter((h) => h.kind === S.ui.fk) : all, rank = (h) => { const t = h.t.toLowerCase(); return t === q ? 0 : t.indexOf(q) === 0 ? 1 : t.indexOf(q) > -1 ? 2 : 3; };
+    hits.sort((a, b) => rank(a) - rank(b) || a.t.length - b.t.length); hits.forEach((h) => (groups[h.kind] = groups[h.kind] || []).push(h));
+    const hl = (t) => { let o = esc(t); words.forEach((w) => { o = o.replace(new RegExp("(" + w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig"), "<mark>$1</mark>"); }); return o; };
+    const row = (h, kind) => `<button data-findgo='${esc(JSON.stringify(h.act))}'>${srcTag(h.src, 1)}<b>${hl(h.t)}</b><small>${kind ? esc(h.kind) + (h.sub ? " · " : "") : ""}${h.sub ? hl(h.sub.slice(0, 90)) : ""}</small></button>`;
+    const best = hits.filter((h) => rank(h) < 2).slice(0, 3);
+    filt.innerHTML = all.length ? `<button class="chip plain" data-fk="" aria-pressed="${!S.ui.fk}">All ${all.length}</button>${Object.keys(kinds).map((k) => `<button class="chip plain" data-fk="${esc(k)}" aria-pressed="${S.ui.fk === k}">${esc(k)} ${kinds[k]}</button>`).join("")}` : "";
+    box.innerHTML = hits.length ? (best.length ? `<h3>Best match</h3>${best.map((h) => row(h, 1)).join("")}` : "") + Object.keys(groups).map((g) => { const rows = groups[g], open = FOPEN[g] || S.ui.fk === g || rows.length <= 8; return `<h3>${esc(g)}<span>${rows.length}</span></h3>${(open ? rows : rows.slice(0, 7)).map((h) => row(h)).join("")}${open ? "" : `<button class="more-row" data-fmore="${esc(g)}">Show all ${rows.length} in ${esc(g)}</button>`}`; }).join("")
+      : `<div class="empty" style="margin-top:14px"><p>Nothing matches “${esc(q)}”. Try one word, such as “thyroid”, “oyster” or “squat”.</p></div>`;
+    box.scrollTop = keepScroll ? S.ui.fy || 0 : 0;
+  }
+
+  /* ── today extras: skip, undo, and the owner's own core plan (S.core) ── */
+  const skipped = (i) => !!(day().s || {})[i.id];
+  function setSkip(id, on) { const d = day(); d.s = d.s || {}; if (on) d.s[id] = 1; else delete d.s[id]; renderToday(); }
+  /* clicks for navigation helpers, find, skip and undo; returns true when it handled the click */
+  function uiClick(t, d) {
+    if (d.undo) { const f = undoFn; $("#toast").hidden = true; undoFn = null; if (f) f(); say("Undone"); return true; }
+    if (d.more) { openMore(); return true; }
+    if (d.saved) { openSaved(); return true; }
+    if (d.jumpnut) { S.ui.nut = d.jumpnut; save(); location.hash = "#nutrition"; return true; }
+    if (d.fk !== undefined) { S.ui.fk = d.fk; FOPEN = {}; drawFind($("#fInput").value); refocus(`[data-fk="${d.fk}"]`); return true; }
+    if (d.fmore) { FOPEN[d.fmore] = 1; const y = $("#fRes").scrollTop; drawFind($("#fInput").value); $("#fRes").scrollTop = y; return true; }
+    if (d.skip) { const it = findItem(d.skip); if (it) { setSkip(d.skip, true); toast("Skipped for today. It still counts as not done.", () => setSkip(d.skip, false)); } return true; }
+    if (d.unskip) { setSkip(d.unskip, false); return true; }
+    if (t.id === "pickCore") { S.ui.pick = !S.ui.pick; save(); renderToday("#pickCore"); return true; }
+    if (t.id === "coreReset") { const prev = S.core; S.core = {}; renderToday("#pickCore"); toast("Core plan back to the default", () => { S.core = prev; renderToday(); }); return true; }
+    if (d.core) { const it = findItem(d.core); if (it) { S.core = S.core || {}; S.core[d.core] = it.opt ? 1 : 0; renderToday(`[data-core="${d.core}"]`); say(it.opt ? "Now counts as core" : "Now optional"); } return true; }
+    return false;
+  }
+
   /* ── edit the timetable. Saved in this browser as S.plan[weekday]; a day that does not fit cannot be saved ── */
   let ED = null;
   const clone = (x) => JSON.parse(JSON.stringify(x));
   const draft = (d) => { if (!ED.drafts[d]) { ED.drafts[d] = clone(SC.plan(d, S.plan)); ED.drafts[d].at = ED.drafts[d].at || {}; } return ED.drafts[d]; };
   function openEditor(dow) { lastFocus = document.activeElement; ED = { dow, drafts: {}, dirty: {} }; drawEditor(); $("#sheet").hidden = false; document.body.style.overflow = "hidden"; $("#sheetClose").focus(); }
   function drawEditor(keep) {
-    const top = ($(".sheet.ed") || {}).scrollTop || 0, d = ED.dow, pl = draft(d), bad = Object.keys(ED.dirty).filter((x) => SC.day(+x, ED.drafts).some((r) => r.over)), rows = SC.day(d, ED.drafts), over = rows.filter((r) => r.over);
+    ED.warned = 0; const top = ($(".sheet.ed") || {}).scrollTop || 0, d = ED.dow, pl = draft(d), bad = Object.keys(ED.dirty).filter((x) => SC.day(+x, ED.drafts).some((r) => r.over)), rows = SC.day(d, ED.drafts), over = rows.filter((r) => r.over);
     const opts = P.cats.map((c) => `<optgroup label="${esc(c.name)}">${P.routines.filter((r) => r.cat === c.id).map((r) => `<option value="${esc(r.id)}">${esc(r.name)}${/min/.test(r.dur || "") ? " · " + SC.mins(r.id) + " min" : ""}</option>`).join("")}</optgroup>`).join("");
     const slots = SLOTS.map((s) => {
       const list = pl[s[1]] || [], r = rows.find((x) => x.b.id === s[0]);
@@ -1070,6 +1166,7 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
     if (keep) refocus(keep);
   }
   function editChange(el) {
+    if (el.dataset.addkind) { const f = el.closest("form"), n = ($('[data-f="n"]', f) || {}).value || "", src = (f.querySelector('[name="src"]:checked') || {}).value || "me"; openAdd(el.value, null, { n, src }); refocus("[data-addkind]"); return true; }
     const d = el.dataset, pl = ED && draft(ED.dow); if (!pl) return false;
     if (d.edat) { if (/^\d\d:\d\d$/.test(el.value)) pl.at[d.edat] = el.value; }
     else if (d.edmin) { const p = d.edmin.split(":"); pl[p[0]][+p[1]][1] = Math.max(1, Math.min(240, Math.round(+el.value) || 1)); }
@@ -1083,19 +1180,20 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
   /* ── add your own information. Saved in this browser as S.adds; every entry records whose it is ── */
   const FOODIC = ["apple", "avocado", "banana", "blueberries", "broth", "butter", "carrotsalad", "cheese", "cherries", "coconut", "dates", "egg", "fig", "honeycomb", "kiwi", "liver", "mango", "marrow", "milk", "mussel", "nettletea", "orange", "oyster", "pomegranate", "salmon", "sardines", "seasalt", "shrimp", "steak", "walnut"];
   const ADD = {
-    food: { title: "Add a food", f: [["n", "Food", "text"], ["g", "List", "sel"], ["note", "Note (optional)", "text"], ["icon", "Picture", "sel"]] },
-    product: { title: "Add a product", f: [["n", "Product", "text"], ["g", "Type", "sel"], ["p", "Price in £ (optional)", "number"], ["u", "Link (optional)", "url"], ["note", "Note (optional)", "text"]] },
-    note: { title: "Add a note", f: [["g", "Section", "sel"], ["list", "Goes under", "sel"], ["n", "Note", "text"]] },
-    routine: { title: "Add a routine", f: [["n", "Routine name", "text"], ["g", "Group", "sel"], ["min", "Minutes", "number"], ["steps", "Steps, one per line", "area"]] },
-    item: { title: "Add a daily habit", f: [["n", "Habit", "text"], ["g", "Part of the day", "sel"], ["min", "Minutes (optional)", "number"], ["opt", "Optional, not counted towards the day", "check"]] },
+    food: { title: "Add a food", f: [["n", "Title", "text"], ["g", "Topic", "sel"], ["note", "Summary (optional)", "text"], ["icon", "Picture", "sel"]] },
+    product: { title: "Add a product", f: [["n", "Title", "text"], ["g", "Topic", "sel"], ["note", "Summary (optional)", "text"], ["p", "Price in £ (optional)", "number"], ["u", "Link (optional)", "url"]] },
+    note: { title: "Add a note", f: [["n", "Title", "text"], ["g", "Topic", "sel"], ["list", "Goes under", "sel"]] },
+    routine: { title: "Add a routine", f: [["n", "Title", "text"], ["g", "Topic", "sel"], ["min", "Minutes", "number"], ["steps", "Steps, one per line", "area"]] },
+    item: { title: "Add a daily habit", f: [["n", "Title", "text"], ["g", "Part of the day", "sel"], ["min", "Minutes (optional)", "number"], ["opt", "Optional check-in, not counted towards the day", "check"]] },
+    topic: { title: "Add a topic", f: [["n", "Title", "text"], ["g", "Topic", "sel"], ["note", "Summary", "text"], ["steps", "Do, one per line", "area"], ["dont", "Don't, one per line", "area"]] },
   };
   const addOpts = (k, f) => f === "icon" ? [["", "Pick for me"]].concat(FOODIC.map((x) => [x, x]))
     : f === "list" ? [["do", "Do"], ["dont", "Don't"]]
     : k === "food" ? P.nutrition.approved.map((g, i) => ["a" + i, "Approved: " + g.h]).concat(P.nutrition.avoid.map((g, i) => ["v" + i, "Avoid: " + g.h]))
-    : k === "product" ? P.productGroups : k === "routine" ? P.cats.map((c) => [c.id, c.name]) : k === "item" ? P.blocks.map((b) => [b.id, b.name])
+    : k === "topic" ? LGROUPS : k === "product" ? P.productGroups : k === "routine" ? P.cats.map((c) => [c.id, c.name]) : k === "item" ? P.blocks.map((b) => [b.id, b.name])
     : P.systems.map((t) => [t.id, "Systems: " + t.name]).concat(P.extras.map((t) => [t.id, "Extras: " + t.name]));
   const cleanAdds = (l) => (Array.isArray(l) ? l : []).filter((a) => a && ADD[a.k] && typeof a.n === "string" && a.n.trim() && /^u[a-z0-9]+$/.test(a.id)).map((a) => {
-    const o = {}; ["k", "id", "n", "g", "note", "icon", "p", "u", "list", "min", "steps", "opt", "src", "who"].forEach((f) => { if (a[f] != null && a[f] !== "") o[f] = String(a[f]).slice(0, 2000); });
+    const o = {}; ["k", "id", "n", "g", "note", "icon", "p", "u", "list", "min", "steps", "dont", "opt", "src", "who"].forEach((f) => { if (a[f] != null && a[f] !== "") o[f] = String(a[f]).slice(0, 2000); });
     if (o.u && !/^https?:\/\//i.test(o.u)) delete o.u; if (o.icon && FOODIC.indexOf(o.icon) < 0) delete o.icon; if (!SRCN[o.src] || o.src === "both") o.src = "me"; return o;
   });
   const cleanPlan = (p) => { const o = {}; if (p && typeof p === "object") for (let d = 0; d < 7; d++) { const x = p[d]; if (!x || typeof x !== "object") continue; const y = { focus: String(x.focus || "").slice(0, 60), at: {} }; ["am", "train", "pm", "bed"].forEach((k) => { y[k] = (Array.isArray(x[k]) ? x[k] : []).filter((s) => Array.isArray(s) && typeof s[0] === "string").map((s) => [s[0].slice(0, 40), Math.max(1, Math.min(240, Math.round(+s[1]) || 10))]); }); Object.keys(P.plan.times).forEach((b) => { if (x.at && /^\d\d:\d\d$/.test(x.at[b])) y.at[b] = x.at[b]; }); o[d] = y; } return o; };
@@ -1105,28 +1203,30 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
     P.routines = P.routines.filter((r) => !r.uid).concat(userOf("routine").map((a) => ({ id: a.id, uid: a.id, cat: a.g, name: a.n, when: "Added in the hub", dur: (+a.min || 10) + " min", src: a.src, who: a.who, ex: (a.steps || "").split("\n").map((s) => s.trim()).filter(Boolean).map((s) => ({ n: s, s: [] })) })));
     Object.keys(byId).forEach((k) => delete byId[k]); P.routines.forEach((r) => (byId[r.id] = r));
     P.blocks.forEach((b) => { b.items = b.items.filter((i) => !i.uid).concat(userOf("item").filter((a) => a.g === b.id).map((a) => ({ id: a.id, uid: a.id, t: a.n, min: +a.min || 0, opt: a.opt === "1", src: a.src, who: a.who }))); });
+    const lines = (x) => (x || "").split("\n").map((y) => y.trim()).filter(Boolean);
+    P.extras = P.extras.filter((t) => !t.uid).concat(userOf("topic").map((a) => ({ id: a.id, uid: a.id, name: a.n, icon: "book", intro: a.note || "", grp: a.g, src: a.src, who: a.who, groups: [{ h: "Notes", do: lines(a.steps), dont: lines(a.dont) }] })));
     FIDX = null; $$(".src.x").forEach((e) => (e.hidden = !(S.adds || []).some((a) => a.src === "x")));
   }
   let AD = null;
   function openAdd(k, id, preset) {
     if (!ADD[k]) return; if ($("#sheet").hidden) lastFocus = document.activeElement;
     const cur = (id && (S.adds || []).find((a) => a.id === id)) || Object.assign({ src: "me" }, preset); AD = { k, id: cur.id };
-    const fld = (f) => { const v = cur[f[0]] == null ? "" : cur[f[0]], at = `data-f="${f[0]}"`;
+    const fld = (f) => { const v = cur[f[0]] == null ? "" : cur[f[0]], at = `data-f="${f[0]}" name="${f[0]}" autocomplete="off"`;
       return f[2] === "check" ? `<label class="field check"><input type="checkbox" ${at}${v === "1" ? " checked" : ""}>${f[1]}</label>`
         : `<label class="field">${f[1]}${f[2] === "sel" ? `<select ${at}>${addOpts(k, f[0]).map((o) => `<option value="${esc(o[0])}"${o[0] === v ? " selected" : ""}>${esc(o[1])}</option>`).join("")}</select>` : f[2] === "area" ? `<textarea ${at} rows="5">${esc(v)}</textarea>` : `<input type="${f[2] === "number" ? "number" : "text"}" ${at} value="${esc(v)}" maxlength="200"${f[2] === "number" ? ' min="0" step="any" inputmode="decimal"' : f[2] === "url" ? ' inputmode="url" placeholder="https://"' : ""}>`}</label>`; };
     $("#sheet").innerHTML = `<form class="sheet ed" id="addForm" role="dialog" aria-modal="true" aria-label="${ADD[k].title}" novalidate><div class="sheet-head"><h3>${cur.id ? "Edit" : ADD[k].title}</h3><button type="button" class="btn ghost sm" id="sheetClose">Close</button></div>
-      ${ADD[k].f.map(fld).join("")}
+      ${cur.id ? "" : `<label class="field">Type<select data-addkind="1" name="kind">${Object.keys(ADD).map((x) => `<option value="${x}"${x === k ? " selected" : ""}>${ADD[x].title.replace(/^Add an? /, "")}</option>`).join("")}</select></label>`}${ADD[k].f.map(fld).join("")}
       <fieldset class="ed-slot"><legend>Whose is this?</legend><p class="small muted">It decides the colour of its frame, so the key stays true.</p>${[["me", "Mine"], ["op", "From the OP docs"], ["x", "Someone else's"]].map((o) => `<label class="field check"><input type="radio" name="src" value="${o[0]}"${cur.src === o[0] ? " checked" : ""}>${o[1]}</label>`).join("")}<label class="field">Their name, if it is someone else's<input type="text" data-f="who" maxlength="30" value="${esc(cur.who || "")}"></label></fieldset>
       <div class="status warn" id="addErr" role="alert" hidden></div>
       <div class="ed-foot">${cur.id ? '<button type="button" class="linkbtn" id="addDel">Delete</button>' : ""}<span style="flex:1"></span><button class="btn" type="submit">${cur.id ? "Save" : "Add"}</button></div></form>`;
     $("#sheet").hidden = false; document.body.style.overflow = "hidden"; const first = $("#addForm [data-f]"); if (first) first.focus();
   }
-  function afterEdit(msg) { save(); applyAdds(); closeSheet(); RENDER[current](); say(msg); }
+  function afterEdit(msg) { save(); applyAdds(); closeSheet(true); RENDER[current](); say(msg); toast(msg); }
   function saveAdd(form) {
     const a = { k: AD.k, id: AD.id || "u" + Date.now().toString(36) }; $$("[data-f]", form).forEach((el) => { a[el.dataset.f] = el.type === "checkbox" ? (el.checked ? "1" : "") : el.value.trim(); });
     a.src = (form.querySelector('[name="src"]:checked') || {}).value || "me";
     const err = !a.n ? "Give it a name first." : a.src === "x" && !a.who ? "Say whose it is, so it gets its own colour and label." : a.u && !/^https?:\/\//i.test(a.u) ? "A link needs to start with https://" : "";
-    if (err) { const e = $("#addErr"); e.hidden = false; e.textContent = err; return; }
+    if (err) { const e = $("#addErr"), bad = $(!a.n ? '[data-f="n"]' : a.src === "x" && !a.who ? '[data-f="who"]' : '[data-f="u"]', form); e.hidden = false; e.textContent = err; if (bad) bad.focus(); return; }
     S.adds = cleanAdds((S.adds || []).filter((x) => x.id !== a.id).concat([a])); afterEdit("Saved in this browser");
   }
   function openManage() {
@@ -1136,21 +1236,49 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
       <div class="chips">${Object.keys(KN).map((k) => `<button class="chip plain" data-add="${k}">${gl(G.plus, "s")}${ADD[k].title.replace("Add a ", "")}</button>`).join("")}</div>
       ${A.length ? Object.keys(KN).map((k) => { const l = userOf(k); return l.length ? `<h4>${KN[k]}</h4><ul class="mg">${l.map((a) => `<li class="slim ${sb(a.src, a.who)}"><span>${esc(a.n)}</span><button class="linkbtn" data-add="${k}" data-id="${a.id}">Edit</button></li>`).join("")}</ul>` : ""; }).join("") : '<div class="empty"><b>Nothing added yet</b>Foods, products, notes, routines and habits you add will be listed here.</div>'}
       <p class="small">${days.length ? "Timetable days you changed: " + days.map((d) => DAYN[d]).join(", ") + "." : "The timetable is on its defaults."}</p>
+      ${(() => { try { return localStorage.getItem(BKEY) ? '<p class="small"><button class="linkbtn" id="xRecover">Restore the copy kept before the last import</button></p>' : ""; } catch (e) { return ""; } })()}
       <h4>Export or import</h4><textarea id="xBox" rows="5" aria-label="Exported edits, or paste a copy here to import" spellcheck="false" placeholder="Export fills this box. To import, paste a copy here."></textarea>
       <div class="row"><button class="btn sm" id="xExport">Export my edits</button><button class="btn ghost sm" id="xFull">Full backup</button><button class="btn ghost sm" id="xImport">Import from the box</button></div><p class="small" id="xMsg" role="status"></p></div>`;
     $("#sheet").hidden = false; document.body.style.overflow = "hidden"; $("#sheetClose").focus();
   }
   function exportTo(full) {
-    const box = $("#xBox"); box.value = JSON.stringify(full ? Object.assign({ phh: 1 }, S) : { phh: 1, exported: TK, plan: S.plan || {}, adds: S.adds || [] }); box.focus(); box.select();
+    const box = $("#xBox"); box.value = JSON.stringify(full ? Object.assign({ phh: 1, exported: TK }, S) : { phh: 1, exported: TK, plan: S.plan || {}, adds: S.adds || [] }); box.focus(); box.select();
     const done = (ok) => { $("#xMsg").textContent = ok ? "Copied. Paste it somewhere safe, or send it to be made permanent." : "Selected. Copy it from the box."; };
     try { navigator.clipboard.writeText(box.value).then(() => done(true), () => done(false)); } catch (e) { done(false); }
   }
+  /* a full backup is rebuilt field by field, so a hand-edited or damaged file cannot plant anything unexpected */
+  const cleanState = (o) => {
+    const obj = (x) => (x && typeof x === "object" && !Array.isArray(x) ? x : {}), idk = (k) => /^[\w-]{1,60}$/.test(k), num = (x) => { const r = {}; Object.keys(obj(x)).forEach((k) => { if (idk(k) && isFinite(+x[k])) r[k] = +x[k]; }); return r; };
+    const n = { days: {}, weeks: {}, months: {}, owned: null, wish: {}, fav: num(o.fav), recent: [], sessions: [], ui: {} };
+    Object.keys(obj(o.days)).forEach((k) => { const r = o.days[k]; if (/^\d{4}-\d\d-\d\d$/.test(k) && r && typeof r === "object") { n.days[k] = { d: num(r.d), pct: Math.max(0, Math.min(1, +r.pct || 0)) }; if (r.s) n.days[k].s = num(r.s); } });
+    Object.keys(obj(o.weeks)).forEach((k) => { if (/^\d{4}-\d\d-\d\d$/.test(k)) n.weeks[k] = num(o.weeks[k]); });
+    Object.keys(obj(o.months)).forEach((k) => { if (/^\d{4}-\d\d$/.test(k)) { n.months[k] = {}; Object.keys(obj(o.months[k])).forEach((i) => { if (idk(i) && /^[\w ]{1,20}$/.test(o.months[k][i])) n.months[k][i] = o.months[k][i]; }); } });
+    const names = (x) => { const r = {}; Object.keys(obj(x)).forEach((k) => { if (k.length <= 160 && isFinite(+x[k])) r[k] = +x[k]; }); return r; };
+    if (o.owned && typeof o.owned === "object") n.owned = names(o.owned); n.wish = names(o.wish);
+    n.recent = (Array.isArray(o.recent) ? o.recent : []).filter((x) => typeof x === "string" && idk(x)).slice(0, 8);
+    n.sessions = (Array.isArray(o.sessions) ? o.sessions : []).filter((x) => x && idk(String(x.id)) && /^\d{4}-\d\d-\d\d$/.test(x.date) && isFinite(+x.secs)).map((x) => ({ id: x.id, date: x.date, secs: +x.secs }));
+    Object.keys(obj(o.ui)).forEach((k) => { const v = o.ui[k]; if (idk(k) && (typeof v === "boolean" || typeof v === "number" || (typeof v === "string" && v.length <= 200))) n.ui[k] = v; });
+    n.core = num(o.core); n.adds = cleanAdds(o.adds); n.plan = cleanPlan(o.plan); return n;
+  };
+  let IMP = null;
   function importFrom() {
     let o; try { o = JSON.parse($("#xBox").value); } catch (e) { o = null; }
-    if (!o || typeof o !== "object" || o.phh !== 1) { $("#xMsg").textContent = "That is not a Primal Health Hub export. Nothing was changed."; return; }
-    if (o.days && typeof o.days === "object") { delete o.phh; S = Object.assign({ days: {}, weeks: {}, months: {}, owned: null, wish: {}, fav: {}, recent: [], sessions: [], ui: {} }, o); S.adds = cleanAdds(S.adds); S.plan = cleanPlan(S.plan); }
-    else { S.plan = Object.assign(S.plan || {}, cleanPlan(o.plan)); const inc = cleanAdds(o.adds), ids = inc.map((a) => a.id); S.adds = (S.adds || []).filter((a) => ids.indexOf(a.id) < 0).concat(inc); }
-    applyPlain(); afterEdit("Import done");
+    const msg = $("#xMsg");
+    if (!o || typeof o !== "object" || !o.phh) { msg.textContent = "That is not a Primal Health Hub export. Nothing was changed."; return; }
+    if (o.phh !== 1) { msg.textContent = "That export is from a newer version of the hub than this one. Nothing was changed."; return; }
+    const full = !!o.days && typeof o.days === "object", adds = cleanAdds(o.adds), plan = cleanPlan(o.plan), have = (S.adds || []).map((a) => a.id), clash = adds.filter((a) => have.indexOf(a.id) > -1).length, days = Object.keys(plan).filter((d) => (S.plan || {})[d]);
+    IMP = { o, adds, plan };
+    msg.innerHTML = `<b>${full ? "Full backup" : "Edits"}${/^\d{4}-\d\d-\d\d$/.test(o.exported) ? " from " + o.exported : ""}.</b> ${adds.length} additions${clash ? ` (${clash} will replace ones already here)` : ""} and ${Object.keys(plan).length} timetable days${days.length ? ` (${days.map((d) => DAYN[d]).join(", ")} will overwrite your edited days)` : ""}.${full ? ` It also holds ${Object.keys(o.days).length} days of history. Replace everything swaps out the ${Object.keys(S.days).length} days saved here.` : ""} A recovery copy of what is here now is kept first.
+      <span class="row"><button class="btn sm" id="xApply">${full ? "Merge the edits only" : "Import"}</button>${full ? '<button class="btn ghost sm" id="xReplace">Replace everything</button>' : ""}<button class="btn ghost sm" id="xCancel">Cancel</button></span>`;
+    $("#xApply").focus();
+  }
+  const BKEY = KEY + ":backup";
+  function restoreCopy() { let o = null; try { o = JSON.parse(localStorage.getItem(BKEY)); } catch (e) {} if (!o) return; S = cleanState(o); try { localStorage.removeItem(BKEY); } catch (e) {} applyPlain(); afterEdit("Back to how it was before the import"); }
+  function applyImport(replace) {
+    if (!IMP) return; try { localStorage.setItem(BKEY, JSON.stringify(S)); } catch (e) {}
+    if (replace) S = cleanState(IMP.o);
+    else { S.plan = Object.assign(S.plan || {}, IMP.plan); const ids = IMP.adds.map((a) => a.id); S.adds = (S.adds || []).filter((a) => ids.indexOf(a.id) < 0).concat(IMP.adds); }
+    IMP = null; applyPlain(); afterEdit("Import done"); toast(replace ? "Everything replaced from the backup" : "Edits imported", restoreCopy);
   }
   /* clicks for the editor, the add form and export; returns true when it handled the click */
   function editClick(t, d) {
@@ -1159,27 +1287,31 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
     if (d.manage) { openManage(); return true; }
     if (t.id === "xExport" || t.id === "xFull") { exportTo(t.id === "xFull"); return true; }
     if (t.id === "xImport") { importFrom(); return true; }
-    if (t.id === "addDel") { S.adds = (S.adds || []).filter((a) => a.id !== AD.id); afterEdit("Deleted"); return true; }
+    if (t.id === "xApply" || t.id === "xReplace") { applyImport(t.id === "xReplace"); return true; }
+    if (t.id === "xCancel") { IMP = null; $("#xMsg").textContent = "Import cancelled. Nothing was changed."; return true; }
+    if (t.id === "xRecover") { restoreCopy(); return true; }
+    if (t.id === "addDel") { const gone = (S.adds || []).find((a) => a.id === AD.id); S.adds = (S.adds || []).filter((a) => a.id !== AD.id); afterEdit("Deleted"); toast("Deleted", () => { if (gone) { S.adds = (S.adds || []).concat([gone]); save(); applyAdds(); RENDER[current](); } }); return true; }
     if (!ED || $("#sheet").hidden) return false;
     if (d.eddow !== undefined) { ED.dow = +d.eddow; drawEditor(`[data-eddow="${d.eddow}"]`); return true; }
     if (d.edup || d.eddel) { const p = (d.edup || d.eddel).split(":"), l = draft(ED.dow)[p[0]], i = +p[1]; if (d.edup) l.splice(i - 1, 2, l[i], l[i - 1]); else l.splice(i, 1); ED.dirty[ED.dow] = 1; drawEditor(`[data-edadd="${p[0]}"]`); return true; }
-    if (t.id === "edReset") { if (S.plan) delete S.plan[ED.dow]; delete ED.drafts[ED.dow]; delete ED.dirty[ED.dow]; save(); drawEditor("#sheetClose"); RENDER[current](); say(DAYN[ED.dow] + " reset"); return true; }
+    if (t.id === "edReset") { const was = (S.plan || {})[ED.dow], wd = ED.dow; if (was) toast(DAYN[wd] + " reset to the default", () => { (S.plan = S.plan || {})[wd] = was; save(); RENDER[current](); }); if (S.plan) delete S.plan[ED.dow]; delete ED.drafts[ED.dow]; delete ED.dirty[ED.dow]; save(); drawEditor("#sheetClose"); RENDER[current](); say(DAYN[ED.dow] + " reset"); return true; }
     if (t.id === "edSave") { S.plan = S.plan || {}; Object.keys(ED.dirty).forEach((x) => (S.plan[x] = cleanPlan({ [x]: ED.drafts[x] })[x])); ED = null; afterEdit("Timetable saved in this browser"); return true; }
     return false;
   }
 
   /* ── routing ── */
-  const RENDER = { today: () => renderToday(), week: renderWeek, progress: renderProgress, routines: renderRoutines, nutrition: renderNutrition, systems: renderSystems, products: renderProducts, extras: renderExtras };
+  const NAVOF = { today: "today", progress: "today", week: "plan", routines: "plan", library: "library", nutrition: "library", systems: "library", extras: "library", products: "products" };
+  const RENDER = { today: () => renderToday(), week: renderWeek, library: renderLibrary, progress: renderProgress, routines: renderRoutines, nutrition: renderNutrition, systems: renderSystems, products: renderProducts, extras: renderExtras };
   let current = null;
   function route(first) {
-    const v = VIEWS.indexOf(location.hash.slice(1)) > -1 ? location.hash.slice(1) : "today", navv = v === "progress" || v === "week" ? "today" : v;
+    const v = VIEWS.indexOf(location.hash.slice(1)) > -1 ? location.hash.slice(1) : "today", navv = NAVOF[v];
     VIEWS.forEach((x) => { $("#v-" + x).hidden = x !== v; });
     $$("[data-nav]").forEach((a) => { if (a.dataset.nav === navv) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
     current = v; RENDER[v](); const el = $("#v-" + v); el.classList.remove("enter"); void el.offsetWidth; el.classList.add("enter");
     if (!first) { window.scrollTo(0, 0); $("#main").focus({ preventScroll: true }); }
     if (v === "routines" && pendingOpen) { const id = pendingOpen; pendingOpen = null; openRoutine(id); }
   }
-  window.addEventListener("hashchange", () => { if (!$("#libdlg").hidden && !keepLib) closeLib(); keepLib = false; if (!$("#sheet").hidden) closeSheet(); route(false); });
+  window.addEventListener("hashchange", () => { if (!$("#libdlg").hidden && !keepLib) closeLib(); keepLib = false; if (!$("#sheet").hidden) closeSheet(true); route(false); });
 
   /* ── events ── */
   const refocus = (sel) => { const b = $(sel); if (b) b.focus({ preventScroll: true }); };
@@ -1188,7 +1320,7 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
     if (e.target.id === "libdlg") { closeLib(); return; }
     if (e.target.id === "find") { closeFind(); return; }
     const t = e.target.closest("button, a"); if (!t) return; const d = t.dataset;
-    if (editClick(t, d)) return;
+    if (uiClick(t, d) || editClick(t, d)) return;
     if (d.tick) { const it = findItem(d.tick); if (it) setItem(d.tick, isDone(it) ? 0 : it.n || 1, `[data-tick="${d.tick}"]`); }
     else if (d.pip) { const k = +d.k, cur = day().d[d.pip] || 0; setItem(d.pip, cur === k ? k - 1 : k, `[data-pip="${d.pip}"][data-k="${d.k}"]`); }
     else if (d.nextdone) { const it = findItem(d.nextdone); if (it) setItem(it.id, it.n ? Math.min(it.n, (day().d[it.id] || 0) + 1) : 1, ".next .btn"); }
@@ -1197,7 +1329,7 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
     else if (d.wk) { const w = week(), k = +d.k; w[d.wk] = (w[d.wk] || 0) === k ? k - 1 : k; save(); RENDER[current](); refocus(`[data-wk="${d.wk}"][data-k="${d.k}"]`); }
     else if (d.mo) { const mk = mkey(now), m = (S.months[mk] = S.months[mk] || {}); if (m[d.mo]) delete m[d.mo]; else m[d.mo] = now.toLocaleDateString("en-GB", { day: "numeric", month: "short" }); save(); renderProgress(); refocus(`[data-mo="${d.mo}"]`); }
     else if (d.fav) { e.preventDefault(); if (S.fav[d.fav]) delete S.fav[d.fav]; else S.fav[d.fav] = 1; save(); t.setAttribute("aria-pressed", !!S.fav[d.fav]); say(S.fav[d.fav] ? "Added to favourites" : "Removed from favourites"); if (!(S.ui.rq || "").trim()) $("#rStrips").innerHTML = stripsHtml(); }
-    else if (d.go) { if (!$("#libdlg").hidden) closeLib(); if (!$("#player").hidden) closeOverlay($("#player")); S.ui.rtab = ""; openRoutine(d.go); }
+    else if (d.go) { if (!$("#sheet").hidden) closeSheet(true); if (!$("#libdlg").hidden) closeLib(); if (!$("#player").hidden) closeOverlay($("#player")); S.ui.rtab = ""; openRoutine(d.go); }
     else if (d.cat !== undefined) { S.ui.rcat = d.cat; save(); $$("[data-cat]").forEach((c) => c.setAttribute("aria-pressed", c.dataset.cat === d.cat)); drawRoutines(); }
     else if (d.sheet) openSheet(d.sheet);
     else if (d.sheetpick !== undefined) { S.ui[sheetKey] = d.sheetpick; save(); const k = sheetKey; closeSheet(); if (k === "rcat") renderRoutines(); else renderProducts(); refocus(`[data-sheet="${k}"]`); }
@@ -1211,13 +1343,13 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
     else if (d.jumpto) { closeFind(true); if (d.jumpto === "routines-lib") { S.ui.rtab = "lib"; save(); if (location.hash === "#routines") route(false); else location.hash = "#routines"; } else { if (d.jumpto === "routines") { S.ui.rtab = ""; save(); } if (d.jumpto === "systems") S.ui.sys = ""; if (d.jumpto === "extras") S.ui.ext = ""; if (location.hash === "#" + d.jumpto) route(false); else location.hash = "#" + d.jumpto; } }
     else if (d.lib) openLib(d.lib);
     else if (t.id === "libClose") closeLib();
-    else if (d.rtab !== undefined) { S.ui.rtab = d.rtab; save(); renderRoutines(); const b = $(`[data-rtab="${d.rtab}"]`); if (b) b.focus(); }
+    else if (d.rtab !== undefined) { S.ui.rtab = d.rtab; save(); if (current !== "routines") { location.hash = "#routines"; return; } renderRoutines(); const b = $(`#v-routines [data-rtab="${d.rtab}"]`); if (b) b.focus(); }
     else if (d.ltype !== undefined) { S.ui.ltype = d.ltype; save(); $$("[data-ltype]").forEach((c) => c.setAttribute("aria-pressed", c.dataset.ltype === d.ltype)); drawLib(); }
     else if (t.id === "lClear") { S.ui.lq = ""; S.ui.ltype = ""; save(); renderRoutines(); const b = $("#lSearch"); if (b) b.focus(); }
     else if (d.play) openPlayer(d.play);
     else if (d.pacer) openPacer(d.pacer);
     else if (d.expand) { const box = $("#r-" + d.expand), all = $$(".ex:not(.nosteps)", box), open = all.some((x) => !x.open); all.forEach((x) => (x.open = open)); t.textContent = open ? "Hide all steps" : "Show all steps"; }
-    else if (d.topic) { S.ui[d.topic] = d.id; save(); (d.topic === "sys" ? renderSystems : renderExtras)(); window.scrollTo(0, 0); $("#main").focus({ preventScroll: true }); }
+    else if (d.topic) { S.ui[d.topic] = d.id; save(); const tv = d.topic === "sys" ? "systems" : "extras"; if (current !== tv) { location.hash = "#" + tv; return; } (d.topic === "sys" ? renderSystems : renderExtras)(); window.scrollTo(0, 0); $("#main").focus({ preventScroll: true }); }
     else if (d.anchor) { const a = document.getElementById(d.anchor); if (a) a.scrollIntoView({ block: "start" }); }
     else if (d.nut) { S.ui.nut = d.nut; save(); $$("[data-nut]").forEach((c) => c.setAttribute("aria-selected", c.dataset.nut === d.nut)); $("#nutPanel").innerHTML = nutPanel(d.nut); }
     else if (d.macro) { S.ui.macro = S.ui.macro === d.macro ? "" : d.macro; save(); $("#nutPanel").innerHTML = nutPanel("plate"); refocus(`[data-macro="${d.macro}"]`); }
@@ -1239,7 +1371,7 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
     else if (t.id === "pcAgain") openPacer("co2");
   });
   document.addEventListener("toggle", (e) => { const r = e.target.dataset && e.target.dataset.rt; if (r && e.target.open) touch(r); }, true);
-  document.addEventListener("input", (e) => { if (e.target.id === "rSearch") { S.ui.rq = e.target.value; drawRoutines(); } if (e.target.id === "pSearch") { S.ui.pq = e.target.value; drawProducts(); } if (e.target.id === "lSearch") { S.ui.lq = e.target.value; drawLib(); } if (e.target.id === "fInput") drawFind(e.target.value);
+  document.addEventListener("input", (e) => { if (e.target.id === "rSearch") { S.ui.rq = e.target.value; drawRoutines(); } if (e.target.id === "pSearch") { S.ui.pq = e.target.value; drawProducts(); } if (e.target.id === "lSearch") { S.ui.lq = e.target.value; drawLib(); } if (e.target.id === "fInput") { FOPEN = {}; S.ui.fy = 0; drawFind(e.target.value); }
     if (e.target.id === "nSearch") { const q = e.target.value.trim().toLowerCase(); $$("#nutPanel .food").forEach((li) => (li.hidden = !!q && li.dataset.k.indexOf(q) < 0)); let any = false; $$("#nutPanel .fgroup").forEach((g) => { g.hidden = !$$(".food:not([hidden])", g).length; any = any || !g.hidden; }); $("#nNone").hidden = any; } });
   document.addEventListener("change", (e) => { if (e.target.closest && e.target.closest("#sheet")) editChange(e.target); });
   document.addEventListener("submit", (e) => { if (e.target.id === "addForm") { e.preventDefault(); saveAdd(e.target); } });
@@ -1258,7 +1390,8 @@ html.plain .wk-grid.sbox.sbox, html.plain .tcard.sbox.sbox { border: 1px solid v
 
   Object.keys(S.days).sort().slice(0, -90).forEach((k) => delete S.days[k]); Object.keys(S.weeks).sort().slice(0, -12).forEach((k) => delete S.weeks[k]);
   function applyPlain() { document.documentElement.classList.toggle("plain", !!S.ui.plain); $$("[data-srctoggle]").forEach((b) => b.setAttribute("aria-checked", !S.ui.plain)); }
-  S.adds = cleanAdds(S.adds); S.plan = cleanPlan(S.plan); applyAdds();
+  S.adds = cleanAdds(S.adds); S.plan = cleanPlan(S.plan); S.core = S.core || {}; applyAdds();
+  document.addEventListener("error", (e) => { const t = e.target; if (t && t.tagName === "IMG") t.style.visibility = "hidden"; }, true); /* a missing picture keeps its box, so nothing jumps */
   applyPlain(); route(true); tally(); chrome(streak());
 })();
 </script>

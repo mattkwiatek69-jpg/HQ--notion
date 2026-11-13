@@ -69,7 +69,8 @@
     mins(rid) { const m = /(\d+)(?:[–-](\d+))?\s*min/.exec((byId[rid] || {}).dur || ""); return m ? +(m[2] || m[1]) : 10; },
     plan(dow, ov) { return (ov && ov[dow]) || P.plan.week[dow]; },
     at(bid, dow, ov) { const pl = this.plan(dow, ov); return (pl.at && pl.at[bid]) || P.plan.times[bid]; },
-    items(b, dow, ov) {
+    /* core: the owner's own choice of what counts, { item id: 1 core | 0 optional } */
+    items(b, dow, ov, core) {
       const pl = this.plan(dow, ov), k = SLOT[b.id], seen = {};
       const gen = ((k && pl[k]) || []).map((s) => {
         const r = byId[s[0]]; if (!r) return null;
@@ -78,12 +79,13 @@
       }).filter(Boolean);
       if (b.id === "train" && !gen.length) return [];
       const fixed = b.items.filter((i) => !i.days || i.days.indexOf(dow) > -1);
-      return fixed.filter((i) => i.pre).concat(gen, fixed.filter((i) => !i.pre));
+      const out = fixed.filter((i) => i.pre).concat(gen, fixed.filter((i) => !i.pre));
+      return core ? out.map((i) => (core[i.id] != null ? Object.assign({}, i, { opt: !core[i.id] }) : i)) : out;
     },
     /* the day in clock order: [{ b, at, end, items (each timed item gets .clock), used, room, over }] */
-    day(dow, ov) {
+    day(dow, ov, core) {
       const rows = P.blocks.map((b) => {
-        const items = this.items(b, dow, ov).map((i) => Object.assign({}, i)), start = T(this.at(b.id, dow, ov));
+        const items = this.items(b, dow, ov, core).map((i) => Object.assign({}, i)), start = T(this.at(b.id, dow, ov));
         let t = start, first = start, last = start, seenPlan = false;
         items.forEach((i) => {
           if (i.at) t = T(i.at); else if (i.plan && !seenPlan) t = Math.max(t, start);

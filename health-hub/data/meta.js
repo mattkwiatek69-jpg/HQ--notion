@@ -41,6 +41,12 @@
   const catIcons = { fascia: "fasciaball", myo: "tooth", face: "tmj", tape: "ktape", breath: "diaphragm", lymph: "lymphnodes", sprint: "shoe", gym: "kettlebell", posture: "spine", nervous: "meditate" };
   (P.cats || []).forEach((c) => { if (catIcons[c.id]) c.icon = catIcons[c.id]; });
 
+  /* Library groups. A new topic only needs a grp to show up in the Library; unknown or missing falls under Reference. */
+  const grp = { "fascia-health": "move", bone: "move", tendons: "move", sleep: "sleep", "nervous-system": "sleep", cortisol: "sleep", grounding: "sleep", mitochondria: "energy", testosterone: "energy", oestrogen: "energy", thyroid: "energy", lean: "energy", "gut-liver": "energy", light: "env", toxins: "env", allergy: "env", hair: "env", height: "ref", progress: "ref", mindset: "ref" };
+  (P.systems || []).concat(P.extras || []).forEach((t) => { if (grp[t.id]) t.grp = grp[t.id]; });
+  /* cross-links from a topic to the routines that share its name or subject; navigation only, no new claims */
+  P.related = { "fascia-health": ["ultimate", "fascia-activation", "full-body-release", "groundwork"], bone: ["bone-density"], tendons: ["tendon"], sleep: ["oscar-breathwork", "short-breaths", "zygotape"], "nervous-system": ["vagus", "stored-stress", "pandiculation", "lajin"], cortisol: ["vagus", "short-breaths"], "gut-liver": ["digestion-release"], lean: ["sprints", "walk"], grounding: ["walk"] };
+
   /* where each block came from: "op" = OP docs, "me" = the owner's own notes, "both". Unmarked blocks are "op".
      Rule for new content: ask whose it is, then set src here or on the item (see CLAUDE.md). */
   (P.nutrition.approved || []).forEach((g, i) => { g.src = i < 4 ? "me" : "op"; });
