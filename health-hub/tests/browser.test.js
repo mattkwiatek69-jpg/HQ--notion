@@ -48,6 +48,18 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
   ok((await p.$$eval('#pList .sbox.s-x',e=>e.length))===1&&!(await p.content()).includes('javascript:alert')&&await p.isVisible('.rail .src.x'),'import: someone else\'s product gets a dashed frame + key line; unsafe link dropped; unknown kind ignored');
   await p.fill('#pSearch',''); await p.evaluate(()=>{const f=JSON.parse(localStorage.getItem('phh:v1'));f.adds=[];f.plan={};localStorage.setItem('phh:v1',JSON.stringify(f))}); await p.reload(); await p.waitForTimeout(300);
 
+  // compare: routines, gym, exercises, side by side
+  await p.goto(U+'#compare'); await p.waitForTimeout(300); const snapC=await p.evaluate(()=>localStorage.getItem('phh:v1'));
+  ok((await p.$$eval('#cmpBody .crow',e=>e.length))>35&&(await p.textContent('#cmpBody .crow:has([data-insp="full-body-release"]) .ccount b'))==='2','compare lists every non-gym routine with its times a week');
+  await p.click('[data-cday="full-body-release|4"]'); ok((await p.textContent('#cmpBody .crow:has([data-insp="full-body-release"]) .ccount')).includes('3')&&(await p.evaluate(()=>JSON.parse(localStorage.getItem('phh:v1')).plan[4].pm.some(x=>x[0]==='full-body-release'))),'a day letter adds the routine to that day in its usual slot; the count shows it is over its aim');
+  await p.click('[data-cday="full-body-release|4"]'); ok((await p.textContent('#cmpBody .crow:has([data-insp="full-body-release"]) .ccount b'))==='2','the same letter removes it');
+  await p.check('[data-csel="full-body-release"]'); await p.check('[data-csel="fascia-activation"]'); ok((await p.$$eval('.cside-col',e=>e.length))===2&&(await p.$$eval('.cside .iparts li',e=>e.length))>20,'two ticked routines show side by side with their exercises');
+  await p.selectOption('#cmpSort','most'); ok(+(await p.textContent('#cmpBody .crow .ccount b'))>=7,'sort by most often'); await p.selectOption('#cmpSort','group');
+  await p.click('[data-ctab="gym"]'); const gy=await p.$$eval('#cmpBody .linkname',e=>e.map(x=>x.dataset.insp)); ok(gy.includes('workout-1')&&gy.includes('apt')&&!gy.includes('sprints')&&!gy.includes('groundwork'),'Gym holds strength sessions and routines that need gym equipment ('+gy.length+')');
+  await p.click('[data-cday="bone-density|4"]'); await p.goto(U+'#week'); await p.waitForTimeout(200); ok((await p.$$eval('.pcell[data-cell="4|train"] .pchip[data-insp="bone-density"]',e=>e.length))===1,'a gym change in Compare lands in the Training slot of the week'); await p.goto(U+'#compare'); await p.waitForTimeout(200);
+  await p.click('[data-ctab="ex"]'); ok((await p.$$eval('#cmpBody .crow.ex',e=>e.length))>150&&+(await p.textContent('#cmpBody .crow.ex .ccount b'))>=10,'exercises: every exercise with how many times a week it comes up'); await p.screenshot({path:S+'/n-compare.png'}); await ovf(p,'compare desktop');
+  await p.click('[data-ctab="rt"]'); await p.evaluate(j=>localStorage.setItem('phh:v1',j),snapC); await p.reload(); await p.waitForTimeout(300);
+
   // v7: navigation, old links, library, add form, skip/undo, core plan, find, guard, backup round trip
   ok((await p.$$eval('.rail [data-nav]',e=>e.length))===4,'rail has 4 main sections');
   for(const h of ['routines','nutrition','systems','extras','products','week','today','library']){ await p.goto(U+'#'+h); await p.waitForTimeout(150); ok(await p.isVisible('#v-'+h)&&(await p.$$eval('.rail [aria-current="page"]',e=>e.length))===1,'link #'+h+' opens; nav highlights '+await p.getAttribute('.rail [aria-current="page"]','data-nav')); }
@@ -193,7 +205,7 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
   for(const v of ['today','week','library','nutrition','systems','products','extras']){ await p.goto(U+'#'+v); await p.waitForTimeout(250); await ovf(p,v+' mobile'); if(v==='today') await p.screenshot({path:S+'/m-today.png'}); }
   const small=await p.evaluate(()=>[...document.querySelectorAll('#v-extras button, .nav a, .nav button.more')].filter(e=>e.offsetParent&&(e.getBoundingClientRect().height<44)).length); ok(small===0,'touch targets ≥44px on last view + nav ('+small+' under)');
 
-  for(const [w,h] of [[360,640],[390,844],[768,1024]]){ const q=await mk(w,h); for(const v of ['today','week','routines','library','nutrition','systems','products','extras']){ await q.goto(U+'#'+v); await q.waitForTimeout(200); await ovf(q,v+' @'+w); }
+  for(const [w,h] of [[360,640],[390,844],[768,1024]]){ const q=await mk(w,h); for(const v of ['today','week','compare','routines','library','nutrition','systems','products','extras']){ await q.goto(U+'#'+v); await q.waitForTimeout(200); await ovf(q,v+' @'+w); }
     await q.goto(U+'#week'); await q.waitForTimeout(250); const r=await q.evaluate(()=>{const c=document.querySelector('.pcol.sel .pchip').getBoundingClientRect(),s=document.querySelector('.pstrip').getBoundingClientRect(),n=document.querySelector('.rail').getBoundingClientRect();return [Math.round(s.top),Math.round(c.top),Math.round(n.top)]}); ok(r[0]<r[2]&&r[1]<r[2],'day strip and the first routine sit inside the first viewport @'+w+'x'+h+' (strip '+r[0]+', routine '+r[1]+', nav '+r[2]+')');
     if(w===360){ await q.screenshot({path:S+'/m360-week.png'}); await q.click('.nav .more'); ok(await q.isVisible('#sheet [data-srctoggle]')&&await q.isVisible('#sheet [data-manage]')&&(await q.$$eval('.topbar .src',e=>e.length))===0,'phone: sources, My edits and backup live under More; header carries no legend'); await q.screenshot({path:S+'/m360-more.png'}); } }
 

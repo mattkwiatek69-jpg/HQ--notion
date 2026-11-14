@@ -717,6 +717,25 @@ html.plain .sbox::after { content: none; } .topic.sbox::after { margin-top: auto
 .pcheck summary span:first-of-type { flex: 1; } .pcheck[open] summary { border-bottom: 1px solid var(--line); } .pcheck .gl { flex: none; color: var(--ink-3); } .pcheck:has(li.bad) summary { color: var(--clay-ink); } .pcheck:has(li.bad) .gl { color: var(--clay-ink); }
 @media (max-width: 1239px) { #v-week .pbal { order: 5; } #v-week .phint { order: 6; } }
 .sbox.libcard::after { content: none; }
+.clist { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 2px 18px; }
+.chead { display: flex; align-items: center; gap: 8px; padding: 16px 0 6px; font-weight: 700; font-size: .8125rem; color: var(--ink-3); }
+.crow { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto 92px; gap: 14px; align-items: center; padding: 10px 0; border-top: 1px solid var(--line); min-height: 64px; } .clist > li:first-child, .chead + .crow { border-top: 0; }
+.crow.ex { grid-template-columns: minmax(0, 220px) minmax(0, 1fr) 92px; } .crow.unplaced .linkname { color: var(--ink-2); font-weight: 500; }
+.ccheck { display: grid; place-items: center; width: 28px; height: 44px; } .ccheck input { width: 20px; height: 20px; accent-color: var(--accent); }
+.cname { min-width: 0; display: flex; flex-direction: column; } .cname small { color: var(--ink-3); font-size: .8125rem; line-height: 1.4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .cname b { font-weight: 600; }
+.linkname { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-align: left; min-height: 28px; line-height: 1.3; } .linkname:hover { text-decoration: underline; text-underline-offset: 3px; }
+.cdays { display: flex; gap: 4px; } .cdays button { position: relative; width: 36px; height: 36px; border-radius: 50%; background: var(--sunk); font-size: .75rem; font-weight: 700; color: var(--ink-3); display: grid; place-items: center; transition: background .16s var(--ease), transform .16s var(--ease); }
+.cdays button:hover { background: color-mix(in srgb, var(--accent) 22%, var(--sunk)); } .cdays button:active { transform: scale(.92); } .cdays button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
+.cdays i { position: absolute; top: -4px; right: -4px; min-width: 16px; height: 16px; border-radius: 8px; background: var(--ink); color: var(--bg); font: 700 .625rem/16px var(--sans); text-align: center; }
+.ccount { display: flex; flex-direction: column; align-items: flex-end; text-align: right; font-variant-numeric: tabular-nums; } .ccount b { font: 700 1.25rem/1.2 var(--sans); } .ccount small { color: var(--ink-3); font-size: .75rem; line-height: 1.3; white-space: nowrap; }
+.ccount.zero b { color: var(--ink-3); font-weight: 500; } .ccount.off b { color: var(--clay-ink); } .ccount.off small:first-of-type { color: var(--clay-ink); font-weight: 600; }
+.crow.ex .chips { gap: 6px; } .chip.wk b { font-variant-numeric: tabular-nums; } .chip.wk.off { opacity: .55; }
+#cmpSort { min-height: 44px; padding: 0 12px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font: 500 .9375rem var(--sans); }
+.cside { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 18px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 12px; } .cside h2 { font-size: 1.125rem; }
+.cside-grid { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 20px; } .cside-col { display: flex; flex-direction: column; gap: 10px; min-width: 0; } .cside-col h3 { display: flex; align-items: center; gap: 8px; font-size: 1rem; } .cside-col h4 { font-size: .8125rem; color: var(--ink-3); }
+.iparts li.same { font-weight: 600; } .iparts li.same small { color: var(--accent-ink); } .cside-hint { margin-bottom: 8px; } #cmpTot { margin-bottom: 8px; }
+@media (max-width: 760px) { .clist { padding: 2px 12px; } .crow { grid-template-columns: 28px minmax(0, 1fr) auto; row-gap: 6px; } .crow .cdays { grid-column: 2 / -1; grid-row: 2; justify-content: space-between; } .crow .ccount { grid-column: 3; grid-row: 1; } .cdays button { width: 38px; height: 38px; } .cname small { white-space: normal; }
+  .crow.ex { grid-template-columns: minmax(0, 1fr) auto; } .crow.ex .chips { grid-column: 1 / -1; grid-row: 2; } .cside-grid { grid-template-columns: minmax(0, 1fr); } }
 .pcell-head span { display: inline-flex; align-items: center; gap: 5px; } .pcell-head .li { width: 14px; height: 14px; display: inline-grid; flex: none; }
 .gdisc svg { width: 56%; height: 56%; } .seg button { display: inline-flex; align-items: center; gap: 6px; } .seg .li, .linkbtn .li { width: 16px; height: 16px; display: inline-grid; flex: none; } .linkbtn .li { margin-right: 6px; }
 h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { align-items: center; } .tblock > header img { flex: none; margin: -6px 0; }
@@ -744,7 +763,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
 <div class="page"><div class="wrap">
   <div class="topbar"><div><div class="brand" translate="no">PRIMAL</div></div><button class="findbtn" data-find="1"><svg class="gl s" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4"/></svg>Find</button></div>
   <main id="main" tabindex="-1">
-    <section class="view" id="v-today"></section><section class="view" id="v-week" hidden></section><section class="view" id="v-library" hidden></section>
+    <section class="view" id="v-today"></section><section class="view" id="v-week" hidden></section><section class="view" id="v-compare" hidden></section><section class="view" id="v-library" hidden></section>
     <section class="view" id="v-routines" hidden></section><section class="view" id="v-nutrition" hidden></section>
     <section class="view" id="v-systems" hidden></section><section class="view" id="v-products" hidden></section>
     <section class="view" id="v-extras" hidden></section>
@@ -774,7 +793,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   const CHECK = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>';
   const CARET = `<span class="caret" aria-hidden="true">${gl(G.down, "s")}</span>`;
   const say = (t) => { $("#live").textContent = t; };
-  const VIEWS = ["week", "today", "library", "routines", "nutrition", "systems", "products", "extras"];
+  const VIEWS = ["week", "today", "compare", "library", "routines", "nutrition", "systems", "products", "extras"];
   const byId = {}; (P.routines || []).forEach((r) => (byId[r.id] = r));
   /* ── sources: "op" (OP docs), "me" (the owner's own notes), "both". Anything without a src is "op". ── */
   const SRCN = { op: "OP docs", me: "Mine", both: "Both", x: "Other source" };
@@ -816,7 +835,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   const SLOTS = [["morning", "am", "Morning"], ["train", "train", "Training"], ["evening", "pm", "Evening"], ["bed", "bed", "Before bed"]];
   const SLOTIC = { am: "sunrise", train: "dumbbell", pm: "sunset", bed: "bed" }, BLOCKART = { wake: "illus/wellbeing-sunlight", morning: "illus/equipment-fascia-ball", train: "illus/equipment-dumbbell", day: "illus/wellbeing-hydration", evening: "illus/wellbeing-focus-candle", bed: "illus/wellbeing-sleep-mask" };
   const slotName = (k) => (SLOTS.find((s) => s[1] === k) || [])[2] || "";
-  const SUBS = { week: [["#week", "week", "Week"], ["#today", "today", "Day"]], routines: [["", "routines", "Routines"], ["lib", "lib", "Exercise library"]], library: [["#library", "library", "All topics"], ["#nutrition", "nutrition", "Nutrition"]] };
+  const SUBS = { week: [["#week", "week", "Week"], ["#today", "today", "Day"], ["#compare", "compare", "Compare"]], routines: [["", "routines", "Routines"], ["lib", "lib", "Exercise library"]], library: [["#library", "library", "All topics"], ["#nutrition", "nutrition", "Nutrition"]] };
   const subnav = (grp, cur) => `<nav class="subnav" aria-label="${grp === "routines" ? "Routines" : grp === "library" ? "Library" : "Week"} views">${SUBS[grp].map((t) => (t[0][0] === "#" ? `<a href="${t[0]}"${t[1] === cur ? ' aria-current="page"' : ""}>${t[2]}</a>` : `<button data-rtab="${t[0]}"${t[1] === cur ? ' aria-current="page"' : ""}>${t[2]}</button>`)).join("")}</nav>`;
   const clone = (x) => JSON.parse(JSON.stringify(x));
   const catOf = (id) => P.cats.find((c) => c.id === id) || {};
@@ -876,6 +895,65 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
       ${subnav("week", "today")}${dayStrip(d, " always")}
       <div class="timeline">${blocks}</div>
       <section class="tadd"><h2>Add to ${DAYN[d]}</h2><div class="chips">${SLOTS.map((s) => `<button class="chip plain" data-pick="${d}|${s[1]}">${gl(G.plus, "s")}${s[2]} routine</button>`).join("")}<button class="chip plain" data-add="item">${gl(G.plus, "s")}Daily habit</button></div></section>`;
+  }
+
+  /* ── compare: every routine as one row, with its week as seven dots. Routines and Gym are the same plan, split by what they need. ── */
+  const GYMRX = /barbell|bench|cable machine|dip bars|dumbbell|kettlebell|plyo box|back extension/i;
+  const isGym = (r) => r.cat === "gym" || ((P.equip || {})[r.base || r.id] || []).some((e) => GYMRX.test(e));
+  const usualSlot = (r) => { const n = {}; placed(r.id).forEach((x) => (n[x.k] = (n[x.k] || 0) + 1)); const k = Object.keys(n).sort((a, b) => n[b] - n[a])[0]; return k || (isGym(r) || r.cat === "sprint" ? "train" : r.cat === "breath" ? "bed" : SC.mins(r.id) >= 15 ? "pm" : "am"); };
+  let CSEL = [];
+  const exNames = (r) => r.ex.filter((e) => typeof e !== "string").map(exName).filter((x, i, a) => a.indexOf(x) === i);
+  function cmpRows() {
+    const ui = S.ui, tab = ui.ct || "rt", q = (ui.cq || "").trim().toLowerCase(), aims = aimsNow();
+    let l = P.routines.filter((r) => (tab === "gym") === isGym(r)).map((r) => { const pl = placed(r.id); return { r, pl, n: pl.length, min: pl.reduce((a, x) => a + (+x.min || 0), 0), aim: +aims[r.id] || 0 }; })
+      .filter((x) => (!ui.co || x.n) && (!q || (x.r.name + " " + (catOf(x.r.cat).name || "")).toLowerCase().indexOf(q) > -1));
+    const s = ui.cs || "group", ci = (x) => P.cats.findIndex((c) => c.id === x.r.cat);
+    l.sort((a, b) => (s === "most" ? b.n - a.n : s === "least" ? a.n - b.n : s === "long" ? b.min - a.min : s === "aim" ? (b.aim && b.n !== b.aim ? 1 : 0) - (a.aim && a.n !== a.aim ? 1 : 0) : ci(a) - ci(b)) || ci(a) - ci(b) || a.r.name.localeCompare(b.r.name));
+    return l;
+  }
+  function cmpSide() {
+    const rs = CSEL.map((id) => byId[id]).filter(Boolean); if (rs.length < 2) return CSEL.length ? '<p class="small muted cside-hint">Tick one more routine to see them side by side.</p>' : "";
+    const sets = rs.map(exNames), shared = (n) => sets.every((s) => s.indexOf(n) > -1);
+    return `<section class="cside" aria-label="Side by side"><div class="row"><h2>Side by side</h2><span style="flex:1"></span><button class="btn ghost sm" id="cmpClear">Clear</button></div><div class="cside-grid" style="--n:${rs.length}">${rs.map((r, i) => { const pl = placed(r.id), eq = (P.equip || {})[r.base || r.id]; return `<div class="cside-col"><h3><span class="cdot" data-kind="${r.cat}"></span>${esc(r.name)}</h3>
+      <dl class="ifacts"><dt>Kind</dt><dd>${esc(catOf(r.cat).name || "")}</dd><dt>Length</dt><dd>${esc(r.dur || "not set")}</dd><dt>A week</dt><dd>${pl.length}${pl.length ? " (" + pl.reduce((a, x) => a + (+x.min || 0), 0) + " min)" : ""}</dd><dt>Days</dt><dd>${pl.length ? ORDER.filter((d) => pl.some((x) => x.d === d)).map((d) => DAYN[d].slice(0, 3)).join(", ") : "not in your week"}</dd><dt>As written</dt><dd>${esc(r.when || "nothing stated")}</dd><dt>Needs</dt><dd>${eq ? esc(eq.join(", ")) : "nothing"}</dd></dl>
+      <h4>${sets[i].length} exercises</h4><ol class="iparts">${sets[i].map((n) => `<li${shared(n) ? ' class="same"' : ""}>${esc(n)}${shared(n) ? '<small>in all of these</small>' : ""}</li>`).join("")}</ol><button class="btn ghost sm" data-insp="${esc(r.id)}">Adjust</button></div>`; }).join("")}</div></section>`;
+  }
+  function drawCompare() {
+    const ui = S.ui, tab = ui.ct || "rt";
+    if (tab === "ex") {
+      const m = {}, q = (ui.cq || "").trim().toLowerCase();
+      P.routines.forEach((r) => { const t = placed(r.id).length; exNames(r).forEach((n) => { const e = (m[n] = m[n] || { n, c: 0, rs: [] }); e.c += t; e.rs.push([r, t]); }); });
+      const l = Object.keys(m).map((k) => m[k]).filter((e) => (!ui.co || e.c) && (!q || e.n.toLowerCase().indexOf(q) > -1)).sort((a, b) => ((ui.cs || "most") === "least" ? a.c - b.c : b.c - a.c) || a.n.localeCompare(b.n));
+      $("#cmpBody").innerHTML = l.length ? `<ul class="clist">${l.map((e) => `<li class="crow ex"><div class="cname"><b>${esc(e.n)}</b><small>${e.rs.length} ${e.rs.length === 1 ? "routine" : "routines"}</small></div><div class="chips">${e.rs.sort((a, b) => b[1] - a[1]).map((x) => `<button class="chip plain wk${x[1] ? "" : " off"}" data-insp="${esc(x[0].id)}"><span class="cdot" data-kind="${x[0].cat}"></span>${esc(x[0].name)}<b>${x[1]}</b></button>`).join("")}</div><div class="ccount${e.c ? "" : " zero"}"><b>${e.c}</b><small>a week</small></div></li>`).join("")}</ul>` : '<div class="empty"><b>No exercise matches</b>Clear the filter or turn off In my week.</div>';
+      return;
+    }
+    const l = cmpRows(), tot = l.reduce((a, x) => a + x.n, 0), mins = l.reduce((a, x) => a + x.min, 0); let last = "";
+    $("#cmpBody").innerHTML = `${cmpSide()}<p class="small muted" id="cmpTot">${l.length} ${tab === "gym" ? "gym sessions and routines" : "routines"} shown: ${tot} placed this week, ${mins} minutes.</p>` + (l.length ? `<ul class="clist">${l.map((x) => { const r = x.r, head = (ui.cs || "group") === "group" && r.cat !== last ? `<li class="chead"><span class="cdot" data-kind="${r.cat}"></span>${esc(catOf(r.cat).name || "")}</li>` : ""; last = r.cat;
+      return `${head}<li class="crow${x.n ? "" : " unplaced"}"><label class="ccheck"><input type="checkbox" data-csel="${esc(r.id)}"${CSEL.indexOf(r.id) > -1 ? " checked" : ""}${CSEL.length >= 3 && CSEL.indexOf(r.id) < 0 ? " disabled" : ""}><span class="sr">Compare ${esc(r.name)}</span></label>
+        <div class="cname"><button class="linkname" data-insp="${esc(r.id)}"><span class="cdot" data-kind="${r.cat}"></span>${esc(r.name)}</button><small>${esc(r.dur || "No set length")}${r.when ? ". " + esc(r.when) : ""}</small></div>
+        <div class="cdays" role="group" aria-label="Days for ${esc(r.name)}">${ORDER.map((d) => { const c = x.pl.filter((p) => p.d === d).length; return `<button data-cday="${esc(r.id)}|${d}" aria-pressed="${c > 0}" aria-label="${DAYN[d]}${c > 1 ? ", " + c + " times" : ""}">${DAYN[d][0]}${c > 1 ? `<i>${c}</i>` : ""}</button>`; }).join("")}</div>
+        <div class="ccount${x.aim && x.n !== x.aim ? " off" : ""}${x.n ? "" : " zero"}"><b>${x.n}</b><small>${x.aim ? "of " + x.aim + " a week" : "a week"}</small><small>${x.min ? x.min + " min" : ""}</small></div></li>`; }).join("")}</ul>` : '<div class="empty"><b>Nothing matches</b>Clear the filter or turn off In my week.</div>');
+  }
+  function renderCompare() {
+    now = new Date(); TK = dkey(now);
+    const ui = S.ui, tab = ui.ct || "rt", bad = SC.checks(S.plan, aimsNow()).filter((c) => c.k === "fit").length, so = tab === "ex" ? [["most", "Most often"], ["least", "Least often"]] : [["group", "By kind"], ["most", "Most often"], ["least", "Least often"], ["long", "Most minutes"], ["aim", "Off their aim first"]];
+    if (!so.some((o) => o[0] === ui.cs)) ui.cs = so[0][0];
+    $("#v-compare").innerHTML = `<header class="view-head"><div><h1>Compare</h1><p class="lede">Every routine and how often it sits in your week. Choose a day letter to add or remove it; choose a name to see what is in it and set minutes, slot and aim.</p></div><div class="head-side">${undoBar()}</div></header>
+      ${subnav("week", "compare")}
+      <div class="tabs" role="tablist" aria-label="What to compare">${[["rt", "Routines"], ["gym", "Gym"], ["ex", "Exercises"]].map((t) => `<button role="tab" aria-selected="${tab === t[0]}" data-ctab="${t[0]}">${t[1]}</button>`).join("")}</div>
+      ${tab === "gym" ? '<p class="small muted">Anything that needs gym equipment, plus the strength, bone and tendon sessions. They share the same week as everything else.</p>' : tab === "ex" ? '<p class="small muted">How many times a week each exercise comes up, counted from the routines you have placed. The number on a routine is how often that routine runs.</p>' : ""}
+      <div class="toolbar"><input class="search" id="cmpQ" type="search" name="cmpq" autocomplete="off" placeholder="Filter…" aria-label="Filter the list" value="${esc(ui.cq || "")}"><select id="cmpSort" name="cmpsort" aria-label="Sort">${so.map((o) => `<option value="${o[0]}"${ui.cs === o[0] ? " selected" : ""}>${o[1]}</option>`).join("")}</select><button class="chip plain" id="cmpOnly" aria-pressed="${!!ui.co}">In my week</button></div>
+      ${bad ? `<div class="status warn">${gl(G.warn)}<div>${bad} ${bad === 1 ? "part of a day does" : "parts of days do"} not fit any more. <a class="linkbtn" href="#week">Open the week</a></div></div>` : ""}
+      <div id="cmpBody"></div>`;
+    drawCompare();
+  }
+  function cmpClick(t, d) {
+    if (d.cday) { const a = d.cday.split("|"), r = byId[a[0]], dd = +a[1]; if (!r) return true; const on = t.getAttribute("aria-pressed") === "true", k = usualSlot(r);
+      editDay(dd, (pl) => { if (on) ["am", "train", "pm", "bed"].forEach((s) => (pl[s] = pl[s].filter((x) => x[0] !== r.id))); else pl[k].push([r.id, (placed(r.id)[0] || {}).min || SC.mins(r.id)]); }, `[data-cday="${d.cday}"]`); say(on ? "Removed from " + DAYN[dd] : `Added to ${DAYN[dd]} ${slotName(k).toLowerCase()}`); return true; }
+    if (d.ctab) { S.ui.ct = d.ctab; S.ui.cq = ""; CSEL = []; save(); renderCompare(); refocus(`[data-ctab="${d.ctab}"]`); return true; }
+    if (t.id === "cmpOnly") { S.ui.co = !S.ui.co; save(); renderCompare(); refocus("#cmpOnly"); return true; }
+    if (t.id === "cmpClear") { CSEL = []; drawCompare(); return true; }
+    return false;
   }
 
   /* ── one routine: what is in it, and when and how often it sits in the week ── */
@@ -1399,7 +1477,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   let FOPEN = {};
   function drawFind(q, keepScroll) {
     S.ui.fq = q; q = q.trim().toLowerCase(); const box = $("#fRes"), filt = $("#fFilt");
-    if (q.length < 2) { filt.innerHTML = ""; box.innerHTML = `<h3>Jump to</h3>${[["Your week", "week"], ["Today", "today"], ["Routines", "routines"], ["Exercise library", "routines-lib"], ["Library", "library"], ["Nutrition", "nutrition"], ["Products", "products"]].map((j) => `<button data-jumpto="${j[1]}"><b>${j[0]}</b></button>`).join("")}<p class="small muted" style="padding:12px 6px">Type two or more letters to search all ${findIndex().length} entries.</p>`; return; }
+    if (q.length < 2) { filt.innerHTML = ""; box.innerHTML = `<h3>Jump to</h3>${[["Your week", "week"], ["Today", "today"], ["Compare routines", "compare"], ["Routines", "routines"], ["Exercise library", "routines-lib"], ["Library", "library"], ["Nutrition", "nutrition"], ["Products", "products"]].map((j) => `<button data-jumpto="${j[1]}"><b>${j[0]}</b></button>`).join("")}<p class="small muted" style="padding:12px 6px">Type two or more letters to search all ${findIndex().length} entries.</p>`; return; }
     const words = q.split(/\s+/), all = findIndex().filter((x) => words.every((w) => x.k.indexOf(w) > -1)), groups = {}, kinds = {};
     all.forEach((h) => (kinds[h.kind] = (kinds[h.kind] || 0) + 1)); if (S.ui.fk && !kinds[S.ui.fk]) S.ui.fk = "";
     const hits = S.ui.fk ? all.filter((h) => h.kind === S.ui.fk) : all, rank = (h) => { const t = h.t.toLowerCase(); return t === q ? 0 : t.indexOf(q) === 0 ? 1 : t.indexOf(q) > -1 ? 2 : 3; };
@@ -1555,8 +1633,8 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   }
 
   /* ── routing ── */
-  const NAVOF = { week: "week", today: "week", routines: "routines", library: "library", nutrition: "library", systems: "library", extras: "library", products: "products" };
-  const RENDER = { week: renderWeek, today: renderDay, library: renderLibrary, routines: renderRoutines, nutrition: renderNutrition, systems: renderSystems, products: renderProducts, extras: renderExtras };
+  const NAVOF = { week: "week", today: "week", compare: "week", routines: "routines", library: "library", nutrition: "library", systems: "library", extras: "library", products: "products" };
+  const RENDER = { week: renderWeek, today: renderDay, compare: renderCompare, library: renderLibrary, routines: renderRoutines, nutrition: renderNutrition, systems: renderSystems, products: renderProducts, extras: renderExtras };
   let current = null;
   function route(first) {
     const v = VIEWS.indexOf(location.hash.slice(1)) > -1 ? location.hash.slice(1) : "week", navv = NAVOF[v];
@@ -1575,7 +1653,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     if (e.target.id === "libdlg") { closeLib(); return; }
     if (e.target.id === "find") { closeFind(); return; }
     const t = e.target.closest("button, a"); if (!t) return; const d = t.dataset;
-    if (planClick(t, d) || v8Click(t, d) || uiClick(t, d) || editClick(t, d)) { if (t.closest("summary")) e.preventDefault(); return; }
+    if (cmpClick(t, d) || planClick(t, d) || v8Click(t, d) || uiClick(t, d) || editClick(t, d)) { if (t.closest("summary")) e.preventDefault(); return; }
     if (d.fav) { e.preventDefault(); if (S.fav[d.fav]) delete S.fav[d.fav]; else S.fav[d.fav] = 1; save(); t.setAttribute("aria-pressed", !!S.fav[d.fav]); say(S.fav[d.fav] ? "Added to favourites" : "Removed from favourites"); if ($("#rStrips") && !(S.ui.rq || "").trim()) $("#rStrips").innerHTML = stripsHtml(); }
     else if (d.go) { if (!$("#sheet").hidden) closeSheet(true); if (!$("#libdlg").hidden) closeLib(); if (!$("#player").hidden) closeOverlay($("#player")); S.ui.rtab = ""; openRoutine(d.go); }
     else if (d.cat !== undefined) { S.ui.rcat = d.cat; save(); $$("[data-cat]").forEach((c) => c.setAttribute("aria-pressed", c.dataset.cat === d.cat)); drawRoutines(); }
@@ -1620,10 +1698,11 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   });
   document.addEventListener("toggle", (e) => { const r = e.target.dataset && e.target.dataset.rt; if (r && e.target.open) touch(r); }, true);
   document.addEventListener("input", (e) => { if (e.target.id === "rSearch") { S.ui.rq = e.target.value; drawRoutines(); } if (e.target.id === "pSearch") { S.ui.pq = e.target.value; drawProducts(); } if (e.target.id === "lSearch") { S.ui.lq = e.target.value; drawLib(); } if (e.target.id === "pkQ") { const q = e.target.value.trim().toLowerCase(); $$("#pkList .prow").forEach((b) => (b.hidden = !!q && b.dataset.k.indexOf(q) < 0)); }
+    if (e.target.id === "cmpQ") { S.ui.cq = e.target.value; drawCompare(); }
     if (e.target.id === "libQ") { S.ui.lq = e.target.value; drawLibrary(); }
     if (e.target.id === "fInput") { FOPEN = {}; S.ui.fy = 0; drawFind(e.target.value); }
     if (e.target.id === "nSearch") { const q = e.target.value.trim().toLowerCase(); $$("#nutPanel .food").forEach((li) => (li.hidden = !!q && li.dataset.k.indexOf(q) < 0)); let any = false; $$("#nutPanel .fgroup").forEach((g) => { g.hidden = !$$(".food:not([hidden])", g).length; any = any || !g.hidden; }); $("#nNone").hidden = any; } });
-  document.addEventListener("change", (e) => { if (e.target.id === "libSort") { S.ui.lsort = e.target.value; save(); renderLibrary(); refocus("#libSort"); return; } editChange(e.target); });
+  document.addEventListener("change", (e) => { if (e.target.id === "cmpSort") { S.ui.cs = e.target.value; save(); renderCompare(); refocus("#cmpSort"); return; } if (e.target.dataset && e.target.dataset.csel) { const id = e.target.dataset.csel; CSEL = e.target.checked ? CSEL.concat([id]).slice(0, 3) : CSEL.filter((x) => x !== id); drawCompare(); refocus(`[data-csel="${id}"]`); return; } if (e.target.id === "libSort") { S.ui.lsort = e.target.value; save(); renderLibrary(); refocus("#libSort"); return; } editChange(e.target); });
   document.addEventListener("submit", (e) => { if (e.target.id === "addForm") { e.preventDefault(); saveAdd(e.target); } if (e.target.id === "ovForm") { e.preventDefault(); saveOv(e.target); } });
   document.addEventListener("keydown", (e) => {
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "z" && !/INPUT|TEXTAREA|SELECT/.test((document.activeElement || {}).tagName || "") && $("#find").hidden && $("#player").hidden && $("#pacer").hidden) { e.preventDefault(); if (e.shiftKey) redoLast(); else undoLast(); return; }

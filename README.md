@@ -2,7 +2,7 @@
 
 ## Primal Health Hub
 
-Four sections: Week (the planner and a day view), Routines (routines and the exercise library), Library (nutrition and every topic, grouped) and Products. The hub plans the week; it does not track what was done. Run the checks with `node health-hub/tests/schedule.test.js`.
+Four sections: Week (the planner, a day view and Compare), Routines (routines and the exercise library), Library (nutrition and every topic, grouped) and Products. The hub plans the week; it does not track what was done. Run the checks with `node health-hub/tests/schedule.test.js`.
 
 `health-hub/` is a single-page health dashboard compiled from the OP 1 and OP 2 docs, the Approved Foods list and the product list in the Max doc.
 

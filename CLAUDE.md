@@ -30,6 +30,7 @@ Each block of information sits in a **source panel**: a plain card that ends wit
 - The timetable lives in `health-hub/data/schedule.js` (`P.plan`): wake 06:30, bed 22:30, gym Mon / Wed / Fri / Sun, sprints Tue / Sat. A slot is a list of `[routine id, minutes]`. It is marked `"both"`: OP routines, the owner's times.
 - After changing it, run `node health-hub/tests/schedule.test.js`. It fails if any block runs into the next one, or if the weekly balance drifts (full body release 2x, lymph drainage 3x, breathwork and fascia work every day).
 - The week planner is the main page (`#week`); `#today` shows one day of it. Edits are direct and saved at once: a day that runs over is allowed and flagged, never blocked.
+- Compare (`#compare`, the third tab of Week) lists every routine as one row with its week as seven day letters, a Gym tab (`isGym()`: the gym kind, or equipment matching `GYMRX`) and an Exercises tab that counts each exercise across the placed routines. All three edit the same `S.plan` through `editDay()`; a day letter adds to the routine's usual slot (`usualSlot()`).
 - `P.sched.checks()` reports what the week contains: parts of a day that do not fit, strength or sprints on back-to-back days, one day much heavier than the rest, and routines off their weekly aim (`P.aims`, overridden by the owner in `S.freq`). The checks describe the plan; they are not advice.
 
 ### Rule: edits made inside the hub
