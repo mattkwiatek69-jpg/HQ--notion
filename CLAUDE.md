@@ -6,7 +6,7 @@
 
 Before adding any new information to the hub, **ask the owner whose it is**: their own, or someone else's (and whose). Do not guess from the file name. Then mark it so the on-page key stays true.
 
-Each block of information sits in a **source panel**: a thin (1.5px) rounded frame in the source colour, a flat light tint of that colour, and a compact name tab in the corner. The name tab is what carries the source; the colour only repeats it. The soft faded gold highlight is reserved for the current action (the Next up row) and a topic's key points. The key swatches are miniature panels.
+Each block of information sits in a **source panel**: a neutral rounded frame with a dark name tab in the corner. The name tab carries the source and the border style repeats it (OP docs solid, my notes double, both solid top and bottom with double sides, someone else dashed). Source panels carry no colour of their own: colour belongs to the four sections. The soft faded gold highlight is reserved for the current action (the Next up row) and a topic's key points. The key swatches are miniature panels.
 
 | Source | `src` value | Panel frame / tint tokens | Tab label |
 |---|---|---|---|
@@ -20,7 +20,8 @@ Each block of information sits in a **source panel**: a thin (1.5px) rounded fra
 - Keep the Source colours switch working: anything source-coloured must fall back to a neutral card under `html.plain`.
 - Four main sections: **Today** (Today, Progress), **Plan** (Timetable, Routines, Exercise library), **Library** (Nutrition plus every topic, grouped), **Products**. Saved routines, My edits, backup and the source key live in the utility area (rail footer on desktop, More on phones). New information goes into an existing template, never into the main menu. Old links (`#routines`, `#nutrition`, `#systems`, `#extras`, `#week`, `#progress`) must keep working.
 - A new Library topic needs `grp` (`move`, `sleep`, `energy`, `env`, `ref`; set in `health-hub/data/meta.js`). Routines related to a topic go in `P.related` there.
-- Keep the cream / olive identity (tokens: canvas `#F5F2E8`, surface `#FFFCF4`, text `#252D24`, olive `#394B34`, ochre `#C89B3C`, terracotta `#B86B50`, moss `#707B4F`, basalt `#5E5A50`), Cormorant Garamond for titles and Manrope for everything else.
+- Look: near-black text `#141914` on bright cream `#F8F5EC`, cards `#FFFEFA`. Each section owns one solid colour for its header band, current nav item, buttons and selected chips: Today olive `#2F4A2B`, Plan terracotta `#A8452A`, Library ochre `#E0A82E` (dark text on it), Products teal-moss `#1E5B57`. They arrive through `--sec`, `--sec-on`, `--sec-ink`, set from `html[data-sec]` by `route()`. Every page opens with the same `.view-head` band, then tabs, then content. Cormorant Garamond for titles and Manrope for everything else. `health-hub/design-system/tokens.json` is generated from the stylesheet.
+- Do not draw or generate artwork. Use what is in `health-hub/assets/` and list anything missing in `health-hub/assets/ASSET-REQUESTS.md` with a prompt the owner can paste into an image tool.
 - Saved browser data uses the key `phh:v1`. Only add fields; never rename or remove existing ones.
 
 ### Rule: the week timetable has to fit
@@ -41,7 +42,7 @@ Each block of information sits in a **source panel**: a thin (1.5px) rounded fra
 - The add form always asks whose the information is. Imported data goes through `cleanAdds` / `cleanPlan`; links must start with `http`.
 - When the owner sends an export to be made permanent, move each entry into the matching `health-hub/data/*.js` file with the same `src`, then tell them to delete the in-hub copy.
 - Artwork: functional symbols are inline SVG in the nav icon family (`G` in `index.html`; `icon: "g:<name>"` on a topic uses one). Do not use a food picture for a hormone or body-system topic. Painted art is listed in `health-hub/assets/manifest.json`; what is still missing, with ready prompts, is in `health-hub/assets/ASSET-REQUESTS.md`.
-- Approved foods render as picture tiles. A food gets its picture from the `FOOD_IC` keyword list in `health-hub/index.html`; foods with no match show the bowl symbol. New food pictures go in `health-hub/assets/icons/` (128px transparent webp) plus one line in `FOOD_IC` and `FOODIC`.
+- Approved foods render as picture tiles. A food gets its picture from the `FOOD_IC` keyword list in `health-hub/index.html`; foods with no match show the bowl symbol. New food pictures go in `health-hub/assets/icons/` (128px transparent webp) plus one line in `FOOD_IC` and `FOODIC`. Product pictures work the same way through `PROD_IC`; a name containing `/` (such as `illus/equipment-kettlebell`) is read from `assets/` directly. Line icons from the pack are in `assets/line/primal-icons.js` (`li("name")`).
 
 ### Checks to run after any change
 

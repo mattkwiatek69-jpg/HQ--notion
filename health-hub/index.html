@@ -579,6 +579,53 @@ small.mynote { display: block; padding: 0; margin: 2px 0 0; background: none; co
 .item[data-just] .tick i { animation: pop .18s var(--ease); } .item[data-just] { animation: settle .24s var(--ease); }
 @keyframes pop { 50% { transform: scale(1.25); } } @keyframes settle { from { background: var(--sage-soft); } }
 .toast { animation: rise .2s var(--ease); }
+
+/* ── v9: colour per section, near-black on bright cream, sources by name tab and border style ── */
+:root {
+  --bg: #F8F5EC; --surface: #FFFEFA; --sunk: #ECE7D8; --paper: #F3EFE2;
+  --ink: #141914; --ink-2: #2B332A; --ink-3: #474C43; --line: rgba(20, 25, 20, .2); --line-2: rgba(20, 25, 20, .5);
+  --c-today: #2F4A2B; --c-plan: #A8452A; --c-lib: #E0A82E; --c-prod: #1E5B57; --on-dark: #FFFEFA; --on-lib: #141914;
+  --k-today: #2F4A2B; --k-plan: #9A3D24; --k-lib: #7A5200; --k-prod: #1E5B57;
+  --rail: #141914; --rail-ink: #FFFEFA; --rail-dim: #C9CEC0; --focus: #141914;
+  --sec: var(--c-today); --sec-on: var(--on-dark); --sec-ink: var(--k-today);
+  --primary: var(--sec); --on-primary: var(--sec-on); --sel: var(--sec); --on-sel: var(--sec-on); --rail-active: var(--sec);
+  --shadow: 0 1px 0 rgba(20, 25, 20, .06), 0 8px 20px -14px rgba(20, 25, 20, .3);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --k-today: #A8C39A; --k-plan: #F0A083; --k-lib: #E9B94A; --k-prod: #7FC7C0; --rail-ink: #FFFEFA; --primary: var(--sec); --on-primary: var(--sec-on); --sel: var(--sec); --on-sel: var(--sec-on); --rail-active: var(--sec); } }
+:root[data-theme="dark"] { --k-today: #A8C39A; --k-plan: #F0A083; --k-lib: #E9B94A; --k-prod: #7FC7C0; --rail-ink: #FFFEFA; --primary: var(--sec); --on-primary: var(--sec-on); --sel: var(--sec); --on-sel: var(--sec-on); --rail-active: var(--sec); }
+html[data-sec="plan"] { --sec: var(--c-plan); --sec-ink: var(--k-plan); }
+html[data-sec="library"] { --sec: var(--c-lib); --sec-on: var(--on-lib); --sec-ink: var(--k-lib); }
+html[data-sec="products"] { --sec: var(--c-prod); --sec-ink: var(--k-prod); }
+body { background-image: none; }
+/* the section band: every page opens the same way */
+.view-head { background: var(--sec); color: var(--sec-on); border-radius: 20px; padding: 26px 28px 24px; align-items: center; }
+.view-head h1, .view-head .lede, .view-head .label, .view-head .muted { color: inherit; } .view-head .lede { max-width: 56ch; }
+.view-head .btn.ghost { color: inherit; border: 1.5px solid currentColor; background: transparent; } .view-head .btn.ghost:hover:not(:disabled) { background: color-mix(in srgb, currentColor 16%, transparent); }
+.view-head :focus-visible { outline-color: currentColor; }
+@media (max-width: 760px) { .view-head { padding: 18px 16px; border-radius: 16px; } }
+.nav :is(a, button)[aria-current="page"] { color: var(--sec-on); } .rail :focus-visible { outline-color: #FFFEFA; }
+.nav a[data-nav="today"] svg { color: #A8C39A; } .nav a[data-nav="plan"] svg { color: #F0A083; } .nav a[data-nav="library"] svg { color: #E9B94A; } .nav a[data-nav="products"] svg { color: #7FC7C0; } .nav a[aria-current="page"] svg { color: inherit; }
+.subnav { background: transparent; padding: 0; gap: 6px; border-bottom: 2px solid var(--ink); border-radius: 0; align-self: stretch; }
+.subnav :is(a, button) { border-radius: 10px 10px 0 0; } .subnav :is(a, button)[aria-current] { background: var(--ink); color: var(--bg); box-shadow: none; }
+.lgroup h2, .cat-head h2, h2.rule, .sess-head h2, .more h2 { color: var(--sec-ink); }
+.lgroup h2 img { width: 48px; height: 48px; object-fit: contain; }
+.next { background: var(--ink); color: var(--bg); } .next .btn { background: var(--bg); color: var(--ink); } .next .label { opacity: 1; color: var(--c-lib); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .next .label { color: #7A5200; } } :root[data-theme="dark"] .next .label { color: #7A5200; }
+.card, .tcard, .food, .lrows, .ncard.card { border-color: var(--line-2); }
+.chip { border-color: var(--line-2); } .badge { color: var(--ink); } .lede { color: var(--ink-2); }
+.dsteps::before { background: var(--ink); opacity: 1; height: 2px; } .dsteps i { border-color: var(--ink); border-width: 2px; background: var(--surface); }
+.item.is-next, .keys { border-color: var(--sec-ink); background: color-mix(in srgb, var(--c-lib) 14%, var(--surface)); }
+/* sources: the name tab says it; the border style repeats it. Colour now belongs to sections. */
+.sbox.sbox, .sbox.s-both { background: var(--surface); border: 1.5px solid var(--line-2); box-shadow: none; }
+.sbox.s-me { border: 4px double var(--line-2); } .sbox.s-both { border-style: solid; border-width: 1.5px 4px; border-left-style: double; border-right-style: double; } .sbox.s-x { border-style: dashed; }
+.sbox.slim.s-me, .sbox.slim.s-both { border-width: 3px; }
+.sbox:not(.slim)::before, .sbox.s-both:not(.slim)::before { background: var(--ink); color: var(--bg); border: 0; padding: 4px 9px; }
+.src::before, .src.me::before, .src.both::before { background: transparent; border: 1.5px solid currentColor; } .src.me::before { border: 3px double currentColor; height: 13px; } .src.both::before { border-style: solid double; border-width: 1.5px 3px; } .src.x::before { border: 1.5px dashed currentColor; }
+.rail .src::before, .rail .src.op::before { border-color: currentColor; } .rail .srcswitch i { background: #E9B94A; }
+.mynote { background: var(--sunk); border-left: 0; } .bullets.me li::before { background: var(--ink); }
+.prod-main.haspic { position: relative; padding-left: 64px; min-height: 52px; } .prod-main.haspic > img { position: absolute; left: 0; top: 0; }
+.tabs { border-bottom: 2px solid var(--ink); gap: 6px; } .tabs button { border-bottom: 0; margin-bottom: 0; border-radius: 10px 10px 0 0; color: var(--ink-2); } .tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); }
+.opt-row .li, .lgroup .li { width: 22px; height: 22px; flex: none; } .opt-row .li svg { width: 22px; height: 22px; display: block; }
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -613,7 +660,7 @@ small.mynote { display: block; padding: 0; margin: 2px 0 0; background: none; co
 <div class="toast" id="toast" role="status" hidden></div>
 <div class="sr" aria-live="polite" id="live"></div>
 
-<script src="data/routines-a.js"></script><script src="data/routines-b.js"></script><script src="data/systems.js"></script>
+<script src="assets/line/primal-icons.js"></script><script src="data/routines-a.js"></script><script src="data/routines-b.js"></script><script src="data/systems.js"></script>
 <script src="data/nutrition.js"></script><script src="data/products.js"></script><script src="data/today.js"></script><script src="data/meta.js"></script><script src="data/schedule.js"></script><script src="data/library.js"></script>
 <script>
 (function () {
@@ -621,7 +668,7 @@ small.mynote { display: block; padding: 0; margin: 2px 0 0; background: none; co
   const P = window.PHH || {};
   const $ = (s, r) => (r || document).querySelector(s), $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const ic = (n, z) => `<img class="ic" src="assets/icons/${n}.webp" width="${z || 40}" height="${z || 40}" alt="" loading="lazy" decoding="async">`;
+  const ic = (n, z) => `<img class="ic" src="assets/${String(n).indexOf("/") > -1 ? n : "icons/" + n}.webp" width="${z || 40}" height="${z || 40}" alt="" loading="lazy" decoding="async">`;
   const gl = (d, c) => `<svg class="gl ${c || ""}" viewBox="0 0 24 24" aria-hidden="true"><path d="${d}"/></svg>`;
   const G = { check: "M5 12.5l4.5 4.5L19 7.5", x: "M6 6l12 12M18 6L6 18", down: "M6 9l6 6 6-6", clock: "M12 7v5l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z", kit: "M4 9h16v10H4zM9 9V6h6v3", arrow: "M5 12h14M13 6l6 6-6 6", back: "M19 12H5M11 6l-6 6 6 6", warn: "M12 4l9 16H3L12 4zM12 10v4M12 17v.5", info: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 11v5M12 7.5v.5", filter: "M4 6h16M7 12h10M10 18h4", pen: "M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4", plus: "M12 5v14M5 12h14", right: "M9 6l6 6-6 6", up: "M6 15l6-6 6 6", ban: "M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zM6 6l12 12", plate: "M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z", net: "M6 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM18 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM11 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM8 6.3l8 1.4M6.8 7.8l3.4 8.4M17 9.8l-4.8 6.6", hex: "M12 3.5l7.4 4.25v8.5L12 20.5l-7.4-4.25v-8.5L12 3.5zM12 9v6M9.4 10.5l5.2 3M14.6 10.5l-5.2 3", bowl: "M4 11h16a8 8 0 0 1-16 0zM9.5 20h5M9 4.5c0 1.5 1 1.5 1 3M13 4.5c0 1.5 1 1.5 1 3", play: "M8 5v14l11-7z", pause: "M8 5v14M16 5v14" };
   const STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.6 6 .7-4.5 4.1 1.2 6-5.3-3-5.3 3 1.2-6L3.4 9.8l6-.7z"/></svg>';
@@ -902,7 +949,7 @@ small.mynote { display: block; padding: 0; margin: 2px 0 0; background: none; co
   const NT = [["approved", "Approved foods"], ["avoid", "Avoid"], ["plate", "Daily plate"], ["timing", "Timing & kitchen"], ["recipes", "Recipes"], ["map", "Nutrient map"]];
   const ul = (a, src) => `<ul class="bullets${srcOf(src) === "me" ? " me" : ""}">${a.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>`, kvw = (a) => `<dl class="kv wide">${a.map((r) => `<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join("")}</dl>`;
   /* approved and avoid lists as picture tiles; a food with no picture gets its initial */
-  const FOOD_IC = [[/coconut/, "coconut"], [/tallow|lamb fat/, "amberjar"], [/milk|yogurt|cream/, "milk"], [/cheese/, "cheese"], [/egg/, "egg"], [/broth|gelatin|collagen/, "broth"], [/shellfish|oyster/, "oyster"], [/shrimp|prawn/, "shrimp"], [/mussel/, "mussel"], [/sardine|white fish|\bcod\b/, "sardines"], [/fish|salmon/, "salmon"], [/organ meat|liver|heart/, "liver"], [/marrow/, "marrow"], [/beef|lamb|bison|steak|ribeye/, "steak"], [/butter|ghee/, "butter"], [/orange|tangerine|mandarin/, "orange"], [/mango/, "mango"], [/honey|pollen/, "honeycomb"], [/cherr/, "cherries"], [/banana/, "banana"], [/\bdates?\b/, "dates"], [/avocado/, "avocado"], [/blueberr/, "blueberries"], [/pomegranate/, "pomegranate"], [/carrot/, "carrotsalad"], [/\bapples?\b/, "apple"], [/\bfigs?\b/, "fig"], [/kiwi/, "kiwi"], [/walnut/, "walnut"], [/\bsalt\b/, "seasalt"], [/nettle|\btea\b/, "nettletea"], [/\bfruit\b/, "kiwi"]];
+  const FOOD_IC = [[/chicken|turkey/, "chicken-turkey"], [/poultry/, "poultry"], [/olive oil/, "olive-oil"], [/papaya/, "papaya"], [/grapes?\b/, "grapes"], [/watermelon/, "watermelon"], [/pineapple/, "pineapple"], [/rice|potato/, "rice-potatoes"], [/cacao/, "cacao"], [/mushroom/, "button-mushrooms"], [/raisin/, "raisins"], [/pumpkin seed/, "pumpkin-seeds"], [/tamarind/, "tamarind"], [/maple/, "maple-syrup"], [/coconut/, "coconut"], [/tallow|lamb fat/, "amberjar"], [/milk|yogurt|cream/, "milk"], [/cheese/, "cheese"], [/egg/, "egg"], [/broth|gelatin|collagen/, "broth"], [/shellfish|oyster/, "oyster"], [/shrimp|prawn/, "shrimp"], [/mussel/, "mussel"], [/sardine|white fish|\bcod\b/, "sardines"], [/fish|salmon/, "salmon"], [/organ meat|liver|heart/, "liver"], [/marrow/, "marrow"], [/beef|lamb|bison|steak|ribeye/, "steak"], [/butter|ghee/, "butter"], [/orange|tangerine|mandarin/, "orange"], [/mango/, "mango"], [/honey|pollen/, "honeycomb"], [/cherr/, "cherries"], [/banana/, "banana"], [/\bdates?\b/, "dates"], [/avocado/, "avocado"], [/blueberr/, "blueberries"], [/pomegranate/, "pomegranate"], [/carrot/, "carrotsalad"], [/\bapples?\b/, "apple"], [/\bfigs?\b/, "fig"], [/kiwi/, "kiwi"], [/walnut/, "walnut"], [/\bsalt\b/, "seasalt"], [/nettle|\btea\b/, "nettletea"], [/\bfruit\b/, "kiwi"]];
   const foodParts = (x) => { const u = typeof x !== "string", s = u ? x.n : x, m = /^([^:(]+?)\s*(?::\s*(.+)|\((.+)\)\s*)$/.exec(s); return m && !u ? [m[1], m[2] || m[3]] : [s, u ? x.note || "" : ""]; };
   const foodIc = (t, icon) => { const n = icon || (FOOD_IC.find((r) => r[0].test(t.toLowerCase())) || [])[1]; return n ? ic(n, 44) : `<span class="mono" aria-hidden="true">${gl(G.bowl)}</span>`; };
   const foodTile = (x, gsrc, avoid) => { const p = foodParts(x), u = typeof x !== "string"; return `<li class="food${u && srcOf(x.src) !== srcOf(gsrc) ? " slim " + sb(x.src, x.who) : ""}" data-k="${esc((p[0] + " " + p[1]).toLowerCase())}">${avoid ? `<span class="mono no" aria-hidden="true">${gl(G.x, "s")}</span>` : foodIc(p[0], u && x.icon)}<div><b>${esc(p[0])}</b>${p[1] ? `<small>${esc(p[1])}</small>` : ""}${!u && ovOf("f:" + x).note ? `<small class="mynote">My note: ${esc(ovOf("f:" + x).note)}</small>` : ""}</div>${u ? `<button class="linkbtn" data-add="food" data-id="${x.id}">Edit</button>` : `<button class="iconbtn" data-ov="${esc("f:" + x)}" aria-label="Note on ${esc(p[0])}">${gl(G.pen, "s")}</button>`}</li>`; };
@@ -939,7 +986,10 @@ small.mynote { display: block; padding: 0; margin: 2px 0 0; background: none; co
   function owned() { if (!S.owned) { S.owned = {}; P.products.forEach((p) => { if (p.own) S.owned[p.n] = 1; }); } return S.owned; }
   const money = (n) => "£" + (Math.round(n * 100) / 100).toFixed(2).replace(/\.00$/, "");
   const SRC = { op: "OP docs", max: "Max doc", both: "OP + Max", mention: "Named in OP" }, PRI = [["1", "High"], ["2", "Medium"], ["3", "Low"]];
-  const prodMain = (p) => `<div class="prod-main"><strong>${esc(p.n)}</strong><span class="badges">${p.p ? `<span class="price">${money(p.p)}</span>` : `<span class="badge">No price recorded</span>`}${srcTag(p.src)}${p.src === "mention" ? '<span class="badge">named in a routine</span>' : ""}</span>${p.note ? `<p>${esc(p.note)}</p>` : ""}${p.uid ? "" : mine("p:" + p.n)}${(() => { const u = usedIn(p.n); return u.length ? `<p class="usedin">Used in ${u.map(pill).join("")}</p>` : ""; })()}${p.uid ? "" : `<p class="srcline">${ovOf("p:" + p.n).t ? `<span class="badge gold">Edited by you · ${stamp(ovOf("p:" + p.n).t)}</span>` : ""}<button class="linkbtn" data-ov="${esc("p:" + p.n)}">${ovOf("p:" + p.n).note ? "Edit note" : "Add a note"}</button><button class="star" data-fav="${esc("p:" + p.n)}" aria-pressed="${!!S.fav["p:" + p.n]}" aria-label="Save ${esc(p.n)}">${STAR}</button></p>`}</div>`;
+  const PROD_IC = [[/pull-up/, "illus/equipment-pull-up-bar"], [/yoga block/, "illus/equipment-yoga-block"], [/kettlebell|dumbbell/, "illus/equipment-kettlebell"], [/toe spacer/, "illus/equipment-toe-spacers"], [/macebell/, "illus/equipment-macebell"], [/fascia ball/, "illus/equipment-fascia-ball"], [/cotton pad/, "illus/equipment-cotton-pads"], [/foam roller/, "illus/equipment-foam-roller"], [/gua sha/, "illus/equipment-gua-sha"], [/jump rope/, "illus/equipment-jump-rope"], [/medicine ball/, "illus/equipment-medicine-ball"], [/resistance band/, "illus/equipment-resistance-band"], [/slant board/, "illus/equipment-slant-board"], [/balance board/, "illus/equipment-balance-board"], [/glass bottle/, "illus/equipment-water-bottle"],
+    [/zygotape|kinesiology/, "ktape"], [/shower filter/, "showerfilter"], [/toothbrush/, "toothbrush"], [/tongue scraper/, "tonguescraper"], [/flosser/, "flosser"], [/sunscreen|\bspf\b/, "sunscreen"], [/tallow/, "amberjar"], [/deodorant/, "deodorant"], [/air purifier/, "airpurifier"], [/cast iron/, "castiron"], [/dip belt/, "dipbelt"], [/plyo/, "plyobox"], [/blue light/, "glasses"], [/rose water/, "rosewater"], [/kneeling chair/, "kneelchair"], [/sea salt/, "seasalt"], [/raw honey/, "honeycomb"], [/nettle tea/, "nettletea"], [/osmosis|water filter/, "filterjug"], [/pillowcase/, "pillow"], [/food scale/, "scale"]];
+  const prodPic = (p) => (PROD_IC.find((r) => r[0].test(p.n.toLowerCase())) || [])[1];
+  const prodMain = (p) => `<div class="prod-main${prodPic(p) ? " haspic" : ""}">${prodPic(p) ? ic(prodPic(p), 52) : ""}<strong>${esc(p.n)}</strong><span class="badges">${p.p ? `<span class="price">${money(p.p)}</span>` : `<span class="badge">No price recorded</span>`}${srcTag(p.src)}${p.src === "mention" ? '<span class="badge">named in a routine</span>' : ""}</span>${p.note ? `<p>${esc(p.note)}</p>` : ""}${p.uid ? "" : mine("p:" + p.n)}${(() => { const u = usedIn(p.n); return u.length ? `<p class="usedin">Used in ${u.map(pill).join("")}</p>` : ""; })()}${p.uid ? "" : `<p class="srcline">${ovOf("p:" + p.n).t ? `<span class="badge gold">Edited by you · ${stamp(ovOf("p:" + p.n).t)}</span>` : ""}<button class="linkbtn" data-ov="${esc("p:" + p.n)}">${ovOf("p:" + p.n).note ? "Edit note" : "Add a note"}</button><button class="star" data-fav="${esc("p:" + p.n)}" aria-pressed="${!!S.fav["p:" + p.n]}" aria-label="Save ${esc(p.n)}">${STAR}</button></p>`}</div>`;
   const prodLink = (p) => (p.u ? `<a class="linkbtn" href="${esc(p.u)}" target="_blank" rel="noopener">Open link<span class="sr"> for ${esc(p.n)}</span></a>` : "");
   function renderProducts() {
     const ui = S.ui, tab = ui.ptab || "library", o = owned(), nW = P.products.filter((p) => S.wish[p.n] && !o[p.n]).length, nO = P.products.filter((p) => o[p.n]).length;
@@ -1111,6 +1161,8 @@ small.mynote { display: block; padding: 0; margin: 2px 0 0; background: none; co
   const art = (name, z) => (name && name.slice(0, 2) === "g:" ? `<span class="gdisc" style="--z:${z}px" aria-hidden="true">${gl(G[name.slice(2)])}</span>` : ic(name, z));
   const NTIC = { approved: "steak", avoid: "g:ban", plate: "g:plate", timing: "g:clock", recipes: "carrotsalad", map: "g:net" };
   const topicsAll = () => P.systems.map((t) => [t, "sys"]).concat(P.extras.map((t) => [t, "ext"]));
+  const LART = { move: "movement-posture", sleep: "sleep-recovery", energy: "energy-hormones", env: "environment-personal-care", ref: "reference" };
+  const li = (n) => `<span class="li" aria-hidden="true">${(typeof PRIMAL_ICONS !== "undefined" && PRIMAL_ICONS[n]) || ""}</span>`;
   function libItems() {
     const ui = S.ui, q = (ui.lq || "").trim().toLowerCase();
     return topicsAll().map((x) => { const ref = "t:" + x[0].id; return { t: x[0], key: x[1], ref, tags: tagsOf(ref, x[0]), ed: x[0].uid ? parseInt(String(x[0].uid).slice(1), 36) || 1 : ovOf(ref).t || 0 }; })
@@ -1121,8 +1173,8 @@ small.mynote { display: block; padding: 0; margin: 2px 0 0; background: none; co
     const one = (x) => (rows ? `<button class="lrow" data-topic="${x.key}" data-id="${esc(x.t.id)}">${art(x.t.icon, 32)}<span><b>${esc(x.t.name)}</b><small>${esc(x.t.intro || (x.t.key || [])[0] || "")}</small></span><span class="badges">${x.ed ? '<span class="badge gold">Yours</span>' : ""}${x.tags.map((g) => `<span class="badge">#${esc(g)}</span>`).join("")}${S.fav[x.ref] ? '<span class="badge sage">Saved</span>' : ""}</span></button>` : topicCard(x.t, x.key));
     const wrap = (l) => `<div class="${rows ? "lrows" : "topics"}">${l.map(one).join("")}</div>`, inbox = userOf("note").filter((a) => !a.g);
     let html = filtered || !inbox.length ? "" : `<section class="lgroup" id="lg-inbox"><h2>Inbox<span class="badge">${inbox.length}</span></h2><p class="small muted">Unfiled quick notes. Use File it to give one a topic.</p><ul class="mg">${inbox.map(noteRow).join("")}</ul></section>`;
-    if (!filtered) html += `<section class="lgroup" id="lg-nut"><h2>Nutrition</h2><div class="ngrid">${NT.map((t) => `<button class="ncard card" data-jumpnut="${t[0]}">${art(NTIC[t[0]], 36)}<b>${t[1]}</b></button>`).join("")}</div></section>`;
-    if (sort === "group") html += LGROUPS.map((g) => { const l = list.filter((x) => (x.t.grp || "ref") === g[0]); return l.length ? `<section class="lgroup" id="lg-${g[0]}"><h2>${g[1]}<span class="badge">${l.length}</span></h2>${wrap(l)}</section>` : ""; }).join("");
+    if (!filtered) html += `<section class="lgroup" id="lg-nut"><h2>${ic("topics/nutrition-128", 48)}Nutrition</h2><div class="ngrid">${NT.map((t) => `<button class="ncard card" data-jumpnut="${t[0]}">${art(NTIC[t[0]], 36)}<b>${t[1]}</b></button>`).join("")}</div></section>`;
+    if (sort === "group") html += LGROUPS.map((g) => { const l = list.filter((x) => (x.t.grp || "ref") === g[0]); return l.length ? `<section class="lgroup" id="lg-${g[0]}"><h2>${ic("topics/" + LART[g[0]] + "-128", 48)}${g[1]}<span class="badge">${l.length}</span></h2>${wrap(l)}</section>` : ""; }).join("");
     else if (list.length) html += `<section class="lgroup"><h2>${sort === "az" ? "A to Z" : "Edited or added by you first"}<span class="badge">${list.length}</span></h2>${wrap(list.slice().sort((a, b) => (sort === "az" ? 0 : b.ed - a.ed) || a.t.name.localeCompare(b.t.name)))}</section>`;
     if (!list.length) html += '<div class="empty"><b>No topic matches</b>Clear the filters to see the whole Library.<button class="btn sm ghost" id="libClear">Clear filters</button></div>';
     $("#libRes").innerHTML = html;
@@ -1231,7 +1283,7 @@ small.mynote { display: block; padding: 0; margin: 2px 0 0; background: none; co
   const sheetUp = (html, label) => { if ($("#sheet").hidden) lastFocus = document.activeElement; $("#sheet").innerHTML = `<div class="sheet ed" role="dialog" aria-modal="true" aria-label="${label}"><div class="sheet-head"><h3>${label}</h3><button class="btn ghost sm" id="sheetClose">Close</button></div>${html}</div>`; $("#sheet").hidden = false; document.body.style.overflow = "hidden"; $("#sheetClose").focus(); };
   const STREAK = "A day counts when at least 80% of its core items are ticked. Optional check-ins never add to the count. A skipped core item still counts as not done; skipping only takes it off Next up. Use Choose core on Today to change what counts.";
   function openMore() {
-    sheetUp(`<a class="opt-row" href="#progress">Progress<span>${streak()} day streak</span></a><button class="opt-row" data-saved="1">Saved and collections<span>${Object.keys(S.fav || {}).length}</span></button><button class="opt-row" data-manage="1">My edits, backup and restore<span>${(S.adds || []).length}</span></button><button class="opt-row" data-find="1">Find anything</button><button class="opt-row" data-add="note">Quick note<span>to the Inbox</span></button>
+    sheetUp(`<a class="opt-row" href="#progress">${li("trend-chart")}Progress<span>${streak()} day streak</span></a><button class="opt-row" data-saved="1">${li("saved")}Saved and collections<span>${Object.keys(S.fav || {}).length}</span></button><button class="opt-row" data-manage="1">${li("download")}My edits, backup and restore<span>${(S.adds || []).length}</span></button><button class="opt-row" data-find="1">${li("search")}Find anything</button><button class="opt-row" data-add="note">${li("sticky-note")}Quick note<span>to the Inbox</span></button>
       <h4>Sources</h4><p class="small muted">Each block carries a name tab saying where it came from. The frame colour repeats it.</p><div class="key"><span class="src op">OP docs</span><span class="src me">My notes</span><span class="src both">OP docs + mine</span><span class="src x"${(S.adds || []).some((a) => a.src === "x") ? "" : " hidden"}>Someone else, named</span></div><button class="srcswitch" role="switch" aria-checked="${!S.ui.plain}" data-srctoggle="1"><i aria-hidden="true"></i>Source colours</button>
       <h4>How the streak is counted</h4><p class="small">${STREAK}</p>`, "More");
   }
@@ -1316,7 +1368,7 @@ small.mynote { display: block; padding: 0; margin: 2px 0 0; background: none; co
   }
 
   /* ── add your own information. Saved in this browser as S.adds; every entry records whose it is ── */
-  const FOODIC = ["apple", "avocado", "banana", "blueberries", "broth", "butter", "carrotsalad", "cheese", "cherries", "coconut", "dates", "egg", "fig", "honeycomb", "kiwi", "liver", "mango", "marrow", "milk", "mussel", "nettletea", "orange", "oyster", "pomegranate", "salmon", "sardines", "seasalt", "shrimp", "steak", "walnut"];
+  const FOODIC = ["button-mushrooms", "cacao", "chicken-turkey", "grapes", "maple-syrup", "olive-oil", "papaya", "pineapple", "pumpkin-seeds", "raisins", "rice-potatoes", "tamarind", "watermelon", "apple", "avocado", "banana", "blueberries", "broth", "butter", "carrotsalad", "cheese", "cherries", "coconut", "dates", "egg", "fig", "honeycomb", "kiwi", "liver", "mango", "marrow", "milk", "mussel", "nettletea", "orange", "oyster", "pomegranate", "salmon", "sardines", "seasalt", "shrimp", "steak", "walnut"];
   const ADD = {
     food: { title: "Add a food", f: [["n", "Title", "text"], ["g", "Topic", "sel"], ["note", "Summary (optional)", "text"], ["icon", "Picture", "sel"]] },
     product: { title: "Add a product", f: [["n", "Title", "text"], ["g", "Topic", "sel"], ["note", "Summary (optional)", "text"], ["p", "Price in £ (optional)", "number"], ["u", "Link (optional)", "url"]] },
@@ -1446,7 +1498,7 @@ small.mynote { display: block; padding: 0; margin: 2px 0 0; background: none; co
   function route(first) {
     const v = VIEWS.indexOf(location.hash.slice(1)) > -1 ? location.hash.slice(1) : "today", navv = NAVOF[v];
     VIEWS.forEach((x) => { $("#v-" + x).hidden = x !== v; });
-    $$("[data-nav]").forEach((a) => { if (a.dataset.nav === navv) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+    document.documentElement.dataset.sec = navv; $$("[data-nav]").forEach((a) => { if (a.dataset.nav === navv) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
     current = v; RENDER[v](); const el = $("#v-" + v); el.classList.remove("enter"); void el.offsetWidth; el.classList.add("enter");
     if (!first) { window.scrollTo(0, v === "library" ? S.ui.ly || 0 : 0); $("#main").focus({ preventScroll: true }); }
     if (v === "routines" && pendingOpen) { const id = pendingOpen; pendingOpen = null; openRoutine(id); }
