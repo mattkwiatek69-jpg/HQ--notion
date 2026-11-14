@@ -1,0 +1,1157 @@
+{
+ "note": "Inventory of the hub's artwork. Functional icons are inline SVG in index.html (24px viewBox, 1.7 stroke) and are not listed as files.",
+ "icons": [
+  {
+   "path": "assets/icons/adrenals.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "adrenals",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/airpurifier.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "airpurifier",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/amberjar.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "amberjar",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/apple.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "apple",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/avocado.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "avocado",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/balanceboard.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "balanceboard",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/banana.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "banana",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/band.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "band",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/bike.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "bike",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/blueberries.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "blueberries",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/book.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "book",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/bottle.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "bottle",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/brain.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "brain",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/broth.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "broth",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/brush.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "brush",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/butter.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "butter",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/calendar.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "calendar",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/candle.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "candle",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/carrotsalad.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "carrotsalad",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/castiron.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "castiron",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/chart.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "chart",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/check.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "check",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/cheese.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "cheese",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/cherries.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "cherries",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/clock.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "clock",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/coconut.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "coconut",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/comb.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "comb",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/cottonpads.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "cottonpads",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/cuttingboard.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "cuttingboard",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/dates.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "dates",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/deodorant.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "deodorant",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/diaphragm.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "diaphragm",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/dipbelt.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "dipbelt",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/drop.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "drop",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/dumbbell.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "dumbbell",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/egg.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "egg",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/fascia.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "fascia",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/fasciaball.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "fasciaball",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/fig.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "fig",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/filterjug.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "filterjug",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/floss.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "floss",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/flosser.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "flosser",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/foot.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "foot",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/glass.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "glass",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/glassbox.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "glassbox",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/glasses.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "glasses",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/guasha.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "guasha",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/gut.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "gut",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/hairfollicle.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "hairfollicle",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/heart.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "heart",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/honeycomb.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "honeycomb",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/icebath.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "icebath",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/journal.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "journal",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/kettlebell.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "kettlebell",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/kiwi.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "kiwi",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/knee.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "knee",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/kneelchair.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "kneelchair",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/ktape.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "ktape",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/leaf.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "leaf",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/liver.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "liver",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/lungs.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "lungs",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/lymphnodes.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "lymphnodes",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/macebell.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "macebell",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/mango.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "mango",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/marrow.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "marrow",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/meditate.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "meditate",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/milk.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "milk",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/mito.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "mito",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/moon.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "moon",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/mussel.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "mussel",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/nettletea.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "nettletea",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/orange.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "orange",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/oyster.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "oyster",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/pillow.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "pillow",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/plyobox.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "plyobox",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/pomegranate.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "pomegranate",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/pullupbar.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "pullupbar",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/roller.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "roller",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/rope.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "rope",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/rosewater.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "rosewater",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/salmon.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "salmon",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/sardines.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "sardines",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/sauna.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "sauna",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/scale.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "scale",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/seasalt.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "seasalt",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/shoe.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "shoe",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/showerfilter.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "showerfilter",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/shrimp.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "shrimp",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/slantboard.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "slantboard",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/soles.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "soles",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/spine.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "spine",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/steak.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "steak",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/stones.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "stones",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/stretch.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "stretch",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/sun.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "sun",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/sunrise.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "sunrise",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/sunscreen.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "sunscreen",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/tape.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "tape",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/target.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "target",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/tendon.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "tendon",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/thermometer.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "thermometer",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/thyroid.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "thyroid",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/tmj.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "tmj",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/toespacers.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "toespacers",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/tonguescraper.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "tonguescraper",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/tooth.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "tooth",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/toothbrush.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "toothbrush",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/towelmarbles.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "towelmarbles",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/tree.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "tree",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/walk.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "walk",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/walnut.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "walnut",
+   "fallback": "hidden box of the same size (layout does not move)"
+  },
+  {
+   "path": "assets/icons/yogablock.webp",
+   "width": 128,
+   "height": 128,
+   "kind": "painted icon, transparent",
+   "subject": "yogablock",
+   "fallback": "hidden box of the same size (layout does not move)"
+  }
+ ],
+ "sheets": [
+  {
+   "path": "assets/library/sheet-01.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-02.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-03.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-04.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-05.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-06.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-07.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-08.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-09.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-10.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-12.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-13.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-14.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-15.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-16.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-17.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-18.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  },
+  {
+   "path": "assets/library/sheet-19.webp",
+   "width": 1536,
+   "height": 1024,
+   "kind": "exercise reference sheet",
+   "fallback": "labelled placeholder figure"
+  }
+ ],
+ "banner": {
+  "path": "assets/primal-table.webp",
+  "width": 1440,
+  "height": 960,
+  "kind": "photographic banner"
+ },
+ "svgSymbols": {
+  "g:ban": "Avoid (exclusion symbol)",
+  "g:plate": "Daily plate",
+  "g:net": "Nutrient map",
+  "g:clock": "Timing & kitchen",
+  "g:hex": "Testosterone and Oestrogen topics (neutral, no food implied)",
+  "bowl": "fallback for a food with no picture"
+ },
+ "missing": [
+  {
+   "id": "f:Chicken and turkey occasionally",
+   "label": "Chicken and turkey occasionally",
+   "plannedFile": "assets/icons/chicken.webp",
+   "renderSize": "128x128 webp from a 1024x1024 transparent PNG master",
+   "fallback": "svg:bowl",
+   "status": "not generated"
+  },
+  {
+   "id": "f:Poultry",
+   "label": "Poultry",
+   "plannedFile": "assets/icons/chicken.webp",
+   "renderSize": "128x128 webp from a 1024x1024 transparent PNG master",
+   "fallback": "svg:bowl",
+   "status": "not generated"
+  },
+  {
+   "id": "f:100% raw cold-pressed extra virgin olive oil (on occasion)",
+   "label": "100% raw cold-pressed extra virgin olive oil (on occasion)",
+   "plannedFile": "assets/icons/oliveoil.webp",
+   "renderSize": "128x128 webp from a 1024x1024 transparent PNG master",
+   "fallback": "svg:bowl",
+   "status": "not generated"
+  },
+  {
+   "id": "f:Ripe papaya",
+   "label": "Ripe papaya",
+   "plannedFile": "assets/icons/papaya.webp",
+   "renderSize": "128x128 webp from a 1024x1024 transparent PNG master",
+   "fallback": "svg:bowl",
+   "status": "not generated"
+  },
+  {
+   "id": "f:Ripe grapes",
+   "label": "Ripe grapes",
+   "plannedFile": "assets/icons/grapes.webp",
+   "renderSize": "128x128 webp from a 1024x1024 transparent PNG master",
+   "fallback": "svg:bowl",
+   "status": "not generated"
+  },
+  {
+   "id": "f:Watermelon",
+   "label": "Watermelon",
+   "plannedFile": "assets/icons/watermelon.webp",
+   "renderSize": "128x128 webp from a 1024x1024 transparent PNG master",
+   "fallback": "svg:bowl",
+   "status": "not generated"
+  },
+  {
+   "id": "f:Pineapple",
+   "label": "Pineapple",
+   "plannedFile": "assets/icons/pineapple.webp",
+   "renderSize": "128x128 webp from a 1024x1024 transparent PNG master",
+   "fallback": "svg:bowl",
+   "status": "not generated"
+  },
+  {
+   "id": "f:Rice and potatoes",
+   "label": "Rice and potatoes",
+   "plannedFile": "assets/icons/ricepotato.webp",
+   "renderSize": "128x128 webp from a 1024x1024 transparent PNG master",
+   "fallback": "svg:bowl",
+   "status": "not generated"
+  },
+  {
+   "id": "f:Raw cacao",
+   "label": "Raw cacao",
+   "plannedFile": "assets/icons/cacao.webp",
+   "renderSize": "128x128 webp from a 1024x1024 transparent PNG master",
+   "fallback": "svg:bowl",
+   "status": "not generated"
+  },
+  {
+   "id": "f:White button mushrooms, well cooked",
+   "label": "White button mushrooms, well cooked",
+   "plannedFile": "assets/icons/mushrooms.webp",
+   "renderSize": "128x128 webp from a 1024x1024 transparent PNG master",
+   "fallback": "svg:bowl",
+   "status": "not generated"
+  },
+  {
+   "id": "f:Organic raisins",
+   "label": "Organic raisins",
+   "plannedFile": "assets/icons/raisins.webp",
+   "renderSize": "128x128 webp from a 1024x1024 transparent PNG master",
+   "fallback": "svg:bowl",
+   "status": "not generated"
+  },
+  {
+   "id": "f:Pumpkin seeds (zinc)",
+   "label": "Pumpkin seeds (zinc)",
+   "plannedFile": "assets/icons/pumpkinseeds.webp",
+   "renderSize": "128x128 webp from a 1024x1024 transparent PNG master",
+   "fallback": "svg:bowl",
+   "status": "not generated"
+  },
+  {
+   "id": "f:Tamarind",
+   "label": "Tamarind",
+   "plannedFile": "assets/icons/tamarind.webp",
+   "renderSize": "128x128 webp from a 1024x1024 transparent PNG master",
+   "fallback": "svg:bowl",
+   "status": "not generated"
+  },
+  {
+   "id": "f:Maple syrup (IGF-1 Igniter alternative to honey)",
+   "label": "Maple syrup (IGF-1 Igniter alternative to honey)",
+   "plannedFile": "assets/icons/maplesyrup.webp",
+   "renderSize": "128x128 webp from a 1024x1024 transparent PNG master",
+   "fallback": "svg:bowl",
+   "status": "not generated"
+  }
+ ]
+}

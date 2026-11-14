@@ -33,7 +33,17 @@ Each block of information sits in a **source panel**: a thin (1.5px) rounded fra
 
 - Saved additively under `phh:v1`: `plan` (edited weekdays, same shape as `P.plan.week`), `adds` (foods, products, notes, routines, daily habits, topics; each has `src` and, for `"x"`, `who`), `core` (the owner's choice of which daily items count: `{ item id: 1 | 0 }`) and, per day, `s` (items skipped that day).
 - Streak rule: a day counts at 80% of core items. A skipped core item still counts as not done; skipping only takes it off Next up. Do not change the threshold or what a skip means without the owner asking.
+- Personal layer over supplied records (never rewrite the supplied data for a personal change). A ref is `<kind>:<stable id>`: `r:` routine id, `t:` topic id, `p:` product name, `f:` food text. Saved fields: `ov` (overrides: `n` title and `intro` summary for routines / topics, `note` for all four, `t` = the real edit time), `tags`, `links` (`add` / `del` against the suggested `P.related`), `cols` (named collections of refs) and `fav` (routine ids as before, plus refs). `applyOv()` is the only place an override becomes the effective record; `ORIG` keeps the supplied text for View original / Restore original.
+- An edit date is the owner's edit date. Never show it, or anything else, as a clinical or source review date.
+- Links in `P.related` are name-matched suggestions and must stay labelled as unconfirmed. Equipment only links to a product through an explicit entry in `P.equipProd` (`health-hub/data/meta.js`); leave ambiguous equipment as plain text.
+- Backups carry `schema` (now 2; a backup without it is schema 1). Bump `SCHEMA` only when the saved shape changes, give every new field an explicit default in `cleanState`, and add it to the round-trip test. Imports with a higher schema are refused.
 - Import is two-step (summary, then apply) and always stores a recovery copy under `phh:v1:backup` first. A full backup is rebuilt through `cleanState`; add any new saved field there or it will be dropped on restore.
 - The add form always asks whose the information is. Imported data goes through `cleanAdds` / `cleanPlan`; links must start with `http`.
 - When the owner sends an export to be made permanent, move each entry into the matching `health-hub/data/*.js` file with the same `src`, then tell them to delete the in-hub copy.
-- Approved foods render as picture tiles. A food gets its picture from the `FOOD_IC` keyword list in `health-hub/index.html`; foods with no match show their initial. New food pictures go in `health-hub/assets/icons/` (128px transparent webp) plus one line in `FOOD_IC` and `FOODIC`.
+- Artwork: functional symbols are inline SVG in the nav icon family (`G` in `index.html`; `icon: "g:<name>"` on a topic uses one). Do not use a food picture for a hormone or body-system topic. Painted art is listed in `health-hub/assets/manifest.json`; what is still missing, with ready prompts, is in `health-hub/assets/ASSET-REQUESTS.md`.
+- Approved foods render as picture tiles. A food gets its picture from the `FOOD_IC` keyword list in `health-hub/index.html`; foods with no match show the bowl symbol. New food pictures go in `health-hub/assets/icons/` (128px transparent webp) plus one line in `FOOD_IC` and `FOODIC`.
+
+### Checks to run after any change
+
+- `node health-hub/tests/schedule.test.js` (timetable fits), `node health-hub/tests/contrast.js` (every colour pair in light and dark; no line may say LOW).
+- `sh health-hub/tests/serve.sh` in one shell, then `node health-hub/tests/browser.test.js` (Playwright, isolated storage; needs the `playwright` package).

@@ -14,7 +14,7 @@
   --clay: #B86B50; --clay-soft: #F2DED3; --clay-ink: #8E4933; --link: #8E4933;
   --gold: #C89B3C; --gold-soft: #F3E7C8; --gold-ink: #6E5417;
   --info-soft: #DCE9E6; --info-ink: #2B5560;
-  --rail: #394B34; --rail-ink: #F3F0E6; --rail-dim: #CCD5BF; --rail-active: #5F7556;
+  --rail: #394B34; --rail-ink: #F3F0E6; --rail-dim: #CCD5BF; --rail-active: #566B4E;
   --shadow: 0 1px 2px rgba(35, 42, 35, .05), 0 10px 26px -14px rgba(35, 42, 35, .25);
   --serif: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --sans: "Manrope", "Avenir Next", "Segoe UI", system-ui, sans-serif;
@@ -62,7 +62,7 @@ img.ic { display: block; flex: none; object-fit: contain; }
 .label { font-size: .75rem; line-height: 1.5; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--clay-ink); }
 .metric { font: 600 2.25rem/1.1 var(--sans); letter-spacing: -.02em; }
 
-:root { --op-line: #707B4F; --op-tint: #DCE3CF; --me-line: #C89B3C; --me-tint: #F3E2B0; }
+:root { --op-line: #707B4F; --op-tint: #DCE3CF; --me-line: #AE8328; --me-tint: #F3E2B0; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --op-line: #8FA07C; --op-tint: #263022; --me-line: #C6A25A; --me-tint: #3C311A; } }
 :root[data-theme="dark"] { --op-line: #8FA07C; --op-tint: #263022; --me-line: #C6A25A; --me-tint: #3C311A; }
 /* source panels: thick rounded frame in the source colour, tint pooling at the edges, a name tab in the corner */
@@ -552,6 +552,33 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
 #xMsg .row { margin-top: 10px; flex-wrap: wrap; }
 @media (max-width: 760px) { .view { gap: 18px; } .view-head h1 { font-size: 2rem; } }
 @media (max-width: 440px) { .tabs button { padding: 0 4px; gap: 4px; font-size: .875rem; min-width: 0; } .tabs .badge { padding: 1px 6px; } }
+
+/* ── v8: personal layer, relations, Library browsing ── */
+.gdisc { width: var(--z); height: var(--z); flex: none; display: grid; place-items: center; border-radius: 50%; background: var(--sage-soft); color: var(--sage-ink); } .gdisc .gl { width: 56%; height: 56%; }
+.mono .gl { width: 24px; height: 24px; }
+.ngrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr)); gap: 8px; }
+.ncard.card { min-height: 60px; padding: 10px 14px; gap: 12px; font-weight: 600; transition: border-color .16s var(--ease), transform .16s var(--ease); } .ncard.card:active { transform: scale(.98); }
+@media (max-width: 560px) { .ngrid { grid-template-columns: 1fr 1fr; } .ncard.card { padding: 8px 10px; gap: 10px; font-size: .875rem; line-height: 1.3; } }
+.jump { display: flex; gap: 6px; overflow-x: auto; position: sticky; top: 0; z-index: 5; background: var(--bg); padding: 8px 0; margin: -8px 0; scrollbar-width: none; } .jump .chip { flex: none; }
+.lgroup { scroll-margin-top: 68px; } .libres { display: flex; flex-direction: column; gap: 28px; }
+.lrows { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); overflow: hidden; }
+.lrow { display: flex; align-items: center; gap: 12px; padding: 8px 14px; min-height: 56px; border-top: 1px solid var(--line); width: 100%; transition: background .16s var(--ease); } .lrow:first-child { border-top: 0; } .lrow:hover { background: var(--sunk); }
+.lrow > span:nth-child(2) { flex: 1; min-width: 0; display: flex; flex-direction: column; } .lrow b { font-weight: 600; line-height: 1.35; } .lrow small { color: var(--ink-3); font-size: .8125rem; line-height: 1.35; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lrow .badges { flex: none; max-width: 40%; justify-content: flex-end; } @media (max-width: 560px) { .lrow .badges { display: none; } }
+#libSort, #colName { min-height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font: 500 .9375rem var(--sans); } #colName { flex: 1; min-width: 0; }
+.mynote { display: flex; gap: 4px 10px; align-items: baseline; flex-wrap: wrap; padding: 8px 12px; border-radius: 10px; background: color-mix(in srgb, var(--me-tint) 45%, var(--surface)); font-size: .9375rem; line-height: 1.5; max-width: 72ch; margin-top: 12px; }
+small.mynote { display: block; padding: 0; margin: 2px 0 0; background: none; color: var(--gold-ink); } html.plain .mynote { background: var(--sunk); }
+.tagline { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.relblock, .eqblock { display: flex; flex-direction: column; gap: 6px; margin-top: 18px; } .relblock h3, .eqblock h3 { font-size: .9375rem; margin-top: 8px; } .relblock h2 { font-size: 1.125rem; }
+.eqlist { display: flex; flex-wrap: wrap; gap: 0 20px; } .eqlist li { display: flex; align-items: center; gap: 8px; min-height: 44px; } .eqlist li > span:first-child { font-size: .875rem; font-weight: 600; }
+.usedin { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: .8125rem; color: var(--ink-3); margin-top: 6px; }
+.srcline { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.orig summary { min-height: 44px; display: flex; align-items: center; font-weight: 600; cursor: pointer; } .orig p { font-size: .9375rem; }
+.col { border: 1px solid var(--line); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 6px; }
+.mg li > span small { display: block; color: var(--ink-3); font-size: .8125rem; line-height: 1.4; white-space: pre-line; }
+.item[data-just] .tick i { animation: pop .18s var(--ease); } .item[data-just] { animation: settle .24s var(--ease); }
+@keyframes pop { 50% { transform: scale(1.25); } } @keyframes settle { from { background: var(--sage-soft); } }
+.toast { animation: rise .2s var(--ease); }
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -596,7 +623,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const ic = (n, z) => `<img class="ic" src="assets/icons/${n}.webp" width="${z || 40}" height="${z || 40}" alt="" loading="lazy" decoding="async">`;
   const gl = (d, c) => `<svg class="gl ${c || ""}" viewBox="0 0 24 24" aria-hidden="true"><path d="${d}"/></svg>`;
-  const G = { check: "M5 12.5l4.5 4.5L19 7.5", x: "M6 6l12 12M18 6L6 18", down: "M6 9l6 6 6-6", clock: "M12 7v5l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z", kit: "M4 9h16v10H4zM9 9V6h6v3", arrow: "M5 12h14M13 6l6 6-6 6", back: "M19 12H5M11 6l-6 6 6 6", warn: "M12 4l9 16H3L12 4zM12 10v4M12 17v.5", info: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 11v5M12 7.5v.5", filter: "M4 6h16M7 12h10M10 18h4", pen: "M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4", plus: "M12 5v14M5 12h14", right: "M9 6l6 6-6 6", up: "M6 15l6-6 6 6", play: "M8 5v14l11-7z", pause: "M8 5v14M16 5v14" };
+  const G = { check: "M5 12.5l4.5 4.5L19 7.5", x: "M6 6l12 12M18 6L6 18", down: "M6 9l6 6 6-6", clock: "M12 7v5l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z", kit: "M4 9h16v10H4zM9 9V6h6v3", arrow: "M5 12h14M13 6l6 6-6 6", back: "M19 12H5M11 6l-6 6 6 6", warn: "M12 4l9 16H3L12 4zM12 10v4M12 17v.5", info: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 11v5M12 7.5v.5", filter: "M4 6h16M7 12h10M10 18h4", pen: "M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4", plus: "M12 5v14M5 12h14", right: "M9 6l6 6-6 6", up: "M6 15l6-6 6 6", ban: "M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zM6 6l12 12", plate: "M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z", net: "M6 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM18 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM11 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM8 6.3l8 1.4M6.8 7.8l3.4 8.4M17 9.8l-4.8 6.6", hex: "M12 3.5l7.4 4.25v8.5L12 20.5l-7.4-4.25v-8.5L12 3.5zM12 9v6M9.4 10.5l5.2 3M14.6 10.5l-5.2 3", bowl: "M4 11h16a8 8 0 0 1-16 0zM9.5 20h5M9 4.5c0 1.5 1 1.5 1 3M13 4.5c0 1.5 1 1.5 1 3", play: "M8 5v14l11-7z", pause: "M8 5v14M16 5v14" };
   const STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.6 6 .7-4.5 4.1 1.2 6-5.3-3-5.3 3 1.2-6L3.4 9.8l6-.7z"/></svg>';
   const CHECK = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>';
   const CARET = `<span class="caret" aria-hidden="true">${gl(G.down, "s")}</span>`;
@@ -659,7 +686,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
   function itemHtml(i, nextId) {
     const done = isDone(i), v = day().d[i.id] || 0, r = i.go && byId[i.go]; let pips = "";
     if (i.n) { pips = '<div class="pips" role="group" aria-label="Sessions done">'; for (let k = 1; k <= i.n; k++) pips += `<button class="pip" data-pip="${i.id}" data-k="${k}" aria-pressed="${v >= k}" aria-label="Session ${k}">${k}</button>`; pips += "</div>"; }
-    return `<li class="item${done ? " done" : ""}${skipped(i) && !done ? " skipped" : ""}${i.id === nextId ? " is-next" : ""}" data-item="${i.id}">
+    return `<li class="item${done ? " done" : ""}${skipped(i) && !done ? " skipped" : ""}${i.id === nextId ? " is-next" : ""}" data-item="${i.id}"${i.id === JUST ? " data-just" : ""}>
       <button class="tick" data-tick="${i.id}" aria-pressed="${done}" aria-label="${esc(i.t)}"><i>${CHECK}</i></button>
       <div class="item-body"><strong>${esc(i.t)}${i.uid ? " " + srcTag(i.src, true, i.who) : ""}</strong>${i.d ? `<p>${esc(i.d)}</p>` : ""}${pips}</div>
       ${S.ui.pick ? `<button class="chip plain" data-core="${i.id}" aria-pressed="${!i.opt}">${i.opt ? "Optional" : "Core"}</button>` : skipped(i) && !done ? `<span class="badge clay">Skipped</span><button class="linkbtn" data-unskip="${i.id}">Undo<span class="sr"> skip</span></button>` : `${i.clock ? `<time>${i.clock}</time>` : ""}${i.min ? `<span class="badge sage">${i.min}&nbsp;min</span>` : ""}`}${i.uid ? `<button class="linkbtn" data-add="item" data-id="${i.id}">Edit</button>` : ""}
@@ -704,7 +731,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
   }
   function setItem(id, val, keep) {
     const rec = day(), d = rec.d, prev = d[id], ps = (rec.s || {})[id]; if (val) { d[id] = val; if (rec.s) delete rec.s[id]; } else delete d[id];
-    renderToday(keep); const t = tally(); say(`${t.done} of ${t.total} done today`);
+    JUST = val ? id : ""; renderToday(keep); JUST = ""; const t = tally(); say(`${t.done} of ${t.total} done today`);
     toast(val ? "Marked done" : "Unticked", () => { const r = day(); if (prev) r.d[id] = prev; else delete r.d[id]; if (ps) (r.s = r.s || {})[id] = 1; renderToday(); });
   }
 
@@ -833,7 +860,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
           <div class="rt-main"><h3>${esc(r.name)}</h3>${r.when ? `<p>${esc(r.when)}</p>` : ""}${rtBadges(r)}</div>${(() => { const th = routineThumbs(r); return th.length ? `<span class="film" aria-hidden="true">${th.map((l) => pic(l)).join("")}</span>` : "<span></span>"; })()}${CARET}</summary>
           <div class="rt-body"><div class="row"><button class="btn sm" data-play="${r.id}">${gl(G.play, "s")}Follow along</button>${r.pacer ? `<button class="btn sm ghost" data-pacer="${r.pacer}">${r.pacer === "co2" ? "Open hold timer" : "Open breath pacer"}</button>` : ""}<button class="btn sm ghost" data-expand="${r.id}">Show all steps</button></div>
             ${r.note ? `<p class="note">${esc(r.note)}</p>` : ""}<div class="card exlist">${r.ex.map((e) => exHtml(e, r.id)).join("")}</div>
-            ${r.tips ? `<ul class="badges">${r.tips.map((t) => `<li class="badge wrapok">${esc(t)}</li>`).join("")}</ul>` : ""}${r.links ? r.links.map((l) => `<a class="linkbtn" href="${esc(l[1])}" target="_blank" rel="noopener">${esc(l[0])}</a>`).join("") : ""}</div></details>`).join("")}</section>`;
+            ${r.tips ? `<ul class="badges">${r.tips.map((t) => `<li class="badge wrapok">${esc(t)}</li>`).join("")}</ul>` : ""}${r.links ? r.links.map((l) => `<a class="linkbtn" href="${esc(l[1])}" target="_blank" rel="noopener">${esc(l[0])}</a>`).join("") : ""}${eqHtml(r)}${footFor("r:" + r.id, r)}</div></details>`).join("")}</section>`;
     });
     $("#rList").innerHTML = html || `<div class="empty"><p>No routine matches “${esc(S.ui.rq || "")}”${cat ? " in " + esc(catName(cat)) : ""}.</p><button class="btn sm ghost" id="rClear">Clear search and filter</button></div>`;
   }
@@ -847,8 +874,8 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
 
   /* ── topics: systems and extras ── */
   const ddHtml = (d, n, pre) => `<div class="dd">${n && n.length ? `<div class="dont" id="${pre}-dont"><h3>${gl(G.x, "s")}Don't</h3><ul class="bullets">${n.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}${d && d.length ? `<div class="do" id="${pre}-do"><h3>${gl(G.check, "s")}Do</h3><ul class="bullets">${d.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}</div>`;
-  const topicCard = (x, key) => { const dn = x.dont ? x.dont.length : x.groups.reduce((s, g) => s + g.dont.length, 0), dd = x.do ? x.do.length : x.groups.reduce((s, g) => s + g.do.length, 0); return `<button class="topic ${sb(x.src, x.who)}" data-topic="${key}" data-id="${esc(x.id)}">${ic(x.icon, 56)}<h3>${esc(x.name)}</h3><p>${esc(x.intro || (x.key || [])[0] || "")}</p><span class="badges"><span class="badge clay">${dn} don't</span><span class="badge sage">${dd} do</span></span></button>`; };
-  const userNotes = (tid) => { const l = userOf("note").filter((a) => a.g === tid); return `<div class="more" id="t-mine"><h2>Your additions</h2>${userOf("topic").some((a) => a.id === tid) ? `<p><button class="linkbtn" data-add="topic" data-id="${tid}">Edit this topic</button></p>` : ""}${l.length ? `<ul class="mg">${l.map((a) => `<li class="slim ${sb(a.src, a.who)}"><span class="badge ${a.list === "dont" ? "clay" : "sage"}">${a.list === "dont" ? "Don't" : "Do"}</span><span>${esc(a.n)}</span><button class="linkbtn" data-add="note" data-id="${a.id}">Edit</button></li>`).join("")}</ul>` : '<p class="small muted">Nothing added to this topic yet.</p>'}<div class="row"><button class="btn ghost sm" data-add="note" data-g="${tid}">${gl(G.plus, "s")}Add a note here</button></div></div>`; };
+  const topicCard = (x, key) => { const dn = x.dont ? x.dont.length : x.groups.reduce((s, g) => s + g.dont.length, 0), dd = x.do ? x.do.length : x.groups.reduce((s, g) => s + g.do.length, 0); return `<button class="topic ${sb(x.src, x.who)}" data-topic="${key}" data-id="${esc(x.id)}">${art(x.icon, 56)}<h3>${esc(x.name)}</h3><p>${esc(x.intro || (x.key || [])[0] || "")}</p><span class="badges"><span class="badge clay">${dn} don't</span><span class="badge sage">${dd} do</span></span></button>`; };
+  const userNotes = (tid) => { const l = userOf("note").filter((a) => a.g === tid); return `<div class="more" id="t-mine"><h2>Your additions</h2>${userOf("topic").some((a) => a.id === tid) ? `<p><button class="linkbtn" data-add="topic" data-id="${tid}">Edit this topic</button></p>` : ""}${l.length ? `<ul class="mg">${l.map(noteRow).join("")}</ul>` : '<p class="small muted">Nothing added to this topic yet.</p>'}<div class="row"><button class="btn ghost sm" data-add="note" data-g="${tid}">${gl(G.plus, "s")}Add a note here</button></div></div>`; };
   function renderTopics(view, list, key, title, lede) {
     const sel = list.find((x) => x.id === S.ui[key]), el = $("#v-" + view);
     if (!sel) {
@@ -865,7 +892,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
     }
     el.innerHTML = `<div class="detail"><div class="row"><a class="btn ghost sm" href="#library">${gl(G.back, "s")}Library</a><span style="flex:1"></span>
         <button class="btn ghost sm" data-topic="${key}" data-id="${list[(i + list.length - 1) % list.length].id}">Previous</button><button class="btn ghost sm" data-topic="${key}" data-id="${list[(i + 1) % list.length].id}">Next topic</button></div>
-      <div class="md-title">${ic(sel.icon, 72)}<div><h1>${esc(sel.name)}</h1>${sel.intro ? `<p class="lede">${esc(sel.intro)}</p>` : ""}</div></div>
+      <div class="md-title">${art(sel.icon, 72)}<div><h1>${esc(sel.name)}</h1>${sel.intro ? `<p class="lede">${esc(sel.intro)}</p>` : ""}</div></div>
       ${anchors.length > 1 ? `<nav class="anchors" aria-label="On this page">${anchors.map((a) => `<button class="chip plain" data-anchor="${a[0]}">${esc(a[1])}</button>`).join("")}</nav>` : ""}<div class="sbody ${sb(sel.src, sel.who)}">${body}${userNotes(sel.id)}${relatedHtml(sel)}</div></div>`;
   }
   const renderSystems = () => renderTopics("systems", P.systems, "sys", "Systems", "Pick a system for what to cut, what to do and the numbers worth remembering.");
@@ -877,8 +904,8 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
   /* approved and avoid lists as picture tiles; a food with no picture gets its initial */
   const FOOD_IC = [[/coconut/, "coconut"], [/tallow|lamb fat/, "amberjar"], [/milk|yogurt|cream/, "milk"], [/cheese/, "cheese"], [/egg/, "egg"], [/broth|gelatin|collagen/, "broth"], [/shellfish|oyster/, "oyster"], [/shrimp|prawn/, "shrimp"], [/mussel/, "mussel"], [/sardine|white fish|\bcod\b/, "sardines"], [/fish|salmon/, "salmon"], [/organ meat|liver|heart/, "liver"], [/marrow/, "marrow"], [/beef|lamb|bison|steak|ribeye/, "steak"], [/butter|ghee/, "butter"], [/orange|tangerine|mandarin/, "orange"], [/mango/, "mango"], [/honey|pollen/, "honeycomb"], [/cherr/, "cherries"], [/banana/, "banana"], [/\bdates?\b/, "dates"], [/avocado/, "avocado"], [/blueberr/, "blueberries"], [/pomegranate/, "pomegranate"], [/carrot/, "carrotsalad"], [/\bapples?\b/, "apple"], [/\bfigs?\b/, "fig"], [/kiwi/, "kiwi"], [/walnut/, "walnut"], [/\bsalt\b/, "seasalt"], [/nettle|\btea\b/, "nettletea"], [/\bfruit\b/, "kiwi"]];
   const foodParts = (x) => { const u = typeof x !== "string", s = u ? x.n : x, m = /^([^:(]+?)\s*(?::\s*(.+)|\((.+)\)\s*)$/.exec(s); return m && !u ? [m[1], m[2] || m[3]] : [s, u ? x.note || "" : ""]; };
-  const foodIc = (t, icon) => { const n = icon || (FOOD_IC.find((r) => r[0].test(t.toLowerCase())) || [])[1]; return n ? ic(n, 44) : `<span class="mono" aria-hidden="true">${esc((/[a-z]/i.exec(t) || ["•"])[0].toUpperCase())}</span>`; };
-  const foodTile = (x, gsrc, avoid) => { const p = foodParts(x), u = typeof x !== "string"; return `<li class="food${u && srcOf(x.src) !== srcOf(gsrc) ? " slim " + sb(x.src, x.who) : ""}" data-k="${esc((p[0] + " " + p[1]).toLowerCase())}">${avoid ? `<span class="mono no" aria-hidden="true">${gl(G.x, "s")}</span>` : foodIc(p[0], u && x.icon)}<div><b>${esc(p[0])}</b>${p[1] ? `<small>${esc(p[1])}</small>` : ""}</div>${u ? `<button class="linkbtn" data-add="food" data-id="${x.id}">Edit</button>` : ""}</li>`; };
+  const foodIc = (t, icon) => { const n = icon || (FOOD_IC.find((r) => r[0].test(t.toLowerCase())) || [])[1]; return n ? ic(n, 44) : `<span class="mono" aria-hidden="true">${gl(G.bowl)}</span>`; };
+  const foodTile = (x, gsrc, avoid) => { const p = foodParts(x), u = typeof x !== "string"; return `<li class="food${u && srcOf(x.src) !== srcOf(gsrc) ? " slim " + sb(x.src, x.who) : ""}" data-k="${esc((p[0] + " " + p[1]).toLowerCase())}">${avoid ? `<span class="mono no" aria-hidden="true">${gl(G.x, "s")}</span>` : foodIc(p[0], u && x.icon)}<div><b>${esc(p[0])}</b>${p[1] ? `<small>${esc(p[1])}</small>` : ""}${!u && ovOf("f:" + x).note ? `<small class="mynote">My note: ${esc(ovOf("f:" + x).note)}</small>` : ""}</div>${u ? `<button class="linkbtn" data-add="food" data-id="${x.id}">Edit</button>` : `<button class="iconbtn" data-ov="${esc("f:" + x)}" aria-label="Note on ${esc(p[0])}">${gl(G.pen, "s")}</button>`}</li>`; };
   const foodGroup = (g, i, pre) => { const mine = userOf("food").filter((a) => a.g === pre + i), avoid = pre === "v", src = avoid ? "op" : g.src; return `<section class="fgroup ${sb(src)}"><div class="fg-head">${g.icon && !avoid ? ic(g.icon, 40) : ""}<h3>${esc(g.h)}</h3>${g.tier ? `<span class="badge ${g.tier === "S" ? "clay" : "gold"}">${g.tier} tier</span>` : ""}<span class="badge">${g.items.length + mine.length}</span></div><ul class="foods">${g.items.concat(mine).map((x) => foodTile(x, src, avoid)).join("")}</ul></section>`; };
   const foodBar = (what, g) => `<div class="toolbar"><input class="search" id="nSearch" type="search" placeholder="Filter ${what}" aria-label="Filter ${what}"><button class="btn ghost sm" data-add="food" data-g="${g}">${gl(G.plus, "s")}Add a food</button></div><div class="empty" id="nNone" hidden><b>No foods match</b>Clear the filter to see the whole list.</div>`;
   function nutPanel(id) {
@@ -912,7 +939,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
   function owned() { if (!S.owned) { S.owned = {}; P.products.forEach((p) => { if (p.own) S.owned[p.n] = 1; }); } return S.owned; }
   const money = (n) => "£" + (Math.round(n * 100) / 100).toFixed(2).replace(/\.00$/, "");
   const SRC = { op: "OP docs", max: "Max doc", both: "OP + Max", mention: "Named in OP" }, PRI = [["1", "High"], ["2", "Medium"], ["3", "Low"]];
-  const prodMain = (p) => `<div class="prod-main"><strong>${esc(p.n)}</strong><span class="badges">${p.p ? `<span class="price">${money(p.p)}</span>` : `<span class="badge">No price recorded</span>`}${srcTag(p.src)}${p.src === "mention" ? '<span class="badge">named in a routine</span>' : ""}</span>${p.note ? `<p>${esc(p.note)}</p>` : ""}</div>`;
+  const prodMain = (p) => `<div class="prod-main"><strong>${esc(p.n)}</strong><span class="badges">${p.p ? `<span class="price">${money(p.p)}</span>` : `<span class="badge">No price recorded</span>`}${srcTag(p.src)}${p.src === "mention" ? '<span class="badge">named in a routine</span>' : ""}</span>${p.note ? `<p>${esc(p.note)}</p>` : ""}${p.uid ? "" : mine("p:" + p.n)}${(() => { const u = usedIn(p.n); return u.length ? `<p class="usedin">Used in ${u.map(pill).join("")}</p>` : ""; })()}${p.uid ? "" : `<p class="srcline">${ovOf("p:" + p.n).t ? `<span class="badge gold">Edited by you · ${stamp(ovOf("p:" + p.n).t)}</span>` : ""}<button class="linkbtn" data-ov="${esc("p:" + p.n)}">${ovOf("p:" + p.n).note ? "Edit note" : "Add a note"}</button><button class="star" data-fav="${esc("p:" + p.n)}" aria-pressed="${!!S.fav["p:" + p.n]}" aria-label="Save ${esc(p.n)}">${STAR}</button></p>`}</div>`;
   const prodLink = (p) => (p.u ? `<a class="linkbtn" href="${esc(p.u)}" target="_blank" rel="noopener">Open link<span class="sr"> for ${esc(p.n)}</span></a>` : "");
   function renderProducts() {
     const ui = S.ui, tab = ui.ptab || "library", o = owned(), nW = P.products.filter((p) => S.wish[p.n] && !o[p.n]).length, nO = P.products.filter((p) => o[p.n]).length;
@@ -964,7 +991,9 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
     N.timing.forEach((r) => add("Nutrition", r[1], "Timing: " + r[0], "op", ["nut", "timing"])); N.targets.forEach((r) => add("Nutrition", r[0] + ": " + r[1], "Daily target", "both", ["nut", "plate"]));
     P.products.forEach((x) => add("Products", x.n, x.note || "", x.src, ["prod", x.n]));
     P.blocks.forEach((b) => b.items.forEach((i) => add("Today", i.t, b.name, i.src || "op", ["today", b.id])));
-    userOf("food").forEach((a) => add("Nutrition", a.n, "Added food", a.src, ["nut", a.g[0] === "v" ? "avoid" : "approved"])); userOf("note").forEach((a) => add(P.systems.some((t) => t.id === a.g) ? "Systems" : "Bonus extras", a.n, "Your addition", a.src, [P.systems.some((t) => t.id === a.g) ? "sys" : "ext", a.g]));
+    userOf("food").forEach((a) => add("Nutrition", a.n, "Added food", a.src, ["nut", a.g[0] === "v" ? "avoid" : "approved"])); userOf("note").forEach((a) => !a.g ? add("Notes", a.n, "Inbox", a.src, ["page", "library"]) : add(P.systems.some((t) => t.id === a.g) ? "Systems" : "Bonus extras", a.n, "Your addition", a.src, [P.systems.some((t) => t.id === a.g) ? "sys" : "ext", a.g]));
+    Object.keys(S.ov || {}).forEach((ref) => { const o = S.ov[ref], id = ref.slice(2); if (o.note) add("My notes", o.note.slice(0, 90), refName(ref) || id, "me", ref[0] === "r" ? ["routine", id] : ref[0] === "t" ? [tkey(id), id] : ref[0] === "p" ? ["prod", id] : ["nut", "approved"]); });
+    X.forEach((x) => { const a = x.act, ref = a[0] === "routine" ? "r:" + a[1] : a[0] === "sys" || a[0] === "ext" ? "t:" + a[1] : a[0] === "prod" ? "p:" + a[1] : "", tg = ref && (S.tags || {})[ref]; if (tg) x.k += " " + tg.join(" "); });
     return (FIDX = X);
   }
   function openFind() {
@@ -974,13 +1003,14 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
   }
   function closeFind(keep) { $("#find").hidden = true; $("#find").innerHTML = ""; document.body.style.overflow = ""; if (!keep && lastFocus && lastFocus.focus) lastFocus.focus(); }
   function findGo(a) {
-    S.ui.fy = ($("#fRes") || {}).scrollTop || 0; save(); closeFind(true); const go = (h) => { if (location.hash === "#" + h) route(false); else location.hash = "#" + h; };
+    if (!$("#sheet").hidden) closeSheet(true); S.ui.fy = ($("#fRes") || {}).scrollTop || 0; save(); closeFind(true); const go = (h) => { if (location.hash === "#" + h) route(false); else location.hash = "#" + h; };
     if (a[0] === "routine") { S.ui.rtab = ""; openRoutine(a[1]); }
     else if (a[0] === "lib") { S.ui.rtab = "lib"; save(); if (location.hash !== "#routines") keepLib = true; go("routines"); openLib(a[1]); }
     else if (a[0] === "sys") { S.ui.sys = a[1]; save(); go("systems"); }
     else if (a[0] === "ext") { S.ui.ext = a[1]; save(); go("extras"); }
     else if (a[0] === "nut") { S.ui.nut = a[1]; save(); go("nutrition"); }
     else if (a[0] === "prod") { S.ui.ptab = "library"; S.ui.pg = ""; S.ui.pq = a[1]; save(); go("products"); }
+    else if (a[0] === "page") go(a[1]);
     else if (a[0] === "today") { S.ui.whole = false; S.ui.period = a[1]; S.ui.pday = TK; save(); go("today"); }
   }
 
@@ -1078,16 +1108,120 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
 
   /* ── library: nutrition plus every system and extra, grouped by topic.grp (data/meta.js). A new topic only needs a grp ── */
   const LGROUPS = [["move", "Movement & posture"], ["sleep", "Sleep & recovery"], ["energy", "Energy & hormones"], ["env", "Environment & personal care"], ["ref", "Reference"]];
-  const NTIC = { approved: "steak", avoid: "leaf", plate: "target", timing: "clock", recipes: "carrotsalad", map: "pomegranate" };
+  const art = (name, z) => (name && name.slice(0, 2) === "g:" ? `<span class="gdisc" style="--z:${z}px" aria-hidden="true">${gl(G[name.slice(2)])}</span>` : ic(name, z));
+  const NTIC = { approved: "steak", avoid: "g:ban", plate: "g:plate", timing: "g:clock", recipes: "carrotsalad", map: "g:net" };
   const topicsAll = () => P.systems.map((t) => [t, "sys"]).concat(P.extras.map((t) => [t, "ext"]));
-  function renderLibrary() {
-    $("#v-library").innerHTML = `<header class="view-head"><div><h1>Library</h1><p class="lede">What to do, what to cut and the numbers worth knowing, grouped by topic.</p></div><div class="head-side"><button class="btn ghost" data-add="topic">${gl(G.plus, "s")}Add a topic</button></div></header>
-      ${subnav("library", "library")}
-      <section class="lgroup"><h2>Nutrition</h2><div class="topics">${NT.map((t) => `<button class="topic ncard card" data-jumpnut="${t[0]}">${ic(NTIC[t[0]], 56)}<h3>${t[1]}</h3></button>`).join("")}</div></section>
-      ${LGROUPS.map((g) => { const l = topicsAll().filter((x) => (x[0].grp || "ref") === g[0]); return l.length ? `<section class="lgroup"><h2>${g[1]}<span class="badge">${l.length}</span></h2><div class="topics">${l.map((x) => topicCard(x[0], x[1])).join("")}</div></section>` : ""; }).join("")}`;
+  function libItems() {
+    const ui = S.ui, q = (ui.lq || "").trim().toLowerCase();
+    return topicsAll().map((x) => { const ref = "t:" + x[0].id; return { t: x[0], key: x[1], ref, tags: tagsOf(ref, x[0]), ed: x[0].uid ? parseInt(String(x[0].uid).slice(1), 36) || 1 : ovOf(ref).t || 0 }; })
+      .filter((x) => (!q || (x.t.name + " " + (x.t.intro || "") + " " + x.tags.join(" ")).toLowerCase().indexOf(q) > -1) && (!ui.ltag || x.tags.indexOf(ui.ltag) > -1) && (!ui.lsaved || S.fav[x.ref]));
   }
-  const relatedHtml = (sel) => { const rs = ((P.related || {})[sel.id] || []).map((id) => byId[id]).filter(Boolean), ts = topicsAll().filter((x) => x[0].id !== sel.id && (x[0].grp || "ref") === (sel.grp || "ref"));
-    return `${rs.length || ts.length ? `<div class="more" id="t-related"><h2>Related in the hub</h2><div class="chips">${rs.map(pill).join("")}${ts.map((x) => `<button class="chip plain" data-topic="${x[1]}" data-id="${esc(x[0].id)}">${esc(x[0].name)}</button>`).join("")}</div></div>` : ""}<p class="srcline">Source: ${srcOf(sel.src) === "x" ? esc(sel.who || "Other source") : srcOf(sel.src) === "me" ? "my notes" : srcOf(sel.src) === "both" ? "OP docs and my notes" : "OP docs"}.</p>`; };
+  function drawLibrary() {
+    const ui = S.ui, list = libItems(), sort = ui.lsort || "group", rows = ui.lview === "list", filtered = !!((ui.lq || "").trim() || ui.ltag || ui.lsaved);
+    const one = (x) => (rows ? `<button class="lrow" data-topic="${x.key}" data-id="${esc(x.t.id)}">${art(x.t.icon, 32)}<span><b>${esc(x.t.name)}</b><small>${esc(x.t.intro || (x.t.key || [])[0] || "")}</small></span><span class="badges">${x.ed ? '<span class="badge gold">Yours</span>' : ""}${x.tags.map((g) => `<span class="badge">#${esc(g)}</span>`).join("")}${S.fav[x.ref] ? '<span class="badge sage">Saved</span>' : ""}</span></button>` : topicCard(x.t, x.key));
+    const wrap = (l) => `<div class="${rows ? "lrows" : "topics"}">${l.map(one).join("")}</div>`, inbox = userOf("note").filter((a) => !a.g);
+    let html = filtered || !inbox.length ? "" : `<section class="lgroup" id="lg-inbox"><h2>Inbox<span class="badge">${inbox.length}</span></h2><p class="small muted">Unfiled quick notes. Use File it to give one a topic.</p><ul class="mg">${inbox.map(noteRow).join("")}</ul></section>`;
+    if (!filtered) html += `<section class="lgroup" id="lg-nut"><h2>Nutrition</h2><div class="ngrid">${NT.map((t) => `<button class="ncard card" data-jumpnut="${t[0]}">${art(NTIC[t[0]], 36)}<b>${t[1]}</b></button>`).join("")}</div></section>`;
+    if (sort === "group") html += LGROUPS.map((g) => { const l = list.filter((x) => (x.t.grp || "ref") === g[0]); return l.length ? `<section class="lgroup" id="lg-${g[0]}"><h2>${g[1]}<span class="badge">${l.length}</span></h2>${wrap(l)}</section>` : ""; }).join("");
+    else if (list.length) html += `<section class="lgroup"><h2>${sort === "az" ? "A to Z" : "Edited or added by you first"}<span class="badge">${list.length}</span></h2>${wrap(list.slice().sort((a, b) => (sort === "az" ? 0 : b.ed - a.ed) || a.t.name.localeCompare(b.t.name)))}</section>`;
+    if (!list.length) html += '<div class="empty"><b>No topic matches</b>Clear the filters to see the whole Library.<button class="btn sm ghost" id="libClear">Clear filters</button></div>';
+    $("#libRes").innerHTML = html;
+  }
+  function renderLibrary() {
+    const ui = S.ui, tags = {}, sort = ui.lsort || "group"; topicsAll().forEach((x) => tagsOf("t:" + x[0].id, x[0]).forEach((g) => (tags[g] = 1))); if (ui.ltag && !tags[ui.ltag]) ui.ltag = "";
+    $("#v-library").innerHTML = `<header class="view-head"><div><h1>Library</h1><p class="lede">What to do, what to cut and the numbers worth knowing, grouped by topic.</p></div><div class="head-side"><button class="btn ghost" data-add="note">${gl(G.pen, "s")}Quick note</button><button class="btn ghost" data-add="topic">${gl(G.plus, "s")}Add a topic</button></div></header>
+      ${subnav("library", "library")}
+      ${sort === "group" ? `<nav class="jump" aria-label="Jump to a group">${[["nut", "Nutrition"]].concat(LGROUPS).map((g) => `<button class="chip plain" data-anchor="lg-${g[0]}">${g[1]}</button>`).join("")}</nav>` : ""}
+      <div class="toolbar"><input class="search" id="libQ" type="search" name="libq" autocomplete="off" placeholder="Filter topics and tags…" aria-label="Filter topics and tags" value="${esc(ui.lq || "")}"><select id="libSort" name="libsort" aria-label="Sort topics">${[["group", "By group"], ["az", "A to Z"], ["mine", "Mine first"]].map((o) => `<option value="${o[0]}"${sort === o[0] ? " selected" : ""}>${o[1]}</option>`).join("")}</select>
+        <div class="seg" role="group" aria-label="Layout"><button data-lview="cards" aria-pressed="${ui.lview !== "list"}">Cards</button><button data-lview="list" aria-pressed="${ui.lview === "list"}">Compact</button></div><button class="chip plain" id="libSaved" aria-pressed="${!!ui.lsaved}">Saved</button></div>
+      ${Object.keys(tags).length ? `<div class="chips" role="group" aria-label="Filter by tag">${Object.keys(tags).sort().map((g) => `<button class="chip plain" data-ltag="${esc(g)}" aria-pressed="${ui.ltag === g}">#${esc(g)}</button>`).join("")}</div>` : ""}
+      <div id="libRes" class="libres"></div>`;
+    drawLibrary();
+  }
+
+  /* ── v8: a personal layer over the supplied records. A ref is "<kind>:<stable id>": r routine, t topic, p product (its name), f food (its text).
+     S.ov = overrides, S.tags = tags, S.links = corrected relations, S.cols = named collections; S.fav also takes refs. Supplied data is never rewritten. ── */
+  const ORIG = {};
+  const tkey = (id) => (P.systems.some((t) => t.id === id) ? "sys" : "ext");
+  const topicBy = (id) => P.systems.concat(P.extras).find((t) => t.id === id);
+  const ovOf = (ref) => (S.ov || {})[ref] || {};
+  /* the one place an edit becomes the effective record, so every view, search, Saved and the timetable show the same thing */
+  function applyOv() {
+    P.routines.forEach((r) => { if (r.uid) return; const ref = "r:" + r.id; ORIG[ref] = ORIG[ref] || { n: r.name }; r.name = ovOf(ref).n || ORIG[ref].n; });
+    P.systems.concat(P.extras).forEach((t) => { if (t.uid) return; const ref = "t:" + t.id, o = ovOf(ref); ORIG[ref] = ORIG[ref] || { n: t.name, intro: t.intro || "" }; t.name = o.n || ORIG[ref].n; t.intro = o.intro || ORIG[ref].intro; });
+  }
+  const tagsOf = (ref, rec) => (rec && rec.uid ? String(((S.adds || []).find((a) => a.id === rec.uid) || {}).tags || "").split(",").map((x) => x.trim().toLowerCase()).filter(Boolean) : (S.tags || {})[ref] || []);
+  const stamp = (t) => (t ? new Date(t).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "");
+  const mine = (ref) => { const o = ovOf(ref), tg = (S.tags || {})[ref] || []; return `${o.note ? `<p class="mynote"><span class="src me">My note</span>${esc(o.note)}</p>` : ""}${tg.length ? `<p class="tagline">${tg.map((x) => `<span class="badge">#${esc(x)}</span>`).join("")}</p>` : ""}`; };
+  const baseRel = (ref) => (ref[0] === "t" ? ((P.related || {})[ref.slice(2)] || []).map((id) => "r:" + id) : []);
+  const relOf = (ref) => { const L = (S.links || {})[ref] || {}, del = L.del || []; return baseRel(ref).filter((x) => del.indexOf(x) < 0).map((x) => [x, 0]).concat((L.add || []).map((x) => [x, 1])); };
+  const backOf = (ref) => Object.keys(P.related || {}).map((id) => "t:" + id).concat(Object.keys(S.links || {})).filter((x, i, a) => a.indexOf(x) === i && x !== ref && relOf(x).some((y) => y[0] === ref));
+  const refName = (ref) => { const id = ref.slice(2); return ref[0] === "r" ? (byId[id] || {}).name : ref[0] === "t" ? (topicBy(id) || {}).name : ref[0] === "p" ? (P.products.find((p) => p.n === id) || {}).n : id; };
+  const refAttr = (ref) => { const id = ref.slice(2); return ref[0] === "r" ? `data-go="${esc(id)}"` : ref[0] === "t" ? `data-topic="${tkey(id)}" data-id="${esc(id)}"` : ref[0] === "p" ? `data-findgo='${esc(JSON.stringify(["prod", id]))}'` : 'data-jumpnut="approved"'; };
+  const refChip = (ref) => (refName(ref) ? `<button class="chip plain" ${refAttr(ref)}>${esc(refName(ref))}</button>` : "");
+  function relBlock(ref) {
+    const rel = relOf(ref), back = backOf(ref).filter((x) => !rel.some((y) => y[0] === x)), tp = ref[0] === "t" && topicBy(ref.slice(2));
+    const sib = tp ? topicsAll().filter((x) => x[0].id !== tp.id && (x[0].grp || "ref") === (tp.grp || "ref")).map((x) => "t:" + x[0].id) : [];
+    const row = (h, l, note) => (l.length ? `<h3>${h}</h3>${note ? `<p class="small muted">${note}</p>` : ""}<div class="chips">${l.map(refChip).join("")}</div>` : "");
+    return rel.length || back.length || sib.length ? `<div class="more relblock"><h2>Related in the hub</h2>${row("Linked by you", rel.filter((x) => x[1]).map((x) => x[0]))}${row("Suggested", rel.filter((x) => !x[1]).map((x) => x[0]), "Matched by name or subject, not confirmed and not advice. Use Edit to remove a wrong one or add your own.")}${row("Linked from", back)}${row("Same group", sib)}</div>` : "";
+  }
+  const srcWord = (rec) => (srcOf(rec.src) === "x" ? esc(rec.who || "Other source") : srcOf(rec.src) === "me" ? "my notes" : srcOf(rec.src) === "both" ? "OP docs and my notes" : "OP docs");
+  const favKey = (ref) => (ref[0] === "r" ? ref.slice(2) : ref);
+  const footFor = (ref, rec) => `${mine(ref)}${relBlock(ref)}<p class="srcline"><span>Source: ${srcWord(rec)}.</span>${ovOf(ref).t ? `<span class="badge gold">Edited by you · ${stamp(ovOf(ref).t)}</span>` : ""}${rec.uid ? "" : `<button class="linkbtn" data-ov="${esc(ref)}">Edit</button>`}${ref[0] === "r" ? "" : `<button class="star" data-fav="${esc(favKey(ref))}" aria-pressed="${!!S.fav[favKey(ref)]}" aria-label="Save ${esc(rec.name || "")}">${STAR}</button>`}</p>`;
+  const relatedHtml = (sel) => footFor("t:" + sel.id, sel);
+  /* equipment → product record, only where data/meta.js names a real match */
+  const eqProd = (name) => { const n = (P.equipProd || {})[name.replace(/ \(optional\)$/, "")]; return n && P.products.some((p) => p.n === n) ? n : null; };
+  const eqHtml = (r) => { const eq = (P.equip || {})[r.id], o = owned(); return eq ? `<div class="more eqblock"><h3>Equipment</h3><ul class="eqlist">${eq.map((e) => { const p = eqProd(e); return `<li>${p ? `<button class="linkbtn" data-findgo='${esc(JSON.stringify(["prod", p]))}'>${esc(e)}</button><span class="badge ${o[p] ? "sage" : S.wish[p] ? "gold" : ""}">${o[p] ? "Owned" : S.wish[p] ? "Wishlist" : "Not recorded"}</span>` : `<span>${esc(e)}</span>`}</li>`; }).join("")}</ul><p class="small muted">Status comes from your Products lists. Plain items have no product record, and nothing here needs buying to do the routine.</p></div>` : ""; };
+  const usedIn = (pn) => P.routines.filter((r) => ((P.equip || {})[r.id] || []).some((e) => eqProd(e) === pn));
+  const noteRow = (a) => `<li class="slim ${sb(a.src, a.who)}">${a.g ? `<span class="badge ${a.list === "dont" ? "clay" : "sage"}">${a.list === "dont" ? "Don't" : "Do"}</span>` : ""}<span><b>${esc(a.n)}</b>${a.steps ? `<small>${esc(a.steps)}</small>` : ""}${a.u ? ` <a class="linkbtn" href="${esc(a.u)}" target="_blank" rel="noopener">Source link</a>` : ""}</span><button class="linkbtn" data-add="note" data-id="${a.id}">${a.g ? "Edit" : "File it"}</button></li>`;
+
+  const relRow = (x) => `<li><span>${esc(refName(x[0]) || x[0])}${x[1] ? "" : ' <span class="badge">suggested</span>'}</span><button type="button" class="iconbtn" data-reldel="${esc(x[0])}" aria-label="Remove the link to ${esc(refName(x[0]) || "")}">${gl(G.x, "s")}</button></li>`;
+  function openOv(ref) {
+    const k = ref[0], o = ovOf(ref), og = ORIG[ref] || {}, can = k === "r" || k === "t", name = can ? og.n : ref.slice(2), opt = (r) => `<option value="${esc(r)}">${esc(refName(r))}</option>`;
+    sheetUp(`<form id="ovForm" data-ref="${esc(ref)}" novalidate>
+      <p class="small muted">${can ? `You can change the title${k === "t" ? " and summary" : ""}, and add your own note, tags, links and collections.` : "You can add your own note, tags and collections."} The supplied text, steps, durations and source stay as written and can be restored at any time.</p>
+      ${can ? `<label class="field">Title<input type="text" name="n" maxlength="120" autocomplete="off" value="${esc(o.n || og.n)}"></label>` : ""}${k === "t" ? `<label class="field">Summary<input type="text" name="intro" maxlength="300" autocomplete="off" value="${esc(o.intro || og.intro)}"></label>` : ""}
+      <label class="field">My note<textarea name="note" rows="3" maxlength="2000">${esc(o.note || "")}</textarea></label>
+      <label class="field">Tags, separated by commas<input type="text" name="tags" maxlength="200" autocomplete="off" placeholder="sleep, to research…" value="${esc(((S.tags || {})[ref] || []).join(", "))}"></label>
+      ${(S.cols || []).length ? `<fieldset class="ed-slot"><legend>Collections</legend>${S.cols.map((c) => `<label class="field check"><input type="checkbox" name="col-${c.id}"${c.items.indexOf(ref) > -1 ? " checked" : ""}>${esc(c.n)}</label>`).join("")}</fieldset>` : ""}
+      ${can ? `<fieldset class="ed-slot"><legend>Links</legend><p class="small muted">Links save straight away.</p><ul id="ovRel">${relOf(ref).map(relRow).join("")}</ul><select data-reladd="1" name="reladd" aria-label="Add a link"><option value="">Link to…</option><optgroup label="Routines">${P.routines.map((r) => opt("r:" + r.id)).join("")}</optgroup><optgroup label="Topics">${topicsAll().map((x) => opt("t:" + x[0].id)).join("")}</optgroup></select></fieldset>` : ""}
+      ${o.t ? `<details class="orig"><summary>View original</summary>${can ? `<p><b>Title:</b> ${esc(og.n)}</p>` : ""}${k === "t" && og.intro ? `<p><b>Summary:</b> ${esc(og.intro)}</p>` : ""}${can ? "" : "<p>The original has no note of yours.</p>"}<p class="small muted">Edited by you on ${stamp(o.t)}. This is your edit date, not a review date for the source.</p></details>` : ""}
+      <div class="ed-foot">${o.t ? `<button type="button" class="linkbtn" id="ovRestore">${can ? "Restore original" : "Remove my note"}</button>` : ""}<span style="flex:1"></span><button class="btn" type="submit">Save</button></div></form>`, "Edit: " + esc(name));
+  }
+  function saveOv(form) {
+    const ref = form.dataset.ref, v = (n) => { const e = form.querySelector(`[name="${n}"]`); return e ? e.value.trim() : ""; }, og = ORIG[ref] || {}, o = {}, had = ovOf(ref);
+    if (v("n") && v("n") !== og.n) o.n = v("n"); if (v("intro") && v("intro") !== og.intro) o.intro = v("intro"); if (v("note")) o.note = v("note");
+    S.ov = S.ov || {}; if (Object.keys(o).length) { o.t = had.t && ["n", "intro", "note"].every((f) => o[f] === had[f]) ? had.t : Date.now(); S.ov[ref] = o; } else delete S.ov[ref];
+    const tg = v("tags").split(",").map((x) => x.trim().toLowerCase().slice(0, 30)).filter((x, i, a) => x && a.indexOf(x) === i).slice(0, 12); S.tags = S.tags || {}; if (tg.length) S.tags[ref] = tg; else delete S.tags[ref];
+    (S.cols || []).forEach((c) => { const e = form.querySelector(`[name="col-${c.id}"]`); if (!e) return; c.items = c.items.filter((x) => x !== ref); if (e.checked) c.items.push(ref); });
+    afterEdit("Saved in this browser");
+  }
+  function setLink(ref, to, on) {
+    const L = ((S.links = S.links || {})[ref] = S.links[ref] || { add: [], del: [] }), base = baseRel(ref).indexOf(to) > -1;
+    L.add = L.add.filter((x) => x !== to); L.del = L.del.filter((x) => x !== to); if (on && !base) L.add.push(to); if (!on && base) L.del.push(to);
+    if (!L.add.length && !L.del.length) delete S.links[ref]; save(); RENDER[current]();
+  }
+  function v8Click(t, d) {
+    if (d.ov) { openOv(d.ov); return true; }
+    if (t.id === "ovRestore") { const ref = $("#ovForm").dataset.ref, was = S.ov[ref]; delete S.ov[ref]; afterEdit("Original restored"); toast("Original restored", () => { (S.ov = S.ov || {})[ref] = was; save(); applyAdds(); RENDER[current](); }); return true; }
+    if (d.reldel) { setLink($("#ovForm").dataset.ref, d.reldel, false); t.closest("li").remove(); say("Link removed"); return true; }
+    if (t.id === "colNew") { const n = $("#colName").value.trim(); if (!n) { $("#colName").focus(); return true; } (S.cols = S.cols || []).push({ id: "c" + Date.now().toString(36), n: n.slice(0, 60), items: [] }); save(); openSaved(); toast("Collection added"); return true; }
+    if (d.coldel) { const c = S.cols.find((x) => x.id === d.coldel); S.cols = S.cols.filter((x) => x.id !== d.coldel); save(); openSaved(); toast("Collection removed", () => { S.cols.push(c); save(); }); return true; }
+    if (d.lview) { S.ui.lview = d.lview; save(); renderLibrary(); refocus(`[data-lview="${d.lview}"]`); return true; }
+    if (d.ltag !== undefined) { S.ui.ltag = S.ui.ltag === d.ltag ? "" : d.ltag; save(); renderLibrary(); return true; }
+    if (t.id === "libSaved") { S.ui.lsaved = !S.ui.lsaved; save(); renderLibrary(); refocus("#libSaved"); return true; }
+    if (t.id === "libClear") { S.ui.lq = ""; S.ui.ltag = ""; S.ui.lsaved = false; save(); renderLibrary(); refocus("#libQ"); return true; }
+    return false;
+  }
+  /* imported or stored personal data is rebuilt through these, like cleanAdds */
+  const REF = /^[rtpf]:[^]{1,200}$/, objx = (x) => (x && typeof x === "object" && !Array.isArray(x) ? x : {}), refs = (l) => (Array.isArray(l) ? l : []).filter((r) => typeof r === "string" && REF.test(r)).slice(0, 500);
+  const cleanOv = (x) => { const r = {}; Object.keys(objx(x)).forEach((k) => { const v = x[k], o = {}; if (!REF.test(k) || !v || typeof v !== "object") return; ["n", "intro", "note"].forEach((f) => { if (typeof v[f] === "string" && v[f].trim()) o[f] = v[f].slice(0, 2000); }); if (Object.keys(o).length) { o.t = isFinite(+v.t) ? +v.t : 0; r[k] = o; } }); return r; };
+  const cleanTags = (x) => { const r = {}; Object.keys(objx(x)).forEach((k) => { const l = (Array.isArray(x[k]) ? x[k] : []).filter((g) => typeof g === "string" && g.trim()).map((g) => g.trim().toLowerCase().slice(0, 30)).slice(0, 12); if (REF.test(k) && l.length) r[k] = l; }); return r; };
+  const cleanLinks = (x) => { const r = {}; Object.keys(objx(x)).forEach((k) => { const a = refs(objx(x[k]).add), d = refs(objx(x[k]).del); if (REF.test(k) && (a.length || d.length)) r[k] = { add: a, del: d }; }); return r; };
+  const cleanCols = (x) => (Array.isArray(x) ? x : []).filter((c) => c && /^c[a-z0-9]+$/.test(c.id) && typeof c.n === "string" && c.n.trim()).slice(0, 50).map((c) => ({ id: c.id, n: c.n.slice(0, 60), items: refs(c.items) }));
+  const SCHEMA = 2; /* backup format: 1 = up to hub v7 (no schema field), 2 adds ov, tags, links, cols. Bump only when the saved shape changes. */
+
+  let JUST = "";
 
   /* ── toast with one undo ── */
   let undoFn = null, toastT = 0;
@@ -1097,13 +1231,16 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
   const sheetUp = (html, label) => { if ($("#sheet").hidden) lastFocus = document.activeElement; $("#sheet").innerHTML = `<div class="sheet ed" role="dialog" aria-modal="true" aria-label="${label}"><div class="sheet-head"><h3>${label}</h3><button class="btn ghost sm" id="sheetClose">Close</button></div>${html}</div>`; $("#sheet").hidden = false; document.body.style.overflow = "hidden"; $("#sheetClose").focus(); };
   const STREAK = "A day counts when at least 80% of its core items are ticked. Optional check-ins never add to the count. A skipped core item still counts as not done; skipping only takes it off Next up. Use Choose core on Today to change what counts.";
   function openMore() {
-    sheetUp(`<a class="opt-row" href="#progress">Progress<span>${streak()} day streak</span></a><button class="opt-row" data-saved="1">Saved routines<span>${Object.keys(S.fav || {}).length}</span></button><button class="opt-row" data-manage="1">My edits, backup and restore<span>${(S.adds || []).length}</span></button><button class="opt-row" data-find="1">Find anything</button>
+    sheetUp(`<a class="opt-row" href="#progress">Progress<span>${streak()} day streak</span></a><button class="opt-row" data-saved="1">Saved and collections<span>${Object.keys(S.fav || {}).length}</span></button><button class="opt-row" data-manage="1">My edits, backup and restore<span>${(S.adds || []).length}</span></button><button class="opt-row" data-find="1">Find anything</button><button class="opt-row" data-add="note">Quick note<span>to the Inbox</span></button>
       <h4>Sources</h4><p class="small muted">Each block carries a name tab saying where it came from. The frame colour repeats it.</p><div class="key"><span class="src op">OP docs</span><span class="src me">My notes</span><span class="src both">OP docs + mine</span><span class="src x"${(S.adds || []).some((a) => a.src === "x") ? "" : " hidden"}>Someone else, named</span></div><button class="srcswitch" role="switch" aria-checked="${!S.ui.plain}" data-srctoggle="1"><i aria-hidden="true"></i>Source colours</button>
       <h4>How the streak is counted</h4><p class="small">${STREAK}</p>`, "More");
   }
   function openSaved() {
-    const favs = P.routines.filter((r) => S.fav[r.id]), rec = (S.recent || []).map((id) => byId[id]).filter(Boolean).slice(0, 5), row = (r) => `<button class="opt-row" data-go="${esc(r.id)}">${esc(r.name)}<span>${esc(catName(r.cat) || "")}</span></button>`;
-    sheetUp(`${favs.length ? favs.map(row).join("") : '<div class="empty"><b>No saved routines yet</b>Tap the star on a routine to keep it here.</div>'}${rec.length ? `<h4>Recently opened</h4>${rec.map(row).join("")}` : ""}`, "Saved routines");
+    const row = (ref) => { const n = refName(ref), k = ref[0]; return n ? `<button class="opt-row" ${refAttr(ref)}>${esc(n)}<span>${k === "r" ? esc(catName((byId[ref.slice(2)] || {}).cat) || "Routine") : k === "t" ? "Topic" : k === "p" ? "Product" : "Food"}</span></button>` : ""; };
+    const favs = Object.keys(S.fav || {}).map((k) => (/^[tpf]:/.test(k) ? k : "r:" + k)).filter(refName), rec = (S.recent || []).filter((id) => byId[id]).slice(0, 5).map((id) => "r:" + id);
+    sheetUp(`${favs.length ? favs.map(row).join("") : '<div class="empty"><b>Nothing saved yet</b>Tap the star on a routine, topic or product to keep it here.</div>'}${rec.length ? `<h4>Recently opened</h4>${rec.map(row).join("")}` : ""}
+      <h4>Collections</h4>${(S.cols || []).map((c) => `<div class="col"><div class="row"><b>${esc(c.n)}</b><span class="badge">${c.items.length}</span><span style="flex:1"></span><button class="linkbtn" data-coldel="${c.id}">Remove<span class="sr"> ${esc(c.n)}</span></button></div>${c.items.length ? c.items.map(row).join("") : '<p class="small muted">Empty. Tick it in the Edit form of any routine, topic, food or product.</p>'}</div>`).join("") || '<p class="small muted">Group things you want to come back to, such as To research or Equipment to compare. A collection only points at records; it never copies them.</p>'}
+      <div class="row"><input type="text" id="colName" name="colname" maxlength="60" autocomplete="off" aria-label="New collection name" placeholder="New collection…"><button class="btn sm" id="colNew">Add</button></div>`, "Saved");
   }
 
   /* ── find: best matches first, filter by type, every match reachable, state kept for the return trip ── */
@@ -1132,7 +1269,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
     if (d.undo) { const f = undoFn; $("#toast").hidden = true; undoFn = null; if (f) f(); say("Undone"); return true; }
     if (d.more) { openMore(); return true; }
     if (d.saved) { openSaved(); return true; }
-    if (d.jumpnut) { S.ui.nut = d.jumpnut; save(); location.hash = "#nutrition"; return true; }
+    if (d.jumpnut) { if (!$("#sheet").hidden) closeSheet(true); if (current === "library") S.ui.ly = window.scrollY; S.ui.nut = d.jumpnut; save(); if (location.hash === "#nutrition") route(false); else location.hash = "#nutrition"; return true; }
     if (d.fk !== undefined) { S.ui.fk = d.fk; FOPEN = {}; drawFind($("#fInput").value); refocus(`[data-fk="${d.fk}"]`); return true; }
     if (d.fmore) { FOPEN[d.fmore] = 1; const y = $("#fRes").scrollTop; drawFind($("#fInput").value); $("#fRes").scrollTop = y; return true; }
     if (d.skip) { const it = findItem(d.skip); if (it) { setSkip(d.skip, true); toast("Skipped for today. It still counts as not done.", () => setSkip(d.skip, false)); } return true; }
@@ -1166,6 +1303,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
     if (keep) refocus(keep);
   }
   function editChange(el) {
+    if (el.dataset.reladd) { const ref = $("#ovForm").dataset.ref; if (el.value && el.value !== ref && !relOf(ref).some((x) => x[0] === el.value)) { setLink(ref, el.value, true); $("#ovRel").innerHTML = relOf(ref).map(relRow).join(""); say("Link added"); } el.value = ""; return true; }
     if (el.dataset.addkind) { const f = el.closest("form"), n = ($('[data-f="n"]', f) || {}).value || "", src = (f.querySelector('[name="src"]:checked') || {}).value || "me"; openAdd(el.value, null, { n, src }); refocus("[data-addkind]"); return true; }
     const d = el.dataset, pl = ED && draft(ED.dow); if (!pl) return false;
     if (d.edat) { if (/^\d\d:\d\d$/.test(el.value)) pl.at[d.edat] = el.value; }
@@ -1182,18 +1320,19 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
   const ADD = {
     food: { title: "Add a food", f: [["n", "Title", "text"], ["g", "Topic", "sel"], ["note", "Summary (optional)", "text"], ["icon", "Picture", "sel"]] },
     product: { title: "Add a product", f: [["n", "Title", "text"], ["g", "Topic", "sel"], ["note", "Summary (optional)", "text"], ["p", "Price in £ (optional)", "number"], ["u", "Link (optional)", "url"]] },
-    note: { title: "Add a note", f: [["n", "Title", "text"], ["g", "Topic", "sel"], ["list", "Goes under", "sel"]] },
+    note: { title: "Add a note", f: [["n", "Title", "text"], ["g", "Topic", "sel"], ["list", "Goes under", "sel"], ["steps", "Body (optional)", "area"], ["u", "Source link (optional)", "url"]] },
     routine: { title: "Add a routine", f: [["n", "Title", "text"], ["g", "Topic", "sel"], ["min", "Minutes", "number"], ["steps", "Steps, one per line", "area"]] },
     item: { title: "Add a daily habit", f: [["n", "Title", "text"], ["g", "Part of the day", "sel"], ["min", "Minutes (optional)", "number"], ["opt", "Optional check-in, not counted towards the day", "check"]] },
     topic: { title: "Add a topic", f: [["n", "Title", "text"], ["g", "Topic", "sel"], ["note", "Summary", "text"], ["steps", "Do, one per line", "area"], ["dont", "Don't, one per line", "area"]] },
   };
+  Object.keys(ADD).forEach((k) => ADD[k].f.push(["tags", "Tags, separated by commas (optional)", "text"]));
   const addOpts = (k, f) => f === "icon" ? [["", "Pick for me"]].concat(FOODIC.map((x) => [x, x]))
     : f === "list" ? [["do", "Do"], ["dont", "Don't"]]
     : k === "food" ? P.nutrition.approved.map((g, i) => ["a" + i, "Approved: " + g.h]).concat(P.nutrition.avoid.map((g, i) => ["v" + i, "Avoid: " + g.h]))
     : k === "topic" ? LGROUPS : k === "product" ? P.productGroups : k === "routine" ? P.cats.map((c) => [c.id, c.name]) : k === "item" ? P.blocks.map((b) => [b.id, b.name])
-    : P.systems.map((t) => [t.id, "Systems: " + t.name]).concat(P.extras.map((t) => [t.id, "Extras: " + t.name]));
+    : [["", "Inbox, file it later"]].concat(P.systems.map((t) => [t.id, "Systems: " + t.name]), P.extras.map((t) => [t.id, "Extras: " + t.name]));
   const cleanAdds = (l) => (Array.isArray(l) ? l : []).filter((a) => a && ADD[a.k] && typeof a.n === "string" && a.n.trim() && /^u[a-z0-9]+$/.test(a.id)).map((a) => {
-    const o = {}; ["k", "id", "n", "g", "note", "icon", "p", "u", "list", "min", "steps", "dont", "opt", "src", "who"].forEach((f) => { if (a[f] != null && a[f] !== "") o[f] = String(a[f]).slice(0, 2000); });
+    const o = {}; ["k", "id", "n", "g", "note", "icon", "p", "u", "list", "min", "steps", "dont", "opt", "tags", "src", "who"].forEach((f) => { if (a[f] != null && a[f] !== "") o[f] = String(a[f]).slice(0, 2000); });
     if (o.u && !/^https?:\/\//i.test(o.u)) delete o.u; if (o.icon && FOODIC.indexOf(o.icon) < 0) delete o.icon; if (!SRCN[o.src] || o.src === "both") o.src = "me"; return o;
   });
   const cleanPlan = (p) => { const o = {}; if (p && typeof p === "object") for (let d = 0; d < 7; d++) { const x = p[d]; if (!x || typeof x !== "object") continue; const y = { focus: String(x.focus || "").slice(0, 60), at: {} }; ["am", "train", "pm", "bed"].forEach((k) => { y[k] = (Array.isArray(x[k]) ? x[k] : []).filter((s) => Array.isArray(s) && typeof s[0] === "string").map((s) => [s[0].slice(0, 40), Math.max(1, Math.min(240, Math.round(+s[1]) || 10))]); }); Object.keys(P.plan.times).forEach((b) => { if (x.at && /^\d\d:\d\d$/.test(x.at[b])) y.at[b] = x.at[b]; }); o[d] = y; } return o; };
@@ -1205,7 +1344,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
     P.blocks.forEach((b) => { b.items = b.items.filter((i) => !i.uid).concat(userOf("item").filter((a) => a.g === b.id).map((a) => ({ id: a.id, uid: a.id, t: a.n, min: +a.min || 0, opt: a.opt === "1", src: a.src, who: a.who }))); });
     const lines = (x) => (x || "").split("\n").map((y) => y.trim()).filter(Boolean);
     P.extras = P.extras.filter((t) => !t.uid).concat(userOf("topic").map((a) => ({ id: a.id, uid: a.id, name: a.n, icon: "book", intro: a.note || "", grp: a.g, src: a.src, who: a.who, groups: [{ h: "Notes", do: lines(a.steps), dont: lines(a.dont) }] })));
-    FIDX = null; $$(".src.x").forEach((e) => (e.hidden = !(S.adds || []).some((a) => a.src === "x")));
+    applyOv(); FIDX = null; $$(".src.x").forEach((e) => (e.hidden = !(S.adds || []).some((a) => a.src === "x")));
   }
   let AD = null;
   function openAdd(k, id, preset) {
@@ -1242,7 +1381,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
     $("#sheet").hidden = false; document.body.style.overflow = "hidden"; $("#sheetClose").focus();
   }
   function exportTo(full) {
-    const box = $("#xBox"); box.value = JSON.stringify(full ? Object.assign({ phh: 1, exported: TK }, S) : { phh: 1, exported: TK, plan: S.plan || {}, adds: S.adds || [] }); box.focus(); box.select();
+    const box = $("#xBox"); box.value = JSON.stringify(full ? Object.assign({ phh: 1, schema: SCHEMA, exported: TK }, S) : { phh: 1, schema: SCHEMA, exported: TK, plan: S.plan || {}, adds: S.adds || [], ov: S.ov || {}, tags: S.tags || {}, links: S.links || {}, cols: S.cols || [] }); box.focus(); box.select();
     const done = (ok) => { $("#xMsg").textContent = ok ? "Copied. Paste it somewhere safe, or send it to be made permanent." : "Selected. Copy it from the box."; };
     try { navigator.clipboard.writeText(box.value).then(() => done(true), () => done(false)); } catch (e) { done(false); }
   }
@@ -1258,17 +1397,18 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
     n.recent = (Array.isArray(o.recent) ? o.recent : []).filter((x) => typeof x === "string" && idk(x)).slice(0, 8);
     n.sessions = (Array.isArray(o.sessions) ? o.sessions : []).filter((x) => x && idk(String(x.id)) && /^\d{4}-\d\d-\d\d$/.test(x.date) && isFinite(+x.secs)).map((x) => ({ id: x.id, date: x.date, secs: +x.secs }));
     Object.keys(obj(o.ui)).forEach((k) => { const v = o.ui[k]; if (idk(k) && (typeof v === "boolean" || typeof v === "number" || (typeof v === "string" && v.length <= 200))) n.ui[k] = v; });
-    n.core = num(o.core); n.adds = cleanAdds(o.adds); n.plan = cleanPlan(o.plan); return n;
+    /* fields a backup made before schema 2 does not carry default to empty */
+    n.fav = names(o.fav); n.core = num(o.core); n.adds = cleanAdds(o.adds); n.plan = cleanPlan(o.plan); n.ov = cleanOv(o.ov); n.tags = cleanTags(o.tags); n.links = cleanLinks(o.links); n.cols = cleanCols(o.cols); return n;
   };
   let IMP = null;
   function importFrom() {
     let o; try { o = JSON.parse($("#xBox").value); } catch (e) { o = null; }
     const msg = $("#xMsg");
     if (!o || typeof o !== "object" || !o.phh) { msg.textContent = "That is not a Primal Health Hub export. Nothing was changed."; return; }
-    if (o.phh !== 1) { msg.textContent = "That export is from a newer version of the hub than this one. Nothing was changed."; return; }
+    if (o.phh !== 1 || (o.schema || 1) > SCHEMA) { msg.textContent = "That export uses a newer backup format than this hub understands. Nothing was changed."; return; }
     const full = !!o.days && typeof o.days === "object", adds = cleanAdds(o.adds), plan = cleanPlan(o.plan), have = (S.adds || []).map((a) => a.id), clash = adds.filter((a) => have.indexOf(a.id) > -1).length, days = Object.keys(plan).filter((d) => (S.plan || {})[d]);
-    IMP = { o, adds, plan };
-    msg.innerHTML = `<b>${full ? "Full backup" : "Edits"}${/^\d{4}-\d\d-\d\d$/.test(o.exported) ? " from " + o.exported : ""}.</b> ${adds.length} additions${clash ? ` (${clash} will replace ones already here)` : ""} and ${Object.keys(plan).length} timetable days${days.length ? ` (${days.map((d) => DAYN[d]).join(", ")} will overwrite your edited days)` : ""}.${full ? ` It also holds ${Object.keys(o.days).length} days of history. Replace everything swaps out the ${Object.keys(S.days).length} days saved here.` : ""} A recovery copy of what is here now is kept first.
+    IMP = { o, adds, plan, ov: cleanOv(o.ov), tags: cleanTags(o.tags), links: cleanLinks(o.links), cols: cleanCols(o.cols) };
+    msg.innerHTML = `<b>${full ? "Full backup" : "Edits"}${/^\d{4}-\d\d-\d\d$/.test(o.exported) ? " from " + o.exported : ""}.</b> ${adds.length} additions${clash ? ` (${clash} will replace ones already here)` : ""}, ${Object.keys(IMP.ov).length} personal edits and ${Object.keys(plan).length} timetable days${days.length ? ` (${days.map((d) => DAYN[d]).join(", ")} will overwrite your edited days)` : ""}.${full ? ` It also holds ${Object.keys(o.days).length} days of history. Replace everything swaps out the ${Object.keys(S.days).length} days saved here.` : ""} A recovery copy of what is here now is kept first.
       <span class="row"><button class="btn sm" id="xApply">${full ? "Merge the edits only" : "Import"}</button>${full ? '<button class="btn ghost sm" id="xReplace">Replace everything</button>' : ""}<button class="btn ghost sm" id="xCancel">Cancel</button></span>`;
     $("#xApply").focus();
   }
@@ -1277,7 +1417,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
   function applyImport(replace) {
     if (!IMP) return; try { localStorage.setItem(BKEY, JSON.stringify(S)); } catch (e) {}
     if (replace) S = cleanState(IMP.o);
-    else { S.plan = Object.assign(S.plan || {}, IMP.plan); const ids = IMP.adds.map((a) => a.id); S.adds = (S.adds || []).filter((a) => ids.indexOf(a.id) < 0).concat(IMP.adds); }
+    else { S.plan = Object.assign(S.plan || {}, IMP.plan); const ids = IMP.adds.map((a) => a.id); S.adds = (S.adds || []).filter((a) => ids.indexOf(a.id) < 0).concat(IMP.adds); S.ov = Object.assign(S.ov || {}, IMP.ov); S.tags = Object.assign(S.tags || {}, IMP.tags); S.links = Object.assign(S.links || {}, IMP.links); const cid = IMP.cols.map((c) => c.id); S.cols = (S.cols || []).filter((c) => cid.indexOf(c.id) < 0).concat(IMP.cols); }
     IMP = null; applyPlain(); afterEdit("Import done"); toast(replace ? "Everything replaced from the backup" : "Edits imported", restoreCopy);
   }
   /* clicks for the editor, the add form and export; returns true when it handled the click */
@@ -1308,7 +1448,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
     VIEWS.forEach((x) => { $("#v-" + x).hidden = x !== v; });
     $$("[data-nav]").forEach((a) => { if (a.dataset.nav === navv) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
     current = v; RENDER[v](); const el = $("#v-" + v); el.classList.remove("enter"); void el.offsetWidth; el.classList.add("enter");
-    if (!first) { window.scrollTo(0, 0); $("#main").focus({ preventScroll: true }); }
+    if (!first) { window.scrollTo(0, v === "library" ? S.ui.ly || 0 : 0); $("#main").focus({ preventScroll: true }); }
     if (v === "routines" && pendingOpen) { const id = pendingOpen; pendingOpen = null; openRoutine(id); }
   }
   window.addEventListener("hashchange", () => { if (!$("#libdlg").hidden && !keepLib) closeLib(); keepLib = false; if (!$("#sheet").hidden) closeSheet(true); route(false); });
@@ -1320,7 +1460,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
     if (e.target.id === "libdlg") { closeLib(); return; }
     if (e.target.id === "find") { closeFind(); return; }
     const t = e.target.closest("button, a"); if (!t) return; const d = t.dataset;
-    if (uiClick(t, d) || editClick(t, d)) return;
+    if (v8Click(t, d) || uiClick(t, d) || editClick(t, d)) return;
     if (d.tick) { const it = findItem(d.tick); if (it) setItem(d.tick, isDone(it) ? 0 : it.n || 1, `[data-tick="${d.tick}"]`); }
     else if (d.pip) { const k = +d.k, cur = day().d[d.pip] || 0; setItem(d.pip, cur === k ? k - 1 : k, `[data-pip="${d.pip}"][data-k="${d.k}"]`); }
     else if (d.nextdone) { const it = findItem(d.nextdone); if (it) setItem(it.id, it.n ? Math.min(it.n, (day().d[it.id] || 0) + 1) : 1, ".next .btn"); }
@@ -1328,7 +1468,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
     else if (t.id === "wholeDay") { S.ui.whole = !S.ui.whole; save(); renderToday("#wholeDay"); }
     else if (d.wk) { const w = week(), k = +d.k; w[d.wk] = (w[d.wk] || 0) === k ? k - 1 : k; save(); RENDER[current](); refocus(`[data-wk="${d.wk}"][data-k="${d.k}"]`); }
     else if (d.mo) { const mk = mkey(now), m = (S.months[mk] = S.months[mk] || {}); if (m[d.mo]) delete m[d.mo]; else m[d.mo] = now.toLocaleDateString("en-GB", { day: "numeric", month: "short" }); save(); renderProgress(); refocus(`[data-mo="${d.mo}"]`); }
-    else if (d.fav) { e.preventDefault(); if (S.fav[d.fav]) delete S.fav[d.fav]; else S.fav[d.fav] = 1; save(); t.setAttribute("aria-pressed", !!S.fav[d.fav]); say(S.fav[d.fav] ? "Added to favourites" : "Removed from favourites"); if (!(S.ui.rq || "").trim()) $("#rStrips").innerHTML = stripsHtml(); }
+    else if (d.fav) { e.preventDefault(); if (S.fav[d.fav]) delete S.fav[d.fav]; else S.fav[d.fav] = 1; save(); t.setAttribute("aria-pressed", !!S.fav[d.fav]); say(S.fav[d.fav] ? "Added to favourites" : "Removed from favourites"); if ($("#rStrips") && !(S.ui.rq || "").trim()) $("#rStrips").innerHTML = stripsHtml(); }
     else if (d.go) { if (!$("#sheet").hidden) closeSheet(true); if (!$("#libdlg").hidden) closeLib(); if (!$("#player").hidden) closeOverlay($("#player")); S.ui.rtab = ""; openRoutine(d.go); }
     else if (d.cat !== undefined) { S.ui.rcat = d.cat; save(); $$("[data-cat]").forEach((c) => c.setAttribute("aria-pressed", c.dataset.cat === d.cat)); drawRoutines(); }
     else if (d.sheet) openSheet(d.sheet);
@@ -1349,7 +1489,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
     else if (d.play) openPlayer(d.play);
     else if (d.pacer) openPacer(d.pacer);
     else if (d.expand) { const box = $("#r-" + d.expand), all = $$(".ex:not(.nosteps)", box), open = all.some((x) => !x.open); all.forEach((x) => (x.open = open)); t.textContent = open ? "Hide all steps" : "Show all steps"; }
-    else if (d.topic) { S.ui[d.topic] = d.id; save(); const tv = d.topic === "sys" ? "systems" : "extras"; if (current !== tv) { location.hash = "#" + tv; return; } (d.topic === "sys" ? renderSystems : renderExtras)(); window.scrollTo(0, 0); $("#main").focus({ preventScroll: true }); }
+    else if (d.topic) { if (!$("#sheet").hidden) closeSheet(true); if (current === "library") S.ui.ly = window.scrollY; S.ui[d.topic] = d.id; save(); const tv = d.topic === "sys" ? "systems" : "extras"; if (current !== tv) { location.hash = "#" + tv; return; } (d.topic === "sys" ? renderSystems : renderExtras)(); window.scrollTo(0, 0); $("#main").focus({ preventScroll: true }); }
     else if (d.anchor) { const a = document.getElementById(d.anchor); if (a) a.scrollIntoView({ block: "start" }); }
     else if (d.nut) { S.ui.nut = d.nut; save(); $$("[data-nut]").forEach((c) => c.setAttribute("aria-selected", c.dataset.nut === d.nut)); $("#nutPanel").innerHTML = nutPanel(d.nut); }
     else if (d.macro) { S.ui.macro = S.ui.macro === d.macro ? "" : d.macro; save(); $("#nutPanel").innerHTML = nutPanel("plate"); refocus(`[data-macro="${d.macro}"]`); }
@@ -1371,10 +1511,11 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
     else if (t.id === "pcAgain") openPacer("co2");
   });
   document.addEventListener("toggle", (e) => { const r = e.target.dataset && e.target.dataset.rt; if (r && e.target.open) touch(r); }, true);
-  document.addEventListener("input", (e) => { if (e.target.id === "rSearch") { S.ui.rq = e.target.value; drawRoutines(); } if (e.target.id === "pSearch") { S.ui.pq = e.target.value; drawProducts(); } if (e.target.id === "lSearch") { S.ui.lq = e.target.value; drawLib(); } if (e.target.id === "fInput") { FOPEN = {}; S.ui.fy = 0; drawFind(e.target.value); }
+  document.addEventListener("input", (e) => { if (e.target.id === "rSearch") { S.ui.rq = e.target.value; drawRoutines(); } if (e.target.id === "pSearch") { S.ui.pq = e.target.value; drawProducts(); } if (e.target.id === "lSearch") { S.ui.lq = e.target.value; drawLib(); } if (e.target.id === "libQ") { S.ui.lq = e.target.value; drawLibrary(); }
+    if (e.target.id === "fInput") { FOPEN = {}; S.ui.fy = 0; drawFind(e.target.value); }
     if (e.target.id === "nSearch") { const q = e.target.value.trim().toLowerCase(); $$("#nutPanel .food").forEach((li) => (li.hidden = !!q && li.dataset.k.indexOf(q) < 0)); let any = false; $$("#nutPanel .fgroup").forEach((g) => { g.hidden = !$$(".food:not([hidden])", g).length; any = any || !g.hidden; }); $("#nNone").hidden = any; } });
-  document.addEventListener("change", (e) => { if (e.target.closest && e.target.closest("#sheet")) editChange(e.target); });
-  document.addEventListener("submit", (e) => { if (e.target.id === "addForm") { e.preventDefault(); saveAdd(e.target); } });
+  document.addEventListener("change", (e) => { if (e.target.id === "libSort") { S.ui.lsort = e.target.value; save(); renderLibrary(); refocus("#libSort"); return; } if (e.target.closest && e.target.closest("#sheet")) editChange(e.target); });
+  document.addEventListener("submit", (e) => { if (e.target.id === "addForm") { e.preventDefault(); saveAdd(e.target); } if (e.target.id === "ovForm") { e.preventDefault(); saveOv(e.target); } });
   document.addEventListener("keydown", (e) => {
     if ($("#find").hidden && (e.key === "/" || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k")) && !/INPUT|TEXTAREA/.test((document.activeElement || {}).tagName || "") && $("#player").hidden && $("#pacer").hidden) { e.preventDefault(); openFind(); return; }
     if (!$("#find").hidden && e.key === "Enter" && document.activeElement.id === "fInput") { const b = $("#fRes button"); if (b) b.click(); return; }
@@ -1390,7 +1531,7 @@ a.opt-row { text-decoration: none; color: inherit; } .ed .opt-row { border: 1px 
 
   Object.keys(S.days).sort().slice(0, -90).forEach((k) => delete S.days[k]); Object.keys(S.weeks).sort().slice(0, -12).forEach((k) => delete S.weeks[k]);
   function applyPlain() { document.documentElement.classList.toggle("plain", !!S.ui.plain); $$("[data-srctoggle]").forEach((b) => b.setAttribute("aria-checked", !S.ui.plain)); }
-  S.adds = cleanAdds(S.adds); S.plan = cleanPlan(S.plan); S.core = S.core || {}; applyAdds();
+  S.adds = cleanAdds(S.adds); S.plan = cleanPlan(S.plan); S.core = S.core || {}; S.ov = cleanOv(S.ov); S.tags = cleanTags(S.tags); S.links = cleanLinks(S.links); S.cols = cleanCols(S.cols); applyAdds();
   document.addEventListener("error", (e) => { const t = e.target; if (t && t.tagName === "IMG") t.style.visibility = "hidden"; }, true); /* a missing picture keeps its box, so nothing jumps */
   applyPlain(); route(true); tally(); chrome(streak());
 })();

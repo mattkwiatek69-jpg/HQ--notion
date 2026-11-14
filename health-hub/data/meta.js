@@ -32,7 +32,8 @@
 
   /* topic and group icons from the new icon sheets */
   const icons = {
-    mitochondria: "mito", testosterone: "steak", oestrogen: "pomegranate", thyroid: "thyroid", cortisol: "adrenals",
+    /* "g:" names a line symbol, used where a food picture would imply a food has a proven hormone effect */
+    mitochondria: "mito", testosterone: "g:hex", oestrogen: "g:hex", thyroid: "thyroid", cortisol: "adrenals",
     "nervous-system": "brain", sleep: "pillow", light: "sunrise", grounding: "tree", lean: "scale", bone: "marrow",
     tendons: "tendon", "gut-liver": "gut", "fascia-health": "fascia",
     toxins: "showerfilter", allergy: "leaf", hair: "hairfollicle", height: "chart", progress: "calendar", mindset: "stones",
@@ -46,6 +47,9 @@
   (P.systems || []).concat(P.extras || []).forEach((t) => { if (grp[t.id]) t.grp = grp[t.id]; });
   /* cross-links from a topic to the routines that share its name or subject; navigation only, no new claims */
   P.related = { "fascia-health": ["ultimate", "fascia-activation", "full-body-release", "groundwork"], bone: ["bone-density"], tendons: ["tendon"], sleep: ["oscar-breathwork", "short-breaths", "zygotape"], "nervous-system": ["vagus", "stored-stress", "pandiculation", "lajin"], cortisol: ["vagus", "short-breaths"], "gut-liver": ["digestion-release"], lean: ["sprints", "walk"], grounding: ["walk"] };
+
+  /* equipment name (as written in P.equip, without "(optional)") → the product record it really is. Leave out anything ambiguous. */
+  P.equipProd = { "Fascia ball": "Fascia ball / tennis balls", "Foam roller": "Foam roller", "Gua sha": "Gua sha", Macebell: "Macebell or club (2–3 kg to start)", "Slant board": "Slant board (dual for squats)", "Balance board": "Balance board", Marble: "Marbles", "Resistance band": "Resistance band", "Pull-up bar": "Pull-up bar", "Mastic gum": "Mastic gum", Zygotape: "Zygotape", Myobrace: "Myobrace A1 (then A2)", Airofit: "Airofit Active", "Froggy Mouth": "Froggy Mouth", "Button and string": "Button on a string", "Rose water": "Rose water (Alteya Organics)", "Cotton pad": "Organic cotton pads", "Plyo box": "Plyo box", "Jump rope": "Jump rope", "Medicine ball": "Medicine ball / slam ball", "Slam ball": "Medicine ball / slam ball", "Weighted vest or ankle weights": "Weighted vest or ankle weights", Kettlebell: "Kettlebell and heavy dumbbells", "Heavy dumbbells or kettlebells": "Kettlebell and heavy dumbbells", "Kneeling chair or seiza bench": "Kneeling chair" };
 
   /* where each block came from: "op" = OP docs, "me" = the owner's own notes, "both". Unmarked blocks are "op".
      Rule for new content: ask whose it is, then set src here or on the item (see CLAUDE.md). */
