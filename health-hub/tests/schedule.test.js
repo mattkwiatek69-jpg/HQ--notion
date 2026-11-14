@@ -28,4 +28,13 @@ const ov = { 1: Object.assign({}, P.plan.week[1], { am: [["ultimate", 46], ["ful
 assert(S.day(1, ov).find((r) => r.b.id === "morning").over > 0, "overfull morning is flagged");
 assert.strictEqual(S.mins("apt"), 20); assert.strictEqual(S.mins("groundwork"), 5);
 console.log("balance (days per week):", JSON.stringify(S.balance()));
+/* planner checks: the supplied week fits; it reports the known back-to-back strength days and the one aim it misses */
+const ck = S.checks(null, P.aims);
+assert(!ck.some((c) => c.k === "fit"), "supplied week fits");
+assert(ck.some((c) => c.k === "hard" && /Sunday and Monday/.test(c.text)), "strength on Sunday then Monday is reported");
+assert(ck.some((c) => c.k === "aim" && c.rid === "bone-density"), "bone density under its aim is reported");
+assert(S.checks(ov, {}).some((c) => c.k === "fit" && c.d === 1), "an overfull day is reported as not fitting");
+const heavy = { 4: Object.assign({}, P.plan.week[4], { pm: [["ultimate", 46], ["tendon", 20], ["apt", 60]] }) };
+assert(S.checks(heavy, {}).some((c) => c.k === "load" && c.d === 4), "a lopsided day is reported");
+assert.strictEqual(S.day(1)[1].items[0].pi, 0, "plan items carry their position");
 console.log("schedule ok");

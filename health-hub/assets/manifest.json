@@ -900,688 +900,667 @@
   "g:hex": "Testosterone and Oestrogen topics (neutral, no food implied)",
   "bowl": "fallback for a food with no picture"
  },
- "missing": [
-  {
-   "id": "p:Airofit Active",
-   "label": "Airofit Active",
-   "plannedFile": "assets/illus/product-airofit-active.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Myobrace A1 (then A2)",
-   "label": "Myobrace A1 (then A2)",
-   "plannedFile": "assets/illus/product-myobrace-a1.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Froggy Mouth",
-   "label": "Froggy Mouth",
-   "plannedFile": "assets/illus/product-froggy-mouth.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Mastic gum",
-   "label": "Mastic gum",
-   "plannedFile": "assets/illus/product-mastic-gum.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Button on a string",
-   "label": "Button on a string",
-   "plannedFile": "assets/illus/product-button-on-a-string.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Marbles",
-   "label": "Marbles",
-   "plannedFile": "assets/illus/product-marbles.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Weighted vest or ankle weights",
-   "label": "Weighted vest or ankle weights",
-   "plannedFile": "assets/illus/product-weighted-vest-or-ankle-weights.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Neck brace for gym",
-   "label": "Neck brace for gym",
-   "plannedFile": "assets/illus/product-neck-brace-for-gym.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Barefoot shoes",
-   "label": "Barefoot shoes",
-   "plannedFile": "assets/illus/product-barefoot-shoes.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Seiza bench",
-   "label": "Seiza bench",
-   "plannedFile": "assets/illus/product-seiza-bench.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Futon or firm sleep surface",
-   "label": "Futon or firm sleep surface",
-   "plannedFile": "assets/illus/product-futon-or-firm-sleep-surface.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Jojoba oil (Fushi)",
-   "label": "Jojoba oil (Fushi)",
-   "plannedFile": "assets/illus/product-jojoba-oil.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Castor oil (Fushi)",
-   "label": "Castor oil (Fushi)",
-   "plannedFile": "assets/illus/product-castor-oil.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Camellia oil (Fushi)",
-   "label": "Camellia oil (Fushi)",
-   "plannedFile": "assets/illus/product-camellia-oil.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Argan oil (Fushi)",
-   "label": "Argan oil (Fushi)",
-   "plannedFile": "assets/illus/product-argan-oil.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Emu oil",
-   "label": "Emu oil",
-   "plannedFile": "assets/illus/product-emu-oil.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Rosemary oil",
-   "label": "Rosemary oil",
-   "plannedFile": "assets/illus/product-rosemary-oil.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Coconut oil (organic extra virgin)",
-   "label": "Coconut oil (organic extra virgin)",
-   "plannedFile": "assets/illus/product-coconut-oil.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Magnesium chloride spray",
-   "label": "Magnesium chloride spray",
-   "plannedFile": "assets/illus/product-magnesium-chloride-spray.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Fluoride-free hydroxyapatite toothpaste (Gutology)",
-   "label": "Fluoride-free hydroxyapatite toothpaste (Gutology)",
-   "plannedFile": "assets/illus/product-fluoride-free-hydroxyapatite-toothpaste.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Stainless steel or ceramic cookware",
-   "label": "Stainless steel or ceramic cookware",
-   "plannedFile": "assets/illus/product-stainless-steel-or-ceramic-cookware.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Baking soda + apple cider vinegar",
-   "label": "Baking soda + apple cider vinegar",
-   "plannedFile": "assets/illus/product-baking-soda-apple-cider-vinegar.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Linen or organic cotton underwear",
-   "label": "Linen or organic cotton underwear",
-   "plannedFile": "assets/illus/product-linen-or-organic-cotton-underwear.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Organic loose-leaf chamomile tea",
-   "label": "Organic loose-leaf chamomile tea",
-   "plannedFile": "assets/illus/product-organic-loose-leaf-chamomile-tea.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Liquid nano magnesium",
-   "label": "Liquid nano magnesium",
-   "plannedFile": "assets/illus/product-liquid-nano-magnesium.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Colostrum powder",
-   "label": "Colostrum powder",
-   "plannedFile": "assets/illus/product-colostrum-powder.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Raw royal jelly",
-   "label": "Raw royal jelly",
-   "plannedFile": "assets/illus/product-raw-royal-jelly.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Grass-fed beef gelatin powder",
-   "label": "Grass-fed beef gelatin powder",
-   "plannedFile": "assets/illus/product-grass-fed-beef-gelatin-powder.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Shilajit",
-   "label": "Shilajit",
-   "plannedFile": "assets/illus/product-shilajit.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:TUDCA",
-   "label": "TUDCA",
-   "plannedFile": "assets/illus/product-tudca.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Taurine",
-   "label": "Taurine",
-   "plannedFile": "assets/illus/product-taurine.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Boron glycinate",
-   "label": "Boron glycinate",
-   "plannedFile": "assets/illus/product-boron-glycinate.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Grapeseed extract",
-   "label": "Grapeseed extract",
-   "plannedFile": "assets/illus/product-grapeseed-extract.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:L-glutamine",
-   "label": "L-glutamine",
-   "plannedFile": "assets/illus/product-l-glutamine.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Eggshell powder",
-   "label": "Eggshell powder",
-   "plannedFile": "assets/illus/product-eggshell-powder.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Vitamin D3 (winter)",
-   "label": "Vitamin D3 (winter)",
-   "plannedFile": "assets/illus/product-vitamin-d3.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Rhodiola rosea",
-   "label": "Rhodiola rosea",
-   "plannedFile": "assets/illus/product-rhodiola-rosea.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Holy basil / tulsi",
-   "label": "Holy basil / tulsi",
-   "plannedFile": "assets/illus/product-holy-basil-tulsi.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Ginkgo biloba",
-   "label": "Ginkgo biloba",
-   "plannedFile": "assets/illus/product-ginkgo-biloba.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Tamarind paste or tea",
-   "label": "Tamarind paste or tea",
-   "plannedFile": "assets/illus/product-tamarind-paste-or-tea.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Bee pollen",
-   "label": "Bee pollen",
-   "plannedFile": "assets/illus/product-bee-pollen.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Qi Gong book: The Master Key (middle chapters)",
-   "label": "Qi Gong book: The Master Key (middle chapters)",
-   "plannedFile": "assets/illus/product-qi-gong-book-the-master-key.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Electric microneedling pen",
-   "label": "Electric microneedling pen",
-   "plannedFile": "assets/illus/product-electric-microneedling-pen.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:The Ordinary eyelash serum",
-   "label": "The Ordinary eyelash serum",
-   "plannedFile": "assets/illus/product-the-ordinary-eyelash-serum.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:BB cream",
-   "label": "BB cream",
-   "plannedFile": "assets/illus/product-bb-cream.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Volufiline",
-   "label": "Volufiline",
-   "plannedFile": "assets/illus/product-volufiline.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Cleanser: Round Lab Dokdo",
-   "label": "Cleanser: Round Lab Dokdo",
-   "plannedFile": "assets/illus/product-cleanser-round-lab-dokdo.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Oil cleanser: Beauty of Joseon Ginseng",
-   "label": "Oil cleanser: Beauty of Joseon Ginseng",
-   "plannedFile": "assets/illus/product-oil-cleanser-beauty-of-joseon-ginseng.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Moisturiser: Beauty of Joseon",
-   "label": "Moisturiser: Beauty of Joseon",
-   "plannedFile": "assets/illus/product-moisturiser-beauty-of-joseon.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:The Ordinary caffeine + retinal",
-   "label": "The Ordinary caffeine + retinal",
-   "plannedFile": "assets/illus/product-the-ordinary-caffeine-retinal.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Eye peptide",
-   "label": "Eye peptide",
-   "plannedFile": "assets/illus/product-eye-peptide.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Multi peptide",
-   "label": "Multi peptide",
-   "plannedFile": "assets/illus/product-multi-peptide.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Minoxidil",
-   "label": "Minoxidil",
-   "plannedFile": "assets/illus/product-minoxidil.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Hair powder",
-   "label": "Hair powder",
-   "plannedFile": "assets/illus/product-hair-powder.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Eyebrow dye",
-   "label": "Eyebrow dye",
-   "plannedFile": "assets/illus/product-eyebrow-dye.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  },
-  {
-   "id": "p:Haircut",
-   "label": "Haircut",
-   "plannedFile": "assets/illus/product-haircut.webp",
-   "fallback": "no picture (text only)",
-   "status": "not generated"
-  }
- ],
+ "missing": [],
  "illustrations": [
+  {
+   "path": "assets/illus/band-library.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/band-plan.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/band-products.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/band-today.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
   {
    "path": "assets/illus/equipment-balance-board.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/equipment-cotton-pads.webp",
    "width": 159,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/equipment-dumbbell.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/equipment-fascia-ball.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/equipment-foam-roller.webp",
    "width": 159,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/equipment-gua-sha.webp",
    "width": 159,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/equipment-jump-rope.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/equipment-kettlebell.webp",
    "width": 160,
    "height": 159,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/equipment-macebell.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/equipment-medicine-ball.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/equipment-pull-up-bar.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/equipment-resistance-band.webp",
    "width": 160,
    "height": 159,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/equipment-slant-board.webp",
    "width": 160,
    "height": 159,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/equipment-toe-spacers.webp",
    "width": 159,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/equipment-water-bottle.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/equipment-yoga-block.webp",
    "width": 160,
    "height": 159,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-apple.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-avocado.webp",
    "width": 159,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-banana.webp",
    "width": 159,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-blueberries.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-broth.webp",
    "width": 159,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-butter.webp",
    "width": 144,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-cherries.webp",
    "width": 160,
    "height": 159,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-coconut.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-dates.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-egg.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-honey.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-kiwi.webp",
    "width": 160,
    "height": 159,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-mango.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-orange.webp",
    "width": 160,
    "height": 159,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-salmon.webp",
    "width": 160,
    "height": 146,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/foods-walnuts.webp",
    "width": 160,
    "height": 159,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-airofit-active.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-argan-oil.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-baking-soda-apple-cider-vinegar.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-barefoot-shoes.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-bb-cream.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-bee-pollen.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-boron-glycinate.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-button-on-a-string.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-camellia-oil.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-castor-oil.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-cleanser-round-lab-dokdo.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-coconut-oil.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-colostrum-powder.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-eggshell-powder.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-electric-microneedling-pen.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-emu-oil.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-eye-peptide.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-eyebrow-dye.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-fluoride-free-hydroxyapatite-toothpaste.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-froggy-mouth.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-futon-or-firm-sleep-surface.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-ginkgo-biloba.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-grapeseed-extract.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-grass-fed-beef-gelatin-powder.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-hair-powder.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-haircut.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-holy-basil-tulsi.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-jojoba-oil.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-l-glutamine.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-linen-or-organic-cotton-underwear.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-liquid-nano-magnesium.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-magnesium-chloride-spray.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-marbles.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-mastic-gum.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-minoxidil.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-moisturiser-beauty-of-joseon.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-multi-peptide.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-myobrace-a1.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-neck-brace-for-gym.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-oil-cleanser-beauty-of-joseon-ginseng.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-organic-loose-leaf-chamomile-tea.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-qi-gong-book-the-master-key.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-raw-royal-jelly.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-rhodiola-rosea.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-rosemary-oil.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-seiza-bench.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-shilajit.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-stainless-steel-or-ceramic-cookware.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-tamarind-paste-or-tea.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-taurine.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-the-ordinary-caffeine-retinal.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-the-ordinary-eyelash-serum.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-tudca.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-vitamin-d3.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-volufiline.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/product-weighted-vest-or-ankle-weights.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/topic-oestrogen.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+  },
+  {
+   "path": "assets/illus/topic-testosterone.webp",
+   "width": 160,
+   "height": 160,
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-breathwork-feather.webp",
    "width": 159,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-calm-stone.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-environment-plant.webp",
    "width": 159,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-focus-candle.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-hair-care.webp",
    "width": 159,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-hydration.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-nature-fern.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-oral-care.webp",
    "width": 160,
    "height": 159,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-progress-pebbles.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-recovery-blanket.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-reflection-pencil.webp",
    "width": 160,
    "height": 159,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-research-magnifier.webp",
    "width": 160,
    "height": 159,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-skin-care.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-sleep-mask.webp",
    "width": 160,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-sunlight.webp",
    "width": 159,
    "height": 160,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   },
   {
    "path": "assets/illus/wellbeing-walking-shoe.webp",
    "width": 160,
    "height": 159,
-   "kind": "painted illustration from the expanded pack"
+   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
   }
  ],
  "topicArt": [

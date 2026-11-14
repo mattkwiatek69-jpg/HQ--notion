@@ -72,10 +72,10 @@
     /* core: the owner's own choice of what counts, { item id: 1 core | 0 optional } */
     items(b, dow, ov, core) {
       const pl = this.plan(dow, ov), k = SLOT[b.id], seen = {};
-      const gen = ((k && pl[k]) || []).map((s) => {
+      const gen = ((k && pl[k]) || []).map((s, n) => {
         const r = byId[s[0]]; if (!r) return null;
         let id = LEG[k + "|" + s[0]] || (k === "bed" && r.cat === "breath" ? "b-breath" : "p-" + k + "-" + s[0]); if (seen[id]) id += "-2"; seen[id] = 1;
-        return { id, t: r.name, d: DESC[s[0]] || "", go: s[0], min: +s[1] || 0, plan: 1, cat: r.cat };
+        return { id, t: r.name, d: DESC[s[0]] || "", go: s[0], min: +s[1] || 0, plan: 1, pi: n, cat: r.cat };
       }).filter(Boolean);
       if (b.id === "train" && !gen.length) return [];
       const fixed = b.items.filter((i) => !i.days || i.days.indexOf(dow) > -1);
@@ -104,5 +104,23 @@
       return days;
     },
     count(rid, ov) { let n = 0; for (let d = 0; d < 7; d++) { const pl = this.plan(d, ov); ["am", "train", "pm", "bed"].forEach((k) => (pl[k] || []).forEach((s) => { if (s[0] === rid) n++; })); } return n; },
+  };
+
+  /* how many times a week the owner aims to do a routine. The numbers come from the OP docs' weekly targets and the owner's own choices; any of them can be changed in the hub. */
+  P.aims = { "oscar-breathwork": 3, "full-body-release": 2, sprints: 2, "bone-density": 2, tendon: 2 };
+  const HARD = { "workout-1": "Strength", "workout-2": "Strength", "workout-3": "Strength", "bone-density": "Strength", sprints: "Sprints", uphill: "Sprints", "weighted-sprints": "Sprints" };
+  /* the planner's checks. "fit" has to be fixed; the others are worth a look. Nothing here is advice: it reports what the week contains. */
+  P.sched.checks = function (ov, aims) {
+    const out = [], N = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], order = [1, 2, 3, 4, 5, 6, 0], mins = {}, hard = {};
+    order.forEach((d) => {
+      const pl = this.plan(d, ov); mins[d] = 0; hard[d] = {};
+      ["am", "train", "pm", "bed"].forEach((k) => (pl[k] || []).forEach((s) => { if (!byId[s[0]]) return; mins[d] += +s[1] || 0; if (HARD[s[0]]) hard[d][HARD[s[0]]] = 1; }));
+      this.day(d, ov).forEach((r) => { if (r.over) out.push({ k: "fit", d, text: `${N[d]}: ${r.b.name} runs ${r.over} min into the next part of the day.` }); });
+    });
+    order.forEach((d, i) => { const n = order[(i + 1) % 7]; Object.keys(hard[d]).forEach((h) => { if (hard[n][h]) out.push({ k: "hard", d, text: `${h} on back-to-back days: ${N[d]} and ${N[n]}.` }); }); });
+    const avg = order.reduce((a, d) => a + mins[d], 0) / 7, top = order.slice().sort((a, b) => mins[b] - mins[a])[0];
+    if (avg && mins[top] > avg * 1.4 && mins[top] - avg >= 30) out.push({ k: "load", d: top, text: `${N[top]} is the heaviest day: ${mins[top]} min against an average of ${Math.round(avg)}.` });
+    Object.keys(aims || {}).forEach((rid) => { const r = byId[rid], n = this.count(rid, ov); if (r && +aims[rid] > 0 && n !== +aims[rid]) out.push({ k: "aim", rid, text: `${r.name}: ${n} of ${aims[rid]} a week.` }); });
+    return out;
   };
 })(window.PHH);
