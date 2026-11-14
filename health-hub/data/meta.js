@@ -34,12 +34,12 @@
   const icons = {
     /* "g:" names a line symbol, used where a food picture would imply a food has a proven hormone effect */
     mitochondria: "mito", testosterone: "illus/topic-testosterone", oestrogen: "illus/topic-oestrogen", thyroid: "thyroid", cortisol: "adrenals",
-    "nervous-system": "brain", sleep: "pillow", light: "sunrise", grounding: "tree", lean: "scale", bone: "marrow",
+    "nervous-system": "brain", sleep: "illus/wellbeing-sleep-mask", light: "illus/wellbeing-sunlight", grounding: "illus/wellbeing-nature-fern", lean: "scale", bone: "marrow",
     tendons: "tendon", "gut-liver": "gut", "fascia-health": "fascia",
-    toxins: "showerfilter", allergy: "leaf", hair: "hairfollicle", height: "chart", progress: "calendar", mindset: "stones",
+    toxins: "showerfilter", allergy: "leaf", hair: "illus/wellbeing-hair-care", height: "chart", progress: "illus/wellbeing-progress-pebbles", mindset: "illus/wellbeing-calm-stone",
   };
   (P.systems || []).concat(P.extras || []).forEach((t) => { if (icons[t.id]) t.icon = icons[t.id]; });
-  const catIcons = { fascia: "fasciaball", myo: "tooth", face: "tmj", tape: "ktape", breath: "diaphragm", lymph: "lymphnodes", sprint: "shoe", gym: "kettlebell", posture: "spine", nervous: "meditate" };
+  const catIcons = { fascia: "fasciaball", myo: "tooth", face: "tmj", tape: "ktape", breath: "illus/wellbeing-breathwork-feather", lymph: "lymphnodes", sprint: "shoe", gym: "kettlebell", posture: "spine", nervous: "meditate" };
   (P.cats || []).forEach((c) => { if (catIcons[c.id]) c.icon = catIcons[c.id]; });
 
   /* Library groups. A new topic only needs a grp to show up in the Library; unknown or missing falls under Reference. */
