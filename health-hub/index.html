@@ -717,6 +717,43 @@ html.plain .sbox::after { content: none; } .topic.sbox::after { margin-top: auto
 .pcheck summary span:first-of-type { flex: 1; } .pcheck[open] summary { border-bottom: 1px solid var(--line); } .pcheck .gl { flex: none; color: var(--ink-3); } .pcheck:has(li.bad) summary { color: var(--clay-ink); } .pcheck:has(li.bad) .gl { color: var(--clay-ink); }
 @media (max-width: 1239px) { #v-week .pbal { order: 5; } #v-week .phint { order: 6; } }
 .sbox.libcard::after { content: none; }
+:root { --rt: #5F8A3C; --gym: #3A72A8; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --rt: #78A24E; --gym: #5C8BD0; } }
+:root[data-theme="dark"] { --rt: #78A24E; --gym: #5C8BD0; }
+/* routines and gym switch, which is also the legend */
+.lens { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.lens button { display: grid; grid-template-columns: 12px minmax(0, 1fr); gap: 2px 10px; align-items: center; text-align: left; padding: 12px 16px; min-height: 64px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); transition: border-color .16s var(--ease), box-shadow .16s var(--ease); }
+.lens button:hover { border-color: var(--line-2); } .lens button[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink), var(--shadow); }
+.lsw { width: 12px; height: 12px; border-radius: 3px; grid-row: span 2; background: linear-gradient(90deg, var(--rt) 50%, var(--gym) 50%); display: inline-block; flex: none; }
+.lens-rt .lsw, .cg-rt .lsw { background: var(--rt); } .lens-gym .lsw, .cg-gym .lsw { background: var(--gym); }
+.lens b { font-weight: 700; font-size: .9375rem; } .lens small { grid-column: 2; color: var(--ink-3); font-size: .8125rem; line-height: 1.35; font-variant-numeric: tabular-nums; }
+@media (max-width: 760px) { .lens { gap: 2px; padding: 4px; background: var(--sunk); border-radius: 14px; } .lens button { min-height: 44px; padding: 6px 8px; border: 0; background: none; box-shadow: none; grid-template-columns: 10px auto; justify-content: center; gap: 6px; } .lens .lsw { width: 10px; height: 10px; grid-row: auto; } .lens small { display: none; } .lens button[aria-pressed="true"] { background: var(--surface); box-shadow: var(--shadow); } }
+/* per-day minutes: routines then gym, 2px surface gap, rounded end */
+.sbar { display: flex; gap: 2px; height: 8px; width: 100%; } .sbar i { display: block; height: 100%; flex: none; } .sbar i:last-child { border-radius: 0 4px 4px 0; }
+.s-rt { background: var(--rt); } .s-gym { background: var(--gym); }
+.ptot { flex-direction: column; align-items: stretch; gap: 5px; margin-top: 4px; } .ptl { display: flex; align-items: center; gap: 6px; } .ptl::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--rt); flex: none; } .ptl.g::before { background: var(--gym); }
+.pstrip .sbar { height: 4px; width: 80%; margin-top: 3px; } .pstrip .sbar i:last-child { border-radius: 0 2px 2px 0; }
+/* gym sessions read as gym everywhere: the steel tint and a dumbbell instead of the kind dot */
+.pchip.gym { --cat: var(--gym); grid-template-columns: 14px minmax(0, 1fr); } .pchip.gym::before { content: none; }
+.gi { width: 14px; height: 14px; display: inline-grid; flex: none; color: var(--gym); } .gi svg { width: 100%; height: 100%; display: block; } .pchip .gi { grid-row: span 2; margin-top: 2px; }
+.pchip.out, .trow.out, .tblock.out { display: none; }
+.trow.gym b::before { content: none; } .trow.gym b { display: inline-flex; align-items: center; gap: 8px; }
+.badge.gymb { background: color-mix(in srgb, var(--gym) 16%, var(--surface)); color: var(--ink); }
+.linkname .gi, .chip .gi { margin-right: -2px; } .chip.wk.gym { border-color: color-mix(in srgb, var(--gym) 45%, var(--line-2)); }
+/* compare: two groups, each with its own minutes-per-day row */
+.ctools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; } .ctools .toolbar { flex: 1 1 420px; }
+.cgroup { display: flex; flex-direction: column; gap: 10px; } .cgroup + .cgroup { margin-top: 18px; }
+.cg-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; } .cg-head h2 { font-size: 1.25rem; } .cg-head p { color: var(--ink-3); font-size: .875rem; font-variant-numeric: tabular-nums; } .cg-head .lsw { width: 14px; height: 14px; }
+.cfoot { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto 92px; gap: 14px; align-items: center; padding: 12px 0; border-top: 1.5px solid var(--line-2); font-size: .8125rem; font-weight: 600; color: var(--ink-2); }
+.cfoot .cdays > span { width: 36px; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink); }
+@media (max-width: 760px) { .cfoot { grid-template-columns: 28px minmax(0, 1fr) auto; row-gap: 6px; } .cfoot .cdays { grid-column: 2 / -1; grid-row: 2; justify-content: space-between; } .cfoot .ccount { grid-column: 3; grid-row: 1; } .cfoot .cdays > span { width: 38px; } }
+.daysum { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; } .daysum .sbar { width: 220px; max-width: 100%; height: 10px; } .daysum .sbar i:last-child { border-radius: 0 5px 5px 0; }
+@media (max-width: 760px) {
+  #v-week .view-head, #v-today .view-head, #v-compare .view-head { flex-wrap: nowrap; align-items: flex-start; gap: 12px; } #v-week .view-head .lede, #v-compare .view-head .lede { font-size: .9375rem; }
+  .btn.sm[data-undo2], .btn.sm[data-redo2] { font-size: 0; gap: 0; width: 44px; padding: 0; } #v-week, #v-today, #v-compare { gap: 16px; } [data-undo2] .li, [data-redo2] .li { width: 20px; height: 20px; }
+  .view-head .head-side { gap: 6px; flex-wrap: nowrap; } #v-today .view-head .head-side { flex-wrap: wrap; justify-content: flex-end; }
+}
+.prow-g { margin: 12px 0 2px; display: flex; align-items: center; gap: 8px; font-size: 1rem; }
 .clist { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 2px 18px; }
 .chead { display: flex; align-items: center; gap: 8px; padding: 16px 0 6px; font-weight: 700; font-size: .8125rem; color: var(--ink-3); }
 .crow { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto 92px; gap: 14px; align-items: center; padding: 10px 0; border-top: 1px solid var(--line); min-height: 64px; } .clist > li:first-child, .chead + .crow { border-top: 0; }
@@ -835,7 +872,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   const SLOTS = [["morning", "am", "Morning"], ["train", "train", "Training"], ["evening", "pm", "Evening"], ["bed", "bed", "Before bed"]];
   const SLOTIC = { am: "sunrise", train: "dumbbell", pm: "sunset", bed: "bed" }, BLOCKART = { wake: "illus/wellbeing-sunlight", morning: "illus/equipment-fascia-ball", train: "illus/equipment-dumbbell", day: "illus/wellbeing-hydration", evening: "illus/wellbeing-focus-candle", bed: "illus/wellbeing-sleep-mask" };
   const slotName = (k) => (SLOTS.find((s) => s[1] === k) || [])[2] || "";
-  const SUBS = { week: [["#week", "week", "Week"], ["#today", "today", "Day"], ["#compare", "compare", "Compare"]], routines: [["", "routines", "Routines"], ["lib", "lib", "Exercise library"]], library: [["#library", "library", "All topics"], ["#nutrition", "nutrition", "Nutrition"]] };
+  const SUBS = { week: [["#week", "week", "Week"], ["#today", "today", "Day"], ["#compare", "compare", "Compare"]], routines: [["", "routines", "Routines"], ["gym", "gym", "Gym"], ["lib", "lib", "Exercise library"]], library: [["#library", "library", "All topics"], ["#nutrition", "nutrition", "Nutrition"]] };
   const subnav = (grp, cur) => `<nav class="subnav" aria-label="${grp === "routines" ? "Routines" : grp === "library" ? "Library" : "Week"} views">${SUBS[grp].map((t) => (t[0][0] === "#" ? `<a href="${t[0]}"${t[1] === cur ? ' aria-current="page"' : ""}>${t[2]}</a>` : `<button data-rtab="${t[0]}"${t[1] === cur ? ' aria-current="page"' : ""}>${t[2]}</button>`)).join("")}</nav>`;
   const clone = (x) => JSON.parse(JSON.stringify(x));
   const catOf = (id) => P.cats.find((c) => c.id === id) || {};
@@ -851,28 +888,29 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   const dateOf = (d) => addDays(monday(now), (d + 6) % 7);
   const aimsNow = () => Object.assign({}, P.aims, S.freq);
   const undoBar = () => `<button class="btn ghost sm" data-undo2="1"${HIST.length ? "" : " disabled"}>${li("undo")}Undo</button><button class="btn ghost sm" data-redo2="1"${REDO.length ? "" : " disabled"}>${li("redo")}Redo</button>`;
-  const dayStrip = (sd, cls) => `<div class="pstrip${cls || ""}" role="group" aria-label="Day">${ORDER.map((d) => `<button data-pd="${d}" aria-pressed="${d === sd}"${d === now.getDay() ? ' class="now"' : ""} aria-label="${DAYN[d]}, ${dayMin(d)} minutes"><b>${DAYN[d].slice(0, 3)}</b><span>${dateOf(d).getDate()}</span><small>${dayMin(d)} min</small></button>`).join("")}</div>`;
+  const dayStrip = (sd, cls) => `<div class="pstrip${cls || ""}" role="group" aria-label="Day">${ORDER.map((d) => `<button data-pd="${d}" aria-pressed="${d === sd}"${d === now.getDay() ? ' class="now"' : ""} aria-label="${DAYN[d]}, ${dayMin(d)} minutes"><b>${DAYN[d].slice(0, 3)}</b><span>${dateOf(d).getDate()}</span><small>${dayMin(d)} min</small>${(() => { const o = daySplit(d); return splitBar(o, Math.max(1, ...ORDER.map((x) => { const p = daySplit(x); return p.rt + p.gym; })), ""); })()}</button>`).join("")}</div>`;
 
   function renderWeek() {
     now = new Date(); TK = dkey(now);
-    const today = now.getDay(), sd = selDay(), checks = SC.checks(S.plan, aimsNow()), bad = checks.filter((c) => c.k === "fit").length, bal = SC.balance(S.plan), hl = S.ui.hl || "", m = monday(now), sun = addDays(m, 6), mo = (x) => x.toLocaleDateString("en-GB", { month: "long" });
+    const today = now.getDay(), sd = selDay(), checks = SC.checks(S.plan, aimsNow()), bad = checks.filter((c) => c.k === "fit").length, l = lens(), bal = {}, hl = S.ui.hl || "", spl = {}, max = Math.max(1, ...ORDER.map((d) => { const o = (spl[d] = daySplit(d)); return l ? o[l] : o.rt + o.gym; })), m = monday(now), sun = addDays(m, 6), mo = (x) => x.toLocaleDateString("en-GB", { month: "long" });
+    ORDER.forEach((d) => { const pl = SC.plan(d, S.plan), seen = {}; SLOTS.forEach((s) => (pl[s[1]] || []).forEach((x) => { const r = byId[x[0]]; if (r && inLens(r, l) && !seen[r.cat]) { seen[r.cat] = 1; bal[r.cat] = (bal[r.cat] || 0) + 1; } })); });
     const range = m.getMonth() === sun.getMonth() ? `${m.getDate()} to ${sun.getDate()} ${mo(sun)}` : `${m.getDate()} ${mo(m)} to ${sun.getDate()} ${mo(sun)}`;
     const cols = ORDER.map((d) => {
       const pl = SC.plan(d, S.plan), rows = SC.day(d, S.plan);
       const cells = SLOTS.map((s) => {
         const list = pl[s[1]] || [], r = rows.find((x) => x.b.id === s[0]);
         return `<div class="pcell" data-cell="${d}|${s[1]}"><div class="pcell-head"><span>${li(SLOTIC[s[1]])}${s[2]}</span><time>${SC.at(s[0], d, S.plan)}</time></div>
-          ${list.map((x, i) => { const rt = byId[x[0]]; return rt ? `<button class="pchip${hl && hl !== rt.cat ? " dim" : ""}" data-kind="${rt.cat}" data-insp="${esc(x[0])}" data-at="${d}|${s[1]}|${i}" draggable="true"><b>${esc(rt.name)}</b><small>${x[1]} min</small></button>` : ""; }).join("")}
+          ${list.map((x, i) => { const rt = byId[x[0]]; if (!rt) return ""; const g = isGym(rt); return `<button class="pchip${g ? " gym" : ""}${hl && hl !== rt.cat ? " dim" : ""}${inLens(rt, l) ? "" : " out"}" data-kind="${rt.cat}" data-insp="${esc(x[0])}" data-at="${d}|${s[1]}|${i}" draggable="true">${g ? gymIcon() : ""}<b>${g ? '<span class="sr">Gym: </span>' : ""}${esc(rt.name)}</b><small>${x[1]} min</small></button>`; }).join("")}
           ${r && r.over ? `<p class="pover">${r.over} min too long</p>` : ""}
           <button class="padd" data-pick="${d}|${s[1]}" aria-label="Add a routine to ${DAYN[d]} ${s[2].toLowerCase()}">${gl(G.plus, "s")}</button></div>`;
       }).join("");
-      return `<section class="pcol${d === today ? " now" : ""}${d === sd ? " sel" : ""}" aria-label="${DAYN[d]}"><header><button class="pday" data-openday="${d}" aria-label="Open ${DAYN[d]}"><b>${DAYN[d].slice(0, 3)}</b><span>${dateOf(d).getDate()}</span></button><p class="pfocus">${esc(pl.focus || "")}</p><p class="ptot">${dayMin(d)} min${(S.plan || {})[d] ? '<span class="badge gold">Edited</span>' : ""}</p></header>${cells}</section>`;
+      return `<section class="pcol${d === today ? " now" : ""}${d === sd ? " sel" : ""}" aria-label="${DAYN[d]}"><header><button class="pday" data-openday="${d}" aria-label="Open ${DAYN[d]}"><b>${DAYN[d].slice(0, 3)}</b><span>${dateOf(d).getDate()}</span></button><p class="pfocus">${esc(pl.focus || "")}</p><div class="ptot">${splitBar(spl[d], max, l)}${(!l || l === "rt") && spl[d].rt ? `<span class="ptl">${spl[d].rt} min routines</span>` : ""}${(!l || l === "gym") && spl[d].gym ? `<span class="ptl g">${spl[d].gym} min gym</span>` : ""}${(l ? !spl[d][l] : !spl[d].rt && !spl[d].gym) ? `<span>${l === "gym" ? "No gym" : "Nothing planned"}</span>` : ""}${(S.plan || {})[d] ? '<span><span class="badge gold">Edited</span></span>' : ""}</div></header>${cells}</section>`;
     }).join("");
     $("#v-week").innerHTML = `
-      <header class="view-head"><div><h1>Your week</h1><p class="lede">${range}. Up at ${P.plan.times.wake}, asleep by ${P.plan.bedtime}.</p></div><div class="head-side">${undoBar()}${Object.keys(S.plan || {}).length ? '<button class="btn ghost sm" data-resetweek="1">Reset week</button>' : ""}</div></header>
-      ${subnav("week", "week")}
+      <header class="view-head"><div><h1>Your week</h1><p class="lede">${range}.<span class="only-d"> Up at ${P.plan.times.wake}, asleep by ${P.plan.bedtime}.</span></p></div><div class="head-side">${undoBar()}${Object.keys(S.plan || {}).length ? '<button class="btn ghost sm" data-resetweek="1">Reset week</button>' : ""}</div></header>
+      ${subnav("week", "week")}${lensBar()}
       <section class="pbal" aria-label="Balance"><h2 class="sr">Balance</h2>
-        <div class="bchips" role="group" aria-label="Days a week for each kind of routine. Choose one to see where it sits.">${P.cats.filter((c) => bal[c.id]).map((c) => `<button class="bchip" data-kind="${c.id}" data-hl="${c.id}" aria-pressed="${hl === c.id}"><i></i>${esc(c.name)}<b>${bal[c.id]}</b><small>${bal[c.id] === 1 ? "day" : "days"}</small></button>`).join("")}</div>
+        <div class="bchips" role="group" aria-label="Days a week for each kind of routine. Choose one to see where it sits.">${l === "gym" ? "" : ""}${P.cats.filter((c) => bal[c.id]).map((c) => `<button class="bchip" data-kind="${c.id}" data-hl="${c.id}" aria-pressed="${hl === c.id}"><i></i>${esc(c.name)}<b>${bal[c.id]}</b><small>${bal[c.id] === 1 ? "day" : "days"}</small></button>`).join("")}</div>
         ${checks.length ? `<details class="pcheck"${bad ? " open" : ""}><summary>${gl(bad ? G.warn : G.info, "s")}<span>${bad ? `${bad} ${bad === 1 ? "part of a day does" : "parts of days do"} not fit` + (checks.length > bad ? `, and ${checks.length - bad} more to look at` : "") : `${checks.length} ${checks.length === 1 ? "thing" : "things"} to look at this week`}</span>${CARET}</summary><ul class="pchecks">${checks.map((c) => `<li${c.k === "fit" ? ' class="bad"' : ""}><span>${esc(c.text)}</span>${c.rid ? `<button class="linkbtn" data-insp="${esc(c.rid)}">Adjust</button>` : `<button class="linkbtn" data-openday="${c.d}">Open ${DAYN[c.d]}</button>`}</li>`).join("")}</ul></details>` : `<p class="pok">${gl(G.check, "s")}Every day fits and nothing is doubled up.</p>`}</section>
       ${dayStrip(sd)}
       <div class="planner" id="planner">${cols}</div>
@@ -882,17 +920,18 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   function renderDay() {
     now = new Date(); TK = dkey(now);
     const d = selDay(), today = now.getDay(), pl = SC.plan(d, S.plan), rows = SC.day(d, S.plan), ed = !!S.ui.de, date = dateOf(d), edited = !!(S.plan || {})[d];
+    const l = lens(), vis = (i) => { const rt = i.go && byId[i.go]; return rt ? inLens(rt, l) : l !== "gym"; };
     const blocks = rows.map((r) => {
       const k = SC.SLOT[r.b.id];
-      return `<section class="tblock"><header><time>${ed ? `<input type="time" data-attime="${r.b.id}" name="at-${r.b.id}" aria-label="${esc(r.b.name)} starts" value="${SC.at(r.b.id, d, S.plan)}">` : SC.C(r.at)}</time>${BLOCKART[r.b.id] ? ic(BLOCKART[r.b.id], 36) : ""}<h2>${esc(r.b.name)}</h2>${r.used ? `<span class="small muted">until ${SC.C(r.end)}</span>` : ""}</header>
+      return `<section class="tblock${r.items.some(vis) ? "" : " out"}"><header><time>${ed ? `<input type="time" data-attime="${r.b.id}" name="at-${r.b.id}" aria-label="${esc(r.b.name)} starts" value="${SC.at(r.b.id, d, S.plan)}">` : SC.C(r.at)}</time>${BLOCKART[r.b.id] ? ic(BLOCKART[r.b.id], 36) : ""}<h2>${esc(r.b.name)}</h2>${r.used ? `<span class="small muted">until ${SC.C(r.end)}</span>` : ""}</header>
         ${r.over ? `<div class="status warn">${gl(G.warn)}<div>Runs ${r.over} min into the next part of the day. Shorten a routine or move a start time.</div></div>` : ""}
-        <ul class="tlist">${r.items.map((i) => { const rt = i.go && byId[i.go]; return `<li class="trow"${rt ? ` data-kind="${rt.cat}"` : ""}><time>${i.clock || ""}</time><div><b>${esc(i.t)}${i.uid ? " " + srcTag(i.src, true, i.who) : ""}</b>${i.d ? `<p>${esc(i.d)}</p>` : ""}</div>${i.opt ? '<span class="badge">Optional</span>' : "<span></span>"}${i.min ? `<span class="tmin">${i.min} min</span>` : "<span></span>"}${i.plan ? `<button class="btn ghost sm" data-insp="${esc(i.go)}" data-at="${d}|${k}|${i.pi}">${ed ? "Change" : "Details"}</button>` : ed ? (i.uid ? `<button class="btn ghost sm" data-add="item" data-id="${i.id}">Edit</button>` : `<button class="btn ghost sm danger" data-hide="${esc("i:" + i.id)}">Remove</button>`) : rt ? `<button class="btn ghost sm" data-go="${esc(i.go)}">Open</button>` : "<span></span>"}</li>`; }).join("")}</ul></section>`;
+        <ul class="tlist">${r.items.map((i) => { const rt = i.go && byId[i.go], g = rt && isGym(rt); return `<li class="trow${g ? " gym" : ""}${vis(i) ? "" : " out"}"${rt ? ` data-kind="${rt.cat}"` : ""}><time>${i.clock || ""}</time><div><b>${g ? gymIcon() + '<span class="sr">Gym: </span>' : ""}${esc(i.t)}${i.uid ? " " + srcTag(i.src, true, i.who) : ""}</b>${i.d ? `<p>${esc(i.d)}</p>` : ""}</div>${i.opt ? '<span class="badge">Optional</span>' : "<span></span>"}${i.min ? `<span class="tmin">${i.min} min</span>` : "<span></span>"}${i.plan ? `<button class="btn ghost sm" data-insp="${esc(i.go)}" data-at="${d}|${k}|${i.pi}">${ed ? "Change" : "Details"}</button>` : ed ? (i.uid ? `<button class="btn ghost sm" data-add="item" data-id="${i.id}">Edit</button>` : `<button class="btn ghost sm danger" data-hide="${esc("i:" + i.id)}">Remove</button>`) : rt ? `<button class="btn ghost sm" data-go="${esc(i.go)}">Open</button>` : "<span></span>"}</li>`; }).join("")}</ul></section>`;
     }).join("");
     $("#v-today").innerHTML = `
-      <header class="view-head"><div><h1>${d === today ? "Today" : DAYN[d]}</h1><p class="lede">${DAYN[d]} ${date.getDate()} ${date.toLocaleDateString("en-GB", { month: "long" })}. ${ed ? "" : esc(pl.focus ? pl.focus + ". " : "")}${dayMin(d)} minutes of routines.</p>
+      <header class="view-head"><div><h1>${d === today ? "Today" : DAYN[d]}</h1><p class="lede">${DAYN[d]} ${date.getDate()} ${date.toLocaleDateString("en-GB", { month: "long" })}. ${ed ? "" : esc(pl.focus ? pl.focus + ". " : "")}<span class="only-d">${dayMin(d)} minutes planned.</span></p>
         ${ed ? `<label class="field dfocus">Focus for the day<input type="text" data-dfocus="1" name="focus" maxlength="60" autocomplete="off" value="${esc(pl.focus || "")}"></label>` : ""}</div>
         <div class="head-side">${undoBar()}${ed && edited ? `<button class="btn ghost sm" data-resetday="${d}">Reset ${DAYN[d]}</button>` : ""}<button class="btn${ed ? "" : " ghost"} sm" id="dayEdit" aria-pressed="${ed}">${ed ? "Done" : li("edit") + "Edit day"}</button></div></header>
-      ${subnav("week", "today")}${dayStrip(d, " always")}
+      ${subnav("week", "today")}${dayStrip(d, " always")}${lensBar(d)}
       <div class="timeline">${blocks}</div>
       <section class="tadd"><h2>Add to ${DAYN[d]}</h2><div class="chips">${SLOTS.map((s) => `<button class="chip plain" data-pick="${d}|${s[1]}">${gl(G.plus, "s")}${s[2]} routine</button>`).join("")}<button class="chip plain" data-add="item">${gl(G.plus, "s")}Daily habit</button></div></section>`;
   }
@@ -902,10 +941,30 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   const isGym = (r) => r.cat === "gym" || ((P.equip || {})[r.base || r.id] || []).some((e) => GYMRX.test(e));
   const usualSlot = (r) => { const n = {}; placed(r.id).forEach((x) => (n[x.k] = (n[x.k] || 0) + 1)); const k = Object.keys(n).sort((a, b) => n[b] - n[a])[0]; return k || (isGym(r) || r.cat === "sprint" ? "train" : r.cat === "breath" ? "bed" : SC.mins(r.id) >= 15 ? "pm" : "am"); };
   let CSEL = [];
+  /* ── routines and gym: one switch, shared by Week, Day and Compare. Gym = the gym kind, or anything needing gym equipment ── */
+  const LENS = [["", "Everything"], ["rt", "Routines"], ["gym", "Gym"]];
+  const lens = () => (S.ui.lens === "rt" || S.ui.lens === "gym" ? S.ui.lens : "");
+  const inLens = (r, l) => !l || (l === "gym") === isGym(r);
+  const gymOf = (r) => (isGym(r) ? "gym" : "rt");
+  const daySplit = (d) => { const o = { rt: 0, gym: 0, nrt: 0, ngym: 0 }, pl = SC.plan(d, S.plan); SLOTS.forEach((s) => (pl[s[1]] || []).forEach((x) => { const r = byId[x[0]]; if (!r) return; const g = gymOf(r); o[g] += +x[1] || 0; o["n" + g]++; })); return o; };
+  const weekSplit = () => { const w = { rt: 0, gym: 0, nrt: 0, ngym: 0, drt: [], dgym: [] }; ORDER.forEach((d) => { const o = daySplit(d); ["rt", "gym", "nrt", "ngym"].forEach((k) => (w[k] += o[k])); if (o.nrt) w.drt.push(d); if (o.ngym) w.dgym.push(d); }); return w; };
+  const hm = (m) => (m >= 60 ? `${Math.floor(m / 60)} h${m % 60 ? " " + (m % 60) + " min" : ""}` : m + " min");
+  const dayList = (l) => (l.length === 7 ? "every day" : l.length ? l.map((d) => DAYN[d].slice(0, 3)).join(", ") : "no days");
+  /* the switch doubles as the legend: each option names its colour, its minutes and its days */
+  function lensBar(day) {
+    const w = day == null ? weekSplit() : null, o = day == null ? null : daySplit(day), l = lens();
+    const sub = (k) => (o ? `${o[k]} min, ${o["n" + k]} ${o["n" + k] === 1 ? "session" : "sessions"}` : `${hm(w[k])}, ${w["n" + k]} sessions, ${dayList(w["d" + k])}`);
+    return `<div class="lens" role="group" aria-label="Show routines, gym or both">${LENS.map((x) => `<button data-lens="${x[0]}" aria-pressed="${l === x[0]}" class="lens-${x[0] || "all"}"><span class="lsw" aria-hidden="true"></span><b>${x[1]}</b><small>${x[0] ? sub(x[0]) : o ? `${o.rt + o.gym} min ${day === now.getDay() ? "today" : "on " + DAYN[day]}` : `${hm(w.rt + w.gym)} a week`}</small></button>`).join("")}</div>`;
+  }
+  /* one horizontal bar per day: routines then gym, scaled to the busiest day */
+  const splitBar = (o, max, l) => `<span class="sbar" aria-hidden="true">${["rt", "gym"].filter((k) => (!l || l === k) && o[k]).map((k) => `<i class="s-${k}" style="width:${max ? Math.max(4, (o[k] / max) * 100).toFixed(1) : 0}%"></i>`).join("")}</span>`;
+  const gymIcon = () => `<span class="gi" aria-hidden="true">${li("dumbbell")}</span>`;
+  const rtIn = (r) => (S.ui.rtab === "gym") === isGym(r);
+
   const exNames = (r) => r.ex.filter((e) => typeof e !== "string").map(exName).filter((x, i, a) => a.indexOf(x) === i);
-  function cmpRows() {
-    const ui = S.ui, tab = ui.ct || "rt", q = (ui.cq || "").trim().toLowerCase(), aims = aimsNow();
-    let l = P.routines.filter((r) => (tab === "gym") === isGym(r)).map((r) => { const pl = placed(r.id); return { r, pl, n: pl.length, min: pl.reduce((a, x) => a + (+x.min || 0), 0), aim: +aims[r.id] || 0 }; })
+  function cmpRows(grp) {
+    const ui = S.ui, q = (ui.cq || "").trim().toLowerCase(), aims = aimsNow();
+    let l = P.routines.filter((r) => gymOf(r) === grp).map((r) => { const pl = placed(r.id); return { r, pl, n: pl.length, min: pl.reduce((a, x) => a + (+x.min || 0), 0), aim: +aims[r.id] || 0 }; })
       .filter((x) => (!ui.co || x.n) && (!q || (x.r.name + " " + (catOf(x.r.cat).name || "")).toLowerCase().indexOf(q) > -1));
     const s = ui.cs || "group", ci = (x) => P.cats.findIndex((c) => c.id === x.r.cat);
     l.sort((a, b) => (s === "most" ? b.n - a.n : s === "least" ? a.n - b.n : s === "long" ? b.min - a.min : s === "aim" ? (b.aim && b.n !== b.aim ? 1 : 0) - (a.aim && a.n !== a.aim ? 1 : 0) : ci(a) - ci(b)) || ci(a) - ci(b) || a.r.name.localeCompare(b.r.name));
@@ -919,30 +978,36 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
       <h4>${sets[i].length} exercises</h4><ol class="iparts">${sets[i].map((n) => `<li${shared(n) ? ' class="same"' : ""}>${esc(n)}${shared(n) ? '<small>in all of these</small>' : ""}</li>`).join("")}</ol><button class="btn ghost sm" data-insp="${esc(r.id)}">Adjust</button></div>`; }).join("")}</div></section>`;
   }
   function drawCompare() {
-    const ui = S.ui, tab = ui.ct || "rt";
-    if (tab === "ex") {
+    const ui = S.ui, view = ui.ct === "ex" ? "ex" : "rt", l = lens();
+    if (view === "ex") {
       const m = {}, q = (ui.cq || "").trim().toLowerCase();
-      P.routines.forEach((r) => { const t = placed(r.id).length; exNames(r).forEach((n) => { const e = (m[n] = m[n] || { n, c: 0, rs: [] }); e.c += t; e.rs.push([r, t]); }); });
-      const l = Object.keys(m).map((k) => m[k]).filter((e) => (!ui.co || e.c) && (!q || e.n.toLowerCase().indexOf(q) > -1)).sort((a, b) => ((ui.cs || "most") === "least" ? a.c - b.c : b.c - a.c) || a.n.localeCompare(b.n));
-      $("#cmpBody").innerHTML = l.length ? `<ul class="clist">${l.map((e) => `<li class="crow ex"><div class="cname"><b>${esc(e.n)}</b><small>${e.rs.length} ${e.rs.length === 1 ? "routine" : "routines"}</small></div><div class="chips">${e.rs.sort((a, b) => b[1] - a[1]).map((x) => `<button class="chip plain wk${x[1] ? "" : " off"}" data-insp="${esc(x[0].id)}"><span class="cdot" data-kind="${x[0].cat}"></span>${esc(x[0].name)}<b>${x[1]}</b></button>`).join("")}</div><div class="ccount${e.c ? "" : " zero"}"><b>${e.c}</b><small>a week</small></div></li>`).join("")}</ul>` : '<div class="empty"><b>No exercise matches</b>Clear the filter or turn off In my week.</div>';
+      P.routines.filter((r) => inLens(r, l)).forEach((r) => { const t = placed(r.id).length; exNames(r).forEach((n) => { const e = (m[n] = m[n] || { n, c: 0, rs: [] }); e.c += t; e.rs.push([r, t]); }); });
+      const xs = Object.keys(m).map((k) => m[k]).filter((e) => (!ui.co || e.c) && (!q || e.n.toLowerCase().indexOf(q) > -1)).sort((a, b) => ((ui.cs || "most") === "least" ? a.c - b.c : b.c - a.c) || a.n.localeCompare(b.n));
+      $("#cmpBody").innerHTML = xs.length ? `<p class="small muted">${xs.length} exercises${l ? " in " + (l === "gym" ? "your gym sessions" : "your routines") : ""}.</p><ul class="clist">${xs.map((e) => `<li class="crow ex"><div class="cname"><b>${esc(e.n)}</b><small>${e.rs.length} ${e.rs.length === 1 ? "routine" : "routines"}</small></div><div class="chips">${e.rs.sort((a, b) => b[1] - a[1]).map((x) => `<button class="chip plain wk${x[1] ? "" : " off"}${isGym(x[0]) ? " gym" : ""}" data-insp="${esc(x[0].id)}">${isGym(x[0]) ? gymIcon() : `<span class="cdot" data-kind="${x[0].cat}"></span>`}${esc(x[0].name)}<b>${x[1]}</b></button>`).join("")}</div><div class="ccount${e.c ? "" : " zero"}"><b>${e.c}</b><small>a week</small></div></li>`).join("")}</ul>` : '<div class="empty"><b>No exercise matches</b>Clear the filter or turn off In my week.</div>';
       return;
     }
-    const l = cmpRows(), tot = l.reduce((a, x) => a + x.n, 0), mins = l.reduce((a, x) => a + x.min, 0); let last = "";
-    $("#cmpBody").innerHTML = `${cmpSide()}<p class="small muted" id="cmpTot">${l.length} ${tab === "gym" ? "gym sessions and routines" : "routines"} shown: ${tot} placed this week, ${mins} minutes.</p>` + (l.length ? `<ul class="clist">${l.map((x) => { const r = x.r, head = (ui.cs || "group") === "group" && r.cat !== last ? `<li class="chead"><span class="cdot" data-kind="${r.cat}"></span>${esc(catOf(r.cat).name || "")}</li>` : ""; last = r.cat;
-      return `${head}<li class="crow${x.n ? "" : " unplaced"}"><label class="ccheck"><input type="checkbox" data-csel="${esc(r.id)}"${CSEL.indexOf(r.id) > -1 ? " checked" : ""}${CSEL.length >= 3 && CSEL.indexOf(r.id) < 0 ? " disabled" : ""}><span class="sr">Compare ${esc(r.name)}</span></label>
-        <div class="cname"><button class="linkname" data-insp="${esc(r.id)}"><span class="cdot" data-kind="${r.cat}"></span>${esc(r.name)}</button><small>${esc(r.dur || "No set length")}${r.when ? ". " + esc(r.when) : ""}</small></div>
-        <div class="cdays" role="group" aria-label="Days for ${esc(r.name)}">${ORDER.map((d) => { const c = x.pl.filter((p) => p.d === d).length; return `<button data-cday="${esc(r.id)}|${d}" aria-pressed="${c > 0}" aria-label="${DAYN[d]}${c > 1 ? ", " + c + " times" : ""}">${DAYN[d][0]}${c > 1 ? `<i>${c}</i>` : ""}</button>`; }).join("")}</div>
-        <div class="ccount${x.aim && x.n !== x.aim ? " off" : ""}${x.n ? "" : " zero"}"><b>${x.n}</b><small>${x.aim ? "of " + x.aim + " a week" : "a week"}</small><small>${x.min ? x.min + " min" : ""}</small></div></li>`; }).join("")}</ul>` : '<div class="empty"><b>Nothing matches</b>Clear the filter or turn off In my week.</div>');
+    const groups = (l ? [l] : ["rt", "gym"]).map((g) => [g, cmpRows(g)]);
+    $("#cmpBody").innerHTML = cmpSide() + groups.map(([g, rows]) => {
+      const tot = rows.reduce((a, x) => a + x.n, 0), per = ORDER.map((d) => rows.reduce((a, x) => a + x.pl.filter((p) => p.d === d).reduce((b, p) => b + (+p.min || 0), 0), 0)); let last = "";
+      return `<section class="cgroup cg-${g}" aria-label="${g === "gym" ? "Gym" : "Routines"}"><header class="cg-head"><span class="lsw" aria-hidden="true"></span><h2>${g === "gym" ? "Gym" : "Routines"}</h2><p>${rows.length} shown, ${tot} placed this week, ${per.reduce((a, b) => a + b, 0)} min</p></header>
+        ${rows.length ? `<ul class="clist">${rows.map((x) => { const r = x.r, head = (ui.cs || "group") === "group" && r.cat !== last ? `<li class="chead"><span class="cdot" data-kind="${r.cat}"></span>${esc(catOf(r.cat).name || "")}</li>` : ""; last = r.cat;
+          return `${head}<li class="crow${x.n ? "" : " unplaced"}${g === "gym" ? " gym" : ""}"><label class="ccheck"><input type="checkbox" data-csel="${esc(r.id)}"${CSEL.indexOf(r.id) > -1 ? " checked" : ""}${CSEL.length >= 3 && CSEL.indexOf(r.id) < 0 ? " disabled" : ""}><span class="sr">Compare ${esc(r.name)}</span></label>
+            <div class="cname"><button class="linkname" data-insp="${esc(r.id)}">${g === "gym" ? gymIcon() : `<span class="cdot" data-kind="${r.cat}"></span>`}${esc(r.name)}</button><small>${esc(r.dur || "No set length")}${r.when ? ". " + esc(r.when) : ""}</small></div>
+            <div class="cdays" role="group" aria-label="Days for ${esc(r.name)}">${ORDER.map((d) => { const c = x.pl.filter((p) => p.d === d).length; return `<button data-cday="${esc(r.id)}|${d}" aria-pressed="${c > 0}" aria-label="${DAYN[d]}${c > 1 ? ", " + c + " times" : ""}">${DAYN[d][0]}${c > 1 ? `<i>${c}</i>` : ""}</button>`; }).join("")}</div>
+            <div class="ccount${x.aim && x.n !== x.aim ? " off" : ""}${x.n ? "" : " zero"}"><b>${x.n}</b><small>${x.aim ? "of " + x.aim + " a week" : "a week"}</small><small>${x.min ? x.min + " min" : ""}</small></div></li>`; }).join("")}
+          <li class="cfoot" aria-label="${g === "gym" ? "Gym" : "Routine"} minutes each day"><span></span><span>Minutes each day</span><div class="cdays">${ORDER.map((d, i) => `<span title="${DAYN[d]}"><span class="sr">${DAYN[d]} </span>${per[i]}</span>`).join("")}</div><div class="ccount"><b>${per.reduce((a, b) => a + b, 0)}</b><small>a week</small></div></li></ul>`
+          : '<div class="empty"><b>Nothing matches</b>Clear the filter or turn off In my week.</div>'}</section>`;
+    }).join("");
   }
   function renderCompare() {
     now = new Date(); TK = dkey(now);
-    const ui = S.ui, tab = ui.ct || "rt", bad = SC.checks(S.plan, aimsNow()).filter((c) => c.k === "fit").length, so = tab === "ex" ? [["most", "Most often"], ["least", "Least often"]] : [["group", "By kind"], ["most", "Most often"], ["least", "Least often"], ["long", "Most minutes"], ["aim", "Off their aim first"]];
+    const ui = S.ui, view = ui.ct === "ex" ? "ex" : "rt", bad = SC.checks(S.plan, aimsNow()).filter((c) => c.k === "fit").length, so = view === "ex" ? [["most", "Most often"], ["least", "Least often"]] : [["group", "By kind"], ["most", "Most often"], ["least", "Least often"], ["long", "Most minutes"], ["aim", "Off their aim first"]];
     if (!so.some((o) => o[0] === ui.cs)) ui.cs = so[0][0];
-    $("#v-compare").innerHTML = `<header class="view-head"><div><h1>Compare</h1><p class="lede">Every routine and how often it sits in your week. Choose a day letter to add or remove it; choose a name to see what is in it and set minutes, slot and aim.</p></div><div class="head-side">${undoBar()}</div></header>
-      ${subnav("week", "compare")}
-      <div class="tabs" role="tablist" aria-label="What to compare">${[["rt", "Routines"], ["gym", "Gym"], ["ex", "Exercises"]].map((t) => `<button role="tab" aria-selected="${tab === t[0]}" data-ctab="${t[0]}">${t[1]}</button>`).join("")}</div>
-      ${tab === "gym" ? '<p class="small muted">Anything that needs gym equipment, plus the strength, bone and tendon sessions. They share the same week as everything else.</p>' : tab === "ex" ? '<p class="small muted">How many times a week each exercise comes up, counted from the routines you have placed. The number on a routine is how often that routine runs.</p>' : ""}
-      <div class="toolbar"><input class="search" id="cmpQ" type="search" name="cmpq" autocomplete="off" placeholder="Filter…" aria-label="Filter the list" value="${esc(ui.cq || "")}"><select id="cmpSort" name="cmpsort" aria-label="Sort">${so.map((o) => `<option value="${o[0]}"${ui.cs === o[0] ? " selected" : ""}>${o[1]}</option>`).join("")}</select><button class="chip plain" id="cmpOnly" aria-pressed="${!!ui.co}">In my week</button></div>
+    $("#v-compare").innerHTML = `<header class="view-head"><div><h1>Compare</h1><p class="lede">Every routine and gym session, and how often each sits in your week. Choose a day letter to add or remove it; choose a name to see what is in it and set minutes, slot and aim.</p></div><div class="head-side">${undoBar()}</div></header>
+      ${subnav("week", "compare")}${lensBar()}
+      <div class="ctools"><div class="tabs" role="tablist" aria-label="Compare by">${[["rt", "By routine"], ["ex", "By exercise"]].map((t) => `<button role="tab" aria-selected="${view === t[0]}" data-ctab="${t[0]}">${t[1]}</button>`).join("")}</div>
+      <div class="toolbar"><input class="search" id="cmpQ" type="search" name="cmpq" autocomplete="off" placeholder="Filter…" aria-label="Filter the list" value="${esc(ui.cq || "")}"><select id="cmpSort" name="cmpsort" aria-label="Sort">${so.map((o) => `<option value="${o[0]}"${ui.cs === o[0] ? " selected" : ""}>${o[1]}</option>`).join("")}</select><button class="chip plain" id="cmpOnly" aria-pressed="${!!ui.co}">In my week</button></div></div>
+      ${view === "ex" ? '<p class="small muted">How many times a week each exercise comes up, counted from the routines you have placed. The number on a routine is how often that routine runs.</p>' : ""}
       ${bad ? `<div class="status warn">${gl(G.warn)}<div>${bad} ${bad === 1 ? "part of a day does" : "parts of days do"} not fit any more. <a class="linkbtn" href="#week">Open the week</a></div></div>` : ""}
       <div id="cmpBody"></div>`;
     drawCompare();
@@ -950,7 +1015,8 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   function cmpClick(t, d) {
     if (d.cday) { const a = d.cday.split("|"), r = byId[a[0]], dd = +a[1]; if (!r) return true; const on = t.getAttribute("aria-pressed") === "true", k = usualSlot(r);
       editDay(dd, (pl) => { if (on) ["am", "train", "pm", "bed"].forEach((s) => (pl[s] = pl[s].filter((x) => x[0] !== r.id))); else pl[k].push([r.id, (placed(r.id)[0] || {}).min || SC.mins(r.id)]); }, `[data-cday="${d.cday}"]`); say(on ? "Removed from " + DAYN[dd] : `Added to ${DAYN[dd]} ${slotName(k).toLowerCase()}`); return true; }
-    if (d.ctab) { S.ui.ct = d.ctab; S.ui.cq = ""; CSEL = []; save(); renderCompare(); refocus(`[data-ctab="${d.ctab}"]`); return true; }
+    if (d.ctab) { S.ui.ct = d.ctab; S.ui.cq = ""; save(); renderCompare(); refocus(`[data-ctab="${d.ctab}"]`); return true; }
+    if (d.lens !== undefined) { S.ui.lens = d.lens; save(); RENDER[current](); refocus(`[data-lens="${d.lens}"]`); say(d.lens ? `Showing ${d.lens === "gym" ? "gym" : "routines"} only` : "Showing everything"); return true; }
     if (t.id === "cmpOnly") { S.ui.co = !S.ui.co; save(); renderCompare(); refocus("#cmpOnly"); return true; }
     if (t.id === "cmpClear") { CSEL = []; drawCompare(); return true; }
     return false;
@@ -965,7 +1031,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     const parts = r.ex.map((e) => (typeof e === "string" ? `<li class="h">${esc(e.replace(/^#/, ""))}</li>` : `<li>${esc(exName(e))}${normEx(e).d ? `<small>${esc(normEx(e).d)}</small>` : ""}</li>`)).join("");
     const grid = `<table class="igrid"><thead><tr><td></td>${ORDER.map((d) => `<th scope="col"><span aria-hidden="true">${DAYN[d][0]}</span><span class="sr">${DAYN[d]}</span></th>`).join("")}</tr></thead><tbody>${SLOTS.map((s) => `<tr><th scope="row">${s[2]}</th>${ORDER.map((d) => { const on = pl.some((x) => x.d === d && x.k === s[1]); return `<td><button data-tog="${d}|${s[1]}" aria-pressed="${on}" aria-label="${DAYN[d]} ${s[2].toLowerCase()}">${on ? CHECK : ""}</button></td>`; }).join("")}</tr>`).join("")}</tbody></table>`;
     sheetUp(`<div class="insp">
-      <p class="imeta"><span class="cdot" data-kind="${r.cat}"></span>${esc(catOf(r.cat).name || "")}</p>
+      <p class="imeta">${isGym(r) ? gymIcon() : `<span class="cdot" data-kind="${r.cat}"></span>`}${esc(catOf(r.cat).name || "")}${isGym(r) ? '<span class="badge gymb">Gym</span>' : ""}</p>
       <dl class="ifacts">${r.dur ? `<dt>Length</dt><dd>${esc(r.dur)}</dd>` : ""}${r.when ? `<dt>When, as written</dt><dd>${esc(r.when)}</dd>` : ""}${eq ? `<dt>Needs</dt><dd>${esc(eq.join(", "))}</dd>` : ""}</dl>
       ${here ? `<fieldset class="ed-slot"><legend>${DAYN[+cur[0]]} ${slotName(cur[1]).toLowerCase()}</legend><div class="irow"><span>Minutes</span>${stepper("imin", here[1])}</div>
         <div class="row"><button class="btn ghost sm" data-iup="1"${+cur[2] > 0 ? "" : " disabled"}>Earlier</button><button class="btn ghost sm" data-idown="1"${+cur[2] < list.length - 1 ? "" : " disabled"}>Later</button><button class="btn ghost sm danger" data-irem="1">Remove from ${DAYN[+cur[0]]}</button></div></fieldset>` : ""}
@@ -976,7 +1042,8 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   }
   function openPicker(d, k) {
     INSP = { pick: d + "|" + k };
-    const rows = P.cats.map((c) => { const rs = P.routines.filter((r) => r.cat === c.id); return rs.length ? `<h4><span class="cdot" data-kind="${c.id}"></span>${esc(c.name)}</h4>${rs.map((r) => { const n = placed(r.id).length; return `<button class="opt-row prow" data-pickrid="${esc(r.id)}" data-k="${esc((r.name + " " + c.name).toLowerCase())}"><span><b>${esc(r.name)}</b><small>${esc(r.dur || "No set length")}</small></span><span>${n ? n + " a week" : "not placed"}</span></button>`; }).join("")}` : ""; }).join("");
+    const grp = (g) => P.cats.map((c) => { const rs = P.routines.filter((r) => r.cat === c.id && gymOf(r) === g); return rs.length ? `<h4><span class="cdot" data-kind="${c.id}"></span>${esc(c.name)}</h4>${rs.map((r) => { const n = placed(r.id).length; return `<button class="opt-row prow" data-pickrid="${esc(r.id)}" data-k="${esc((r.name + " " + c.name).toLowerCase())}"><span><b>${esc(r.name)}</b><small>${esc(r.dur || "No set length")}</small></span><span>${n ? n + " a week" : "not placed"}</span></button>`; }).join("")}` : ""; }).join(""), order = k === "train" || lens() === "gym" ? ["gym", "rt"] : ["rt", "gym"];
+    const rows = order.map((g) => `<h3 class="prow-g"><span class="lsw" style="background:var(--${g})" aria-hidden="true"></span>${g === "gym" ? "Gym" : "Routines"}</h3>${grp(g)}`).join("");
     sheetUp(`<div class="insp"><input class="search" id="pkQ" type="search" name="pkq" autocomplete="off" placeholder="Find a routine…" aria-label="Find a routine"><div id="pkList">${rows}</div><div class="row"><button class="btn ghost sm" data-add="routine">${gl(G.plus, "s")}Make a new routine</button></div></div>`, `Add to ${DAYN[d]} ${slotName(k).toLowerCase()}`);
   }
   function movePlaced(d1, k1, i, d2, k2) {
@@ -1035,11 +1102,11 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   function renderRoutines() {
     const ui = S.ui;
     $("#v-routines").innerHTML = `
-      <header class="view-head"><div><h1>Routines</h1><p class="lede">${P.routines.length} routines in ${P.cats.length} groups, and an illustrated library of ${P.library.length} exercises.</p></div><div class="head-side"><button class="btn ghost" data-add="routine">${gl(G.plus, "s")}Add a routine</button></div></header>
-      ${subnav("routines", ui.rtab === "lib" ? "lib" : "routines")}
+      <header class="view-head"><div><h1>Routines</h1><p class="lede">${P.routines.filter((r) => !isGym(r)).length} routines and ${P.routines.filter(isGym).length} gym sessions, kept apart, and an illustrated library of ${P.library.length} exercises.</p></div><div class="head-side"><button class="btn ghost" data-add="routine">${gl(G.plus, "s")}Add a routine</button></div></header>
+      ${subnav("routines", ui.rtab === "lib" ? "lib" : ui.rtab === "gym" ? "gym" : "routines")}${ui.rtab === "gym" ? '<p class="small muted">Strength, bone and tendon sessions, and every routine that needs gym equipment. They sit in the same week as your other routines.</p>' : ""}
       ${ui.rtab === "lib" ? libHtml() : `<div class="toolbar stick"><input class="search" id="rSearch" type="search" placeholder="Search routines and exercises" aria-label="Search routines and exercises" value="${esc(ui.rq || "")}">
         <button class="btn ghost sm only-m" data-sheet="rcat">${gl(G.filter, "s")}Groups</button><span class="badge sage only-m" id="rcatLabel"></span></div>
-      <div class="chips only-d" role="group" aria-label="Filter by group"><button class="chip plain" data-cat="" aria-pressed="${!ui.rcat}">All</button>${P.cats.map((c) => `<button class="chip" data-cat="${c.id}" aria-pressed="${ui.rcat === c.id}">${ic(c.icon, 26)}${esc(c.name)}</button>`).join("")}</div>
+      <div class="chips only-d" role="group" aria-label="Filter by group"><button class="chip plain" data-cat="" aria-pressed="${!ui.rcat}">All</button>${P.cats.filter((c) => P.routines.some((r) => r.cat === c.id && rtIn(r))).map((c) => `<button class="chip" data-cat="${c.id}" aria-pressed="${ui.rcat === c.id}">${ic(c.icon, 26)}${esc(c.name)}</button>`).join("")}</div>
       <div id="rStrips" class="strip"></div><div id="rList" style="display:flex;flex-direction:column;gap:34px"></div>`}`;
     if (ui.rtab === "lib") drawLib(); else drawRoutines();
   }
@@ -1077,7 +1144,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     $("#rcatLabel").textContent = cat ? catName(cat) : "All groups"; $("#rStrips").innerHTML = q ? "" : stripsHtml();
     let html = "";
     P.cats.forEach((c) => {
-      if (cat && cat !== c.id) return; const rs = P.routines.filter((r) => r.cat === c.id && hit(r)); if (!rs.length) return;
+      if (cat && cat !== c.id) return; const rs = P.routines.filter((r) => r.cat === c.id && rtIn(r) && hit(r)); if (!rs.length) return;
       html += `<section class="cat ${sb(c.src)}"><div class="cat-head">${ic(c.icon, 46)}<div style="flex:1"><h2>${esc(c.name)}</h2><p>${esc(c.blurb)}</p></div></div>${rs.map((r) => `
         <details class="rt" id="r-${r.id}" data-rt="${r.id}"><summary><button class="star" data-fav="${r.id}" aria-pressed="${!!S.fav[r.id]}" aria-label="Favourite ${esc(r.name)}">${STAR}</button>
           <div class="rt-main"><h3>${esc(r.name)}</h3>${r.when ? `<p>${esc(r.when)}</p>` : ""}${rtBadges(r)}</div>${(() => { const th = routineThumbs(r); return th.length ? `<span class="film" aria-hidden="true">${th.map((l) => pic(l)).join("")}</span>` : "<span></span>"; })()}${CARET}</summary>
@@ -1090,7 +1157,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   const touch = (id) => { S.recent = [id].concat((S.recent || []).filter((x) => x !== id)).slice(0, 8); save(); };
   let pendingOpen = null;
   function openRoutine(id) {
-    if (!byId[id]) return; S.ui.rq = ""; S.ui.rcat = ""; touch(id);
+    if (!byId[id]) return; S.ui.rq = ""; S.ui.rcat = ""; S.ui.rtab = isGym(byId[id]) ? "gym" : ""; touch(id);
     if (location.hash !== "#routines") { pendingOpen = id; location.hash = "#routines"; return; }
     renderRoutines(); const el = $("#r-" + id); if (!el) return; el.open = true; el.scrollIntoView({ block: "start" }); $("summary", el).focus({ preventScroll: true });
   }
@@ -1245,7 +1312,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   let lastFocus = null, sheetKey = null;
   function openSheet(key) {
     sheetKey = key; lastFocus = document.activeElement;
-    const rows = key === "rcat" ? [["", "All groups", P.routines.length]].concat(P.cats.map((c) => [c.id, c.name, P.routines.filter((r) => r.cat === c.id).length, c.icon])) : [["", "All types", P.products.length]].concat(P.productGroups.map((g) => [g[0], g[1], P.products.filter((p) => p.g === g[0]).length]));
+    const rows = key === "rcat" ? [["", "All groups", P.routines.filter(rtIn).length]].concat(P.cats.map((c) => [c.id, c.name, P.routines.filter((r) => r.cat === c.id && rtIn(r)).length, c.icon]).filter((x) => x[2])) : [["", "All types", P.products.length]].concat(P.productGroups.map((g) => [g[0], g[1], P.products.filter((p) => p.g === g[0]).length]));
     const cur = S.ui[key] || "", title = key === "rcat" ? "Groups" : "Types";
     $("#sheet").innerHTML = `<div class="sheet" role="dialog" aria-modal="true" aria-label="${title}"><div class="sheet-head"><h3>${title}</h3><button class="btn ghost sm" id="sheetClose">Close</button></div>
       ${rows.map((r) => `<button class="opt-row" data-sheetpick="${r[0]}" aria-pressed="${cur === r[0]}">${r[3] ? ic(r[3], 28) : ""}${esc(r[1])}<span>${r[2]}</span></button>`).join("")}</div>`;
@@ -1718,7 +1785,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
 
   Object.keys(S.days).sort().slice(0, -90).forEach((k) => delete S.days[k]); Object.keys(S.weeks).sort().slice(0, -12).forEach((k) => delete S.weeks[k]);
   function applyPlain() { document.documentElement.classList.toggle("plain", !!S.ui.plain); $$("[data-srctoggle]").forEach((b) => b.setAttribute("aria-checked", !S.ui.plain)); }
-  S.adds = cleanAdds(S.adds); S.plan = cleanPlan(S.plan); S.core = S.core || {}; S.ov = cleanOv(S.ov); S.tags = cleanTags(S.tags); S.links = cleanLinks(S.links); S.cols = cleanCols(S.cols); S.hide = cleanHide(S.hide); S.freq = cleanFreq(S.freq); delete S.ui.pd; S.ui.de = false; applyAdds(); lastSlice = sliceOf(); HIST = [];
+  S.adds = cleanAdds(S.adds); S.plan = cleanPlan(S.plan); S.core = S.core || {}; S.ov = cleanOv(S.ov); S.tags = cleanTags(S.tags); S.links = cleanLinks(S.links); S.cols = cleanCols(S.cols); S.hide = cleanHide(S.hide); S.freq = cleanFreq(S.freq); delete S.ui.pd; S.ui.de = false; if (S.ui.ct === "gym") { S.ui.lens = "gym"; S.ui.ct = "rt"; } applyAdds(); lastSlice = sliceOf(); HIST = [];
   document.addEventListener("error", (e) => { const t = e.target; if (t && t.tagName === "IMG") t.style.visibility = "hidden"; }, true); /* a missing picture keeps its box, so nothing jumps */
   applyPlain(); route(true);
 })();

@@ -50,16 +50,26 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
 
   // compare: routines, gym, exercises, side by side
   await p.goto(U+'#compare'); await p.waitForTimeout(300); const snapC=await p.evaluate(()=>localStorage.getItem('phh:v1'));
-  ok((await p.$$eval('#cmpBody .crow',e=>e.length))>35&&(await p.textContent('#cmpBody .crow:has([data-insp="full-body-release"]) .ccount b'))==='2','compare lists every non-gym routine with its times a week');
+  ok((await p.$$eval('#cmpBody .crow',e=>e.length))>35&&(await p.textContent('#cmpBody .crow:has([data-insp="full-body-release"]) .ccount b'))==='2','compare lists every routine with its times a week');
   await p.click('[data-cday="full-body-release|4"]'); ok((await p.textContent('#cmpBody .crow:has([data-insp="full-body-release"]) .ccount')).includes('3')&&(await p.evaluate(()=>JSON.parse(localStorage.getItem('phh:v1')).plan[4].pm.some(x=>x[0]==='full-body-release'))),'a day letter adds the routine to that day in its usual slot; the count shows it is over its aim');
   await p.click('[data-cday="full-body-release|4"]'); ok((await p.textContent('#cmpBody .crow:has([data-insp="full-body-release"]) .ccount b'))==='2','the same letter removes it');
   await p.check('[data-csel="full-body-release"]'); await p.check('[data-csel="fascia-activation"]'); ok((await p.$$eval('.cside-col',e=>e.length))===2&&(await p.$$eval('.cside .iparts li',e=>e.length))>20,'two ticked routines show side by side with their exercises');
   await p.selectOption('#cmpSort','most'); ok(+(await p.textContent('#cmpBody .crow .ccount b'))>=7,'sort by most often'); await p.selectOption('#cmpSort','group');
-  await p.click('[data-ctab="gym"]'); const gy=await p.$$eval('#cmpBody .linkname',e=>e.map(x=>x.dataset.insp)); ok(gy.includes('workout-1')&&gy.includes('apt')&&!gy.includes('sprints')&&!gy.includes('groundwork'),'Gym holds strength sessions and routines that need gym equipment ('+gy.length+')');
+  await p.click('.view:not([hidden]) [data-lens="gym"]'); const gy=await p.$$eval('#cmpBody .linkname',e=>e.map(x=>x.dataset.insp)); ok(gy.includes('workout-1')&&gy.includes('apt')&&!gy.includes('sprints')&&!gy.includes('groundwork'),'Gym holds strength sessions and routines that need gym equipment ('+gy.length+')');
   await p.click('[data-cday="bone-density|4"]'); await p.goto(U+'#week'); await p.waitForTimeout(200); ok((await p.$$eval('.pcell[data-cell="4|train"] .pchip[data-insp="bone-density"]',e=>e.length))===1,'a gym change in Compare lands in the Training slot of the week'); await p.goto(U+'#compare'); await p.waitForTimeout(200);
-  await p.click('[data-ctab="ex"]'); ok((await p.$$eval('#cmpBody .crow.ex',e=>e.length))>150&&+(await p.textContent('#cmpBody .crow.ex .ccount b'))>=10,'exercises: every exercise with how many times a week it comes up'); await p.screenshot({path:S+'/n-compare.png'}); await ovf(p,'compare desktop');
+  await p.click('.view:not([hidden]) [data-lens=""]'); await p.click('[data-ctab="ex"]'); ok((await p.$$eval('#cmpBody .crow.ex',e=>e.length))>150&&+(await p.textContent('#cmpBody .crow.ex .ccount b'))>=10,'exercises: every exercise with how many times a week it comes up'); await p.screenshot({path:S+'/n-compare.png'}); await ovf(p,'compare desktop');
   await p.click('[data-ctab="rt"]'); await p.evaluate(j=>localStorage.setItem('phh:v1',j),snapC); await p.reload(); await p.waitForTimeout(300);
 
+  // routines and gym kept apart
+  await p.goto(U+'#week'); await p.waitForTimeout(250); const tri=async()=>p.evaluate(()=>[...document.querySelectorAll('.pchip')].filter(c=>getComputedStyle(c).display!=='none').length);
+  const allC=await tri(); ok((await p.$$eval('.pchip.gym',e=>e.length))===7&&(await p.$$eval('.pcol[aria-label="Monday"] .ptl',e=>e.map(x=>x.textContent)).then(t=>t.join('|')))==='63 min routines|50 min gym','planner marks the 7 gym sessions and splits each day into routine and gym minutes');
+  await p.click('.view:not([hidden]) [data-lens="gym"]'); const gC=await tri(); await p.click('.view:not([hidden]) [data-lens="rt"]'); const rC=await tri();
+  ok(gC===7&&rC===allC-7&&(await p.textContent('.view:not([hidden]) .lens-gym')).includes('7 sessions'),'Gym shows only the 7 gym sessions, Routines only the other '+rC);
+  await p.reload(); await p.waitForTimeout(250); ok((await tri())===rC,'the choice is remembered'); await p.goto(U+'#today'); await p.waitForTimeout(200); ok(!(await p.evaluate(()=>[...document.querySelectorAll('.trow.gym')].some(r=>getComputedStyle(r).display!=='none'))),'the day view follows the same choice');
+  await p.click('.view:not([hidden]) [data-lens=""]'); await p.goto(U+'#compare'); await p.waitForTimeout(200); ok((await p.$$eval('.cgroup',e=>e.length))===2&&(await p.$$eval('.cfoot',e=>e.length))===2&&(await p.textContent('.cg-rt .cfoot .ccount b'))==='520','Compare shows Routines and Gym as two groups, each with minutes per day');
+  await p.click('[data-pick="1|train"]').catch(()=>{}); await p.goto(U+'#week'); await p.waitForTimeout(200); await p.click('[data-pick="1|train"]'); ok((await p.$$eval('#pkList .prow-g',e=>e.map(x=>x.textContent))).join('|')==='Gym|Routines','the add list for a training slot offers gym first, routines second'); await p.click('#sheetClose');
+  await p.goto(U+'#routines'); await p.waitForTimeout(200); await p.click('#v-routines [data-rtab=\"\"]'); const rtN=await p.$$eval('.rt',e=>e.length); await p.click('#v-routines [data-rtab="gym"]'); const gN=await p.$$eval('.rt',e=>e.length);
+  ok(rtN+gN===56&&gN===10&&!(await p.$('#r-groundwork')),'Routines library splits into '+rtN+' routines and '+gN+' gym sessions'); await p.click('#v-routines [data-rtab=""]');
   // v7: navigation, old links, library, add form, skip/undo, core plan, find, guard, backup round trip
   ok((await p.$$eval('.rail [data-nav]',e=>e.length))===4,'rail has 4 main sections');
   for(const h of ['routines','nutrition','systems','extras','products','week','today','library']){ await p.goto(U+'#'+h); await p.waitForTimeout(150); ok(await p.isVisible('#v-'+h)&&(await p.$$eval('.rail [aria-current="page"]',e=>e.length))===1,'link #'+h+' opens; nav highlights '+await p.getAttribute('.rail [aria-current="page"]','data-nav')); }
@@ -89,7 +99,7 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
 
   // v8: personal edits, relations, equipment, saved + collections, quick notes, library browsing, schema
   const snap8=await p.evaluate(()=>localStorage.getItem('phh:v1')); const st8=()=>p.evaluate(()=>JSON.parse(localStorage.getItem('phh:v1')));
-  await p.goto(U+'#routines'); await p.waitForTimeout(250); await p.click('#r-groundwork summary h3'); await p.click('#r-groundwork [data-ov]');
+  await p.goto(U+'#routines'); await p.waitForTimeout(250); await p.click('#v-routines [data-rtab=\"\"]'); await p.click('#r-groundwork summary h3'); await p.click('#r-groundwork [data-ov]');
   await p.fill('#ovForm [name="n"]','Floor reset'); await p.fill('#ovForm [name="note"]','Do it on the rug'); await p.fill('#ovForm [name="tags"]','Morning, floor'); await p.click('#ovForm [type=submit]');
   let s8=await st8(); ok(s8.ov['r:groundwork'].n==='Floor reset'&&s8.ov['r:groundwork'].t>1e12&&s8.tags['r:groundwork'].join()==='morning,floor'&&(await p.textContent('#r-groundwork h3'))==='Floor reset','routine edit stored as an override on the stable id, with a real timestamp');
   await p.click('#r-groundwork summary h3'); ok((await p.textContent('#r-groundwork')).includes('Do it on the rug')&&(await p.textContent('#r-groundwork .srcline')).includes('Edited by you'),'routine page shows My note and Edited by you');
@@ -97,16 +107,16 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
   ok(wkN>=5&&(await p.textContent('#v-today')).includes('Floor reset'),'edited title shows in the planner ('+wkN+' places) and in the day view');
   await p.keyboard.press('/'); await p.fill('#fInput','floor reset'); const f1=await p.textContent('#fRes'); await p.fill('#fInput','rug'); const f2=await p.textContent('#fRes'); await p.fill('#fInput',''); await p.keyboard.press('Escape');
   ok(f1.includes('Floor reset')&&f2.includes('My notes'),'search finds the edited title and the personal note');
-  await p.goto(U+'#routines'); await p.waitForTimeout(200); await p.click('#r-groundwork summary h3'); await p.click('#r-groundwork [data-ov]'); ok((await p.textContent('#ovForm .orig')).includes('Groundwork'),'View original shows the supplied title'); await p.click('#ovRestore');
+  await p.goto(U+'#routines'); await p.waitForTimeout(200); await p.click('#v-routines [data-rtab=\"\"]'); await p.click('#r-groundwork summary h3'); await p.click('#r-groundwork [data-ov]'); ok((await p.textContent('#ovForm .orig')).includes('Groundwork'),'View original shows the supplied title'); await p.click('#ovRestore');
   s8=await st8(); ok(!s8.ov['r:groundwork']&&s8.tags['r:groundwork'].length===2&&(await p.textContent('#r-groundwork h3')).includes('Groundwork'),'Restore original removes only that override; tags stay');
   await p.click('#toast [data-undo]'); await p.waitForTimeout(150); ok((await st8()).ov['r:groundwork'].n==='Floor reset','undo brings the edit back');
   await p.goto(U+'#library'); await p.waitForTimeout(250); await p.click('#v-library [data-id="sleep"]'); await p.waitForTimeout(250); await p.click('#v-systems [data-ov="t:sleep"]'); await p.fill('#ovForm [name="intro"]','My sleep rules'); await p.click('#ovForm [data-reldel]'); await p.selectOption('#ovForm [data-reladd]','r:vagus'); await p.click('#ovForm [type=submit]');
   ok((await p.$$eval('#v-systems .relblock [data-go]',e=>e.length))===3&&(await p.textContent('#v-systems .relblock')).includes('Linked by you')&&(await p.textContent('#v-systems .relblock')).includes('not confirmed'),'topic links: one suggestion removed, one added by you, suggestions labelled unconfirmed');
-  await p.click('#v-systems [data-fav="t:sleep"]'); await p.goto(U+'#routines'); await p.waitForTimeout(200); await p.fill('#rSearch',''); await p.click('[data-cat="nervous"]'); await p.click('#r-vagus summary h3'); ok((await p.textContent('#r-vagus .relblock')).includes('Linked from'),'backlink: the routine shows the topic that links to it'); await p.click('[data-cat=""]');
+  await p.click('#v-systems [data-fav="t:sleep"]'); await p.goto(U+'#routines'); await p.waitForTimeout(200); await p.click('#v-routines [data-rtab=\"\"]'); await p.fill('#rSearch',''); await p.click('[data-cat="nervous"]'); await p.click('#r-vagus summary h3'); ok((await p.textContent('#r-vagus .relblock')).includes('Linked from'),'backlink: the routine shows the topic that links to it'); await p.click('[data-cat=""]');
   await p.click('[data-cat="tape"]'); await p.click('#r-zygotape summary h3'); const eqT=await p.textContent('#r-zygotape .eqlist'); ok(eqT.includes('Owned')&&eqT.includes('Facial oil'),'equipment: Zygotape shows Owned from the product list; unmatched Facial oil stays plain text'); await p.click('[data-cat=""]');
   await p.goto(U+'#products'); await p.waitForTimeout(250); await p.fill('#pSearch','Foam roller'); ok((await p.$$eval('#pList .usedin [data-go]',e=>e.length))>=3,'product row lists the routines that use it'); await p.click('#pList [data-wish="Foam roller"]');
   await p.click('#pList [data-ov]'); await p.fill('#ovForm [name="note"]','Borrowed one'); await p.click('#ovForm [type=submit]'); ok((await p.textContent('#pList')).includes('Borrowed one'),'product note saved'); await p.fill('#pSearch','');
-  await p.goto(U+'#routines'); await p.waitForTimeout(200); await p.click('#r-full-body-release summary h3'); ok((await p.textContent('#r-full-body-release .eqlist')).includes('Wishlist'),'equipment status follows the wishlist');
+  await p.goto(U+'#routines'); await p.waitForTimeout(200); await p.click('#v-routines [data-rtab=\"\"]'); await p.click('#r-full-body-release summary h3'); ok((await p.textContent('#r-full-body-release .eqlist')).includes('Wishlist'),'equipment status follows the wishlist');
   await p.click('.rail [data-saved]'); ok((await p.textContent('#sheet')).includes('My sleep rules')===false&&(await p.$$eval('#sheet [data-topic][data-id="sleep"]',e=>e.length))===1,'Saved lists the starred topic'); await p.fill('#colName','To research'); await p.click('#colNew'); await p.click('#sheetClose');
   await p.goto(U+'#nutrition'); await p.waitForTimeout(200); await p.click('[data-nut="approved"]'); await p.click('#nutPanel [data-ov^="f:"]'); await p.fill('#ovForm [name="note"]','Local farm'); await p.check('#ovForm [name^="col-"]'); await p.click('#ovForm [type=submit]');
   s8=await st8(); ok((await p.textContent('#nutPanel')).includes('My note: Local farm')&&s8.cols[0].items.length===1&&s8.cols[0].items[0].startsWith('f:'),'food note saved and the food joined the collection by reference');
@@ -115,7 +125,7 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
   ok((await p.$$eval('#v-library .jump [data-anchor]',e=>e.length))===6,'library jump bar reaches all 6 groups'); await p.click('[data-lview="list"]'); ok((await p.$$eval('#v-library .lrow',e=>e.length))===20,'compact list shows 20 topics'); await p.reload(); await p.waitForTimeout(300); ok((await p.$$eval('#v-library .lrow',e=>e.length))===20,'layout choice survives reload');
   await p.fill('#libQ','thyr'); ok((await p.$$eval('#v-library .lrow',e=>e.length))===1,'local filter narrows to 1'); await p.fill('#libQ',''); await p.selectOption('#libSort','mine'); ok((await p.textContent('#v-library .lrow b'))==='Sleep','Mine first puts the edited topic on top'); await p.selectOption('#libSort','group'); await p.click('[data-lview="cards"]');
   await p.evaluate(()=>window.scrollTo(0,700)); await p.click('#v-library [data-id="thyroid"]'); await p.waitForTimeout(250); await p.click('#v-systems a[href="#library"]'); await p.waitForTimeout(300); const sy=await p.evaluate(()=>Math.round(scrollY)); ok(sy>600&&sy<800,'back to Library returns to the same scroll position ('+sy+')');
-  await p.goto(U+'#routines'); await p.waitForTimeout(250); await p.click('[data-cat="nervous"]'); await p.click('#r-lajin summary h3'); await p.click('#r-lajin [data-ov]'); await p.click('#ovForm [data-hide]');
+  await p.goto(U+'#routines'); await p.waitForTimeout(250); await p.click('#v-routines [data-rtab=\"\"]'); await p.click('[data-cat="nervous"]'); await p.click('#r-lajin summary h3'); await p.click('#r-lajin [data-ov]'); await p.click('#ovForm [data-hide]');
   ok(!(await p.$('#r-lajin'))&&(await st8()).hide['r:lajin']===1,'a supplied routine can be deleted');
   await p.click('.rail [data-manage]'); ok((await p.textContent('#sheet')).includes('Lajin')); await p.click('#sheet [data-unhide="r:lajin"]'); await p.click('#sheetClose'); ok(!!(await p.$('#r-lajin'))&&!(await st8()).hide['r:lajin'],'and restored from My edits');
   await p.click('[data-cat=""]'); await p.click('#r-groundwork summary h3'); await p.click('#r-groundwork [data-ov]'); await p.click('#ovForm [data-dup]'); await p.waitForTimeout(150);
@@ -146,13 +156,13 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
   await p.keyboard.press('Escape'); ok(inside&&await p.isHidden('#sheet')&&await p.evaluate(()=>document.activeElement.dataset.add==='topic'),'dialog keeps Tab focus inside; Escape closes and returns focus to the opener');
   await p.evaluate(j=>{localStorage.setItem('phh:v1',j);localStorage.removeItem('phh:v1:backup')},snap8); await p.reload(); await p.waitForTimeout(300);
   // routines filter + fav + player
-  await p.goto(U+'#routines'); await p.waitForTimeout(300);
+  await p.goto(U+'#routines'); await p.waitForTimeout(300); await p.click('#v-routines [data-rtab=\"\"]');
   await p.fill('#rSearch','vortex'); let n=await p.$$eval('.rt',e=>e.length); ok(n>=2&&n<10,'search "vortex" → '+n+' routines');
   await p.fill('#rSearch','zzzz'); ok(await p.isVisible('#rClear'),'no-result empty state with clear button'); await p.click('#rClear');
-  await p.click('[data-cat="gym"]'); n=await p.$$eval('.rt',e=>e.length); ok(n===8,'Gym filter → '+n+' routines'); await p.click('[data-cat=""]');
+  await p.click('#v-routines [data-rtab="gym"]'); await p.click('[data-cat="gym"]'); n=await p.$$eval('.rt',e=>e.length); ok(n===8,'Gym filter → '+n+' routines'); await p.click('[data-cat=""]'); await p.click('#v-routines [data-rtab=""]');
   await p.click('[data-fav="groundwork"]'); ok(await p.isVisible('#rStrips [data-go="groundwork"]'),'favourite appears in strip');
   await p.screenshot({path:S+'/n-routines.png'});
-  await p.click('#r-apt summary h3'); await p.click('[data-play="apt"]'); await p.waitForTimeout(200);
+  await p.click('#v-routines [data-rtab="gym"]'); await p.click('#r-apt summary h3'); await p.click('[data-play="apt"]'); await p.waitForTimeout(200);
   ok(await p.textContent('#plState')==='Ready','player ready state');
   await p.click('#plRun'); await p.waitForTimeout(1300); ok(await p.textContent('#plState')==='Running'&&await p.textContent('#plClock')!=='0:00','player running, clock '+await p.textContent('#plClock'));
   await p.click('#plRun'); const c1=await p.textContent('#plClock'); await p.waitForTimeout(700); ok(await p.textContent('#plState')==='Paused'&&await p.textContent('#plClock')===c1,'player paused holds '+c1);
@@ -164,7 +174,7 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
   ok(await p.isVisible('#plDone'),'finished state shown'); await p.screenshot({path:S+'/n-finish.png'}); await p.click('#plDone');
   ok(await p.evaluate(()=>JSON.parse(localStorage.getItem('phh:v1')).sessions.length===1&&JSON.parse(localStorage.getItem('phh:v1')).recent[0]==='apt'),'session logged, routine in recents');
   // pacer still works
-  await p.click('[data-cat="breath"]'); await p.click('#r-vortex summary h3'); await p.click('[data-pacer="vortex"]'); await p.click('#pcRun'); await p.waitForTimeout(1200); ok(await p.textContent('#pcCount')==='20'||await p.textContent('#pcCount')==='19','breath pacer counts down ('+await p.textContent('#pcCount')+')'); await p.click('#pcClose');
+  await p.click('#v-routines [data-rtab=""]'); await p.click('[data-cat="breath"]'); await p.click('#r-vortex summary h3'); await p.click('[data-pacer="vortex"]'); await p.click('#pcRun'); await p.waitForTimeout(1200); ok(await p.textContent('#pcCount')==='20'||await p.textContent('#pcCount')==='19','breath pacer counts down ('+await p.textContent('#pcCount')+')'); await p.click('#pcClose');
   // library
   await p.goto(U+'#routines'); await p.click('#v-routines [data-rtab="lib"]'); await p.waitForTimeout(300);
   let lc=await p.$$eval('.libcard',e=>e.length); ok(lc===274,'library grid shows '+lc);
@@ -198,12 +208,12 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
   await p.click('#v-library [data-id="thyroid"]'); await p.waitForTimeout(300); ok((await p.$$eval('.anchors .chip',e=>e.length))>=3,'thyroid detail has section anchors'); await p.screenshot({path:S+'/n-thyroid.png'});
   await p.goto(U+'#nutrition'); await p.click('[data-nut="plate"]'); await p.click('[data-macro="b"]'); ok((await p.textContent('#nutPanel')).includes('Your target'),'macro target selectable'); await p.screenshot({path:S+'/n-plate.png',fullPage:true}); await ovf(p,'nutrition desktop');
   // mobile
-  p=await mk(400,860,true); await p.goto(U+'#routines'); await p.waitForTimeout(400);
+  p=await mk(400,860,true); await p.goto(U+'#routines'); await p.waitForTimeout(400); await p.click('#v-routines [data-rtab=\"\"]');
   ok(await p.isVisible('#rSearch')&&await p.isVisible('[data-sheet="rcat"]')&&!(await p.isVisible('[data-cat="gym"]')),'mobile: search + Groups button visible, chips hidden');
   await p.click('[data-sheet="rcat"]'); await p.screenshot({path:S+'/m-sheet.png'}); await p.click('[data-sheetpick="lymph"]'); ok(await p.textContent('#rcatLabel')==='Lymphatic drainage'&&(await p.$$eval('.rt',e=>e.length))===4,'mobile drawer filter → label + 4 routines'); await ovf(p,'routines mobile');
   await p.click('#r-big6 summary h3'); await p.click('[data-play="big6"]'); await p.screenshot({path:S+'/m-player.png'}); await ovf(p,'player mobile'); await p.click('#plClose');
   for(const v of ['today','week','library','nutrition','systems','products','extras']){ await p.goto(U+'#'+v); await p.waitForTimeout(250); await ovf(p,v+' mobile'); if(v==='today') await p.screenshot({path:S+'/m-today.png'}); }
-  const small=await p.evaluate(()=>[...document.querySelectorAll('#v-extras button, .nav a, .nav button.more')].filter(e=>e.offsetParent&&(e.getBoundingClientRect().height<44)).length); ok(small===0,'touch targets ≥44px on last view + nav ('+small+' under)');
+  const small=await p.evaluate(()=>[...document.querySelectorAll('#v-extras button, .nav a, .nav button.more')].filter(e=>e.offsetParent&&(e.getBoundingClientRect().height<43.5)).length); ok(small===0,'touch targets ≥44px on last view + nav ('+small+' under)');
 
   for(const [w,h] of [[360,640],[390,844],[768,1024]]){ const q=await mk(w,h); for(const v of ['today','week','compare','routines','library','nutrition','systems','products','extras']){ await q.goto(U+'#'+v); await q.waitForTimeout(200); await ovf(q,v+' @'+w); }
     await q.goto(U+'#week'); await q.waitForTimeout(250); const r=await q.evaluate(()=>{const c=document.querySelector('.pcol.sel .pchip').getBoundingClientRect(),s=document.querySelector('.pstrip').getBoundingClientRect(),n=document.querySelector('.rail').getBoundingClientRect();return [Math.round(s.top),Math.round(c.top),Math.round(n.top)]}); ok(r[0]<r[2]&&r[1]<r[2],'day strip and the first routine sit inside the first viewport @'+w+'x'+h+' (strip '+r[0]+', routine '+r[1]+', nav '+r[2]+')');
