@@ -786,6 +786,16 @@ html.plain .sbox::after { content: none; } .topic.sbox::after { margin-top: auto
 .cdays i { position: absolute; top: -4px; right: -4px; min-width: 16px; height: 16px; border-radius: 8px; background: var(--ink); color: var(--bg); font: 700 .625rem/16px var(--sans); text-align: center; }
 .ccount { display: flex; flex-direction: column; align-items: flex-end; text-align: right; font-variant-numeric: tabular-nums; } .ccount b { font: 700 1.25rem/1.2 var(--sans); } .ccount small { color: var(--ink-3); font-size: .75rem; line-height: 1.3; white-space: nowrap; }
 .ccount.zero b { color: var(--ink-3); font-weight: 500; } .ccount.off b { color: var(--clay-ink); } .ccount.off small:first-of-type { color: var(--clay-ink); font-weight: 600; }
+.arow { display: grid; grid-template-columns: minmax(0, 1fr) auto 92px 200px; grid-template-areas: "n d c w" "h h h h"; gap: 6px 14px; align-items: center; padding: 12px 0; border-top: 1px solid var(--line); } .alist > li:first-child { border-top: 0; }
+.arow > .cname { grid-area: n; } .arow > .adays { grid-area: d; } .arow > .ccount { grid-area: c; } .arow > .awt { grid-area: w; } .arow > .awho { grid-area: h; }
+.adays { display: flex; gap: 4px; } .adays > span { width: 36px; height: 40px; border-radius: 10px; background: var(--sunk); display: flex; flex-direction: column; align-items: center; justify-content: center; font: 700 .875rem/1 var(--sans); font-variant-numeric: tabular-nums; color: var(--ink); }
+.adays small { font-size: .6875rem; font-weight: 600; color: var(--ink-3); margin-bottom: 2px; } .adays .on { background: var(--accent-soft); color: var(--accent-ink); } .adays .dbl { box-shadow: inset 0 0 0 1px var(--accent); }
+#cmpBody { display: flex; flex-direction: column; gap: 16px; }
+.awt { display: flex; align-items: center; gap: 6px; } .awt select { flex: 1; min-width: 0; min-height: 44px; padding: 0 10px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font: 500 .875rem var(--sans); }
+.awho summary { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; cursor: pointer; color: var(--accent-ink); font-weight: 600; font-size: .875rem; list-style: none; } .awho summary::-webkit-details-marker { display: none; } .awho .chips { gap: 6px; padding-bottom: 4px; }
+.twice > summary { display: flex; align-items: center; gap: 12px; cursor: pointer; list-style: none; padding-bottom: 8px; } .twice > summary::-webkit-details-marker { display: none; } .twice > summary > span:not(.caret) { flex: 1; display: flex; flex-direction: column; gap: 2px; } .twice > summary small { color: var(--ink-3); font-size: .8125rem; }
+.cname small.aworks { color: var(--ink-2); } .iparts small.exa { color: var(--accent-ink); } .iworks { display: flex; flex-direction: column; gap: 8px; } .iworks h4 { margin: 0; } .iworks .chips { gap: 6px; }
+@media (max-width: 900px) { .arow { grid-template-columns: minmax(0, 1fr) 92px; grid-template-areas: "n c" "d d" "w w" "h h"; } .adays { justify-content: space-between; } .adays > span { flex: 1; max-width: 48px; } }
 .crow.ex .chips { gap: 6px; } .chip.wk b { font-variant-numeric: tabular-nums; } .chip.wk.off { opacity: .55; }
 #cmpSort { min-height: 44px; padding: 0 12px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font: 500 .9375rem var(--sans); }
 .cside { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 18px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 12px; } .cside h2 { font-size: 1.125rem; }
@@ -836,7 +846,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
 <div class="sr" aria-live="polite" id="live"></div>
 
 <script src="assets/line/primal-icons.js"></script><script src="data/routines-a.js"></script><script src="data/routines-b.js"></script><script src="data/systems.js"></script>
-<script src="data/nutrition.js"></script><script src="data/products.js"></script><script src="data/today.js"></script><script src="data/meta.js"></script><script src="data/schedule.js"></script><script src="data/guide.js"></script><script src="data/library.js"></script>
+<script src="data/nutrition.js"></script><script src="data/products.js"></script><script src="data/today.js"></script><script src="data/meta.js"></script><script src="data/schedule.js"></script><script src="data/guide.js"></script><script src="data/areas.js"></script><script src="data/library.js"></script>
 <script>
 (function () {
   "use strict";
@@ -872,7 +882,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   let S = { days: {}, weeks: {}, months: {}, owned: null, wish: {}, fav: {}, recent: [], sessions: [], ui: {} };
   try { S = Object.assign(S, JSON.parse(localStorage.getItem(KEY) || "{}")); } catch (e) {}
   /* undo / redo: save() notices when anything the owner can edit has changed and keeps the state before it */
-  const EDITK = ["plan", "adds", "ov", "hide", "tags", "links", "cols", "freq"]; let HIST = [], REDO = [], lastSlice = null, histMute = false;
+  const EDITK = ["plan", "adds", "ov", "hide", "tags", "links", "cols", "freq", "aw", "atag"]; let HIST = [], REDO = [], lastSlice = null, histMute = false;
   const sliceOf = () => JSON.stringify(EDITK.map((k) => (S[k] == null ? null : S[k])));
   const save = () => { const cur = sliceOf(); if (lastSlice !== null && cur !== lastSlice && !histMute) { HIST.push(lastSlice); if (HIST.length > 60) HIST.shift(); REDO = []; } lastSlice = cur; try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
   function timeTravel(from, to) { if (!from.length) return false; to.push(sliceOf()); const st = JSON.parse(from.pop()); EDITK.forEach((k, i) => { if (st[i] == null) delete S[k]; else S[k] = st[i]; }); histMute = true; save(); histMute = false; if (!$("#sheet").hidden) closeSheet(true); applyAdds(); RENDER[current](); return true; }
@@ -1045,6 +1055,37 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
 
 
   const exNames = (r) => r.ex.filter((e) => typeof e !== "string").map(exName).filter((x, i, a) => a.indexOf(x) === i);
+  /* ── body areas (data/areas.js): what each routine works, the owner's weighting per area, and how the week covers it ── */
+  const AREA = {}; P.areas.forEach((a) => (AREA[a.id] = a));
+  const areasOf = (rid) => { const r = byId[rid]; return !r ? [] : (S.atag || {})[r.id] || P.rtAreas(r); };
+  const areaW = () => { const w = {}; P.areas.forEach((a) => (w[a.id] = (S.aw || {})[a.id] != null ? +S.aw[a.id] : P.areaWeight[a.id].days)); return w; };
+  const coverNow = () => { const l = lens(); return SC.cover(S.plan, areasOf, areaW(), (rid) => inLens(byId[rid], l)); };
+  const aList = (l) => l.map((a) => AREA[a].n.toLowerCase()).join(", ");
+  const dayTxt = (n) => `${n} ${n === 1 ? "day" : "days"} a week`;
+  function drawAreas() {
+    const cv = coverNow(), w = areaW(), aw = S.aw || {}, rows = cv.rows, under = rows.filter((r) => r.state === "under"), over = rows.filter((r) => r.state === "over");
+    const opts = (a) => [0, 1, 2, 3, 4, 5, 6, 7].map((n) => `<option value="${n}"${w[a] === n ? " selected" : ""}>${n ? `${n} a week, ${P.areaLevel(n).toLowerCase()}` : "Off"}</option>`).join("");
+    const who = (a) => P.routines.filter((r) => areasOf(r.id).indexOf(a) > -1 && inLens(r, lens())).map((r) => [r, placed(r.id).length]).sort((x, y) => y[1] - x[1] || x[0].name.localeCompare(y[0].name));
+    const spread = cv.spread.map((x, i) => `<li><div><b>${esc(byId[x.rid].name)}: ${DAYN[x.d]} → ${DAYN[x.to]}</b><small>${srcTag("ai", true)}${esc(AREA[x.a].n)} is worked by ${rows.find((r) => r.a === x.a).per[ORDER.indexOf(x.d)]} routines on ${DAYN[x.d]} and none on ${DAYN[x.to]}. ${DAYN[x.to]} also gains ${aList(x.gain)}${x.lose.length ? `; ${DAYN[x.d]} loses its only ${aList(x.lose)} work` : ""}. Same part of the day.</small></div><button class="btn ghost sm" data-amove="${i}">Move to ${DAYN[x.to].slice(0, 3)}</button></li>`);
+    const twice = {}; cv.twice.forEach((x) => (twice[x.d] = (twice[x.d] || []).concat([x])));
+    $("#cmpBody").innerHTML = `<section class="gsum"><p><b>${under.length ? `${under.length} ${under.length === 1 ? "area gets" : "areas get"} fewer days than its weighting` : "Every area gets at least the days its weighting asks for"}${over.length ? `; ${over.length} get more than it asks` : ""}.</b> ${cv.spread.length ? `${cv.spread.length} ${cv.spread.length === 1 ? "move" : "moves"} would spread doubled-up work onto days that have none.` : "Nothing doubled up can move to a day that lacks it."}</p>
+        <p class="small muted">The weighting is how many days a week an area should get. It starts from the OP docs (<span class="src op dot"></span>) or is suggested where they give no number (<span class="src ai dot"></span>); one you set shows <span class="src me dot"></span>. Which areas a routine works is my reading of its exercise names, so correct any of it in the routine's panel.</p></section>
+      ${spread.length ? `<section class="gcard"><header><div><h3>Spread it out</h3><p>A routine on a day that already works its area, moved to the quietest day that does not. Strength, sprints, daily habits and anything the guide wants daily stay where they are.</p></div></header><ul class="glist">${spread.join("")}</ul></section>` : ""}
+      <ul class="clist alist">${rows.map((r) => { const a = AREA[r.a], ws = aw[r.a] != null ? "me" : P.areaWeight[r.a].src, ppl = who(r.a);
+        return `<li class="arow st-${r.state}"><div class="cname"><b>${esc(a.n)}</b><small>${esc(a.does)}</small></div>
+          <div class="adays" role="img" aria-label="${esc(a.n)}: ${ORDER.map((d, i) => DAYN[d] + " " + r.per[i]).join(", ")}">${ORDER.map((d, i) => `<span class="${r.per[i] ? (r.per[i] > 1 ? "on dbl" : "on") : ""}"><small>${DAYN[d][0]}</small>${r.per[i] || ""}</span>`).join("")}</div>
+          <div class="ccount${r.state === "under" ? " off" : r.days ? "" : " zero"}"><b>${r.days}</b><small>of ${r.want} days</small><small>${r.state === "under" ? "Below" : r.state === "over" ? "Above" : r.state === "off" ? "Off" : "On target"}</small></div>
+          <label class="awt">${srcTag(ws, true)}<span class="sr">Weighting for ${esc(a.n)}</span><select data-aw="${r.a}" name="aw-${r.a}">${opts(r.a)}</select></label>
+          <details class="awho"><summary>${ppl.length} ${ppl.length === 1 ? "routine works" : "routines work"} it${r.doubled ? `, doubled on ${r.doubled} ${r.doubled === 1 ? "day" : "days"}` : ""}${CARET}</summary><div class="chips">${ppl.map((x) => `<button class="chip plain wk${x[1] ? "" : " off"}${isGym(x[0]) ? " gym" : ""}" data-insp="${esc(x[0].id)}">${isGym(x[0]) ? gymIcon() : `<span class="cdot" data-kind="${x[0].cat}"></span>`}${esc(x[0].name)}<b>${x[1]}</b></button>`).join("")}</div></details></li>`; }).join("")}</ul>
+      ${Object.keys(aw).length ? '<p class="row"><button class="btn ghost sm" data-awreset="1">Reset weightings to the docs</button></p>' : ""}
+      <details class="gcard twice"><summary><span><b>The same exercise twice in one day</b><small>${cv.twice.length} repeats across the week. Often fine (a warm-up step reused); worth a look when a day runs long.</small></span>${CARET}</summary>
+        <ul class="glist">${ORDER.filter((d) => twice[d]).map((d) => `<li><div><b>${DAYN[d]}</b><small>${twice[d].map((x) => `${esc(x.n)} (${x.rids.map((id) => esc(byId[id].name)).join(", ")})`).join("; ")}</small></div></li>`).join("")}</ul></details>`;
+  }
+  function moveForArea(i) {
+    const x = coverNow().spread[+i]; if (!x) return; const gd = SC.guideOf(x.rid), k = gd && gd.t && gd.t.indexOf(x.k) < 0 ? gd.t[0] : x.k;
+    const pl = ensureDay(x.d), at = pl[x.k].findIndex((y) => y[0] === x.rid); if (at < 0) return;
+    insertRanked(ensureDay(x.to)[k], pl[x.k].splice(at, 1)[0]); save(); RENDER[current](); toast(`${byId[x.rid].name} moved to ${DAYN[x.to]}`, undoLast);
+  }
   function cmpRows(grp) {
     const ui = S.ui, q = (ui.cq || "").trim().toLowerCase(), aims = aimsNow();
     let l = P.routines.filter((r) => gymOf(r) === grp).map((r) => { const pl = placed(r.id), gd = SC.guideOf(r.id), n = gd && gd.h && habitCovers(r.base || r.id) ? Math.max(7, pl.length) : pl.length, aim = +aims[r.id] || 0, gf = !aim && gd && gd.f;
@@ -1062,12 +1103,13 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
       <h4>${sets[i].length} exercises</h4><ol class="iparts">${sets[i].map((n) => `<li${shared(n) ? ' class="same"' : ""}>${esc(n)}${shared(n) ? '<small>in all of these</small>' : ""}</li>`).join("")}</ol><button class="btn ghost sm" data-insp="${esc(r.id)}">Adjust</button></div>`; }).join("")}</div></section>`;
   }
   function drawCompare() {
-    const ui = S.ui, view = ui.ct === "ex" ? "ex" : "rt", l = lens();
+    const ui = S.ui, view = ui.ct === "ex" || ui.ct === "area" ? ui.ct : "rt", l = lens();
+    if (view === "area") return drawAreas();
     if (view === "ex") {
       const m = {}, q = (ui.cq || "").trim().toLowerCase();
       P.routines.filter((r) => inLens(r, l)).forEach((r) => { const t = placed(r.id).length; exNames(r).forEach((n) => { const e = (m[n] = m[n] || { n, c: 0, rs: [] }); e.c += t; e.rs.push([r, t]); }); });
       const xs = Object.keys(m).map((k) => m[k]).filter((e) => (!ui.co || e.c) && (!q || e.n.toLowerCase().indexOf(q) > -1)).sort((a, b) => ((ui.cs || "most") === "least" ? a.c - b.c : b.c - a.c) || a.n.localeCompare(b.n));
-      $("#cmpBody").innerHTML = xs.length ? `<p class="small muted">${xs.length} exercises${l ? " in " + (l === "gym" ? "your gym sessions" : "your routines") : ""}.</p><ul class="clist">${xs.map((e) => `<li class="crow ex"><div class="cname"><b>${esc(e.n)}</b><small>${e.rs.length} ${e.rs.length === 1 ? "routine" : "routines"}</small></div><div class="chips">${e.rs.sort((a, b) => b[1] - a[1]).map((x) => `<button class="chip plain wk${x[1] ? "" : " off"}${isGym(x[0]) ? " gym" : ""}" data-insp="${esc(x[0].id)}">${isGym(x[0]) ? gymIcon() : `<span class="cdot" data-kind="${x[0].cat}"></span>`}${esc(x[0].name)}<b>${x[1]}</b></button>`).join("")}</div><div class="ccount${e.c ? "" : " zero"}"><b>${e.c}</b><small>a week</small></div></li>`).join("")}</ul>` : '<div class="empty"><b>No exercise matches</b>Clear the filter or turn off In my week.</div>';
+      $("#cmpBody").innerHTML = xs.length ? `<p class="small muted">${xs.length} exercises${l ? " in " + (l === "gym" ? "your gym sessions" : "your routines") : ""}.</p><ul class="clist">${xs.map((e) => `<li class="crow ex"><div class="cname"><b>${esc(e.n)}</b><small>${e.rs.length} ${e.rs.length === 1 ? "routine" : "routines"}${P.exAreas(e.n).length ? ". Works " + aList(P.exAreas(e.n)) : ""}</small></div><div class="chips">${e.rs.sort((a, b) => b[1] - a[1]).map((x) => `<button class="chip plain wk${x[1] ? "" : " off"}${isGym(x[0]) ? " gym" : ""}" data-insp="${esc(x[0].id)}">${isGym(x[0]) ? gymIcon() : `<span class="cdot" data-kind="${x[0].cat}"></span>`}${esc(x[0].name)}<b>${x[1]}</b></button>`).join("")}</div><div class="ccount${e.c ? "" : " zero"}"><b>${e.c}</b><small>a week</small></div></li>`).join("")}</ul>` : '<div class="empty"><b>No exercise matches</b>Clear the filter or turn off In my week.</div>';
       return;
     }
     const groups = (l ? [l] : ["rt", "gym"]).map((g) => [g, cmpRows(g)]);
@@ -1076,7 +1118,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
       return `<section class="cgroup cg-${g}" aria-label="${g === "gym" ? "Gym" : "Routines"}"><header class="cg-head"><span class="lsw" aria-hidden="true"></span><h2>${g === "gym" ? "Gym" : "Routines"}</h2><p>${rows.length} shown, ${tot} placed this week, ${per.reduce((a, b) => a + b, 0)} min</p></header>
         ${rows.length ? `<ul class="clist">${rows.map((x) => { const r = x.r, head = (ui.cs || "group") === "group" && r.cat !== last ? `<li class="chead"><span class="cdot" data-kind="${r.cat}"></span>${esc(catOf(r.cat).name || "")}</li>` : ""; last = r.cat;
           return `${head}<li class="crow${x.n ? "" : " unplaced"}${g === "gym" ? " gym" : ""}"><label class="ccheck"><input type="checkbox" data-csel="${esc(r.id)}"${CSEL.indexOf(r.id) > -1 ? " checked" : ""}${CSEL.length >= 3 && CSEL.indexOf(r.id) < 0 ? " disabled" : ""}><span class="sr">Compare ${esc(r.name)}</span></label>
-            <div class="cname"><button class="linkname" data-insp="${esc(r.id)}">${g === "gym" ? gymIcon() : `<span class="cdot" data-kind="${r.cat}"></span>`}${esc(r.name)}</button><small>${(() => { const gd = SC.guideOf(r.id); return gd ? `${srcTag(gSrc(gd), true)}${esc(r.dur || "No set length")}. Guide: ${tTxt(gd.t)}, ${fTxt(gd.f)}` : `${esc(r.dur || "No set length")}${r.when ? ". " + esc(r.when) : ""}`; })()}</small></div>
+            <div class="cname"><button class="linkname" data-insp="${esc(r.id)}">${g === "gym" ? gymIcon() : `<span class="cdot" data-kind="${r.cat}"></span>`}${esc(r.name)}</button><small>${(() => { const gd = SC.guideOf(r.id); return gd ? `${srcTag(gSrc(gd), true)}${esc(r.dur || "No set length")}. Guide: ${tTxt(gd.t)}, ${fTxt(gd.f)}` : `${esc(r.dur || "No set length")}${r.when ? ". " + esc(r.when) : ""}`; })()}</small>${areasOf(r.id).length ? `<small class="aworks">Works ${aList(areasOf(r.id))}</small>` : ""}</div>
             <div class="cdays" role="group" aria-label="Days for ${esc(r.name)}">${ORDER.map((d) => { const c = x.pl.filter((p) => p.d === d).length; return `<button data-cday="${esc(r.id)}|${d}" aria-pressed="${c > 0}" aria-label="${DAYN[d]}${c > 1 ? ", " + c + " times" : ""}">${DAYN[d][0]}${c > 1 ? `<i>${c}</i>` : ""}</button>`; }).join("")}</div>
             <div class="ccount${x.off ? " off" : ""}${x.n ? "" : " zero"}"><b>${x.n}</b><small>${x.aim ? "of " + x.aim + " a week" : x.gf ? "guide " + (x.gf[0] === x.gf[1] ? x.gf[0] : x.gf[0] + "–" + x.gf[1]) : "a week"}</small><small>${x.min ? x.min + " min" : ""}</small></div></li>`; }).join("")}
           <li class="cfoot" aria-label="${g === "gym" ? "Gym" : "Routine"} minutes each day"><span></span><span>Minutes each day</span><div class="cdays">${ORDER.map((d, i) => `<span title="${DAYN[d]}"><span class="sr">${DAYN[d]} </span>${per[i]}</span>`).join("")}</div><div class="ccount"><b>${per.reduce((a, b) => a + b, 0)}</b><small>a week</small></div></li></ul>`
@@ -1085,12 +1127,12 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   }
   function renderCompare() {
     now = new Date(); TK = dkey(now);
-    const ui = S.ui, view = ui.ct === "ex" ? "ex" : "rt", bad = SC.checks(S.plan, aimsNow()).filter((c) => c.k === "fit").length, so = view === "ex" ? [["most", "Most often"], ["least", "Least often"]] : [["group", "By kind"], ["most", "Most often"], ["least", "Least often"], ["long", "Most minutes"], ["aim", "Off the guide or aim first"]];
+    const ui = S.ui, view = ui.ct === "ex" || ui.ct === "area" ? ui.ct : "rt", bad = SC.checks(S.plan, aimsNow()).filter((c) => c.k === "fit").length, so = view === "ex" ? [["most", "Most often"], ["least", "Least often"]] : [["group", "By kind"], ["most", "Most often"], ["least", "Least often"], ["long", "Most minutes"], ["aim", "Off the guide or aim first"]];
     if (!so.some((o) => o[0] === ui.cs)) ui.cs = so[0][0];
-    $("#v-compare").innerHTML = `<header class="view-head"><div><h1>Compare</h1><p class="lede">Every routine and gym session, and how often each sits in your week. Choose a day letter to add or remove it; choose a name to see what is in it and set minutes, slot and aim.</p></div><div class="head-side">${undoBar()}</div></header>
+    $("#v-compare").innerHTML = `<header class="view-head"><div><h1>Compare</h1><p class="lede">Every routine and gym session, and how often each sits in your week. Choose a day letter to add or remove it; choose a name to see what is in it and set minutes, slot and aim. By body area shows what your week works and where it doubles up.</p></div><div class="head-side">${undoBar()}</div></header>
       ${subnav("week", "compare")}${lensBar()}
-      <div class="ctools"><div class="tabs" role="tablist" aria-label="Compare by">${[["rt", "By routine"], ["ex", "By exercise"]].map((t) => `<button role="tab" aria-selected="${view === t[0]}" data-ctab="${t[0]}">${t[1]}</button>`).join("")}</div>
-      <div class="toolbar"><input class="search" id="cmpQ" type="search" name="cmpq" autocomplete="off" placeholder="Filter…" aria-label="Filter the list" value="${esc(ui.cq || "")}"><select id="cmpSort" name="cmpsort" aria-label="Sort">${so.map((o) => `<option value="${o[0]}"${ui.cs === o[0] ? " selected" : ""}>${o[1]}</option>`).join("")}</select><button class="chip plain" id="cmpOnly" aria-pressed="${!!ui.co}">In my week</button></div></div>
+      <div class="ctools"><div class="tabs" role="tablist" aria-label="Compare by">${[["rt", "By routine"], ["ex", "By exercise"], ["area", "By body area"]].map((t) => `<button role="tab" aria-selected="${view === t[0]}" data-ctab="${t[0]}">${t[1]}</button>`).join("")}</div>
+      ${view === "area" ? "" : `<div class="toolbar"><input class="search" id="cmpQ" type="search" name="cmpq" autocomplete="off" placeholder="Filter…" aria-label="Filter the list" value="${esc(ui.cq || "")}"><select id="cmpSort" name="cmpsort" aria-label="Sort">${so.map((o) => `<option value="${o[0]}"${ui.cs === o[0] ? " selected" : ""}>${o[1]}</option>`).join("")}</select><button class="chip plain" id="cmpOnly" aria-pressed="${!!ui.co}">In my week</button></div>`}</div>
       ${view === "ex" ? '<p class="small muted">How many times a week each exercise comes up, counted from the routines you have placed. The number on a routine is how often that routine runs.</p>' : ""}
       ${bad ? `<div class="status warn">${gl(G.warn)}<div>${bad} ${bad === 1 ? "part of a day does" : "parts of days do"} not fit any more. <a class="linkbtn" href="#week">Open the week</a></div></div>` : ""}
       <div id="cmpBody"></div>`;
@@ -1103,6 +1145,10 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     if (d.lens !== undefined) { S.ui.lens = d.lens; save(); RENDER[current](); refocus(`[data-lens="${d.lens}"]`); say(d.lens ? `Showing ${d.lens === "gym" ? "gym" : "routines"} only` : "Showing everything"); return true; }
     if (t.id === "cmpOnly") { S.ui.co = !S.ui.co; save(); renderCompare(); refocus("#cmpOnly"); return true; }
     if (t.id === "cmpClear") { CSEL = []; drawCompare(); return true; }
+    if (d.amove) { moveForArea(d.amove); refocus("[data-amove], #v-compare .gsum"); return true; }
+    if (d.awreset) { delete S.aw; save(); renderCompare(); refocus('[data-ctab="area"]'); say("Weightings back to the docs"); return true; }
+    if (d.atag) { const rid = INSP.rid, cur = areasOf(rid), nx = cur.indexOf(d.atag) > -1 ? cur.filter((a) => a !== d.atag) : P.areas.map((a) => a.id).filter((a) => a === d.atag || cur.indexOf(a) > -1); S.atag = S.atag || {}; if (nx.join() === P.rtAreas(byId[rid]).join()) delete S.atag[rid]; else S.atag[rid] = nx; save(); RENDER[current](); openInsp(rid, INSP.at); refocus(`[data-atag="${d.atag}"]`); return true; }
+    if (d.atagreset) { delete (S.atag || {})[INSP.rid]; save(); RENDER[current](); openInsp(INSP.rid, INSP.at); refocus("#sheet .iworks"); return true; }
     return false;
   }
 
@@ -1112,7 +1158,8 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   function openInsp(rid, at) {
     const r = byId[rid]; if (!r) return; INSP = { rid, at: at || null };
     const pl = placed(rid), aim = +aimsNow()[rid] || 0, eq = (P.equip || {})[rid], cur = at ? at.split("|") : null, list = cur ? SC.plan(+cur[0], S.plan)[cur[1]] || [] : [], here = cur ? list[+cur[2]] : null;
-    const parts = r.ex.map((e) => (typeof e === "string" ? `<li class="h">${esc(e.replace(/^#/, ""))}</li>` : `<li>${esc(exName(e))}${normEx(e).d ? `<small>${esc(normEx(e).d)}</small>` : ""}</li>`)).join("");
+    const parts = r.ex.map((e) => { if (typeof e === "string") return `<li class="h">${esc(e.replace(/^#/, ""))}</li>`; const ea = P.exAreas(exName(e)); return `<li>${esc(exName(e))}${normEx(e).d ? `<small>${esc(normEx(e).d)}</small>` : ""}${ea.length ? `<small class="exa">Works ${aList(ea)}</small>` : ""}</li>`; }).join("");
+    const mine = !!(S.atag || {})[rid], works = areasOf(rid);
     const grid = `<table class="igrid"><thead><tr><td></td>${ORDER.map((d) => `<th scope="col"><span aria-hidden="true">${DAYN[d][0]}</span><span class="sr">${DAYN[d]}</span></th>`).join("")}</tr></thead><tbody>${SLOTS.map((s) => `<tr><th scope="row">${s[2]}</th>${ORDER.map((d) => { const on = pl.some((x) => x.d === d && x.k === s[1]); return `<td><button data-tog="${d}|${s[1]}" aria-pressed="${on}" aria-label="${DAYN[d]} ${s[2].toLowerCase()}">${on ? CHECK : ""}</button></td>`; }).join("")}</tr>`).join("")}</tbody></table>`;
     sheetUp(`<div class="insp">
       <p class="imeta">${isGym(r) ? gymIcon() : `<span class="cdot" data-kind="${r.cat}"></span>`}${esc(catOf(r.cat).name || "")}${isGym(r) ? '<span class="badge gymb">Gym</span>' : ""}</p>
@@ -1124,6 +1171,8 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
         <div class="row"><button class="btn ghost sm" data-iup="1"${+cur[2] > 0 ? "" : " disabled"}>Earlier</button><button class="btn ghost sm" data-idown="1"${+cur[2] < list.length - 1 ? "" : " disabled"}>Later</button><button class="btn ghost sm danger" data-irem="1">Remove from ${DAYN[+cur[0]]}</button></div></fieldset>` : ""}
       <h4>When you do it</h4><p class="small muted" id="iCount">${pl.length} ${pl.length === 1 ? "time" : "times"} this week. Choose a square to add or remove it.</p>${grid}
       <div class="irow"><span>Aim for</span>${stepper("iaim", aim, aim ? "a week" : "no aim set")}</div>
+      <section class="iworks" aria-label="What it works"><h4>What it works</h4><p class="small muted">${srcTag(mine ? "me" : "ai", true)}${mine ? "Your tags." : "Suggested from its exercise names: the areas at least a quarter of its steps work."} Choose an area to add or remove it. Compare by body area counts these.</p>
+        <div class="chips">${P.areas.map((a) => `<button class="chip plain atag" data-atag="${a.id}" aria-pressed="${works.indexOf(a.id) > -1}">${esc(a.n)}</button>`).join("")}</div>${mine ? '<button class="linkbtn" data-atagreset="1">Back to the suggested tags</button>' : ""}</section>
       <h4>What is in it</h4><ol class="iparts">${parts}</ol>
       <div class="row"><button class="btn sm" data-play="${esc(rid)}">${gl(G.play, "s")}Follow along</button><button class="btn ghost sm" data-go="${esc(rid)}">Open the routine</button><button class="btn ghost sm" data-dup="${esc(rid)}">${li("copy")}Duplicate and edit</button></div></div>`, esc(r.name));
   }
@@ -1606,7 +1655,9 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   const cleanCols = (x) => (Array.isArray(x) ? x : []).filter((c) => c && /^c[a-z0-9]+$/.test(c.id) && typeof c.n === "string" && c.n.trim()).slice(0, 50).map((c) => ({ id: c.id, n: c.n.slice(0, 60), items: refs(c.items) }));
   const cleanHide = (x) => { const r = {}; Object.keys(objx(x)).forEach((k) => { if (/^[rtpfi]:[^]{1,200}$/.test(k)) r[k] = 1; }); return r; };
   const cleanFreq = (x) => { const r = {}; Object.keys(objx(x)).forEach((k) => { if (/^[\w-]{1,60}$/.test(k) && isFinite(+x[k])) r[k] = Math.max(0, Math.min(14, Math.round(+x[k]))); }); return r; };
-  const SCHEMA = 3; /* backup format: 1 = up to hub v7 (no schema field), 2 adds ov, tags, links, cols. Bump only when the saved shape changes. */
+  const cleanAw = (x) => { const r = {}; Object.keys(objx(x)).forEach((k) => { if (AREA[k] && isFinite(+x[k])) r[k] = Math.max(0, Math.min(7, Math.round(+x[k]))); }); return r; };
+  const cleanAtag = (x) => { const r = {}; Object.keys(objx(x)).forEach((k) => { if (/^[\w-]{1,60}$/.test(k) && Array.isArray(x[k])) r[k] = P.areas.map((a) => a.id).filter((a) => x[k].indexOf(a) > -1); }); return r; };
+  const SCHEMA = 4; /* backup format: 1 = up to hub v7 (no schema field), 2 adds ov, tags, links, cols, 3 adds hide, freq, 4 adds aw (area weightings), atag (area tags). Bump only when the saved shape changes. */
 
   let JUST = "";
 
@@ -1735,7 +1786,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
       <div class="row"><button class="btn sm" id="xExport">Export my edits</button><button class="btn ghost sm" id="xFull">Full backup</button><button class="btn ghost sm" id="xImport">Import from the box</button></div><p class="small" id="xMsg" role="status"></p>`, "My edits");
   }
   function exportTo(full) {
-    const box = $("#xBox"); box.value = JSON.stringify(full ? Object.assign({ phh: 1, schema: SCHEMA, exported: TK }, S) : { phh: 1, schema: SCHEMA, exported: TK, plan: S.plan || {}, adds: S.adds || [], ov: S.ov || {}, tags: S.tags || {}, links: S.links || {}, cols: S.cols || [], hide: S.hide || {}, freq: S.freq || {} }); box.focus(); box.select();
+    const box = $("#xBox"); box.value = JSON.stringify(full ? Object.assign({ phh: 1, schema: SCHEMA, exported: TK }, S) : { phh: 1, schema: SCHEMA, exported: TK, plan: S.plan || {}, adds: S.adds || [], ov: S.ov || {}, tags: S.tags || {}, links: S.links || {}, cols: S.cols || [], hide: S.hide || {}, freq: S.freq || {}, aw: S.aw || {}, atag: S.atag || {} }); box.focus(); box.select();
     const done = (ok) => { $("#xMsg").textContent = ok ? "Copied. Paste it somewhere safe, or send it to be made permanent." : "Selected. Copy it from the box."; };
     try { navigator.clipboard.writeText(box.value).then(() => done(true), () => done(false)); } catch (e) { done(false); }
   }
@@ -1752,7 +1803,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     n.sessions = (Array.isArray(o.sessions) ? o.sessions : []).filter((x) => x && idk(String(x.id)) && /^\d{4}-\d\d-\d\d$/.test(x.date) && isFinite(+x.secs)).map((x) => ({ id: x.id, date: x.date, secs: +x.secs }));
     Object.keys(obj(o.ui)).forEach((k) => { const v = o.ui[k]; if (idk(k) && (typeof v === "boolean" || typeof v === "number" || (typeof v === "string" && v.length <= 200))) n.ui[k] = v; });
     /* fields a backup made before schema 2 does not carry default to empty */
-    n.fav = names(o.fav); n.core = num(o.core); n.adds = cleanAdds(o.adds); n.plan = cleanPlan(o.plan); n.ov = cleanOv(o.ov); n.tags = cleanTags(o.tags); n.links = cleanLinks(o.links); n.cols = cleanCols(o.cols); n.hide = cleanHide(o.hide); n.freq = cleanFreq(o.freq); return n;
+    n.fav = names(o.fav); n.core = num(o.core); n.adds = cleanAdds(o.adds); n.plan = cleanPlan(o.plan); n.ov = cleanOv(o.ov); n.tags = cleanTags(o.tags); n.links = cleanLinks(o.links); n.cols = cleanCols(o.cols); n.hide = cleanHide(o.hide); n.freq = cleanFreq(o.freq); n.aw = cleanAw(o.aw); n.atag = cleanAtag(o.atag); return n;
   };
   let IMP = null;
   function importFrom() {
@@ -1761,7 +1812,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     if (!o || typeof o !== "object" || !o.phh) { msg.textContent = "That is not a Primal Health Hub export. Nothing was changed."; return; }
     if (o.phh !== 1 || (o.schema || 1) > SCHEMA) { msg.textContent = "That export uses a newer backup format than this hub understands. Nothing was changed."; return; }
     const full = !!o.days && typeof o.days === "object", adds = cleanAdds(o.adds), plan = cleanPlan(o.plan), have = (S.adds || []).map((a) => a.id), clash = adds.filter((a) => have.indexOf(a.id) > -1).length, days = Object.keys(plan).filter((d) => (S.plan || {})[d]);
-    IMP = { o, adds, plan, ov: cleanOv(o.ov), tags: cleanTags(o.tags), links: cleanLinks(o.links), cols: cleanCols(o.cols), hide: cleanHide(o.hide), freq: cleanFreq(o.freq) };
+    IMP = { o, adds, plan, ov: cleanOv(o.ov), tags: cleanTags(o.tags), links: cleanLinks(o.links), cols: cleanCols(o.cols), hide: cleanHide(o.hide), freq: cleanFreq(o.freq), aw: cleanAw(o.aw), atag: cleanAtag(o.atag) };
     msg.innerHTML = `<b>${full ? "Full backup" : "Edits"}${/^\d{4}-\d\d-\d\d$/.test(o.exported) ? " from " + o.exported : ""}.</b> ${adds.length} additions${clash ? ` (${clash} will replace ones already here)` : ""}, ${Object.keys(IMP.ov).length} personal edits and ${Object.keys(plan).length} timetable days${days.length ? ` (${days.map((d) => DAYN[d]).join(", ")} will overwrite your edited days)` : ""}.${full ? ` It also holds ${Object.keys(o.days).length} days of history. Replace everything swaps out the ${Object.keys(S.days).length} days saved here.` : ""} A recovery copy of what is here now is kept first.
       <span class="row"><button class="btn sm" id="xApply">${full ? "Merge the edits only" : "Import"}</button>${full ? '<button class="btn ghost sm" id="xReplace">Replace everything</button>' : ""}<button class="btn ghost sm" id="xCancel">Cancel</button></span>`;
     $("#xApply").focus();
@@ -1771,7 +1822,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   function applyImport(replace) {
     if (!IMP) return; try { localStorage.setItem(BKEY, JSON.stringify(S)); } catch (e) {}
     if (replace) S = cleanState(IMP.o);
-    else { S.plan = Object.assign(S.plan || {}, IMP.plan); const ids = IMP.adds.map((a) => a.id); S.adds = (S.adds || []).filter((a) => ids.indexOf(a.id) < 0).concat(IMP.adds); S.ov = Object.assign(S.ov || {}, IMP.ov); S.tags = Object.assign(S.tags || {}, IMP.tags); S.links = Object.assign(S.links || {}, IMP.links); const cid = IMP.cols.map((c) => c.id); S.cols = (S.cols || []).filter((c) => cid.indexOf(c.id) < 0).concat(IMP.cols); S.hide = Object.assign(S.hide || {}, IMP.hide); S.freq = Object.assign(S.freq || {}, IMP.freq); }
+    else { S.plan = Object.assign(S.plan || {}, IMP.plan); const ids = IMP.adds.map((a) => a.id); S.adds = (S.adds || []).filter((a) => ids.indexOf(a.id) < 0).concat(IMP.adds); S.ov = Object.assign(S.ov || {}, IMP.ov); S.tags = Object.assign(S.tags || {}, IMP.tags); S.links = Object.assign(S.links || {}, IMP.links); const cid = IMP.cols.map((c) => c.id); S.cols = (S.cols || []).filter((c) => cid.indexOf(c.id) < 0).concat(IMP.cols); S.hide = Object.assign(S.hide || {}, IMP.hide); S.freq = Object.assign(S.freq || {}, IMP.freq); S.aw = Object.assign(S.aw || {}, IMP.aw); S.atag = Object.assign(S.atag || {}, IMP.atag); }
     IMP = null; applyPlain(); afterEdit("Import done"); toast(replace ? "Everything replaced from the backup" : "Edits imported", restoreCopy);
   }
   /* clicks for the add form, My edits and backups; returns true when it handled the click */
@@ -1857,7 +1908,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     if (e.target.id === "libQ") { S.ui.lq = e.target.value; drawLibrary(); }
     if (e.target.id === "fInput") { FOPEN = {}; S.ui.fy = 0; drawFind(e.target.value); }
     if (e.target.id === "nSearch") { const q = e.target.value.trim().toLowerCase(); $$("#nutPanel .food").forEach((li) => (li.hidden = !!q && li.dataset.k.indexOf(q) < 0)); let any = false; $$("#nutPanel .fgroup").forEach((g) => { g.hidden = !$$(".food:not([hidden])", g).length; any = any || !g.hidden; }); $("#nNone").hidden = any; } });
-  document.addEventListener("change", (e) => { if (e.target.id === "cmpSort") { S.ui.cs = e.target.value; save(); renderCompare(); refocus("#cmpSort"); return; } if (e.target.dataset && e.target.dataset.csel) { const id = e.target.dataset.csel; CSEL = e.target.checked ? CSEL.concat([id]).slice(0, 3) : CSEL.filter((x) => x !== id); drawCompare(); refocus(`[data-csel="${id}"]`); return; } if (e.target.id === "libSort") { S.ui.lsort = e.target.value; save(); renderLibrary(); refocus("#libSort"); return; } editChange(e.target); });
+  document.addEventListener("change", (e) => { if (e.target.dataset && e.target.dataset.aw) { const a = e.target.dataset.aw, v = +e.target.value; S.aw = S.aw || {}; if (v === P.areaWeight[a].days) delete S.aw[a]; else S.aw[a] = v; save(); renderCompare(); refocus(`[data-aw="${a}"]`); say(`${AREA[a].n}: ${v ? dayTxt(v) : "off"}`); return; } if (e.target.id === "cmpSort") { S.ui.cs = e.target.value; save(); renderCompare(); refocus("#cmpSort"); return; } if (e.target.dataset && e.target.dataset.csel) { const id = e.target.dataset.csel; CSEL = e.target.checked ? CSEL.concat([id]).slice(0, 3) : CSEL.filter((x) => x !== id); drawCompare(); refocus(`[data-csel="${id}"]`); return; } if (e.target.id === "libSort") { S.ui.lsort = e.target.value; save(); renderLibrary(); refocus("#libSort"); return; } editChange(e.target); });
   document.addEventListener("submit", (e) => { if (e.target.id === "addForm") { e.preventDefault(); saveAdd(e.target); } if (e.target.id === "ovForm") { e.preventDefault(); saveOv(e.target); } });
   document.addEventListener("keydown", (e) => {
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "z" && !/INPUT|TEXTAREA|SELECT/.test((document.activeElement || {}).tagName || "") && $("#find").hidden && $("#player").hidden && $("#pacer").hidden) { e.preventDefault(); if (e.shiftKey) redoLast(); else undoLast(); return; }
@@ -1873,7 +1924,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
 
   Object.keys(S.days).sort().slice(0, -90).forEach((k) => delete S.days[k]); Object.keys(S.weeks).sort().slice(0, -12).forEach((k) => delete S.weeks[k]);
   function applyPlain() { document.documentElement.classList.toggle("plain", !!S.ui.plain); $$("[data-srctoggle]").forEach((b) => b.setAttribute("aria-checked", !S.ui.plain)); }
-  S.adds = cleanAdds(S.adds); S.plan = cleanPlan(S.plan); S.core = S.core || {}; S.ov = cleanOv(S.ov); S.tags = cleanTags(S.tags); S.links = cleanLinks(S.links); S.cols = cleanCols(S.cols); S.hide = cleanHide(S.hide); S.freq = cleanFreq(S.freq); delete S.ui.pd; S.ui.de = false; if (S.ui.ct === "gym") { S.ui.lens = "gym"; S.ui.ct = "rt"; } applyAdds(); lastSlice = sliceOf(); HIST = [];
+  S.adds = cleanAdds(S.adds); S.plan = cleanPlan(S.plan); S.core = S.core || {}; S.ov = cleanOv(S.ov); S.tags = cleanTags(S.tags); S.links = cleanLinks(S.links); S.cols = cleanCols(S.cols); S.hide = cleanHide(S.hide); S.freq = cleanFreq(S.freq); S.aw = cleanAw(S.aw); S.atag = cleanAtag(S.atag); delete S.ui.pd; S.ui.de = false; if (S.ui.ct === "gym") { S.ui.lens = "gym"; S.ui.ct = "rt"; } applyAdds(); lastSlice = sliceOf(); HIST = [];
   document.addEventListener("error", (e) => { const t = e.target; if (t && t.tagName === "IMG") t.style.visibility = "hidden"; }, true); /* a missing picture keeps its box, so nothing jumps */
   applyPlain(); route(true);
 })();

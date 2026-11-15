@@ -1,7 +1,7 @@
 /* Self-check for the week timetable. Run: node health-hub/tests/schedule.test.js */
 const assert = require("assert"), path = require("path");
 global.window = { PHH: {} };
-["routines-a", "routines-b", "systems", "nutrition", "products", "today", "meta", "schedule", "guide"].forEach((f) => require(path.join(__dirname, "../data", f + ".js")));
+["routines-a", "routines-b", "systems", "nutrition", "products", "today", "meta", "schedule", "guide", "areas"].forEach((f) => require(path.join(__dirname, "../data", f + ".js")));
 const P = window.PHH, S = P.sched, ids = new Set(P.routines.map((r) => r.id));
 const names = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -54,4 +54,23 @@ const mix = { 1: Object.assign({}, P.plan.week[1], { train: [["full-body-release
 const rm = S.review(mix, habit);
 assert(rm.gym.some((x) => x.kind === "late") && rm.order.some((x) => x.d === 1 && x.k === "train") && rm.time.some((x) => x.rid === "oscar-breathwork"), "release before lifting, wrong order and breathwork outside bedtime are all reported");
 console.log("guide: " + rv.time.length + " time, " + rv.freq.length + " frequency, " + rv.gym.length + " gym; " + rv.perDay + " → " + rv.perDayTarget + " min a day");
+/* body areas: tags are suggestions, weightings come from the guide, cover counts the week and the spread moves help */
+const rt = (id) => P.routines.find((r) => r.id === id), aOf = (id) => P.rtAreas(rt(id)), W = {};
+P.areas.forEach((a) => { const w = P.areaWeight[a.id]; assert(w.days >= 1 && w.days <= 7 && /^(op|ai)$/.test(w.src), a.id + " has a weighting and a source"); W[a.id] = w.days; });
+assert.strictEqual(P.areaWeight.strength.days, 4, "strength is capped at the docs' 4 weight sessions"); assert.strictEqual(P.areaWeight.power.days, 4, "power is capped at 4 sprint sessions");
+assert.deepStrictEqual(aOf("myo-routine"), ["tongue", "face"], "a routine is tagged with its main areas, not every passing touch");
+assert(aOf("oscar-breathwork").indexOf("breath") > -1 && aOf("workout-1").indexOf("strength") > -1 && aOf("big6").indexOf("lymph") > -1, "breathwork, lifting and lymph are tagged");
+assert(["fascia-activation", "full-body-release", "full-lymph"].every((id) => aOf(id).length), "whole-body routines still have main areas");
+assert.deepStrictEqual(P.exAreas("Calf Release"), ["calves"]); assert(P.exAreas("SCM Release").indexOf("neck") > -1 && P.exAreas("Seiza breath").indexOf("hips") < 0, "exercise names map to areas");
+const cv = S.cover(null, aOf, W);
+assert.strictEqual(cv.rows.length, P.areas.length);
+cv.rows.forEach((r) => { assert.strictEqual(r.per.length, 7); assert.strictEqual(r.days, r.per.filter(Boolean).length); });
+assert(cv.rows.find((r) => r.a === "tongue").days === 7, "daily habits (thumbpulling) count every day");
+assert(cv.twice.some((x) => x.n === "Fascia Hops" && x.d === 1), "the same exercise in two routines on one day is found");
+assert(cv.spread.length > 0, "the supplied week has doubled-up work that can spread");
+cv.spread.forEach((m) => { assert(!/^(workout-\d|bone-density|sprints)$/.test(m.rid), "strength and sprints never move"); assert(m.gain.indexOf(m.a) > -1, "a move brings its area to the new day");
+  const ov = {}; for (let d = 0; d < 7; d++) ov[d] = JSON.parse(JSON.stringify(P.plan.week[d])); const l = ov[m.d][m.k], i = l.findIndex((x) => x[0] === m.rid); ov[m.to][m.k].push(l.splice(i, 1)[0]);
+  const after = S.cover(ov, aOf, W).rows.find((r) => r.a === m.a), before = cv.rows.find((r) => r.a === m.a); assert(after.days > before.days, m.rid + " → " + m.to + " adds a day of " + m.a); });
+assert(S.cover(null, aOf, W, (id) => /^workout/.test(id)).rows.find((r) => r.a === "tongue").days === 0, "the lens filter counts only what it keeps");
+console.log("areas: " + cv.rows.filter((r) => r.state === "under").length + " under, " + cv.spread.length + " moves, " + cv.twice.length + " repeats");
 console.log("schedule ok");
