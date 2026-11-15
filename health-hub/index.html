@@ -715,8 +715,28 @@ html.plain .sbox::after { content: none; } .topic.sbox::after { margin-top: auto
 .bchip { min-height: 36px; font-size: .8125rem; } .bchip small { color: var(--ink-3); font-size: .75rem; margin-left: -4px; }
 .pcheck { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 0 14px; } .pcheck summary { display: flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 600; font-size: .9375rem; cursor: pointer; list-style: none; } .pcheck summary::-webkit-details-marker { display: none; }
 .pcheck summary span:first-of-type { flex: 1; } .pcheck[open] summary { border-bottom: 1px solid var(--line); } .pcheck .gl { flex: none; color: var(--ink-3); } .pcheck:has(li.bad) summary { color: var(--clay-ink); } .pcheck:has(li.bad) .gl { color: var(--clay-ink); }
-@media (max-width: 1239px) { #v-week .pbal { order: 5; } #v-week .phint { order: 6; } }
+@media (max-width: 1239px) { #v-week .pbal { order: 5; } #v-week .gnote { order: 6; } #v-week .phint { order: 7; } }
 .sbox.libcard::after { content: none; }
+.src.ai::before { background: transparent; border-radius: 2px; box-shadow: inset 0 0 0 1.5px currentColor; transform: none; }
+.src.dot { vertical-align: -1px; margin-right: 6px; } .gsum .src.dot + .src.dot, .gsum p .src.dot:not(:first-child) { margin-left: 12px; }
+.gsum { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; } .gsum p { max-width: 80ch; } .gsum b { font-weight: 700; }
+.gcards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; } @media (max-width: 1100px) { .gcards { grid-template-columns: minmax(0, 1fr); } }
+.gcard { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 16px 18px 8px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.gcard > header { display: flex; align-items: flex-start; gap: 12px; } .gcard > header > div { flex: 1; min-width: 0; } .gcard h3 { font-size: 1.0625rem; } .gcard > header p { color: var(--ink-3); font-size: .8125rem; line-height: 1.4; margin-top: 2px; }
+.gcard .pok { padding-bottom: 8px; }
+.glist li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); } .glist li > div { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.glist b { font-weight: 600; font-size: .9375rem; line-height: 1.35; } .glist small { color: var(--ink-3); font-size: .8125rem; line-height: 1.4; } .glist .btn { flex: none; }
+.gshape { display: flex; flex-direction: column; gap: 8px; } .gshape h2 { font-size: 1.25rem; }
+.gcols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; align-items: start; } @media (max-width: 1100px) { .gcols { grid-template-columns: repeat(2, minmax(0, 1fr)); } } @media (max-width: 620px) { .gcols { grid-template-columns: minmax(0, 1fr); } }
+.gcol { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); padding: 12px 12px 8px; min-width: 0; } .gcol h3 { display: flex; align-items: center; gap: 8px; font-size: 1rem; padding: 2px 4px 8px; } .gcol h3 .li { width: 18px; height: 18px; display: inline-grid; }
+.gph { font-size: .75rem; font-weight: 700; color: var(--ink-3); padding: 10px 4px 4px; border-top: 1px solid var(--line); } .gcol ol > li:first-child.gph { border-top: 0; padding-top: 0; }
+.gr { width: 100%; display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 0 8px; align-items: center; text-align: left; padding: 6px 4px; min-height: 44px; border-radius: 8px; font-size: .875rem; font-weight: 600; line-height: 1.3; } .gr:hover { background: var(--sunk); }
+.gr .cdot { justify-self: center; } .gr small { grid-column: 2; font-weight: 400; color: var(--ink-3); font-size: .75rem; }
+.pchip.offt { outline: 1.5px dashed color-mix(in srgb, var(--ink) 45%, transparent); outline-offset: -1.5px; }
+.iguide { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; } .iguide h4 { margin: 0; } .iguide p { font-size: .875rem; line-height: 1.45; color: var(--ink-2); }
+.gnote { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: .9375rem; } .gnote .li { width: 18px; height: 18px; display: inline-grid; color: var(--accent-ink); }
+.prow-g.suit { margin-top: 0; } .insp > .search { flex: none; }
+@media (max-width: 760px) { .glist li { flex-wrap: wrap; } .glist .btn { margin-left: auto; } }
 :root { --rt: #5F8A3C; --gym: #3A72A8; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --rt: #78A24E; --gym: #5C8BD0; } }
 :root[data-theme="dark"] { --rt: #78A24E; --gym: #5C8BD0; }
@@ -795,12 +815,12 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     <button class="only-rail" data-saved="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v16l-5-3.5L7 20V4z"/></svg>Saved</button>
     <button class="more" data-more="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 12h.01M12 12h.01M18.5 12h.01" stroke-width="3"/></svg>More</button>
   </div>
-  <div class="rail-foot"><div class="key" aria-label="Source key"><span>Where it came from</span><span class="src op">OP docs</span><span class="src me">My notes</span><span class="src both">OP docs + mine</span><span class="src x" hidden>Other source</span><button class="srcswitch" role="switch" aria-checked="true" data-srctoggle="1"><i aria-hidden="true"></i>Source labels</button></div><div class="rail-save"><span>Saved on this device</span><button data-manage="1">My edits</button></div></div>
+  <div class="rail-foot"><div class="key" aria-label="Source key"><span>Where it came from</span><span class="src op">OP docs</span><span class="src me">My notes</span><span class="src both">OP docs + mine</span><span class="src ai">Suggested</span><span class="src x" hidden>Other source</span><button class="srcswitch" role="switch" aria-checked="true" data-srctoggle="1"><i aria-hidden="true"></i>Source labels</button></div><div class="rail-save"><span>Saved on this device</span><button data-manage="1">My edits</button></div></div>
 </nav>
 <div class="page"><div class="wrap">
   <div class="topbar"><div><div class="brand" translate="no">PRIMAL</div></div><button class="findbtn" data-find="1"><svg class="gl s" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4"/></svg>Find</button></div>
   <main id="main" tabindex="-1">
-    <section class="view" id="v-today"></section><section class="view" id="v-week" hidden></section><section class="view" id="v-compare" hidden></section><section class="view" id="v-library" hidden></section>
+    <section class="view" id="v-today"></section><section class="view" id="v-week" hidden></section><section class="view" id="v-compare" hidden></section><section class="view" id="v-guide" hidden></section><section class="view" id="v-library" hidden></section>
     <section class="view" id="v-routines" hidden></section><section class="view" id="v-nutrition" hidden></section>
     <section class="view" id="v-systems" hidden></section><section class="view" id="v-products" hidden></section>
     <section class="view" id="v-extras" hidden></section>
@@ -816,7 +836,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
 <div class="sr" aria-live="polite" id="live"></div>
 
 <script src="assets/line/primal-icons.js"></script><script src="data/routines-a.js"></script><script src="data/routines-b.js"></script><script src="data/systems.js"></script>
-<script src="data/nutrition.js"></script><script src="data/products.js"></script><script src="data/today.js"></script><script src="data/meta.js"></script><script src="data/schedule.js"></script><script src="data/library.js"></script>
+<script src="data/nutrition.js"></script><script src="data/products.js"></script><script src="data/today.js"></script><script src="data/meta.js"></script><script src="data/schedule.js"></script><script src="data/guide.js"></script><script src="data/library.js"></script>
 <script>
 (function () {
   "use strict";
@@ -830,13 +850,13 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   const CHECK = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>';
   const CARET = `<span class="caret" aria-hidden="true">${gl(G.down, "s")}</span>`;
   const say = (t) => { $("#live").textContent = t; };
-  const VIEWS = ["week", "today", "compare", "library", "routines", "nutrition", "systems", "products", "extras"];
+  const VIEWS = ["week", "today", "compare", "guide", "library", "routines", "nutrition", "systems", "products", "extras"];
   const byId = {}; (P.routines || []).forEach((r) => (byId[r.id] = r));
   /* ── sources: "op" (OP docs), "me" (the owner's own notes), "both". Anything without a src is "op". ── */
-  const SRCN = { op: "OP docs", me: "Mine", both: "Both", x: "Other source" };
-  const srcOf = (v) => (v === "max" || v === "me" ? "me" : v === "both" ? "both" : v === "x" ? "x" : "op");
+  const SRCN = { op: "OP docs", me: "Mine", both: "Both", x: "Other source", ai: "Suggested" };
+  const srcOf = (v) => (v === "max" || v === "me" ? "me" : v === "both" ? "both" : v === "x" ? "x" : v === "ai" ? "ai" : "op");
   /* sb(): class + label for a source panel. Use inside a class attribute: class="fg ${sb(src)}" */
-  const sb = (v, who) => { const k = srcOf(v); return `sbox s-${k}" data-src="${k === "me" ? "My notes" : k === "both" ? "OP docs + mine" : k === "x" ? esc(who || "Other source") : "OP docs"}`; };
+  const sb = (v, who) => { const k = srcOf(v); return `sbox s-${k}" data-src="${k === "me" ? "My notes" : k === "both" ? "OP docs + mine" : k === "x" ? esc(who || "Other source") : k === "ai" ? "Suggested" : "OP docs"}`; };
   const srcTag = (v, dot, who) => { const k = srcOf(v), n = k === "x" && who ? esc(who) : SRCN[k]; return `<span class="src ${k}${dot ? " dot" : ""}"${dot ? ` title="${n}"` : ""}>${dot ? `<span class="sr">Source: ${n}</span>` : n}</span>`; };
   /* ── exercise illustration library ── */
   const LIB = {}; (P.library || []).forEach((x) => (LIB[x.id] = x));
@@ -872,7 +892,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   const SLOTS = [["morning", "am", "Morning"], ["train", "train", "Training"], ["evening", "pm", "Evening"], ["bed", "bed", "Before bed"]];
   const SLOTIC = { am: "sunrise", train: "dumbbell", pm: "sunset", bed: "bed" }, BLOCKART = { wake: "illus/wellbeing-sunlight", morning: "illus/equipment-fascia-ball", train: "illus/equipment-dumbbell", day: "illus/wellbeing-hydration", evening: "illus/wellbeing-focus-candle", bed: "illus/wellbeing-sleep-mask" };
   const slotName = (k) => (SLOTS.find((s) => s[1] === k) || [])[2] || "";
-  const SUBS = { week: [["#week", "week", "Week"], ["#today", "today", "Day"], ["#compare", "compare", "Compare"]], routines: [["", "routines", "Routines"], ["gym", "gym", "Gym"], ["lib", "lib", "Exercise library"]], library: [["#library", "library", "All topics"], ["#nutrition", "nutrition", "Nutrition"]] };
+  const SUBS = { week: [["#week", "week", "Week"], ["#today", "today", "Day"], ["#compare", "compare", "Compare"], ["#guide", "guide", "Guide"]], routines: [["", "routines", "Routines"], ["gym", "gym", "Gym"], ["lib", "lib", "Exercise library"]], library: [["#library", "library", "All topics"], ["#nutrition", "nutrition", "Nutrition"]] };
   const subnav = (grp, cur) => `<nav class="subnav" aria-label="${grp === "routines" ? "Routines" : grp === "library" ? "Library" : "Week"} views">${SUBS[grp].map((t) => (t[0][0] === "#" ? `<a href="${t[0]}"${t[1] === cur ? ' aria-current="page"' : ""}>${t[2]}</a>` : `<button data-rtab="${t[0]}"${t[1] === cur ? ' aria-current="page"' : ""}>${t[2]}</button>`)).join("")}</nav>`;
   const clone = (x) => JSON.parse(JSON.stringify(x));
   const catOf = (id) => P.cats.find((c) => c.id === id) || {};
@@ -900,7 +920,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
       const cells = SLOTS.map((s) => {
         const list = pl[s[1]] || [], r = rows.find((x) => x.b.id === s[0]);
         return `<div class="pcell" data-cell="${d}|${s[1]}"><div class="pcell-head"><span>${li(SLOTIC[s[1]])}${s[2]}</span><time>${SC.at(s[0], d, S.plan)}</time></div>
-          ${list.map((x, i) => { const rt = byId[x[0]]; if (!rt) return ""; const g = isGym(rt); return `<button class="pchip${g ? " gym" : ""}${hl && hl !== rt.cat ? " dim" : ""}${inLens(rt, l) ? "" : " out"}" data-kind="${rt.cat}" data-insp="${esc(x[0])}" data-at="${d}|${s[1]}|${i}" draggable="true">${g ? gymIcon() : ""}<b>${g ? '<span class="sr">Gym: </span>' : ""}${esc(rt.name)}</b><small>${x[1]} min</small></button>`; }).join("")}
+          ${list.map((x, i) => { const rt = byId[x[0]]; if (!rt) return ""; const g = isGym(rt); const ot = offTime(x[0], s[1]); return `<button class="pchip${g ? " gym" : ""}${ot ? " offt" : ""}${hl && hl !== rt.cat ? " dim" : ""}${inLens(rt, l) ? "" : " out"}"${ot ? ` title="The guide suggests ${tTxt(SC.guideOf(x[0]).t)}"` : ""} data-kind="${rt.cat}" data-insp="${esc(x[0])}" data-at="${d}|${s[1]}|${i}" draggable="true">${g ? gymIcon() : ""}<b>${g ? '<span class="sr">Gym: </span>' : ""}${esc(rt.name)}</b><small>${x[1]} min${ot ? '<span class="sr">. The guide suggests another time of day</span>' : ""}</small></button>`; }).join("")}
           ${r && r.over ? `<p class="pover">${r.over} min too long</p>` : ""}
           <button class="padd" data-pick="${d}|${s[1]}" aria-label="Add a routine to ${DAYN[d]} ${s[2].toLowerCase()}">${gl(G.plus, "s")}</button></div>`;
       }).join("");
@@ -912,6 +932,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
       <section class="pbal" aria-label="Balance"><h2 class="sr">Balance</h2>
         <div class="bchips" role="group" aria-label="Days a week for each kind of routine. Choose one to see where it sits.">${l === "gym" ? "" : ""}${P.cats.filter((c) => bal[c.id]).map((c) => `<button class="bchip" data-kind="${c.id}" data-hl="${c.id}" aria-pressed="${hl === c.id}"><i></i>${esc(c.name)}<b>${bal[c.id]}</b><small>${bal[c.id] === 1 ? "day" : "days"}</small></button>`).join("")}</div>
         ${checks.length ? `<details class="pcheck"${bad ? " open" : ""}><summary>${gl(bad ? G.warn : G.info, "s")}<span>${bad ? `${bad} ${bad === 1 ? "part of a day does" : "parts of days do"} not fit` + (checks.length > bad ? `, and ${checks.length - bad} more to look at` : "") : `${checks.length} ${checks.length === 1 ? "thing" : "things"} to look at this week`}</span>${CARET}</summary><ul class="pchecks">${checks.map((c) => `<li${c.k === "fit" ? ' class="bad"' : ""}><span>${esc(c.text)}</span>${c.rid ? `<button class="linkbtn" data-insp="${esc(c.rid)}">Adjust</button>` : `<button class="linkbtn" data-openday="${c.d}">Open ${DAYN[c.d]}</button>`}</li>`).join("")}</ul></details>` : `<p class="pok">${gl(G.check, "s")}Every day fits and nothing is doubled up.</p>`}</section>
+      ${(() => { const rv = review(), n = rv.order.length + rv.time.length + rv.freq.length + rv.gym.length; return n ? `<p class="gnote">${li("list-checks")}<span>The guide has ${n} ${n === 1 ? "suggestion" : "suggestions"} on order, time of day and frequency. A dashed edge marks a routine at a time the guide does not suit.</span><a class="linkbtn" href="#guide">Open the guide</a></p>` : ""; })()}
       ${dayStrip(sd)}
       <div class="planner" id="planner">${cols}</div>
       <p class="small muted phint">Drag a routine to another slot, or choose it to see what is in it and change when and how often you do it.</p>`;
@@ -960,14 +981,77 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   const splitBar = (o, max, l) => `<span class="sbar" aria-hidden="true">${["rt", "gym"].filter((k) => (!l || l === k) && o[k]).map((k) => `<i class="s-${k}" style="width:${max ? Math.max(4, (o[k] / max) * 100).toFixed(1) : 0}%"></i>`).join("")}</span>`;
   const gymIcon = () => `<span class="gi" aria-hidden="true">${li("dumbbell")}</span>`;
   const rtIn = (r) => (S.ui.rtab === "gym") === isGym(r);
+  /* ── guide: when, how often and in what order (data/guide.js). The docs first; labelled suggestions where they are silent ── */
+  const SLOTW = { am: "morning", train: "training", pm: "evening", bed: "before bed" };
+  const habitCovers = (id) => P.blocks.some((b) => b.items.some((i) => i.go === id && !i.opt));
+  const review = () => SC.review(S.plan, habitCovers);
+  const fTxt = (f) => (!f ? "as needed" : f[0] === 7 ? "daily" : f[0] === f[1] ? `${f[0]} a week` : f[1] === 7 ? `${f[0]} a week or more` : `${f[0]} to ${f[1]} a week`);
+  const tTxt = (t) => (t ? t.map((k) => SLOTW[k]).join(" or ") : "any time");
+  const gSrc = (gd) => (gd.ts === "ai" || gd.fs === "ai" ? "ai" : "op");
+  const offTime = (rid, k) => { const gd = SC.guideOf(rid); return !!(gd && gd.t && gd.t.indexOf(k) < 0); };
+  const insertRanked = (list, item) => { const s = SC.sortSlot(list.concat([item])); list.length = 0; s.forEach((x) => list.push(x)); };
+  const PHASES = [[0, 11, "Wake the body"], [12, 29, "Breathe, release, drain"], [30, 49, "Tongue, face and jaw"], [50, 59, "Posture"], [60, 69, "Train"], [70, 77, "Finish"], [78, 89, "Settle"], [90, 99, "Breathe down"]];
+  /* add or remove placements to reach the suggested number: quiet days first, spread apart */
+  function fixFreq(it) {
+    const gd = SC.guideOf(it.rid), k = (gd && gd.t && gd.t[0]) || usualSlot(byId[it.rid]), mins = (placed(it.rid)[0] || {}).min || SC.mins(it.rid);
+    if (it.delta > 0) {
+      for (let n = 0; n < it.delta; n++) {
+        const has = new Set(placed(it.rid).map((x) => x.d)), free = ORDER.filter((d) => !has.has(d)); if (!free.length) break;
+        const near = (d) => [-1, 1].filter((o) => has.has((d + o + 7) % 7)).length;
+        const d = free.sort((a, b) => near(a) - near(b) || dayMin(a) - dayMin(b))[0]; insertRanked(ensureDay(d)[k], [it.rid, mins]);
+      }
+    } else for (let n = 0; n < -it.delta; n++) { const p = placed(it.rid).sort((a, b) => dayMin(b.d) - dayMin(a.d))[0]; if (!p) break; ensureDay(p.d)[p.k].splice(p.i, 1); }
+  }
+  function applyGuide(kind, sel) {
+    const rv = review(), items = (rv[kind] || []).filter((x, i) => sel === "all" || String(i) === sel || x.rid === sel); if (!items.length) return;
+    items.forEach((it) => {
+      if (kind === "order") { const pl = ensureDay(it.d); pl[it.k] = SC.sortSlot(pl[it.k]); }
+      else if (kind === "time") { const pl = ensureDay(it.d), i = pl[it.k].findIndex((x) => x[0] === it.rid); if (i > -1) insertRanked(pl[it.to], pl[it.k].splice(i, 1)[0]); }
+      else if (kind === "freq") fixFreq(it);
+      else if (kind === "gym" && it.kind === "warmup") insertRanked(ensureDay(it.d).train, ["groundwork", 5]);
+      else if (kind === "gym" && it.kind === "late") { const pl = ensureDay(it.d); pl.train = SC.sortSlot(pl.train); }
+    });
+    save(); RENDER[current](); toast(items.length === 1 ? "Applied to your week" : `${items.length} changes applied to your week`, undoLast);
+  }
+  function renderGuide() {
+    now = new Date(); TK = dkey(now);
+    const l = lens(), rv = review(), inL = (rid) => !rid || !byId[rid] || inLens(byId[rid], l), mark = (s) => srcTag(s, true);
+    const order = rv.order.map((x, i) => [x, i]).filter((x) => x[0].now.some(inL)), time = rv.time.map((x, i) => [x, i]).filter((x) => inL(x[0].rid)), freq = rv.freq.map((x, i) => [x, i]).filter((x) => inL(x[0].rid)), gym = rv.gym.map((x, i) => [x, i]).filter((x) => l !== "rt");
+    const tot = order.length + time.length + freq.length + gym.length, nm = (id) => esc((byId[id] || {}).name || id);
+    const card = (title, sub, all, rows) => `<section class="gcard"><header><div><h3>${title}</h3><p>${sub}</p></div>${all || ""}</header>${rows.length ? `<ul class="glist">${rows.join("")}</ul>` : `<p class="pok">${gl(G.check, "s")}Nothing to change.</p>`}</section>`;
+    const row = (main, why, src, btn) => `<li><div><b>${main}</b>${why ? `<small>${mark(src)}${esc(why)}</small>` : ""}</div>${btn || ""}</li>`;
+    const slotsNow = ORDER.map((d) => SLOTS.map((s) => [d, s[1]])).reduce((a, b) => a.concat(b), []);
+    const phase = (k, r) => (k === "train" && r < 30 ? "Warm up" : k === "bed" && r < 90 ? "Release and settle" : (PHASES.find((x) => r >= x[0] && r <= x[1]) || [0, 0, ""])[2]);
+    const shape = SLOTS.map((s) => { const ids = Object.keys(P.guide).filter((id) => byId[id] && P.guide[id].t && P.guide[id].t[0] === s[1] && inLens(byId[id], l)).sort((a, b) => SC.rank(a) - SC.rank(b)); let ph = "";
+      return `<section class="gcol"><h3>${li(SLOTIC[s[1]])}${s[2]}</h3><ol>${ids.map((id) => { const gd = P.guide[id], p = phase(s[1], gd.r), head = p !== ph ? `<li class="gph">${esc(p)}</li>` : ""; ph = p; const n = placed(id).length;
+        return `${head}<li><button class="gr${isGym(byId[id]) ? " gym" : ""}" data-insp="${esc(id)}">${isGym(byId[id]) ? gymIcon() : `<span class="cdot" data-kind="${byId[id].cat}"></span>`}<span>${nm(id)}</span><small>${fTxt(gd.f)}${gd.t.length > 1 ? `, also ${tTxt(gd.t.slice(1))}` : ""}${n ? `. In your week ${n}×` : ""}</small></button></li>`; }).join("")}</ol></section>`; }).join("");
+    $("#v-guide").innerHTML = `<header class="view-head"><div><h1>Guide</h1><p class="lede">When, how often and in what order each routine fits. Each line says whether it comes from the OP docs or is a suggestion where they say nothing. Your week only changes when you choose Apply.</p></div><div class="head-side">${undoBar()}</div></header>
+      ${subnav("week", "guide")}${lensBar()}
+      <section class="gsum"><p><b>${tot ? `${tot} ${tot === 1 ? "suggestion" : "suggestions"} for this week.` : "Your week matches the guide."}</b> You plan about ${hm(rv.perDay)} a day now. At every suggested frequency it would be about ${hm(rv.perDayTarget)}.</p>
+        <p class="small muted"><span class="src op dot"></span> from the OP docs <span class="src ai dot"></span> suggested where the docs are silent. Fixes for a specific problem only count once you have put them in your week.</p></section>
+      <div class="gcards">
+        ${card("Order within each part of the day", "Wake the body, release, then tongue and face work, then posture; warm up before lifting and release after it; breathe down last.", order.length ? '<button class="btn sm" data-gapply="order" data-gsel="all">Order every day</button>' : "", order.map(([x, i]) => row(`${DAYN[x.d]} ${SLOTW[x.k]}: ${x.want.map(nm).join(", then ")}`, "", "op", `<button class="btn ghost sm" data-gapply="order" data-gsel="${i}">Apply</button>`)))}
+        ${card("Time of day", "Routines placed in a part of the day the guide does not suit.", time.length > 1 ? '<button class="btn sm" data-gapply="time" data-gsel="all">Move all</button>' : "", time.map(([x, i]) => row(`${nm(x.rid)}: ${DAYN[x.d]} ${SLOTW[x.k]} → ${SLOTW[x.to]}`, x.why, x.src, `<button class="btn ghost sm" data-gapply="time" data-gsel="${i}">Move</button>`)))}
+        ${card("Around the gym", "The training rules: release before lifting, at most 4 weight sessions and 4 sprint sessions a week. Suggested: long release after lifting, not before.", "", gym.map(([x, i]) => row(x.kind === "warmup" ? `${DAYN[x.d]}: no release before ${nm(x.rid)}` : x.kind === "late" ? `${DAYN[x.d]}: long release before lifting` : esc(x.text), x.kind === "warmup" ? "The training rules ask for 2 to 3 minutes of fascia hops, bar hangs or ball work before training. Groundwork covers it." : x.kind === "late" ? x.text.replace(/^[A-Za-z]+: /, "") : "", x.src, x.kind === "limit" ? '<a class="btn ghost sm" href="#compare">Open Compare</a>' : `<button class="btn ghost sm" data-gapply="gym" data-gsel="${i}">${x.kind === "warmup" ? "Add Groundwork first" : "Put it after"}</button>`)))}
+        ${card("How often", "Each routine's number from the guide next to what your week has now. Bringing one up adds it on your quietest days, spread apart.", "", freq.map(([x, i]) => row(`${nm(x.rid)}: ${x.n} now, guide ${fTxt(x.f)}`, `${x.delta > 0 ? "Adds" : "Saves"} about ${Math.abs(x.delta) * x.mins} min a week. ${x.why}`, x.src, `<button class="btn ghost sm" data-gapply="freq" data-gsel="${i}">${x.delta > 0 ? `Add ${x.delta}` : `Remove ${-x.delta}`}</button>`)))}
+      </div>
+      <section class="gshape"><h2>The shape of a day</h2><p class="small muted">Every routine under the part of the day that suits it best, in the order the guide suggests. Choose one to see what is in it and place it.</p><div class="gcols">${shape}</div></section>`;
+  }
+  function guideClick(t, d) {
+    if (d.gapply) { applyGuide(d.gapply, d.gsel); refocus("#v-guide .gsum, [data-undo2]"); return true; }
+    if (d.gfix) { const a = d.gfix.split("|"); applyGuide(a[0], a[1]); if (!$("#sheet").hidden) openInsp(a[1], INSP && INSP.at); return true; }
+    return false;
+  }
+
 
   const exNames = (r) => r.ex.filter((e) => typeof e !== "string").map(exName).filter((x, i, a) => a.indexOf(x) === i);
   function cmpRows(grp) {
     const ui = S.ui, q = (ui.cq || "").trim().toLowerCase(), aims = aimsNow();
-    let l = P.routines.filter((r) => gymOf(r) === grp).map((r) => { const pl = placed(r.id); return { r, pl, n: pl.length, min: pl.reduce((a, x) => a + (+x.min || 0), 0), aim: +aims[r.id] || 0 }; })
+    let l = P.routines.filter((r) => gymOf(r) === grp).map((r) => { const pl = placed(r.id), gd = SC.guideOf(r.id), n = gd && gd.h && habitCovers(r.base || r.id) ? Math.max(7, pl.length) : pl.length, aim = +aims[r.id] || 0, gf = !aim && gd && gd.f;
+      return { r, pl, n, min: pl.reduce((a, x) => a + (+x.min || 0), 0), aim, gf, off: aim ? n !== aim : !!gf && !(gd.c && !n) && (n < gf[0] || n > gf[1]) }; })
       .filter((x) => (!ui.co || x.n) && (!q || (x.r.name + " " + (catOf(x.r.cat).name || "")).toLowerCase().indexOf(q) > -1));
     const s = ui.cs || "group", ci = (x) => P.cats.findIndex((c) => c.id === x.r.cat);
-    l.sort((a, b) => (s === "most" ? b.n - a.n : s === "least" ? a.n - b.n : s === "long" ? b.min - a.min : s === "aim" ? (b.aim && b.n !== b.aim ? 1 : 0) - (a.aim && a.n !== a.aim ? 1 : 0) : ci(a) - ci(b)) || ci(a) - ci(b) || a.r.name.localeCompare(b.r.name));
+    l.sort((a, b) => (s === "most" ? b.n - a.n : s === "least" ? a.n - b.n : s === "long" ? b.min - a.min : s === "aim" ? (b.off ? 1 : 0) - (a.off ? 1 : 0) : ci(a) - ci(b)) || ci(a) - ci(b) || a.r.name.localeCompare(b.r.name));
     return l;
   }
   function cmpSide() {
@@ -992,16 +1076,16 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
       return `<section class="cgroup cg-${g}" aria-label="${g === "gym" ? "Gym" : "Routines"}"><header class="cg-head"><span class="lsw" aria-hidden="true"></span><h2>${g === "gym" ? "Gym" : "Routines"}</h2><p>${rows.length} shown, ${tot} placed this week, ${per.reduce((a, b) => a + b, 0)} min</p></header>
         ${rows.length ? `<ul class="clist">${rows.map((x) => { const r = x.r, head = (ui.cs || "group") === "group" && r.cat !== last ? `<li class="chead"><span class="cdot" data-kind="${r.cat}"></span>${esc(catOf(r.cat).name || "")}</li>` : ""; last = r.cat;
           return `${head}<li class="crow${x.n ? "" : " unplaced"}${g === "gym" ? " gym" : ""}"><label class="ccheck"><input type="checkbox" data-csel="${esc(r.id)}"${CSEL.indexOf(r.id) > -1 ? " checked" : ""}${CSEL.length >= 3 && CSEL.indexOf(r.id) < 0 ? " disabled" : ""}><span class="sr">Compare ${esc(r.name)}</span></label>
-            <div class="cname"><button class="linkname" data-insp="${esc(r.id)}">${g === "gym" ? gymIcon() : `<span class="cdot" data-kind="${r.cat}"></span>`}${esc(r.name)}</button><small>${esc(r.dur || "No set length")}${r.when ? ". " + esc(r.when) : ""}</small></div>
+            <div class="cname"><button class="linkname" data-insp="${esc(r.id)}">${g === "gym" ? gymIcon() : `<span class="cdot" data-kind="${r.cat}"></span>`}${esc(r.name)}</button><small>${(() => { const gd = SC.guideOf(r.id); return gd ? `${srcTag(gSrc(gd), true)}${esc(r.dur || "No set length")}. Guide: ${tTxt(gd.t)}, ${fTxt(gd.f)}` : `${esc(r.dur || "No set length")}${r.when ? ". " + esc(r.when) : ""}`; })()}</small></div>
             <div class="cdays" role="group" aria-label="Days for ${esc(r.name)}">${ORDER.map((d) => { const c = x.pl.filter((p) => p.d === d).length; return `<button data-cday="${esc(r.id)}|${d}" aria-pressed="${c > 0}" aria-label="${DAYN[d]}${c > 1 ? ", " + c + " times" : ""}">${DAYN[d][0]}${c > 1 ? `<i>${c}</i>` : ""}</button>`; }).join("")}</div>
-            <div class="ccount${x.aim && x.n !== x.aim ? " off" : ""}${x.n ? "" : " zero"}"><b>${x.n}</b><small>${x.aim ? "of " + x.aim + " a week" : "a week"}</small><small>${x.min ? x.min + " min" : ""}</small></div></li>`; }).join("")}
+            <div class="ccount${x.off ? " off" : ""}${x.n ? "" : " zero"}"><b>${x.n}</b><small>${x.aim ? "of " + x.aim + " a week" : x.gf ? "guide " + (x.gf[0] === x.gf[1] ? x.gf[0] : x.gf[0] + "–" + x.gf[1]) : "a week"}</small><small>${x.min ? x.min + " min" : ""}</small></div></li>`; }).join("")}
           <li class="cfoot" aria-label="${g === "gym" ? "Gym" : "Routine"} minutes each day"><span></span><span>Minutes each day</span><div class="cdays">${ORDER.map((d, i) => `<span title="${DAYN[d]}"><span class="sr">${DAYN[d]} </span>${per[i]}</span>`).join("")}</div><div class="ccount"><b>${per.reduce((a, b) => a + b, 0)}</b><small>a week</small></div></li></ul>`
           : '<div class="empty"><b>Nothing matches</b>Clear the filter or turn off In my week.</div>'}</section>`;
     }).join("");
   }
   function renderCompare() {
     now = new Date(); TK = dkey(now);
-    const ui = S.ui, view = ui.ct === "ex" ? "ex" : "rt", bad = SC.checks(S.plan, aimsNow()).filter((c) => c.k === "fit").length, so = view === "ex" ? [["most", "Most often"], ["least", "Least often"]] : [["group", "By kind"], ["most", "Most often"], ["least", "Least often"], ["long", "Most minutes"], ["aim", "Off their aim first"]];
+    const ui = S.ui, view = ui.ct === "ex" ? "ex" : "rt", bad = SC.checks(S.plan, aimsNow()).filter((c) => c.k === "fit").length, so = view === "ex" ? [["most", "Most often"], ["least", "Least often"]] : [["group", "By kind"], ["most", "Most often"], ["least", "Least often"], ["long", "Most minutes"], ["aim", "Off the guide or aim first"]];
     if (!so.some((o) => o[0] === ui.cs)) ui.cs = so[0][0];
     $("#v-compare").innerHTML = `<header class="view-head"><div><h1>Compare</h1><p class="lede">Every routine and gym session, and how often each sits in your week. Choose a day letter to add or remove it; choose a name to see what is in it and set minutes, slot and aim.</p></div><div class="head-side">${undoBar()}</div></header>
       ${subnav("week", "compare")}${lensBar()}
@@ -1033,6 +1117,9 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     sheetUp(`<div class="insp">
       <p class="imeta">${isGym(r) ? gymIcon() : `<span class="cdot" data-kind="${r.cat}"></span>`}${esc(catOf(r.cat).name || "")}${isGym(r) ? '<span class="badge gymb">Gym</span>' : ""}</p>
       <dl class="ifacts">${r.dur ? `<dt>Length</dt><dd>${esc(r.dur)}</dd>` : ""}${r.when ? `<dt>When, as written</dt><dd>${esc(r.when)}</dd>` : ""}${eq ? `<dt>Needs</dt><dd>${esc(eq.join(", "))}</dd>` : ""}</dl>
+      ${(() => { const gd = SC.guideOf(rid); if (!gd) return ""; const rv = review(), fq = rv.freq.find((x) => x.rid === (r.base || rid)), tm = rv.time.filter((x) => x.rid === rid);
+        return `<section class="iguide" aria-label="Guide"><h4>Guide</h4><dl class="ifacts"><dt>Best time</dt><dd>${srcTag(gd.ts, true)}${tTxt(gd.t)}</dd><dt>How often</dt><dd>${srcTag(gd.fs, true)}${fTxt(gd.f)}${gd.c ? ", if it applies to you" : ""}</dd></dl><p>${esc(gd.why)}</p>
+          ${fq || tm.length ? `<div class="row">${fq ? `<button class="btn ghost sm" data-gfix="freq|${esc(fq.rid)}">${fq.delta > 0 ? `Add ${fq.delta} to reach ${fTxt(fq.f)}` : `Remove ${-fq.delta}`}</button>` : ""}${tm.length ? `<button class="btn ghost sm" data-gfix="time|${esc(rid)}">Move ${tm.length > 1 ? "all " + tm.length : ""} to the ${SLOTW[gd.t[0]]}</button>` : ""}</div>` : ""}</section>`; })()}
       ${here ? `<fieldset class="ed-slot"><legend>${DAYN[+cur[0]]} ${slotName(cur[1]).toLowerCase()}</legend><div class="irow"><span>Minutes</span>${stepper("imin", here[1])}</div>
         <div class="row"><button class="btn ghost sm" data-iup="1"${+cur[2] > 0 ? "" : " disabled"}>Earlier</button><button class="btn ghost sm" data-idown="1"${+cur[2] < list.length - 1 ? "" : " disabled"}>Later</button><button class="btn ghost sm danger" data-irem="1">Remove from ${DAYN[+cur[0]]}</button></div></fieldset>` : ""}
       <h4>When you do it</h4><p class="small muted" id="iCount">${pl.length} ${pl.length === 1 ? "time" : "times"} this week. Choose a square to add or remove it.</p>${grid}
@@ -1043,7 +1130,8 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   function openPicker(d, k) {
     INSP = { pick: d + "|" + k };
     const grp = (g) => P.cats.map((c) => { const rs = P.routines.filter((r) => r.cat === c.id && gymOf(r) === g); return rs.length ? `<h4><span class="cdot" data-kind="${c.id}"></span>${esc(c.name)}</h4>${rs.map((r) => { const n = placed(r.id).length; return `<button class="opt-row prow" data-pickrid="${esc(r.id)}" data-k="${esc((r.name + " " + c.name).toLowerCase())}"><span><b>${esc(r.name)}</b><small>${esc(r.dur || "No set length")}</small></span><span>${n ? n + " a week" : "not placed"}</span></button>`; }).join("")}` : ""; }).join(""), order = k === "train" || lens() === "gym" ? ["gym", "rt"] : ["rt", "gym"];
-    const rows = order.map((g) => `<h3 class="prow-g"><span class="lsw" style="background:var(--${g})" aria-hidden="true"></span>${g === "gym" ? "Gym" : "Routines"}</h3>${grp(g)}`).join("");
+    const suits = P.routines.filter((r) => { const gd = SC.guideOf(r.id); return gd && gd.t && gd.t[0] === k && gd.f && !gd.h && !(gd.c && !placed(r.id).length) && placed(r.id).length < gd.f[0]; }).sort((a, b) => SC.rank(a.id) - SC.rank(b.id)).slice(0, 8);
+    const rows = (suits.length ? `<h3 class="prow-g suit">${li("list-checks")}Suits the ${SLOTW[k]} and below the guide</h3>${suits.map((r) => `<button class="opt-row prow" data-pickrid="${esc(r.id)}" data-k="${esc(r.name.toLowerCase())}"><span><b>${esc(r.name)}</b><small>${esc(r.dur || "")}</small></span><span>${placed(r.id).length} of ${SC.guideOf(r.id).f[0]} a week</span></button>`).join("")}` : "") + order.map((g) => `<h3 class="prow-g"><span class="lsw" style="background:var(--${g})" aria-hidden="true"></span>${g === "gym" ? "Gym" : "Routines"}</h3>${grp(g)}`).join("");
     sheetUp(`<div class="insp"><input class="search" id="pkQ" type="search" name="pkq" autocomplete="off" placeholder="Find a routine…" aria-label="Find a routine"><div id="pkList">${rows}</div><div class="row"><button class="btn ghost sm" data-add="routine">${gl(G.plus, "s")}Make a new routine</button></div></div>`, `Add to ${DAYN[d]} ${slotName(k).toLowerCase()}`);
   }
   function movePlaced(d1, k1, i, d2, k2) {
@@ -1530,7 +1618,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   const sheetUp = (html, label) => { if ($("#sheet").hidden) lastFocus = document.activeElement; $("#sheet").innerHTML = `<div class="sheet ed" role="dialog" aria-modal="true" aria-label="${label}"><div class="sheet-head"><h3>${label}</h3><button class="btn ghost sm" id="sheetClose">Close</button></div>${html}</div>`; $("#sheet").hidden = false; document.body.style.overflow = "hidden"; $("#sheetClose").focus(); };
   function openMore() {
     sheetUp(`<button class="opt-row" data-saved="1">${li("saved")}Saved and collections<span>${Object.keys(S.fav || {}).length}</span></button><button class="opt-row" data-manage="1">${li("download")}My edits, backup and restore<span>${(S.adds || []).length + Object.keys(S.hide || {}).length}</span></button><button class="opt-row" data-find="1">${li("search")}Find anything</button><button class="opt-row" data-add="note">${li("sticky-note")}Quick note<span>to the Inbox</span></button>
-      <h4>Sources</h4><p class="small muted">Each block carries a label saying where it came from. In lists a small shape repeats it.</p><div class="key"><span class="src op">OP docs</span><span class="src me">My notes</span><span class="src both">OP docs + mine</span><span class="src x"${(S.adds || []).some((a) => a.src === "x") ? "" : " hidden"}>Someone else, named</span></div><button class="srcswitch" role="switch" aria-checked="${!S.ui.plain}" data-srctoggle="1"><i aria-hidden="true"></i>Source labels</button>`, "More");
+      <h4>Sources</h4><p class="small muted">Each block carries a label saying where it came from. In lists a small shape repeats it.</p><div class="key"><span class="src op">OP docs</span><span class="src me">My notes</span><span class="src both">OP docs + mine</span><span class="src ai">Suggested where the docs are silent</span><span class="src x"${(S.adds || []).some((a) => a.src === "x") ? "" : " hidden"}>Someone else, named</span></div><button class="srcswitch" role="switch" aria-checked="${!S.ui.plain}" data-srctoggle="1"><i aria-hidden="true"></i>Source labels</button>`, "More");
   }
   function openSaved() {
     const row = (ref) => { const n = refName(ref), k = ref[0]; return n ? `<button class="opt-row" ${refAttr(ref)}>${esc(n)}<span>${k === "r" ? esc(catName((byId[ref.slice(2)] || {}).cat) || "Routine") : k === "t" ? "Topic" : k === "p" ? "Product" : "Food"}</span></button>` : ""; };
@@ -1544,7 +1632,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   let FOPEN = {};
   function drawFind(q, keepScroll) {
     S.ui.fq = q; q = q.trim().toLowerCase(); const box = $("#fRes"), filt = $("#fFilt");
-    if (q.length < 2) { filt.innerHTML = ""; box.innerHTML = `<h3>Jump to</h3>${[["Your week", "week"], ["Today", "today"], ["Compare routines", "compare"], ["Routines", "routines"], ["Exercise library", "routines-lib"], ["Library", "library"], ["Nutrition", "nutrition"], ["Products", "products"]].map((j) => `<button data-jumpto="${j[1]}"><b>${j[0]}</b></button>`).join("")}<p class="small muted" style="padding:12px 6px">Type two or more letters to search all ${findIndex().length} entries.</p>`; return; }
+    if (q.length < 2) { filt.innerHTML = ""; box.innerHTML = `<h3>Jump to</h3>${[["Your week", "week"], ["Today", "today"], ["Compare routines", "compare"], ["Guide: when and how often", "guide"], ["Routines", "routines"], ["Exercise library", "routines-lib"], ["Library", "library"], ["Nutrition", "nutrition"], ["Products", "products"]].map((j) => `<button data-jumpto="${j[1]}"><b>${j[0]}</b></button>`).join("")}<p class="small muted" style="padding:12px 6px">Type two or more letters to search all ${findIndex().length} entries.</p>`; return; }
     const words = q.split(/\s+/), all = findIndex().filter((x) => words.every((w) => x.k.indexOf(w) > -1)), groups = {}, kinds = {};
     all.forEach((h) => (kinds[h.kind] = (kinds[h.kind] || 0) + 1)); if (S.ui.fk && !kinds[S.ui.fk]) S.ui.fk = "";
     const hits = S.ui.fk ? all.filter((h) => h.kind === S.ui.fk) : all, rank = (h) => { const t = h.t.toLowerCase(); return t === q ? 0 : t.indexOf(q) === 0 ? 1 : t.indexOf(q) > -1 ? 2 : 3; };
@@ -1596,7 +1684,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     : [["", "Inbox, file it later"]].concat(P.systems.map((t) => [t.id, "Systems: " + t.name]), P.extras.map((t) => [t.id, "Extras: " + t.name]));
   const cleanAdds = (l) => (Array.isArray(l) ? l : []).filter((a) => a && ADD[a.k] && typeof a.n === "string" && a.n.trim() && /^u[a-z0-9]+$/.test(a.id)).map((a) => {
     const o = {}; ["k", "id", "n", "g", "note", "icon", "p", "u", "list", "min", "steps", "dont", "opt", "tags", "base", "src", "who"].forEach((f) => { if (a[f] != null && a[f] !== "") o[f] = String(a[f]).slice(0, 2000); });
-    if (o.u && !/^https?:\/\//i.test(o.u)) delete o.u; if (o.icon && FOODIC.indexOf(o.icon) < 0) delete o.icon; if (!SRCN[o.src] || o.src === "both") o.src = "me"; return o;
+    if (o.u && !/^https?:\/\//i.test(o.u)) delete o.u; if (o.icon && FOODIC.indexOf(o.icon) < 0) delete o.icon; if (!SRCN[o.src] || o.src === "both" || o.src === "ai") o.src = "me"; return o;
   });
   const cleanPlan = (p) => { const o = {}; if (p && typeof p === "object") for (let d = 0; d < 7; d++) { const x = p[d]; if (!x || typeof x !== "object") continue; const y = { focus: String(x.focus || "").slice(0, 60), at: {} }; ["am", "train", "pm", "bed"].forEach((k) => { y[k] = (Array.isArray(x[k]) ? x[k] : []).filter((s) => Array.isArray(s) && typeof s[0] === "string").map((s) => [s[0].slice(0, 40), Math.max(1, Math.min(240, Math.round(+s[1]) || 10))]); }); Object.keys(P.plan.times).forEach((b) => { if (x.at && /^\d\d:\d\d$/.test(x.at[b])) y.at[b] = x.at[b]; }); o[d] = y; } return o; };
   const userOf = (k) => (S.adds || []).filter((a) => a.k === k);
@@ -1700,8 +1788,8 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   }
 
   /* ── routing ── */
-  const NAVOF = { week: "week", today: "week", compare: "week", routines: "routines", library: "library", nutrition: "library", systems: "library", extras: "library", products: "products" };
-  const RENDER = { week: renderWeek, today: renderDay, compare: renderCompare, library: renderLibrary, routines: renderRoutines, nutrition: renderNutrition, systems: renderSystems, products: renderProducts, extras: renderExtras };
+  const NAVOF = { week: "week", today: "week", compare: "week", guide: "week", routines: "routines", library: "library", nutrition: "library", systems: "library", extras: "library", products: "products" };
+  const RENDER = { week: renderWeek, today: renderDay, compare: renderCompare, guide: renderGuide, library: renderLibrary, routines: renderRoutines, nutrition: renderNutrition, systems: renderSystems, products: renderProducts, extras: renderExtras };
   let current = null;
   function route(first) {
     const v = VIEWS.indexOf(location.hash.slice(1)) > -1 ? location.hash.slice(1) : "week", navv = NAVOF[v];
@@ -1720,7 +1808,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     if (e.target.id === "libdlg") { closeLib(); return; }
     if (e.target.id === "find") { closeFind(); return; }
     const t = e.target.closest("button, a"); if (!t) return; const d = t.dataset;
-    if (cmpClick(t, d) || planClick(t, d) || v8Click(t, d) || uiClick(t, d) || editClick(t, d)) { if (t.closest("summary")) e.preventDefault(); return; }
+    if (guideClick(t, d) || cmpClick(t, d) || planClick(t, d) || v8Click(t, d) || uiClick(t, d) || editClick(t, d)) { if (t.closest("summary")) e.preventDefault(); return; }
     if (d.fav) { e.preventDefault(); if (S.fav[d.fav]) delete S.fav[d.fav]; else S.fav[d.fav] = 1; save(); t.setAttribute("aria-pressed", !!S.fav[d.fav]); say(S.fav[d.fav] ? "Added to favourites" : "Removed from favourites"); if ($("#rStrips") && !(S.ui.rq || "").trim()) $("#rStrips").innerHTML = stripsHtml(); }
     else if (d.go) { if (!$("#sheet").hidden) closeSheet(true); if (!$("#libdlg").hidden) closeLib(); if (!$("#player").hidden) closeOverlay($("#player")); S.ui.rtab = ""; openRoutine(d.go); }
     else if (d.cat !== undefined) { S.ui.rcat = d.cat; save(); $$("[data-cat]").forEach((c) => c.setAttribute("aria-pressed", c.dataset.cat === d.cat)); drawRoutines(); }
