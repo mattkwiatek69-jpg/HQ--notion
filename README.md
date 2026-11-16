@@ -16,10 +16,12 @@ Four sections: Week (the planner, a day view and Compare), Routines (routines an
 | `health-hub/data/products.js` | Every product, with source, price and link |
 | `health-hub/data/schedule.js` | The week timetable: which routine runs on which day, at what time, for how long |
 | `health-hub/tests/schedule.test.js` | Self-check that every day of the timetable fits (`node health-hub/tests/schedule.test.js`) |
+| `health-hub/tests/data.test.js` | Self-check that every `src` in the data files is registered in `data/sources.js` and every source is complete |
 | `health-hub/tests/browser.test.js`, `contrast.js`, `serve.sh` | Playwright regression suite, colour-contrast check, and the local server they use |
 | `health-hub/assets/manifest.json`, `ASSET-REQUESTS.md` | Inventory of the artwork, and the pictures still to be made with ready prompts |
 | `health-hub/data/guide.js` | When, how often and in what order each routine fits, with the source of each (OP docs or a labelled suggestion), and the review of the week against it |
 | `health-hub/data/areas.js` | Body areas: what each routine and exercise works (suggested, correctable), the weighting of each area from the docs, and how the week covers it |
+| `health-hub/data/sources.js` | Every source the hub knows (OP docs, your notes, both, suggestions, people and named documents): label, shape and colour. New documents are registered here |
 | `health-hub/data/meta.js` | Equipment per routine, topic icons, metric portions, coverage-review additions |
 | `health-hub/data/library.js` | 274 exercise illustrations: crop rectangles, picture type, source notes, and the map from routine steps to illustrations |
 | `health-hub/assets/` | Icons, the 18 cleaned exercise-library sheets (`assets/library/`), the nutrition banner |

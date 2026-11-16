@@ -6,17 +6,20 @@
 
 Before adding any new information to the hub, **ask the owner whose it is**: their own, or someone else's (and whose). Do not guess from the file name. Then mark it so the on-page key stays true.
 
-Each block of information sits in a **source panel**: a plain card that ends with a quiet text label saying where it came from. In lists, where a label per row would be noise, a small shape beside the row says the same thing. Source marking never uses colour: colour belongs to the action accent and to the kinds of routine.
+Each block of information sits in a **source panel**: a plain card that ends with a quiet text label saying where it came from, with its border tinted slightly toward the source's colour. In lists, where a label per row would be noise, a small shape beside the row says the same thing. Every source is registered in `health-hub/data/sources.js` (`P.sources`) with a label, a shape and a colour pair (light, dark). The owner chose colour for sources (Nov 2026): it appears only on the shapes and as that faint panel edge, never as a fill or a stripe, and the shape alone must still carry the meaning, because the Source labels switch hides labels and shapes.
 
-| Source | `src` value | Shape in lists | Label |
-|---|---|---|---|
-| OP docs (OP 1, OP 2) | `"op"` (default when unmarked) | filled circle | OP docs |
-| The owner's own notes (Approved Foods - MK, Max doc) | `"me"` (products also accept `"max"`) | diamond | My notes |
-| In both | `"both"` | half-filled circle | OP docs + mine |
-| Someone else, added inside the hub | `"x"` plus `who` (their name) | ring | their name |
-| A suggestion where the OP docs are silent (written by Claude, never the owner's) | `"ai"` | square outline | Suggested |
+| Source | `src` value | Shape in lists | Colour | Label |
+|---|---|---|---|---|
+| OP docs (OP 1, OP 2) | `"op"` (default when unmarked; `"mention"` reads as op) | filled circle | indigo | OP docs |
+| The owner's own notes (Approved Foods - MK, Max doc) | `"me"` (products also accept `"max"`) | diamond | gold | My notes |
+| In both | `"both"` | half-filled circle | indigo + gold | OP docs + mine |
+| Someone else, added inside the hub | `"x"` plus `who` (their name) | ring | one palette colour per name | their name |
+| A suggestion where the OP docs are silent (written by Claude, never the owner's) | `"ai"` | square outline | grey | Suggested |
+| A named document or person the owner sends | its own id in `P.sources` | diamond if the owner's, ring (or triangle, bar) if someone else's | next colour in `P.srcPalette` | its `n` |
 
-- A new outside source gets its own `src` value, its own entry in `SRCN` and `sb()`, its own `.src.<value>` shape in `health-hub/index.html`, and a line in the key (rail footer and the More panel). Give it a shape that differs from the four above.
+- When the owner sends a new document or names a new person: ask whose it is, then add one entry to `P.sources` (id, `n`, `whose`, `doc`, `shape`, `c` from `P.srcPalette`) and put `src: "<id>"` on every record from it. Nothing else changes: `srcOf`, `sb()`, `srcTag()`, the colour stylesheet, the key (rail footer and More), the add form's "Whose is this?" and every section's Source filter all read the registry. `node health-hub/tests/data.test.js` fails on any `src` that is not registered, and `tests/contrast.js` checks every source colour at 3:1 in light, dark and on the rail.
+- Lists are compact rows (`.dr`, a `<details name="dr">` per item, density tokens `--row-h` 56px and `--row-pic` 40px): picture, name, one line, one key fact, source shape, at most one quick action, chevron. Everything else goes in the row's body and opens in place; one row is open at a time (`OPEN` keeps it open across redraws). Products, Routines, Library topics (Compact is the default; Cards stays as an option) and Nutrition recipes use it. New list content goes into this row, never into a taller card.
+- Each list section (Products, Routines, Library, approved and avoided foods) has a Source control (`srcCtl`): All sources plus one chip per source present, with counts, and Group by source (`bySrc`). Its state is `S.ui.sf_<p|r|t|f>` and `S.ui.sg_<…>`.
 - Set `src` on the item or group in `health-hub/data/*.js`. Wrap each block in a panel with `class="... ${sb(src)}"` (add `slim` for list rows). Lists of the owner's notes render gold diamond bullets with `ul(items, "me")`.
 - Keep the Source labels switch working: under `html.plain` the labels and shapes are hidden.
 - Four main sections: **Week** (the planner, which is the main page, and Day), **Routines** (Routines, Exercise library), **Library** (Nutrition plus every topic, grouped), **Products**. Saved, My edits, backup and the source key live in the utility area (rail footer on desktop, More on phones). New information goes into an existing template, never into the main menu. Old links (`#today`, `#week`, `#routines`, `#nutrition`, `#systems`, `#extras`, and `#progress`, which now lands on the week) must keep working.
@@ -54,5 +57,5 @@ Each block of information sits in a **source panel**: a plain card that ends wit
 
 ### Checks to run after any change
 
-- `node health-hub/tests/schedule.test.js` (timetable fits), `node health-hub/tests/contrast.js` (every colour pair in light and dark; no line may say LOW).
+- `node health-hub/tests/schedule.test.js` (timetable fits), `node health-hub/tests/data.test.js` (every `src` is registered and every source is complete), `node health-hub/tests/contrast.js` (every colour pair in light and dark, source colours included; no line may say LOW).
 - `sh health-hub/tests/serve.sh` in one shell, then `node health-hub/tests/browser.test.js` (Playwright, isolated storage; needs the `playwright` package).

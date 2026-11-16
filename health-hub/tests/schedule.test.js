@@ -1,7 +1,7 @@
 /* Self-check for the week timetable. Run: node health-hub/tests/schedule.test.js */
 const assert = require("assert"), path = require("path");
 global.window = { PHH: {} };
-["routines-a", "routines-b", "systems", "nutrition", "products", "today", "meta", "schedule", "guide", "areas"].forEach((f) => require(path.join(__dirname, "../data", f + ".js")));
+["sources", "routines-a", "routines-b", "systems", "nutrition", "products", "today", "meta", "schedule", "guide", "areas"].forEach((f) => require(path.join(__dirname, "../data", f + ".js")));
 const P = window.PHH, S = P.sched, ids = new Set(P.routines.map((r) => r.id));
 const names = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 

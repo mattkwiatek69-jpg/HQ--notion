@@ -811,6 +811,77 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
 .pgroup li.sbox.slim.slim:first-child, .mg li.sbox.slim.slim:first-child { border-top: 0; }
 .sbox .fg-head, .sbox.cat .cat-head { border-bottom-color: var(--line); }
 .food .iconbtn { opacity: .4; transition: opacity .16s var(--ease); } .food:hover .iconbtn, .food .iconbtn:focus-visible { opacity: 1; } @media (hover: none) { .food .iconbtn { opacity: .7; } }
+
+/* ── v16 density: compact rows that open in place, and colour per source.
+   Density tokens: one row is --row-h tall with a --row-pic picture; everything a row holds opens below it. ── */
+:root { --row-h: 56px; --row-pic: 40px; --row-x: 14px; --row-gap: 12px; }
+.drstack { display: flex; flex-direction: column; gap: 24px; }
+.drg { display: flex; flex-direction: column; gap: 10px; }
+.drg-h { display: flex; align-items: center; gap: 10px; font: 600 1.0625rem/1.3 var(--sans); color: var(--ink); } .drg-h img { width: 28px; height: 28px; object-fit: contain; } .drg-h .badge { margin-left: 2px; }
+.drs { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); overflow: clip; }
+.drs > li, .drs > li.sbox.slim, .drs > li.sbox.slim.s-me, .drs > li.sbox.slim.s-both, .drs > li.sbox.slim.s-x { padding: 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: none; box-shadow: none; }
+.drs > li:first-child, .drs > li.sbox.slim:first-child { border-top: 0; }
+.dr > summary { list-style: none; display: flex; align-items: center; gap: 0 var(--row-gap); min-height: var(--row-h); padding: 6px var(--row-x); cursor: pointer; transition: background .15s var(--ease); }
+.dr > summary::-webkit-details-marker { display: none; }
+.dr > summary:hover { background: color-mix(in srgb, var(--sunk) 45%, var(--surface)); }
+.dr[open] > summary { background: color-mix(in srgb, var(--accent-soft) 55%, var(--surface)); }
+.dr > summary > img, .dr-ic { width: var(--row-pic); height: var(--row-pic); object-fit: contain; flex: none; }
+.dr-ic { display: grid; place-items: center; border-radius: 10px; background: var(--sunk); color: var(--ink-3); } .dr-ic svg { width: 20px; height: 20px; }
+.dr-main { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 1px; } .dr > summary > * { flex: none; } .dr > summary > .dr-main { flex: 1 1 auto; }
+.dr-main b { font-weight: 600; font-size: .9375rem; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dr-main small { color: var(--ink-3); font-size: .8125rem; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dr-fact { font: 600 .875rem/1 var(--sans); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; } .dr-fact .muted { font-weight: 500; font-size: .8125rem; }
+.dr > summary > .src.dot { margin: 0; }
+.dr-tags { flex-wrap: nowrap; overflow: hidden; max-width: 260px; justify-content: flex-end; }
+.qa { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; min-width: 44px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink-2); font: 600 .8125rem var(--sans); position: relative; transition: background .15s var(--ease), border-color .15s var(--ease); }
+.qa::after { content: ""; position: absolute; inset: -4px 0; } /* 44px tap area around a 36px pill */
+.qa svg { width: 15px; height: 15px; } .qa:hover { border-color: var(--ink-3); }
+.qa[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.qa[aria-pressed="false"] svg { opacity: .35; }
+.dr-body { display: flex; flex-direction: column; gap: 10px; padding: 6px var(--row-x) 16px calc(var(--row-x) + var(--row-pic) + var(--row-gap)); font-size: .9375rem; line-height: 1.5; color: var(--ink-2); }
+.dr-body > p { max-width: 70ch; } .dr-body .keys { padding: 10px; } .dr-body .bullets { margin: 0; }
+.dr-act { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.dr-src { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.drs > li.lrow { display: block; padding: 0; min-height: 0; width: auto; list-style: none; } .drs > li.lrow:hover { background: none; }
+@media (min-width: 761px) { .dr[open] > summary .dr-main small { display: none; } }
+@media (max-width: 760px) {
+  .dr > summary { gap: 0 10px; padding: 6px 12px; } .dr { --row-pic: 36px; }
+  .dr-fact, .dr-tags { display: none; }
+  .qa { padding: 0; width: 44px; justify-content: center; } .qa span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .dr-body { padding: 6px 12px 14px; }
+  .dr > summary .caret { width: 26px; height: 26px; }
+}
+@media (min-width: 761px) { .dr-main .only-m { display: none; } }
+/* routines: the same one-line row inside each kind */
+.rt > summary { min-height: var(--row-h); padding: 6px 4px; gap: 0 12px; grid-template-columns: auto minmax(0, 1fr) auto auto auto; }
+.rt-main { gap: 1px; } .rt-main h3 { font-size: 1rem; line-height: 1.3; } .rt-main p { font-size: .8125rem; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rt .film .pic { width: 52px; height: 36px; } .rt[open] > summary { background: color-mix(in srgb, var(--accent-soft) 55%, var(--surface)); }
+.rt > summary > .src.dot { margin: 0; } .rt-body > .badges:first-child { margin-bottom: 4px; }
+.cat-head { padding: 2px 0 10px; gap: 12px; } .cat-head h2 { display: flex; align-items: center; gap: 8px; font-size: 1.125rem; } .cat-head p { font-size: .8125rem; } .cat-head img { width: 32px; height: 32px; }
+@media (max-width: 760px) { .rt > summary { grid-template-columns: auto minmax(0, 1fr) auto 26px; } }
+/* foods: one line each (the detail wraps under the name only when it is long), three columns on a wide screen */
+.foods { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 6px; }
+.food { min-height: 48px; padding: 6px 8px 6px 8px; gap: 10px; } .food > img { width: 30px; height: 30px; } .food .mono { width: 30px; height: 30px; }
+.food > div { flex-direction: row; flex-wrap: wrap; align-items: baseline; column-gap: 6px; } .food b { font-size: .9375rem; } .food small { font-size: .8125rem; }
+.fgroup .fg-head { padding-bottom: 8px; gap: 10px; } .fgroup .fg-head img { width: 30px; height: 30px; } .fgroup .fg-head h3 { font-size: 1.0625rem; }
+.lgroup h2 img { width: 32px; height: 32px; } .lgroup h2 { font-size: 1.125rem; }
+.ngrid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr)); gap: 8px; } .ncard.card { min-height: 52px; padding: 8px 14px; gap: 10px; } .ncard img, .ncard .gdisc { width: 28px; height: 28px; --z: 28px; } .ncard b { font-size: .9375rem; }
+/* sources: the source filter */
+.srcctl { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.srcctl .chip { min-height: 36px; position: relative; padding: 0 12px; font-size: .8125rem; gap: 6px; } .srcctl .chip::after { content: ""; position: absolute; inset: -4px 0; }
+.srcctl .chip b { font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; } .srcctl .chip[aria-pressed="true"] b { color: inherit; }
+.srcctl .src.dot { margin: 0; } .srcctl .sgc { margin-left: auto; }
+@media (max-width: 760px) { .srcctl { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 4px 16px; } .srcctl .chip { flex: none; } .srcctl .sgc { margin-left: 0; } }
+/* sources: each shape takes its source's colour (data/sources.js); the shape still carries the meaning */
+.src::before { color: var(--sc, currentColor); }
+.src.dot::before { width: 9px; height: 9px; } .src.both::before { background: linear-gradient(90deg, var(--sc) 50%, var(--sc2) 50%); box-shadow: none; }
+.src.x::before { box-shadow: inset 0 0 0 2px currentColor; }
+.src.tri::before { border-radius: 0; width: 10px; height: 9px; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.src.bar::before { width: 4px; height: 11px; border-radius: 2px; }
+.keyl { display: contents; }
+/* and a quiet edge on each source panel, tinted toward its source */
+.sbox.sbox[class*=" k"]:not(.slim) { border-color: color-mix(in srgb, var(--sc) 26%, var(--line)); }
+html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -825,7 +896,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     <button class="only-rail" data-saved="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v16l-5-3.5L7 20V4z"/></svg>Saved</button>
     <button class="more" data-more="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 12h.01M12 12h.01M18.5 12h.01" stroke-width="3"/></svg>More</button>
   </div>
-  <div class="rail-foot"><div class="key" aria-label="Source key"><span>Where it came from</span><span class="src op">OP docs</span><span class="src me">My notes</span><span class="src both">OP docs + mine</span><span class="src ai">Suggested</span><span class="src x" hidden>Other source</span><button class="srcswitch" role="switch" aria-checked="true" data-srctoggle="1"><i aria-hidden="true"></i>Source labels</button></div><div class="rail-save"><span>Saved on this device</span><button data-manage="1">My edits</button></div></div>
+  <div class="rail-foot"><div class="key" aria-label="Source key"><span>Where it came from</span><span class="keyl" id="railKey"></span><button class="srcswitch" role="switch" aria-checked="true" data-srctoggle="1"><i aria-hidden="true"></i>Source labels</button></div><div class="rail-save"><span>Saved on this device</span><button data-manage="1">My edits</button></div></div>
 </nav>
 <div class="page"><div class="wrap">
   <div class="topbar"><div><div class="brand" translate="no">PRIMAL</div></div><button class="findbtn" data-find="1"><svg class="gl s" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4"/></svg>Find</button></div>
@@ -846,7 +917,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
 <div class="sr" aria-live="polite" id="live"></div>
 
 <script src="assets/line/primal-icons.js"></script><script src="data/routines-a.js"></script><script src="data/routines-b.js"></script><script src="data/systems.js"></script>
-<script src="data/nutrition.js"></script><script src="data/products.js"></script><script src="data/today.js"></script><script src="data/meta.js"></script><script src="data/schedule.js"></script><script src="data/guide.js"></script><script src="data/areas.js"></script><script src="data/library.js"></script>
+<script src="data/sources.js"></script><script src="data/nutrition.js"></script><script src="data/products.js"></script><script src="data/today.js"></script><script src="data/meta.js"></script><script src="data/schedule.js"></script><script src="data/guide.js"></script><script src="data/areas.js"></script><script src="data/library.js"></script>
 <script>
 (function () {
   "use strict";
@@ -862,12 +933,34 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   const say = (t) => { $("#live").textContent = t; };
   const VIEWS = ["week", "today", "compare", "guide", "library", "routines", "nutrition", "systems", "products", "extras"];
   const byId = {}; (P.routines || []).forEach((r) => (byId[r.id] = r));
-  /* ── sources: "op" (OP docs), "me" (the owner's own notes), "both". Anything without a src is "op". ── */
-  const SRCN = { op: "OP docs", me: "Mine", both: "Both", x: "Other source", ai: "Suggested" };
-  const srcOf = (v) => (v === "max" || v === "me" ? "me" : v === "both" ? "both" : v === "x" ? "x" : v === "ai" ? "ai" : "op");
+  /* ── sources (data/sources.js): every source has a label, a shape and a colour. "max" is the owner's Max doc. Anything unknown or unmarked is "op".
+     A person named in the hub ("x" + who) gets the ring and a colour of their own from the palette, so two people never look the same. ── */
+  const SRC = P.sources, SRCN = {}; Object.keys(SRC).forEach((k) => (SRCN[k] = SRC[k].n));
+  const srcOf = (v) => (v === "max" ? "me" : v && SRC[v] ? v : "op");
+  const SHC = { dot: "op", diamond: "me", half: "both", ring: "x", square: "ai", triangle: "tri", bar: "bar" };
+  const whoIx = (who) => { let h = 0; String(who || "").toLowerCase().trim().split("").forEach((c) => (h = (h * 31 + c.charCodeAt(0)) >>> 0)); return h % P.srcPalette.length; };
+  /* the colour class: k-<source id>, or kp-<n> for a person named in the hub */
+  const kcl = (k, who) => (k === "x" && who ? "kp-" + whoIx(who) : "k-" + k);
+  const skey = (v, who) => { const k = srcOf(v); return k === "x" && who ? "x:" + String(who).trim().toLowerCase() : k; };
+  const sname = (v, who) => { const k = srcOf(v); return k === "x" && who ? String(who) : SRCN[k]; };
+  const legacy = (k) => (["op", "me", "both", "x", "ai"].indexOf(k) > -1 ? k : SRC[k].whose === "me" ? "me" : "x");
   /* sb(): class + label for a source panel. Use inside a class attribute: class="fg ${sb(src)}" */
-  const sb = (v, who) => { const k = srcOf(v); return `sbox s-${k}" data-src="${k === "me" ? "My notes" : k === "both" ? "OP docs + mine" : k === "x" ? esc(who || "Other source") : k === "ai" ? "Suggested" : "OP docs"}`; };
-  const srcTag = (v, dot, who) => { const k = srcOf(v), n = k === "x" && who ? esc(who) : SRCN[k]; return `<span class="src ${k}${dot ? " dot" : ""}"${dot ? ` title="${n}"` : ""}>${dot ? `<span class="sr">Source: ${n}</span>` : n}</span>`; };
+  const sb = (v, who) => { const k = srcOf(v); return `sbox s-${legacy(k)} ${kcl(k, who)}" data-src="${esc(sname(v, who))}`; };
+  const srcTag = (v, dot, who) => { const k = srcOf(v), n = esc(sname(v, who)); return `<span class="src ${SHC[SRC[k].shape] || "op"} ${kcl(k, who)}${dot ? " dot" : ""}"${dot ? ` title="${n}"` : ""}>${dot ? `<span class="sr">Source: ${n}</span>` : n}</span>`; };
+  /* every record that carries a source, for the key */
+  const srcRecs = () => P.products.concat(P.routines, P.systems, P.extras, (P.nutrition.approved || []).reduce((a, g) => a.concat([g], g.items.filter((i) => typeof i !== "string")), []), S.adds || []);
+  /* the key: the four fixed sources, then every named source and person that something in the hub comes from */
+  const keyHtml = () => { const out = [["op", ""], ["me", ""], ["both", ""], ["ai", ""]], seen = { op: 1, me: 1, both: 1, ai: 1 }; srcRecs().forEach((r) => { const k = skey(r.src, r.who); if (!seen[k] && (k !== "x" || r.who)) { seen[k] = 1; out.push([srcOf(r.src), r.who || ""]); } }); return out.map((o) => srcTag(o[0], false, o[1])).join(""); };
+  /* one stylesheet rule per source colour, for light, dark and the always-dark rail */
+  (function () {
+    const rule = (sel, c, c2) => `${sel}{--sc:${c};--sc2:${c2 || c}}`, L = [], D = [], R = [];
+    Object.keys(SRC).forEach((k) => { const x = SRC[k], c2 = x.c2 || x.c; L.push(rule(".k-" + k, x.c[0], c2[0])); D.push(rule(".k-" + k, x.c[1], c2[1])); R.push(rule(".rail .k-" + k, x.c[1], c2[1])); });
+    P.srcPalette.forEach((c, i) => { L.push(rule(".kp-" + i, c[0])); D.push(rule(".kp-" + i, c[1])); });
+    const pre = (l, p) => l.map((r) => p + r).join("");
+    const st = document.createElement("style"); st.id = "srcColours";
+    st.textContent = L.join("") + `@media (prefers-color-scheme: dark){${pre(D, ':root:not([data-theme="light"]) ')}}` + pre(D, ':root[data-theme="dark"] ') + R.join("");
+    document.head.appendChild(st);
+  })();
   /* ── exercise illustration library ── */
   const LIB = {}; (P.library || []).forEach((x) => (LIB[x.id] = x));
   const exName = (e) => (Array.isArray(e) ? (P.X[e[0]] || { n: e[0] }).n : e.n);
@@ -1244,7 +1337,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
       ${ui.rtab === "lib" ? libHtml() : `<div class="toolbar stick"><input class="search" id="rSearch" type="search" placeholder="Search routines and exercises" aria-label="Search routines and exercises" value="${esc(ui.rq || "")}">
         <button class="btn ghost sm only-m" data-sheet="rcat">${gl(G.filter, "s")}Groups</button><span class="badge sage only-m" id="rcatLabel"></span></div>
       <div class="chips only-d" role="group" aria-label="Filter by group"><button class="chip plain" data-cat="" aria-pressed="${!ui.rcat}">All</button>${P.cats.filter((c) => P.routines.some((r) => r.cat === c.id && rtIn(r))).map((c) => `<button class="chip" data-cat="${c.id}" aria-pressed="${ui.rcat === c.id}">${ic(c.icon, 26)}${esc(c.name)}</button>`).join("")}</div>
-      <div id="rStrips" class="strip"></div><div id="rList" style="display:flex;flex-direction:column;gap:34px"></div>`}`;
+      <div id="rStrips" class="strip"></div><div id="rList" class="drstack"></div>`}`;
     if (ui.rtab === "lib") drawLib(); else drawRoutines();
   }
   const LTYPES = [["", "All"], ["movement", "Start to finish"], ["static", "Held position"], ["reference", "Reference image"]];
@@ -1279,17 +1372,17 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     const q = (S.ui.rq || "").trim().toLowerCase(), cat = S.ui.rcat || "";
     const hit = (r) => !q || (r.name + " " + r.when + " " + r.ex.map((e) => (typeof e === "string" ? e : normEx(e).n)).join(" ")).toLowerCase().indexOf(q) > -1;
     $("#rcatLabel").textContent = cat ? catName(cat) : "All groups"; $("#rStrips").innerHTML = q ? "" : stripsHtml();
-    let html = "";
-    P.cats.forEach((c) => {
-      if (cat && cat !== c.id) return; const rs = P.routines.filter((r) => r.cat === c.id && rtIn(r) && hit(r)); if (!rs.length) return;
-      html += `<section class="cat ${sb(c.src)}"><div class="cat-head">${ic(c.icon, 46)}<div style="flex:1"><h2>${esc(c.name)}</h2><p>${esc(c.blurb)}</p></div></div>${rs.map((r) => `
-        <details class="rt" id="r-${r.id}" data-rt="${r.id}"><summary><button class="star" data-fav="${r.id}" aria-pressed="${!!S.fav[r.id]}" aria-label="Favourite ${esc(r.name)}">${STAR}</button>
-          <div class="rt-main"><h3>${esc(r.name)}</h3>${r.when ? `<p>${esc(r.when)}</p>` : ""}${rtBadges(r)}</div>${(() => { const th = routineThumbs(r); return th.length ? `<span class="film" aria-hidden="true">${th.map((l) => pic(l)).join("")}</span>` : "<span></span>"; })()}${CARET}</summary>
-          <div class="rt-body"><div class="row"><button class="btn sm" data-play="${r.id}">${gl(G.play, "s")}Follow along</button>${r.pacer ? `<button class="btn sm ghost" data-pacer="${r.pacer}">${r.pacer === "co2" ? "Open hold timer" : "Open breath pacer"}</button>` : ""}<button class="btn sm ghost" data-expand="${r.id}">Show all steps</button></div>
+    const row = (r) => { const key = "r:" + r.id, n = placed(r.id).length, th = routineThumbs(r).slice(0, 3);
+      return `<details class="rt" id="r-${r.id}" data-rt="${r.id}" name="dr" data-dr="${esc(key)}"${drOpen(key)}><summary><button class="star" data-fav="${r.id}" aria-pressed="${!!S.fav[r.id]}" aria-label="Favourite ${esc(r.name)}">${STAR}</button>
+          <div class="rt-main"><h3>${esc(r.name)}</h3><p>${[r.when, r.dur, n ? n + " a week" : "not in your week"].filter(Boolean).map(esc).join(" · ")}</p></div>${th.length ? `<span class="film" aria-hidden="true">${th.map((l) => pic(l)).join("")}</span>` : "<span></span>"}${srcTag(r.src, true, r.who)}${CARET}</summary>
+          <div class="rt-body">${rtBadges(r)}<div class="row"><button class="btn sm" data-play="${r.id}">${gl(G.play, "s")}Follow along</button>${r.pacer ? `<button class="btn sm ghost" data-pacer="${r.pacer}">${r.pacer === "co2" ? "Open hold timer" : "Open breath pacer"}</button>` : ""}<button class="btn sm ghost" data-expand="${r.id}">Show all steps</button></div>
             ${r.note ? `<p class="note">${esc(r.note)}</p>` : ""}<div class="card exlist">${r.ex.map((e) => exHtml(e, r.id)).join("")}</div>
-            ${r.tips ? `<ul class="badges">${r.tips.map((t) => `<li class="badge wrapok">${esc(t)}</li>`).join("")}</ul>` : ""}${r.links ? r.links.map((l) => `<a class="linkbtn" href="${esc(l[1])}" target="_blank" rel="noopener">${esc(l[0])}</a>`).join("") : ""}${eqHtml(r)}${footFor("r:" + r.id, r)}</div></details>`).join("")}</section>`;
-    });
-    $("#rList").innerHTML = html || `<div class="empty"><p>No routine matches “${esc(S.ui.rq || "")}”${cat ? " in " + esc(catName(cat)) : ""}.</p><button class="btn sm ghost" id="rClear">Clear search and filter</button></div>`;
+            ${r.tips ? `<ul class="badges">${r.tips.map((t) => `<li class="badge wrapok">${esc(t)}</li>`).join("")}</ul>` : ""}${r.links ? r.links.map((l) => `<a class="linkbtn" href="${esc(l[1])}" target="_blank" rel="noopener">${esc(l[0])}</a>`).join("") : ""}${eqHtml(r)}${footFor("r:" + r.id, r)}</div></details>`; };
+    const base = P.routines.filter((r) => rtIn(r) && hit(r) && (!cat || r.cat === cat)), rs = base.filter((r) => srcPass("r", r.src, r.who));
+    let html = srcCtl("r", base, true);
+    if (sgOf("r")) html += bySrc(rs, (r) => r).map((g) => `<section class="cat"><div class="cat-head"><div style="flex:1"><h2>${srcHead(g[1])}<span class="badge">${g[2].length}</span></h2></div></div>${g[2].map(row).join("")}</section>`).join("");
+    else P.cats.forEach((c) => { const l = rs.filter((r) => r.cat === c.id); if (l.length) html += `<section class="cat ${sb(c.src)}"><div class="cat-head">${ic(c.icon, 32)}<div style="flex:1"><h2>${esc(c.name)}<span class="badge">${l.length}</span></h2><p>${esc(c.blurb)}</p></div></div>${l.map(row).join("")}</section>`; });
+    $("#rList").innerHTML = rs.length ? html : html + `<div class="empty"><p>No routine matches “${esc(S.ui.rq || "")}”${cat ? " in " + esc(catName(cat)) : ""}.</p><button class="btn sm ghost" id="rClear">Clear search and filter</button></div>`;
   }
   const touch = (id) => { S.recent = [id].concat((S.recent || []).filter((x) => x !== id)).slice(0, 8); save(); };
   let pendingOpen = null;
@@ -1333,12 +1426,17 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   const foodParts = (x) => { const u = typeof x !== "string", s = u ? x.n : x, m = /^([^:(]+?)\s*(?::\s*(.+)|\((.+)\)\s*)$/.exec(s); return m && !u ? [m[1], m[2] || m[3]] : [s, u ? x.note || "" : ""]; };
   const foodIc = (t, icon) => { const n = icon || (FOOD_IC.find((r) => r[0].test(t.toLowerCase())) || [])[1]; return n ? ic(n, 44) : `<span class="mono" aria-hidden="true">${gl(G.bowl)}</span>`; };
   const foodTile = (x, gsrc, avoid) => { const u = typeof x !== "string", p = foodParts(!u && ovOf("f:" + x).n ? ovOf("f:" + x).n : x); return `<li class="food${u && srcOf(x.src) !== srcOf(gsrc) ? " slim " + sb(x.src, x.who) : ""}" data-k="${esc((p[0] + " " + p[1]).toLowerCase())}">${avoid ? `<span class="mono no" aria-hidden="true">${gl(G.x, "s")}</span>` : foodIc(p[0], u && x.icon)}<div><b>${esc(p[0])}</b>${p[1] ? `<small>${esc(p[1])}</small>` : ""}${!u && ovOf("f:" + x).note ? `<small class="mynote">My note: ${esc(ovOf("f:" + x).note)}</small>` : ""}</div>${u ? `${srcTag(x.src, true, x.who)}<button class="linkbtn" data-add="food" data-id="${x.id}">Edit</button>` : `<button class="iconbtn" data-ov="${esc("f:" + x)}" aria-label="Note on ${esc(p[0])}">${gl(G.pen, "s")}</button>`}</li>`; };
-  const foodGroup = (g, i, pre) => { const mine = userOf("food").filter((a) => a.g === pre + i), avoid = pre === "v", src = avoid ? "op" : g.src; return `<section class="fgroup ${sb(src)}"><div class="fg-head">${g.icon && !avoid ? ic(g.icon, 40) : ""}<h3>${esc(g.h)}</h3>${g.tier ? `<span class="badge ${g.tier === "S" ? "clay" : "gold"}">${g.tier} tier</span>` : ""}<span class="badge">${g.items.filter((x) => !hid("f:" + x)).length + mine.length}</span><button class="btn ghost sm" data-add="food" data-g="${pre + i}">${gl(G.plus, "s")}Add</button></div><ul class="foods">${g.items.filter((x) => !hid("f:" + x)).concat(mine).map((x) => foodTile(x, src, avoid)).join("")}</ul></section>`; };
+  const foodSrc = (x, g, avoid) => (typeof x !== "string" ? x : { src: avoid ? "op" : g.src });
+  const foodsOf = (gs, pre) => gs.reduce((a, g, i) => a.concat(g.items.filter((x) => !hid("f:" + x)).concat(userOf("food").filter((u) => u.g === pre + i)).map((x) => ({ x, g, i, s: foodSrc(x, g, pre === "v") }))), []);
+  const foodGroup = (g, i, pre) => { const mine = userOf("food").filter((a) => a.g === pre + i), avoid = pre === "v", src = avoid ? "op" : g.src, keep = (x) => { const f = foodSrc(x, g, avoid); return srcPass("f", f.src, f.who); }; if (!g.items.filter((x) => !hid("f:" + x)).concat(mine).some(keep)) return ""; return `<section class="fgroup ${sb(src)}"><div class="fg-head">${g.icon && !avoid ? ic(g.icon, 40) : ""}<h3>${esc(g.h)}</h3>${g.tier ? `<span class="badge ${g.tier === "S" ? "clay" : "gold"}">${g.tier} tier</span>` : ""}<span class="badge">${g.items.filter((x) => !hid("f:" + x)).length + mine.length}</span><button class="btn ghost sm" data-add="food" data-g="${pre + i}">${gl(G.plus, "s")}Add</button></div><ul class="foods">${g.items.filter((x) => !hid("f:" + x)).concat(mine).filter(keep).map((x) => foodTile(x, src, avoid)).join("")}</ul></section>`; };
+  /* a food list, by group or (Group by source) by source */
+  const foodLists = (gs, pre) => { const all = foodsOf(gs, pre), keep = all.filter((f) => srcPass("f", f.s.src, f.s.who));
+    return srcCtl("f", all.map((f) => f.s), true) + (sgOf("f") ? bySrc(keep, (f) => f.s).map((b) => `<section class="fgroup ${sb(b[1].src, b[1].who)}"><div class="fg-head"><h3>${srcHead(b[1])}</h3><span class="badge">${b[2].length}</span></div><ul class="foods">${b[2].map((f) => foodTile(f.x, f.g.src, pre === "v")).join("")}</ul></section>`).join("") : gs.map((g, i) => foodGroup(g, i, pre)).join("")); };
   const foodBar = (what, g) => `<div class="toolbar"><input class="search" id="nSearch" type="search" placeholder="Filter ${what}" aria-label="Filter ${what}"><button class="btn ghost sm" data-add="food" data-g="${g}">${gl(G.plus, "s")}Add a food</button></div><div class="empty" id="nNone" hidden>${ic("illus/wellbeing-research-magnifier", 64)}<b>No foods match</b>Clear the filter to see the whole list.</div>`;
   function nutPanel(id) {
     const N = P.nutrition;
-    if (id === "approved") return `${foodBar("approved foods", "a0")}${N.approved.map((g, i) => foodGroup(g, i, "a")).join("")}<div class="more"><h2>How the carbs were ranked</h2>${srcTag("me")}${ul(N.criteria, "me")}</div>`;
-    if (id === "avoid") return `${foodBar("foods to avoid", "v0")}${N.avoid.map((g, i) => foodGroup(g, i, "v")).join("")}`;
+    if (id === "approved") return `${foodBar("approved foods", "a0")}${foodLists(N.approved, "a")}<div class="more"><h2>How the carbs were ranked</h2>${srcTag("me")}${ul(N.criteria, "me")}</div>`;
+    if (id === "avoid") return `${foodBar("foods to avoid", "v0")}${foodLists(N.avoid, "v")}`;
     if (id === "plate") {
       const pick = S.ui.macro || "";
       return P.portions.map((d) => `<section class="plate ${sb("me")}"><div class="fg-head">${ic(d.icon, 40)}<h3>${esc(d.name)}</h3></div>
@@ -1352,7 +1450,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     }
     if (id === "timing") return `<div class="status info">${gl(G.info)}<div><b>Source note.</b> The carrot salad is “empty stomach” on one page and “with a meal” on another, and its dressing is coconut oil in one place and EVOO in another.</div></div>
       <div class="cols"><div class="fg ${sb("op")}"><div class="fg-head">${ic("clock", 40)}<h3>When to eat what</h3></div>${kvw(N.timing)}</div><div class="fg ${sb("op")}"><div class="fg-head">${ic("butter", 40)}<h3>Kitchen rules</h3></div>${ul(N.kitchen)}</div></div>`;
-    if (id === "recipes") return `<div class="recipes">${N.recipes.map((r) => `<div class="recipe ${sb("op")}"><h3>${esc(r.name)}</h3><span class="badge clay" style="align-self:flex-start">${esc(r.when)}</span>${ul(r.items)}</div>`).join("")}</div>`;
+    if (id === "recipes") return `<ul class="drs">${N.recipes.map((r) => { const key = "n:" + r.name; return `<li class="slim ${sb(r.src)}"><details class="dr" name="dr" data-dr="${esc(key)}"${drOpen(key)}><summary><span class="dr-ic" aria-hidden="true">${gl(G.bowl)}</span><span class="dr-main"><b>${esc(r.name)}</b><small>${esc(r.when)} · ${r.items.length} ${r.items.length === 1 ? "line" : "lines"}</small></span>${srcTag(r.src, true)}${CARET}</summary><div class="dr-body">${ul(r.items, r.src)}<p class="dr-src">${srcTag(r.src)}</p></div></details></li>`; }).join("")}</ul>`;
     return `<div class="cols"><div class="fg ${sb("op")}"><div class="fg-head">${ic("pomegranate", 40)}<h3>Where each nutrient comes from</h3></div>${kvw(N.nutrients)}</div><div class="fg ${sb("op")}"><div class="fg-head">${ic("leaf", 40)}<h3>Supplements and herbs named in the docs</h3></div>${ul(N.supplements)}</div></div>`;
   }
   function renderNutrition() {
@@ -1363,14 +1461,51 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   }
 
   /* ── products: library, wishlist, owned ── */
+  /* ── compact rows: one line each, opened in place, one open at a time (the native details name group, with a fallback).
+     OPEN remembers the open row by key so a redraw after an action keeps it open. ── */
+  let OPEN = "";
+  const drOpen = (key) => (OPEN === key ? " open" : "");
+  document.addEventListener("toggle", (e) => { const x = e.target; if (!x.dataset || !x.dataset.dr) return; if (x.open) { OPEN = x.dataset.dr; $$("details[data-dr][open]").forEach((y) => { if (y !== x) y.open = false; }); } else if (OPEN === x.dataset.dr) OPEN = ""; }, true);
+  const drList = (title, art, rows, n) => `<section class="drg"><h2 class="drg-h">${art || ""}<span>${title}</span><span class="badge">${n}</span></h2><ul class="drs">${rows}</ul></section>`;
+  /* ── sources in a list: filter chips with counts and a Group by source switch. sec: p products, r routines, t topics, f foods ── */
+  const SORD = Object.keys(SRC);
+  const sOrder = (a, b) => SORD.indexOf(a.split(":")[0]) - SORD.indexOf(b.split(":")[0]) || a.localeCompare(b);
+  const sfOf = (sec) => S.ui["sf_" + sec] || "", sgOf = (sec) => !!S.ui["sg_" + sec];
+  const srcPass = (sec, v, who) => !sfOf(sec) || skey(v, who) === sfOf(sec);
+  function srcCtl(sec, recs, group) {
+    const n = {}, ex = {}; recs.forEach((r) => { const k = skey(r.src, r.who); n[k] = (n[k] || 0) + 1; ex[k] = ex[k] || r; });
+    const keys = Object.keys(n).sort(sOrder), f = sfOf(sec);
+    if (keys.length < 2 && !f) return "";
+    return `<div class="srcctl" role="group" aria-label="Show by source"><button class="chip plain sfc" data-sf="${sec}|" aria-pressed="${!f}">All sources<b>${recs.length}</b></button>${keys.map((k) => `<button class="chip plain sfc" data-sf="${sec}|${esc(k)}" aria-pressed="${f === k}">${srcTag(ex[k].src, true, ex[k].who)}${esc(sname(ex[k].src, ex[k].who))}<b>${n[k]}</b></button>`).join("")}${f && !n[f] ? `<button class="chip plain sfc" data-sf="${sec}|${esc(f)}" aria-pressed="true">${esc(f.replace(/^x:/, ""))}<b>0</b></button>` : ""}${group ? `<button class="chip plain sgc" data-sg="${sec}" aria-pressed="${sgOf(sec)}">Group by source</button>` : ""}</div>`;
+  }
+  /* the same records split by source, in key order: [[key, a record of that source, records]] */
+  const bySrc = (recs, of) => { const m = {}; recs.forEach((r) => { const x = of(r), k = skey(x.src, x.who); (m[k] = m[k] || [k, x, []])[2].push(r); }); return Object.keys(m).sort(sOrder).map((k) => m[k]); };
+  const srcHead = (x) => `${srcTag(x.src, true, x.who)}${esc(sname(x.src, x.who))}`;
+  const SECR = { p: () => renderProducts(), r: () => renderRoutines(), t: () => renderLibrary(), f: () => { $("#nutPanel").innerHTML = nutPanel(S.ui.nut || "approved"); } };
+  function srcClick(t, d) {
+    if (d.sf !== undefined) { const i = d.sf.indexOf("|"), sec = d.sf.slice(0, i), k = d.sf.slice(i + 1); S.ui["sf_" + sec] = S.ui["sf_" + sec] === k ? "" : k; save(); SECR[sec](); refocus(`[data-sf="${CSS.escape(sec + "|" + (S.ui["sf_" + sec] || ""))}"]`); say(S.ui["sf_" + sec] ? "Showing one source" : "Showing every source"); return true; }
+    if (d.sg) { S.ui["sg_" + d.sg] = !S.ui["sg_" + d.sg]; save(); SECR[d.sg](); refocus(`[data-sg="${d.sg}"]`); return true; }
+    return false;
+  }
   function owned() { if (!S.owned) { S.owned = {}; P.products.forEach((p) => { if (p.own) S.owned[p.n] = 1; }); } return S.owned; }
   const money = (n) => "£" + (Math.round(n * 100) / 100).toFixed(2).replace(/\.00$/, "");
-  const SRC = { op: "OP docs", max: "Max doc", both: "OP + Max", mention: "Named in OP" }, PRI = [["1", "High"], ["2", "Medium"], ["3", "Low"]];
+  const PRI = [["1", "High"], ["2", "Medium"], ["3", "Low"]];
   const PROD_IC = [[/pull-up/, "illus/equipment-pull-up-bar"], [/yoga block/, "illus/equipment-yoga-block"], [/kettlebell|dumbbell/, "illus/equipment-kettlebell"], [/toe spacer/, "illus/equipment-toe-spacers"], [/macebell/, "illus/equipment-macebell"], [/fascia ball/, "illus/equipment-fascia-ball"], [/cotton pad/, "illus/equipment-cotton-pads"], [/foam roller/, "illus/equipment-foam-roller"], [/gua sha/, "illus/equipment-gua-sha"], [/jump rope/, "illus/equipment-jump-rope"], [/medicine ball/, "illus/equipment-medicine-ball"], [/resistance band/, "illus/equipment-resistance-band"], [/slant board/, "illus/equipment-slant-board"], [/balance board/, "illus/equipment-balance-board"], [/glass bottle/, "illus/equipment-water-bottle"],
     [/zygotape|kinesiology/, "ktape"], [/shower filter/, "showerfilter"], [/toothbrush/, "toothbrush"], [/tongue scraper/, "tonguescraper"], [/flosser/, "flosser"], [/sunscreen|\bspf\b/, "sunscreen"], [/tallow/, "amberjar"], [/deodorant/, "deodorant"], [/air purifier/, "airpurifier"], [/cast iron/, "castiron"], [/dip belt/, "dipbelt"], [/plyo/, "plyobox"], [/blue light/, "glasses"], [/rose water/, "rosewater"], [/kneeling chair/, "kneelchair"], [/sea salt/, "seasalt"], [/raw honey/, "honeycomb"], [/nettle tea/, "nettletea"], [/osmosis|water filter/, "filterjug"], [/pillowcase/, "pillow"], [/food scale/, "scale"]];
   const PGART = { tape: "ktape", tools: "illus/equipment-kettlebell", posture: "illus/wellbeing-walking-shoe", skin: "illus/wellbeing-skin-care", oral: "illus/wellbeing-oral-care", home: "illus/wellbeing-environment-plant", food: "illus/foods-honey", groom: "illus/wellbeing-hair-care" };
   const prodPic = (p) => (P.prodPic || {})[p.n] || (PROD_IC.find((r) => r[0].test(p.n.toLowerCase())) || [])[1];
-  const prodMain = (p) => `<div class="prod-main${prodPic(p) ? " haspic" : ""}">${prodPic(p) ? ic(prodPic(p), 52) : ""}<strong>${esc(p.title || p.n)}</strong><span class="badges">${p.p ? `<span class="price">${money(p.p)}</span>` : `<span class="badge">No price recorded</span>`}${srcTag(p.src)}${p.src === "mention" ? '<span class="badge">named in a routine</span>' : ""}</span>${p.note ? `<p>${esc(p.note)}</p>` : ""}${p.uid ? "" : mine("p:" + p.n)}${(() => { const u = usedIn(p.n); return u.length ? `<p class="usedin">Used in ${u.map(pill).join("")}</p>` : ""; })()}${p.uid ? "" : `<p class="srcline">${ovOf("p:" + p.n).t ? `<span class="badge gold">Edited by you · ${stamp(ovOf("p:" + p.n).t)}</span>` : ""}<button class="linkbtn" data-ov="${esc("p:" + p.n)}">${ovOf("p:" + p.n).note ? "Edit note" : "Add a note"}</button><button class="star" data-fav="${esc("p:" + p.n)}" aria-pressed="${!!S.fav["p:" + p.n]}" aria-label="Save ${esc(p.n)}">${STAR}</button></p>`}</div>`;
+  const groupName = (g) => (P.productGroups.find((x) => x[0] === g) || [])[1] || "";
+  /* one product as a compact row: picture, name, one line, price, source, Owned. Everything else opens in place. */
+  function prodRow(p, tab) {
+    const o = owned(), ref = "p:" + p.n, key = ref, on = !!o[p.n], u = usedIn(p.n), pc = prodPic(p), line = p.note || (u.length ? "Used in " + u.map((r) => r.name).join(", ") : groupName(p.g));
+    const qa = tab === "owned" ? "" : `<button class="qa" data-own="${esc(p.n)}" aria-pressed="${on}" aria-label="${on ? "Owned" : "Mark owned"}: ${esc(p.title || p.n)}">${gl(G.check, "s")}<span>${on ? "Owned" : "Own"}</span></button>`;
+    const body = `${p.note ? `<p>${esc(p.note)}</p>` : ""}${p.src === "mention" ? '<p><span class="badge">Named in a routine</span></p>' : ""}${p.uid ? "" : mine(ref)}${u.length ? `<p class="usedin">Used in ${u.map(pill).join("")}</p>` : ""}
+      ${tab === "wishlist" ? `<div class="seg" role="group" aria-label="Priority for ${esc(p.n)}">${PRI.map((x) => `<button data-pri="${esc(p.n)}" data-v="${x[0]}" aria-pressed="${String(S.wish[p.n]) === x[0]}">${x[1]}</button>`).join("")}</div>` : ""}
+      <div class="dr-act">${prodLink(p)}${on ? `<button class="btn sm ghost" data-own="${esc(p.n)}">Not owned</button>` : `<button class="btn sm ghost" data-wish="${esc(p.n)}" aria-pressed="${!!S.wish[p.n]}">${S.wish[p.n] ? gl(G.check, "s") + (tab === "wishlist" ? "Remove from wishlist" : "On wishlist") : "Add to wishlist"}</button>`}
+        ${p.uid ? `<button class="linkbtn" data-add="product" data-id="${esc(p.uid)}">Edit</button>` : `<button class="linkbtn" data-ov="${esc(ref)}">${ovOf(ref).note ? "Edit note" : "Add a note"}</button><button class="star" data-fav="${esc(ref)}" aria-pressed="${!!S.fav[ref]}" aria-label="Save ${esc(p.n)}">${STAR}</button>`}</div>
+      <p class="dr-src">${srcTag(p.src, false, p.who)}${ovOf(ref).t ? `<span class="badge gold">Edited by you · ${stamp(ovOf(ref).t)}</span>` : ""}</p>`;
+    return `<li class="slim ${sb(p.src, p.who)}"><details class="dr" name="dr" data-dr="${esc(key)}"${drOpen(key)}><summary>${pc ? ic(pc, 40) : `<span class="dr-ic" aria-hidden="true">${gl(G.kit)}</span>`}<span class="dr-main"><b>${esc(p.title || p.n)}</b><small><span class="only-m">${p.p ? money(p.p) + " · " : ""}</span>${esc(line)}</small></span><span class="dr-fact">${p.p ? money(p.p) : '<span class="muted">No price</span>'}</span>${srcTag(p.src, true, p.who)}${qa}${CARET}</summary><div class="dr-body">${body}</div></details></li>`;
+  }
   const prodLink = (p) => (p.u ? `<a class="linkbtn" href="${esc(p.u)}" target="_blank" rel="noopener">Open link<span class="sr"> for ${esc(p.n)}</span></a>` : "");
   function renderProducts() {
     const ui = S.ui, tab = ui.ptab || "library", o = owned(), nW = P.products.filter((p) => S.wish[p.n] && !o[p.n]).length, nO = P.products.filter((p) => o[p.n]).length;
@@ -1378,36 +1513,35 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
       <div class="tabs" role="tablist" aria-label="Product lists">${[["library", "Library", P.products.length], ["wishlist", "Wishlist", nW], ["owned", "Owned", nO]].map((t) => `<button role="tab" aria-selected="${tab === t[0]}" data-ptab="${t[0]}">${t[1]}<span class="badge">${t[2]}</span></button>`).join("")}</div>
       ${tab === "library" ? `<div class="toolbar stick"><input class="search" id="pSearch" type="search" placeholder="Search products" aria-label="Search products" value="${esc(ui.pq || "")}"><button class="btn ghost sm only-m" data-sheet="pg">${gl(G.filter, "s")}Types</button><span class="badge sage only-m" id="pgLabel"></span></div>
         <div class="chips only-d" role="group" aria-label="Filter by type"><button class="chip plain" data-pg="" aria-pressed="${!ui.pg}">All</button>${P.productGroups.map((g) => `<button class="chip plain" data-pg="${g[0]}" aria-pressed="${ui.pg === g[0]}">${esc(g[1])}</button>`).join("")}</div>` : ""}
-      <div id="pList" style="display:flex;flex-direction:column;gap:28px"></div>`;
+      <div id="pList" class="drstack"></div>`;
     drawProducts();
   }
   function drawProducts() {
-    const o = owned(), ui = S.ui, tab = ui.ptab || "library", q = (ui.pq || "").trim().toLowerCase(); let html = "";
+    const o = owned(), ui = S.ui, tab = ui.ptab || "library", q = (ui.pq || "").trim().toLowerCase(), hit = (p) => !q || (p.n + " " + (p.title || "") + " " + (p.note || "")).toLowerCase().indexOf(q) > -1;
+    const rows = (l, tb) => l.map((p) => prodRow(p, tb)).join("");
+    let html = "";
     if (tab === "library") {
-      const lab = $("#pgLabel"); if (lab) lab.textContent = ui.pg ? (P.productGroups.find((g) => g[0] === ui.pg) || [])[1] : "All types";
-      P.productGroups.forEach((g) => {
-        if (ui.pg && ui.pg !== g[0]) return; const ps = P.products.filter((p) => p.g === g[0] && (!q || (p.n + " " + (p.title || "") + " " + (p.note || "")).toLowerCase().indexOf(q) > -1)); if (!ps.length) return;
-        html += `<section class="pgroup"><h2 class="rule">${PGART[g[0]] ? ic(PGART[g[0]], 44) : ""}${esc(g[1])}</h2><ul>${ps.map((p) => `<li class="prod slim ${sb(p.src, p.who)}">${prodMain(p)}<div class="prod-act">${prodLink(p)}
-          ${o[p.n] ? "" : `<button class="btn sm ghost" data-wish="${esc(p.n)}" aria-pressed="${!!S.wish[p.n]}">${S.wish[p.n] ? gl(G.check, "s") + "On wishlist" : "Add to wishlist"}</button>`}<button class="btn sm ghost" data-own="${esc(p.n)}" aria-pressed="${!!o[p.n]}">${o[p.n] ? gl(G.check, "s") + "Owned" : "Mark owned"}</button></div></li>`).join("")}</ul></section>`;
-      });
-      html = html || `<div class="empty"><p>No product matches that search.</p><button class="btn sm ghost" id="pClear">Clear search and filter</button></div>`;
+      const lab = $("#pgLabel"); if (lab) lab.textContent = ui.pg ? groupName(ui.pg) : "All types";
+      const base = P.products.filter((p) => (!ui.pg || p.g === ui.pg) && hit(p)), ps = base.filter((p) => srcPass("p", p.src, p.who));
+      html = srcCtl("p", base, true);
+      if (sgOf("p")) html += bySrc(ps, (p) => p).map((g) => drList(srcHead(g[1]), "", rows(g[2], "library"), g[2].length)).join("");
+      else P.productGroups.forEach((g) => { const l = ps.filter((p) => p.g === g[0]); if (l.length) html += drList(esc(g[1]), PGART[g[0]] ? ic(PGART[g[0]], 28) : "", rows(l, "library"), l.length); });
+      if (!ps.length) html += `<div class="empty"><p>No product matches that search.</p><button class="btn sm ghost" id="pClear">Clear search and filter</button></div>`;
     } else if (tab === "wishlist") {
       const ws = P.products.filter((p) => S.wish[p.n] && !o[p.n]);
       if (!ws.length) html = `<div class="empty"><p>Your wishlist is empty. Nothing is added automatically: pick items from the Library.</p><button class="btn sm" data-ptab="library">Browse the library</button></div>`;
       else { const known = ws.filter((p) => p.p), miss = ws.length - known.length;
         html = `<div class="stats"><div class="card stat"><span class="label">Known cost</span><b class="metric">${money(known.reduce((s, p) => s + p.p, 0))}</b><span class="small muted">across ${known.length} priced item${known.length === 1 ? "" : "s"}</span></div>
           <div class="card stat"><span class="label">Price missing</span><b class="metric">${miss}</b><span class="small muted">${miss ? "not included in the total" : "every item has a price"}</span></div></div>` +
-          PRI.map((pr) => { const ps = ws.filter((p) => String(S.wish[p.n]) === pr[0]); return ps.length ? `<section class="pgroup"><h2 class="rule">${pr[1]} priority</h2><ul>${ps.map((p) => `<li class="prod slim ${sb(p.src, p.who)}">${prodMain(p)}<div class="prod-act">${prodLink(p)}
-            <div class="seg" role="group" aria-label="Priority for ${esc(p.n)}">${PRI.map((x) => `<button data-pri="${esc(p.n)}" data-v="${x[0]}" aria-pressed="${String(S.wish[p.n]) === x[0]}">${x[1]}</button>`).join("")}</div>
-            <button class="btn sm" data-own="${esc(p.n)}">Mark owned</button><button class="btn sm ghost" data-wish="${esc(p.n)}">Remove</button></div></li>`).join("")}</ul></section>` : ""; }).join(""); }
+          PRI.map((pr) => { const ps = ws.filter((p) => String(S.wish[p.n]) === pr[0]); return ps.length ? drList(pr[1] + " priority", "", rows(ps, "wishlist"), ps.length) : ""; }).join(""); }
     } else {
       const os = P.products.filter((p) => o[p.n]);
-      html = os.length ? `<section class="pgroup"><ul>${os.map((p) => `<li class="prod slim ${sb(p.src, p.who)}">${prodMain(p)}<div class="prod-act">${prodLink(p)}<button class="btn sm ghost" data-own="${esc(p.n)}">Not owned</button></div></li>`).join("")}</ul></section>` : `<div class="empty"><p>Nothing marked as owned yet.</p><button class="btn sm" data-ptab="library">Browse the library</button></div>`;
+      html = os.length ? drList("Owned", "", rows(os, "owned"), os.length) : `<div class="empty"><p>Nothing marked as owned yet.</p><button class="btn sm" data-ptab="library">Browse the library</button></div>`;
     }
     $("#pList").innerHTML = html;
   }
 
-  /* ── find anything: one index over every section ── */
+  /* ── find anything  /* ── find anything: one index over every section ── */
   let FIDX = null;
   function findIndex() {
     if (FIDX) return FIDX; const X = []; const add = (kind, t, sub, src, act) => X.push({ kind, t, sub, src: srcOf(src), act, k: (t + " " + (sub || "")).toLowerCase() });
@@ -1544,18 +1678,27 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   const topicsAll = () => P.systems.map((t) => [t, "sys"]).concat(P.extras.map((t) => [t, "ext"]));
   const LART = { move: "movement-posture", sleep: "sleep-recovery", energy: "energy-hormones", env: "environment-personal-care", ref: "reference" };
   const li = (n) => `<span class="li" aria-hidden="true">${(typeof PRIMAL_ICONS !== "undefined" && PRIMAL_ICONS[n]) || ""}</span>`;
+  /* one topic as a compact row: opens to its summary and counts, with a button to the full page */
+  function topicRow(x) {
+    const t = x.t, key = x.ref, dn = t.dont ? t.dont.length : t.groups.reduce((s, g) => s + g.dont.length, 0), dd = t.do ? t.do.length : t.groups.reduce((s, g) => s + g.do.length, 0);
+    const first = (t.do || t.groups.reduce((a, g) => a.concat(g.do), [])).slice(0, 3);
+    return `<li class="lrow"><details class="dr" name="dr" data-dr="${esc(key)}"${drOpen(key)}><summary>${art(t.icon, 32)}<span class="dr-main"><b>${esc(t.name)}</b><small>${esc(t.intro || (t.key || [])[0] || "")}</small></span><span class="badges dr-tags">${x.ed ? '<span class="badge gold">Yours</span>' : ""}${x.tags.map((g) => `<span class="badge">#${esc(g)}</span>`).join("")}${S.fav[x.ref] ? '<span class="badge sage">Saved</span>' : ""}</span>${srcTag(t.src, true, t.who)}${CARET}</summary>
+      <div class="dr-body">${t.intro ? `<p>${esc(t.intro)}</p>` : ""}${t.key && t.key.length ? `<ul class="keys">${t.key.slice(0, 4).map((k) => `<li>${esc(k)}</li>`).join("")}</ul>` : ""}${first.length ? `<ul class="bullets">${first.map((k) => `<li>${esc(k)}</li>`).join("")}</ul>` : ""}
+        <div class="dr-act"><button class="btn sm" data-topic="${x.key}" data-id="${esc(t.id)}">Open topic</button><span class="badge clay">${dn} don't</span><span class="badge sage">${dd} do</span></div><p class="dr-src">${srcTag(t.src, false, t.who)}</p></div></details></li>`;
+  }
   function libItems() {
     const ui = S.ui, q = (ui.lq || "").trim().toLowerCase();
     return topicsAll().map((x) => { const ref = "t:" + x[0].id; return { t: x[0], key: x[1], ref, tags: tagsOf(ref, x[0]), ed: x[0].uid ? parseInt(String(x[0].uid).slice(1), 36) || 1 : ovOf(ref).t || 0 }; })
       .filter((x) => (!q || (x.t.name + " " + (x.t.intro || "") + " " + x.tags.join(" ")).toLowerCase().indexOf(q) > -1) && (!ui.ltag || x.tags.indexOf(ui.ltag) > -1) && (!ui.lsaved || S.fav[x.ref]));
   }
   function drawLibrary() {
-    const ui = S.ui, list = libItems(), sort = ui.lsort || "group", rows = ui.lview === "list", filtered = !!((ui.lq || "").trim() || ui.ltag || ui.lsaved);
-    const one = (x) => (rows ? `<button class="lrow" data-topic="${x.key}" data-id="${esc(x.t.id)}">${art(x.t.icon, 32)}<span><b>${esc(x.t.name)}</b><small>${esc(x.t.intro || (x.t.key || [])[0] || "")}</small></span><span class="badges">${x.ed ? '<span class="badge gold">Yours</span>' : ""}${x.tags.map((g) => `<span class="badge">#${esc(g)}</span>`).join("")}${S.fav[x.ref] ? '<span class="badge sage">Saved</span>' : ""}</span></button>` : topicCard(x.t, x.key));
-    const wrap = (l) => `<div class="${rows ? "lrows" : "topics"}">${l.map(one).join("")}</div>`, inbox = userOf("note").filter((a) => !a.g);
-    let html = filtered || !inbox.length ? "" : `<section class="lgroup" id="lg-inbox"><h2>${ic("illus/wellbeing-reflection-pencil", 44)}Inbox<span class="badge">${inbox.length}</span></h2><p class="small muted">Unfiled quick notes. Use File it to give one a topic.</p><ul class="mg">${inbox.map(noteRow).join("")}</ul></section>`;
-    if (!filtered) html += `<section class="lgroup" id="lg-nut"><h2>${ic("topics/nutrition-128", 48)}Nutrition</h2><div class="ngrid">${NT.map((t) => `<button class="ncard card" data-jumpnut="${t[0]}">${art(NTIC[t[0]], 36)}<b>${t[1]}</b></button>`).join("")}</div></section>`;
-    if (sort === "group") html += LGROUPS.map((g) => { const l = list.filter((x) => (x.t.grp || "ref") === g[0]); return l.length ? `<section class="lgroup" id="lg-${g[0]}"><h2>${ic("topics/" + LART[g[0]] + "-128", 48)}${g[1]}<span class="badge">${l.length}</span></h2>${wrap(l)}</section>` : ""; }).join("");
+    const ui = S.ui, all = libItems(), list = all.filter((x) => srcPass("t", x.t.src, x.t.who)), sort = ui.lsort || "group", rows = ui.lview !== "cards", filtered = !!((ui.lq || "").trim() || ui.ltag || ui.lsaved || sfOf("t"));
+    const one = (x) => (rows ? topicRow(x) : topicCard(x.t, x.key));
+    const wrap = (l) => (rows ? `<ul class="drs">${l.map(one).join("")}</ul>` : `<div class="topics">${l.map(one).join("")}</div>`), inbox = userOf("note").filter((a) => !a.g);
+    let html = srcCtl("t", all, true) + (filtered || !inbox.length ? "" : `<section class="lgroup" id="lg-inbox"><h2>${ic("illus/wellbeing-reflection-pencil", 44)}Inbox<span class="badge">${inbox.length}</span></h2><p class="small muted">Unfiled quick notes. Use File it to give one a topic.</p><ul class="mg">${inbox.map(noteRow).join("")}</ul></section>`);
+    if (sgOf("t")) html += bySrc(list, (x) => x.t).map((g) => `<section class="lgroup"><h2>${srcHead(g[1])}<span class="badge">${g[2].length}</span></h2>${wrap(g[2])}</section>`).join("");
+    else if (!filtered) html += `<section class="lgroup" id="lg-nut"><h2>${ic("topics/nutrition-128", 48)}Nutrition</h2><div class="ngrid">${NT.map((t) => `<button class="ncard card" data-jumpnut="${t[0]}">${art(NTIC[t[0]], 36)}<b>${t[1]}</b></button>`).join("")}</div></section>`;
+    if (sgOf("t")) { /* grouped by source above */ } else if (sort === "group") html += LGROUPS.map((g) => { const l = list.filter((x) => (x.t.grp || "ref") === g[0]); return l.length ? `<section class="lgroup" id="lg-${g[0]}"><h2>${ic("topics/" + LART[g[0]] + "-128", 48)}${g[1]}<span class="badge">${l.length}</span></h2>${wrap(l)}</section>` : ""; }).join("");
     else if (list.length) html += `<section class="lgroup"><h2>${sort === "az" ? "A to Z" : "Edited or added by you first"}<span class="badge">${list.length}</span></h2>${wrap(list.slice().sort((a, b) => (sort === "az" ? 0 : b.ed - a.ed) || a.t.name.localeCompare(b.t.name)))}</section>`;
     if (!list.length) html += '<div class="empty">${ic("illus/wellbeing-research-magnifier", 64)}<b>No topic matches</b>Clear the filters to see the whole Library.<button class="btn sm ghost" id="libClear">Clear filters</button></div>';
     $("#libRes").innerHTML = html;
@@ -1566,7 +1709,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
       ${subnav("library", "library")}
       ${sort === "group" ? `<nav class="jump" aria-label="Jump to a group">${[["nut", "Nutrition"]].concat(LGROUPS).map((g) => `<button class="chip plain" data-anchor="lg-${g[0]}">${g[1]}</button>`).join("")}</nav>` : ""}
       <div class="toolbar"><input class="search" id="libQ" type="search" name="libq" autocomplete="off" placeholder="Filter topics and tags…" aria-label="Filter topics and tags" value="${esc(ui.lq || "")}"><select id="libSort" name="libsort" aria-label="Sort topics">${[["group", "By group"], ["az", "A to Z"], ["mine", "Mine first"]].map((o) => `<option value="${o[0]}"${sort === o[0] ? " selected" : ""}>${o[1]}</option>`).join("")}</select>
-        <div class="seg" role="group" aria-label="Layout"><button data-lview="cards" aria-pressed="${ui.lview !== "list"}">${li("cards-view")}Cards</button><button data-lview="list" aria-pressed="${ui.lview === "list"}">${li("compact-list")}Compact</button></div><button class="chip plain" id="libSaved" aria-pressed="${!!ui.lsaved}">Saved</button></div>
+        <div class="seg" role="group" aria-label="Layout"><button data-lview="list" aria-pressed="${ui.lview !== "cards"}">${li("compact-list")}Compact</button><button data-lview="cards" aria-pressed="${ui.lview === "cards"}">${li("cards-view")}Cards</button></div><button class="chip plain" id="libSaved" aria-pressed="${!!ui.lsaved}">Saved</button></div>
       ${Object.keys(tags).length ? `<div class="chips" role="group" aria-label="Filter by tag">${Object.keys(tags).sort().map((g) => `<button class="chip plain" data-ltag="${esc(g)}" aria-pressed="${ui.ltag === g}">#${esc(g)}</button>`).join("")}</div>` : ""}
       <div id="libRes" class="libres"></div>`;
     drawLibrary();
@@ -1599,7 +1742,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     const row = (h, l, note) => (l.length ? `<h3>${h}</h3>${note ? `<p class="small muted">${note}</p>` : ""}<div class="chips">${l.map(refChip).join("")}</div>` : "");
     return rel.length || back.length || sib.length ? `<div class="more relblock"><h2>Related in the hub</h2>${row("Linked by you", rel.filter((x) => x[1]).map((x) => x[0]))}${row("Suggested", rel.filter((x) => !x[1]).map((x) => x[0]), "Matched by name or subject, not confirmed and not advice. Use Edit to remove a wrong one or add your own.")}${row("Linked from", back)}${row("Same group", sib)}</div>` : "";
   }
-  const srcWord = (rec) => (srcOf(rec.src) === "x" ? esc(rec.who || "Other source") : srcOf(rec.src) === "me" ? "my notes" : srcOf(rec.src) === "both" ? "OP docs and my notes" : "OP docs");
+  const srcWord = (rec) => esc(sname(rec.src, rec.who));
   const favKey = (ref) => (ref[0] === "r" ? ref.slice(2) : ref);
   const footFor = (ref, rec) => `${mine(ref)}${relBlock(ref)}<p class="srcline"><span>Source: ${srcWord(rec)}.</span>${ovOf(ref).t ? `<span class="badge gold">Edited by you · ${stamp(ovOf(ref).t)}</span>` : ""}${rec.uid ? "" : `<button class="linkbtn" data-ov="${esc(ref)}">Edit</button>`}${ref[0] === "r" ? "" : `<button class="star" data-fav="${esc(favKey(ref))}" aria-pressed="${!!S.fav[favKey(ref)]}" aria-label="Save ${esc(rec.name || "")}">${STAR}</button>`}</p>`;
   const relatedHtml = (sel) => footFor("t:" + sel.id, sel);
@@ -1669,7 +1812,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
   const sheetUp = (html, label) => { if ($("#sheet").hidden) lastFocus = document.activeElement; $("#sheet").innerHTML = `<div class="sheet ed" role="dialog" aria-modal="true" aria-label="${label}"><div class="sheet-head"><h3>${label}</h3><button class="btn ghost sm" id="sheetClose">Close</button></div>${html}</div>`; $("#sheet").hidden = false; document.body.style.overflow = "hidden"; $("#sheetClose").focus(); };
   function openMore() {
     sheetUp(`<button class="opt-row" data-saved="1">${li("saved")}Saved and collections<span>${Object.keys(S.fav || {}).length}</span></button><button class="opt-row" data-manage="1">${li("download")}My edits, backup and restore<span>${(S.adds || []).length + Object.keys(S.hide || {}).length}</span></button><button class="opt-row" data-find="1">${li("search")}Find anything</button><button class="opt-row" data-add="note">${li("sticky-note")}Quick note<span>to the Inbox</span></button>
-      <h4>Sources</h4><p class="small muted">Each block carries a label saying where it came from. In lists a small shape repeats it.</p><div class="key"><span class="src op">OP docs</span><span class="src me">My notes</span><span class="src both">OP docs + mine</span><span class="src ai">Suggested where the docs are silent</span><span class="src x"${(S.adds || []).some((a) => a.src === "x") ? "" : " hidden"}>Someone else, named</span></div><button class="srcswitch" role="switch" aria-checked="${!S.ui.plain}" data-srctoggle="1"><i aria-hidden="true"></i>Source labels</button>`, "More");
+      <h4>Sources</h4><p class="small muted">Each block carries a label saying where it came from. In lists a small shape repeats it.</p><div class="key">${keyHtml()}</div><button class="srcswitch" role="switch" aria-checked="${!S.ui.plain}" data-srctoggle="1"><i aria-hidden="true"></i>Source labels</button>`, "More");
   }
   function openSaved() {
     const row = (ref) => { const n = refName(ref), k = ref[0]; return n ? `<button class="opt-row" ${refAttr(ref)}>${esc(n)}<span>${k === "r" ? esc(catName((byId[ref.slice(2)] || {}).cat) || "Routine") : k === "t" ? "Topic" : k === "p" ? "Product" : "Food"}</span></button>` : ""; };
@@ -1748,7 +1891,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     Object.keys(byId).forEach((k) => delete byId[k]); P.routines.forEach((r) => (byId[r.id] = r));
     P.blocks.forEach((b) => { b.items = BASE.items[b.id].filter((i) => !hid("i:" + i.id)).concat(userOf("item").filter((a) => a.g === b.id).map((a) => ({ id: a.id, uid: a.id, t: a.n, min: +a.min || 0, opt: a.opt === "1", src: a.src, who: a.who }))); });
     P.extras = BASE.extras.filter((t) => !hid("t:" + t.id)).concat(userOf("topic").map((a) => ({ id: a.id, uid: a.id, name: a.n, icon: "book", intro: a.note || "", grp: a.g, src: a.src, who: a.who, groups: [{ h: "Notes", do: lines(a.steps), dont: lines(a.dont) }] })));
-    applyOv(); FIDX = null; $$(".src.x").forEach((e) => (e.hidden = !(S.adds || []).some((a) => a.src === "x")));
+    applyOv(); FIDX = null; const rk = $("#railKey"); if (rk) rk.innerHTML = keyHtml();
   }
   let AD = null;
   function openAdd(k, id, preset) {
@@ -1759,7 +1902,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
         : `<label class="field">${f[1]}${f[2] === "sel" ? `<select ${at}>${addOpts(k, f[0]).map((o) => `<option value="${esc(o[0])}"${o[0] === v ? " selected" : ""}>${esc(o[1])}</option>`).join("")}</select>` : f[2] === "area" ? `<textarea ${at} rows="5">${esc(v)}</textarea>` : `<input type="${f[2] === "number" ? "number" : "text"}" ${at} value="${esc(v)}" maxlength="200"${f[2] === "number" ? ' min="0" step="any" inputmode="decimal"' : f[2] === "url" ? ' inputmode="url" placeholder="https://"' : ""}>`}</label>`; };
     $("#sheet").innerHTML = `<form class="sheet ed" id="addForm" role="dialog" aria-modal="true" aria-label="${ADD[k].title}" novalidate><div class="sheet-head"><h3>${cur.id ? "Edit" : ADD[k].title}</h3><button type="button" class="btn ghost sm" id="sheetClose">Close</button></div>
       ${cur.id ? "" : `<label class="field">Type<select data-addkind="1" name="kind">${Object.keys(ADD).map((x) => `<option value="${x}"${x === k ? " selected" : ""}>${ADD[x].title.replace(/^Add an? /, "").replace(/^./, (c) => c.toUpperCase())}</option>`).join("")}</select></label>`}${ADD[k].f.map(fld).join("")}
-      <fieldset class="ed-slot"><legend>Whose is this?</legend><p class="small muted">It decides the colour of its frame, so the key stays true.</p>${[["me", "Mine"], ["op", "From the OP docs"], ["x", "Someone else's"]].map((o) => `<label class="field check"><input type="radio" name="src" value="${o[0]}"${cur.src === o[0] ? " checked" : ""}>${o[1]}</label>`).join("")}<label class="field">Their name, if it is someone else's<input type="text" data-f="who" maxlength="30" value="${esc(cur.who || "")}"></label></fieldset>
+      <fieldset class="ed-slot"><legend>Whose is this?</legend><p class="small muted">It decides its shape, colour and label, so the key stays true.</p>${[["me", "Mine"], ["op", "From the OP docs"]].concat(Object.keys(SRC).filter((k) => ["op", "me", "both", "x", "ai"].indexOf(k) < 0).map((k) => [k, "From " + SRC[k].n]), [["x", "Someone else's, not listed"]]).map((o) => `<label class="field check"><input type="radio" name="src" value="${o[0]}"${cur.src === o[0] ? " checked" : ""}>${srcTag(o[0], true)}${esc(o[1])}</label>`).join("")}<label class="field">Their name, if it is someone else's<input type="text" data-f="who" maxlength="30" value="${esc(cur.who || "")}"></label></fieldset>
       <div class="status warn" id="addErr" role="alert" hidden></div>
       <div class="ed-foot">${cur.id ? '<button type="button" class="linkbtn" id="addDel">Delete</button>' : ""}<span style="flex:1"></span><button class="btn" type="submit">${cur.id ? "Save" : "Add"}</button></div></form>`;
     $("#sheet").hidden = false; document.body.style.overflow = "hidden"; const first = $("#addForm [data-f]"); if (first) first.focus();
@@ -1859,7 +2002,8 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     if (e.target.id === "libdlg") { closeLib(); return; }
     if (e.target.id === "find") { closeFind(); return; }
     const t = e.target.closest("button, a"); if (!t) return; const d = t.dataset;
-    if (guideClick(t, d) || cmpClick(t, d) || planClick(t, d) || v8Click(t, d) || uiClick(t, d) || editClick(t, d)) { if (t.closest("summary")) e.preventDefault(); return; }
+    if (t.tagName === "BUTTON" && t.closest("summary")) e.preventDefault();
+    if (srcClick(t, d) || guideClick(t, d) || cmpClick(t, d) || planClick(t, d) || v8Click(t, d) || uiClick(t, d) || editClick(t, d)) { if (t.closest("summary")) e.preventDefault(); return; }
     if (d.fav) { e.preventDefault(); if (S.fav[d.fav]) delete S.fav[d.fav]; else S.fav[d.fav] = 1; save(); t.setAttribute("aria-pressed", !!S.fav[d.fav]); say(S.fav[d.fav] ? "Added to favourites" : "Removed from favourites"); if ($("#rStrips") && !(S.ui.rq || "").trim()) $("#rStrips").innerHTML = stripsHtml(); }
     else if (d.go) { if (!$("#sheet").hidden) closeSheet(true); if (!$("#libdlg").hidden) closeLib(); if (!$("#player").hidden) closeOverlay($("#player")); S.ui.rtab = ""; openRoutine(d.go); }
     else if (d.cat !== undefined) { S.ui.rcat = d.cat; save(); $$("[data-cat]").forEach((c) => c.setAttribute("aria-pressed", c.dataset.cat === d.cat)); drawRoutines(); }
@@ -1887,7 +2031,7 @@ h2.rule { display: flex; align-items: center; gap: 12px; } .tblock > header { al
     else if (d.macro) { S.ui.macro = S.ui.macro === d.macro ? "" : d.macro; save(); $("#nutPanel").innerHTML = nutPanel("plate"); refocus(`[data-macro="${d.macro}"]`); }
     else if (d.ptab) { S.ui.ptab = d.ptab; save(); renderProducts(); refocus(`.tabs [data-ptab="${d.ptab}"]`); }
     else if (d.pg !== undefined) { S.ui.pg = d.pg; save(); $$("[data-pg]").forEach((c) => c.setAttribute("aria-pressed", c.dataset.pg === d.pg)); drawProducts(); }
-    else if (d.own) { const o = owned(); if (o[d.own]) delete o[d.own]; else { o[d.own] = 1; delete S.wish[d.own]; } save(); renderProducts(); say(o[d.own] ? "Marked owned" : "Marked not owned"); }
+    else if (d.own) { const o = owned(), qa = t.classList.contains("qa"); if (o[d.own]) delete o[d.own]; else { o[d.own] = 1; delete S.wish[d.own]; } save(); renderProducts(); refocus(`${qa ? ".qa" : ""}[data-own="${CSS.escape(d.own)}"]`); say(o[d.own] ? "Marked owned" : "Marked not owned"); }
     else if (d.wish) { if (S.wish[d.wish]) delete S.wish[d.wish]; else S.wish[d.wish] = 2; save(); renderProducts(); say(S.wish[d.wish] ? "Added to wishlist" : "Removed from wishlist"); }
     else if (d.pri) { S.wish[d.pri] = +d.v; save(); drawProducts(); }
     else if (t.id === "plClose" || t.id === "plDone") closeOverlay($("#player"));
