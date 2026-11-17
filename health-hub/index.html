@@ -1046,7 +1046,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
 #v-routines .chips.only-d .chip { min-height: 40px; font-size: .8125rem; } #v-routines .chips.only-d .chip img { width: 22px; height: 22px; }
 /* Compare: an inspection table */
 .clist { border-color: var(--hair); } .crow { border-top-color: var(--hair); } .ccount b { font-family: var(--sans); }
-.cg-head h2 { font-family: var(--serif); font-weight: 400; font-size: 1.75rem; }
+.cg-head h2 { font-family: var(--serif); font-weight: 400; font-size: 1.75rem; } .cg-stats { display: flex; flex-wrap: wrap; gap: 2px 14px; font-size: .875rem; color: var(--ink-2); font-variant-numeric: tabular-nums; } .cg-stats b { color: var(--ink); font-weight: 700; } .cg-head { flex-wrap: wrap; row-gap: 4px; } .fsep { width: 1px; align-self: stretch; background: var(--hair); margin: 0 4px; }
 /* Guide: reading measure and calmer cards */
 .gcard > header p, .glist small, .gsum p { max-width: 68ch; } .gcard h3 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; line-height: 1.15; }
 /* topic pages: a reading desk with a side rail */
@@ -1060,6 +1060,28 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
 /* empty states and loading: quiet, never a broken box */
 .empty { border-color: var(--hair); } img.chap, .film .pic, .ic { background: transparent; }
 @media (prefers-reduced-motion: reduce) { .btn, .chip, .search { transition: none; } }
+
+/* v19 Priority 2: link picker, source documents, the topic page's actions */
+.lkres { display: flex; flex-direction: column; gap: 2px; max-height: 260px; overflow-y: auto; } .lkres .opt-row { min-height: 44px; } .lkres .opt-row span:last-child { margin-left: auto; font-size: .75rem; color: var(--ink-3); }
+.sdocs ul { display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px; } .sdoc { display: flex; gap: 10px; align-items: flex-start; justify-content: space-between; } .sdoc > div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.sdoc b { font-weight: 600; overflow-wrap: anywhere; } .sdoc small { color: var(--ink-3); font-size: .8125rem; } .sdoc blockquote { margin: 4px 0 0; padding: 6px 10px; background: color-mix(in srgb, var(--gold-soft) 60%, var(--surface)); border-radius: 8px; font-size: .875rem; color: var(--ink-2); max-width: 60ch; }
+#sdRefs { gap: 6px; } #sdRefs .chip { padding-right: 4px; gap: 4px; } #sdRefs .iconbtn { width: 32px; height: 32px; }
+.md-act { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; } .md-act svg { width: 16px; height: 16px; } .md-act [aria-pressed="true"] svg { fill: currentColor; }
+.keysrc { display: flex; gap: 8px; align-items: center; font-size: .8125rem; color: var(--ink-3); margin-top: -6px; }
+.usedin-b .mg { border: 0; background: none; padding: 0; box-shadow: none; } .usedin-b .mg li { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-top: 1px solid var(--hair); } .usedin-b .mg li:first-child { border-top: 0; } .usedin-b .mg li > span { flex: 1; display: flex; flex-direction: column; min-width: 0; } .usedin-b .linkbtn { min-height: 32px; justify-content: flex-start; text-align: left; }
+
+.ihead { display: flex; flex-direction: column; gap: 8px; } .ilead-f { display: flex; flex-wrap: wrap; gap: 4px 14px; color: var(--ink-2); font-size: .9375rem; } .ilead-f > span { display: inline-flex; align-items: center; gap: 6px; } .ilead-f svg { width: 16px; height: 16px; flex: none; }
+.ilead .btn { flex: 1 1 auto; } .itabs { margin-top: 4px; } .itabs [role=tab] .badge { margin-left: 6px; } .insp [role=tabpanel] { display: flex; flex-direction: column; gap: 14px; } .insp [role=tabpanel][hidden] { display: none; }
+.aw { display: flex; flex-direction: column; gap: 14px; } .aw .pstrip { display: grid; } .awk { display: flex; flex-wrap: wrap; } .awk button { flex: 1 1 auto; }
+.awp { border: 1px solid var(--hair); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; } .awp h4 { margin: 0; text-transform: none; }
+.awf { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: .9375rem; color: var(--ink-2); font-variant-numeric: tabular-nums; } .awf span { display: inline-flex; gap: 6px; align-items: center; } .awf svg { width: 16px; height: 16px; flex: none; }
+.plres { font-size: .875rem; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 0 10px; align-items: center; }
+
+.gp-acc { display: inline-flex; align-items: center; gap: 8px; min-height: 32px; } .gp-acc input { width: 20px; height: 20px; }
+.gp-bud { display: flex; gap: 6px; align-items: center; font-size: .8125rem; color: var(--clay-ink); font-weight: 600; } .gp-bud svg { width: 14px; height: 14px; }
+.gbud { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; margin-top: 8px; } .gbud label { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: .9375rem; }
+.gbud input { width: 88px; min-height: 40px; padding: 0 10px; border-radius: 10px; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font: 500 .9375rem var(--sans); font-variant-numeric: tabular-nums; }
+.pinm { display: inline-flex; vertical-align: -2px; margin-left: 4px; color: var(--ochre); } .pinm svg, .pinm .li { width: 13px; height: 13px; }
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -1155,7 +1177,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
   let S = { days: {}, weeks: {}, months: {}, owned: null, wish: {}, fav: {}, recent: [], sessions: [], ui: {} };
   try { S = Object.assign(S, JSON.parse(localStorage.getItem(KEY) || "{}")); } catch (e) {}
   /* undo / redo: save() notices when anything the owner can edit has changed and keeps the state before it */
-  const EDITK = ["plan", "adds", "ov", "hide", "tags", "links", "cols", "freq", "aw", "atag", "log"]; let HIST = [], REDO = [], lastSlice = null, histMute = false;
+  const EDITK = ["plan", "adds", "ov", "hide", "tags", "links", "cols", "freq", "aw", "atag", "log", "sdocs", "pins"]; let HIST = [], REDO = [], lastSlice = null, histMute = false;
   const sliceOf = () => JSON.stringify(EDITK.map((k) => (S[k] == null ? null : S[k])));
   const save = () => { const cur = sliceOf(); if (lastSlice !== null && cur !== lastSlice && !histMute) { HIST.push(lastSlice); if (HIST.length > 60) HIST.shift(); REDO = []; } lastSlice = cur; try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
   function timeTravel(from, to) { if (!from.length) return false; to.push(sliceOf()); const st = JSON.parse(from.pop()); EDITK.forEach((k, i) => { if (st[i] == null) delete S[k]; else S[k] = st[i]; }); histMute = true; save(); histMute = false; if (!$("#sheet").hidden) closeSheet(true); applyAdds(); RENDER[current](); return true; }
@@ -1246,7 +1268,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
       const cells = SLOTS.map((s) => {
         const list = pl[s[1]] || [], r = rows.find((x) => x.b.id === s[0]);
         return `<div class="pcell" data-cell="${d}|${s[1]}"><div class="pcell-head"><span>${li(SLOTIC[s[1]])}${s[2]}</span><time>${SC.at(s[0], d, S.plan)}</time></div>
-          ${list.map((x, i) => { const rt = byId[x[0]]; if (!rt) return ""; const g = isGym(rt); const ot = offTime(x[0], s[1]); return `<button class="pchip${g ? " gym" : ""}${ot ? " offt" : ""}${hl && hl !== rt.cat ? " dim" : ""}${inLens(rt, l) ? "" : " out"}"${ot ? ` title="The guide suggests ${tTxt(SC.guideOf(x[0]).t)}"` : ""} data-kind="${rt.cat}" data-insp="${esc(x[0])}" data-at="${d}|${s[1]}|${i}" draggable="true">${g ? gymIcon() : ""}<b>${g ? '<span class="sr">Gym: </span>' : ""}${esc(rt.name)}</b><small>${x[1]} min${ot ? '<span class="sr">. The guide suggests another time of day</span>' : ""}</small></button>`; }).join("")}
+          ${list.map((x, i) => { const rt = byId[x[0]]; if (!rt) return ""; const g = isGym(rt); const ot = offTime(x[0], s[1]); return `<button class="pchip${g ? " gym" : ""}${ot ? " offt" : ""}${hl && hl !== rt.cat ? " dim" : ""}${inLens(rt, l) ? "" : " out"}"${ot ? ` title="The guide suggests ${tTxt(SC.guideOf(x[0]).t)}"` : ""} data-kind="${rt.cat}" data-insp="${esc(x[0])}" data-at="${d}|${s[1]}|${i}" draggable="true">${g ? gymIcon() : ""}<b>${g ? '<span class="sr">Gym: </span>' : ""}${esc(rt.name)}${pinOf(d, s[1], x[0]) ? `<span class="pinm" title="Pinned">${li("pin")}<span class="sr"> (pinned)</span></span>` : ""}</b><small>${x[1]} min${ot ? '<span class="sr">. The guide suggests another time of day</span>' : ""}</small></button>`; }).join("")}
           ${r && r.over ? `<p class="pover">${r.over} min too long</p>` : ""}
           <button class="padd" data-pick="${d}|${s[1]}" aria-label="Add a routine to ${DAYN[d]} ${s[2].toLowerCase()}">${gl(G.plus, "s")}</button></div>`;
       }).join("");
@@ -1277,7 +1299,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
       const k = SC.SLOT[r.b.id];
       return `<section class="tblock${r.items.some(vis) ? "" : " out"}" id="blk-${r.b.id}"><header><time>${ed ? `<input type="time" data-attime="${r.b.id}" name="at-${r.b.id}" aria-label="${esc(r.b.name)} starts" value="${SC.at(r.b.id, d, S.plan)}">` : SC.C(r.at)}</time>${BLOCKART[r.b.id] ? ic(BLOCKART[r.b.id], 36) : ""}<h2>${esc(r.b.name)}</h2>${r.used ? `<span class="small muted">until ${SC.C(r.end)}</span>` : ""}</header>
         ${r.over ? `<div class="status warn">${gl(G.warn)}<div>Runs ${r.over} min into the next part of the day. Shorten a routine or move a start time.</div></div>` : ""}
-        <ul class="tlist">${r.items.map((i) => { const rt = i.go && byId[i.go], g = rt && isGym(rt); return `<li class="trow${g ? " gym" : ""}${vis(i) ? "" : " out"}"${rt ? ` data-kind="${rt.cat}"` : ""}><time>${i.clock || ""}</time><div><b>${g ? gymIcon() + '<span class="sr">Gym: </span>' : ""}${esc(i.t)}${i.uid ? " " + srcTag(i.src, true, i.who) : ""}</b>${i.d ? `<p>${esc(i.d)}</p>` : ""}${rec(i)}</div>${ed ? (i.opt ? '<span class="badge">Optional</span>' : "<span></span>") : logBtn(i)}${i.min ? `<span class="tmin">${i.min} min</span>` : "<span></span>"}${i.plan ? `<button class="btn ghost sm" data-insp="${esc(i.go)}" data-at="${d}|${k}|${i.pi}">${ed ? "Change" : "Details"}</button>` : ed ? (i.uid ? `<button class="btn ghost sm" data-add="item" data-id="${i.id}">Edit</button>` : `<button class="btn ghost sm danger" data-hide="${esc("i:" + i.id)}">Remove</button>`) : rt ? `<button class="btn ghost sm" data-go="${esc(i.go)}">Open</button>` : "<span></span>"}</li>`; }).join("")}</ul></section>`;
+        <ul class="tlist">${r.items.map((i) => { const rt = i.go && byId[i.go], g = rt && isGym(rt); return `<li class="trow${g ? " gym" : ""}${vis(i) ? "" : " out"}"${rt ? ` data-kind="${rt.cat}"` : ""}><time>${i.clock || ""}</time><div><b>${g ? gymIcon() + '<span class="sr">Gym: </span>' : ""}${esc(i.t)}${i.uid ? " " + srcTag(i.src, true, i.who) : ""}</b>${i.d ? `<p>${esc(i.d)}${i.u ? ` · <a class="linkbtn" href="${esc(i.u)}" target="_blank" rel="noopener">${esc(host(i.u) || "Source")}</a>` : ""}</p>` : ""}${rec(i)}</div>${ed ? (i.opt ? '<span class="badge">Optional</span>' : "<span></span>") : logBtn(i)}${i.min ? `<span class="tmin">${i.min} min</span>` : "<span></span>"}${i.plan ? `<button class="btn ghost sm" data-insp="${esc(i.go)}" data-at="${d}|${k}|${i.pi}">${ed ? "Change" : "Details"}</button>` : ed ? (i.uid ? `<button class="btn ghost sm" data-add="item" data-id="${i.id}">Edit</button>` : `<button class="btn ghost sm danger" data-hide="${esc("i:" + i.id)}">Remove</button>`) : rt ? `<button class="btn ghost sm" data-go="${esc(i.go)}">Open</button>` : "<span></span>"}</li>`; }).join("")}</ul></section>`;
     }).join("");
     $("#v-today").innerHTML = `
       <header class="view-head"><div><h1>${d === today ? "Today" : DAYN[d]}</h1><p class="lede">${DAYN[d]} ${date.getDate()} ${date.toLocaleDateString("en-GB", { month: "long" })}. ${ed ? "" : esc(pl.focus ? pl.focus + ". " : "")}<span class="only-d">${dayMin(d)} minutes planned.</span></p>
@@ -1323,6 +1345,10 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
   const insertRanked = (list, item) => { const s = SC.sortSlot(list.concat([item])); list.length = 0; s.forEach((x) => list.push(x)); };
   const PHASES = [[0, 11, "Wake the body"], [12, 29, "Breathe, release, drain"], [30, 49, "Tongue, face and jaw"], [50, 59, "Posture"], [60, 69, "Train"], [70, 77, "Finish"], [78, 89, "Settle"], [90, 99, "Breathe down"]];
   /* add or remove placements to reach the suggested number: quiet days first, spread apart */
+  const pinOf = (d, k, rid) => !!(S.pins || {})[d + "|" + k + "|" + rid];
+  let PINSKIP = 0;
+  /* reorder a part of the day, leaving pinned placements at their own position */
+  const sortKeep = (d, k, list) => { const sorted = SC.sortSlot(list.filter((x) => !pinOf(d, k, x[0]))), out = []; let j = 0; list.forEach((x) => out.push(pinOf(d, k, x[0]) ? x : sorted[j++])); return out; };
   function fixFreq(it) {
     const gd = SC.guideOf(it.rid), k = (gd && gd.t && gd.t[0]) || usualSlot(byId[it.rid]), mins = (placed(it.rid)[0] || {}).min || SC.mins(it.rid);
     if (it.delta > 0) {
@@ -1331,17 +1357,17 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
         const near = (d) => [-1, 1].filter((o) => has.has((d + o + 7) % 7)).length;
         const d = free.sort((a, b) => near(a) - near(b) || dayMin(a) - dayMin(b))[0]; insertRanked(ensureDay(d)[k], [it.rid, mins]);
       }
-    } else for (let n = 0; n < -it.delta; n++) { const p = placed(it.rid).sort((a, b) => dayMin(b.d) - dayMin(a.d))[0]; if (!p) break; ensureDay(p.d)[p.k].splice(p.i, 1); }
+    } else for (let n = 0; n < -it.delta; n++) { const all = placed(it.rid), p = all.filter((x) => !pinOf(x.d, x.k, it.rid)).sort((a, b) => dayMin(b.d) - dayMin(a.d))[0]; if (!p) { PINSKIP += all.length ? 1 : 0; break; } ensureDay(p.d)[p.k].splice(p.i, 1); }
   }
   /* the changes a Guide suggestion makes, applied to S.plan; returns the suggestion items it acted on */
   function guideMutate(kind, sel) {
     const rv = review(), items = (rv[kind] || []).filter((x, i) => sel === "all" || String(i) === sel || x.rid === sel);
     items.forEach((it) => {
-      if (kind === "order") { const pl = ensureDay(it.d); pl[it.k] = SC.sortSlot(pl[it.k]); }
-      else if (kind === "time") { const pl = ensureDay(it.d), i = pl[it.k].findIndex((x) => x[0] === it.rid); if (i > -1) insertRanked(pl[it.to], pl[it.k].splice(i, 1)[0]); }
+      if (kind === "order") { const pl = ensureDay(it.d); pl[it.k] = sortKeep(it.d, it.k, pl[it.k]); }
+      else if (kind === "time") { if (pinOf(it.d, it.k, it.rid)) { PINSKIP++; return; } const pl = ensureDay(it.d), i = pl[it.k].findIndex((x) => x[0] === it.rid); if (i > -1) insertRanked(pl[it.to], pl[it.k].splice(i, 1)[0]); }
       else if (kind === "freq") fixFreq(it);
       else if (kind === "gym" && it.kind === "warmup") insertRanked(ensureDay(it.d).train, ["groundwork", 5]);
-      else if (kind === "gym" && it.kind === "late") { const pl = ensureDay(it.d); pl.train = SC.sortSlot(pl.train); }
+      else if (kind === "gym" && it.kind === "late") { const pl = ensureDay(it.d); pl.train = sortKeep(it.d, "train", pl.train); }
     });
     return items;
   }
@@ -1350,11 +1376,12 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
   const planMin = (pl) => SLOTS.reduce((n, sl) => n + (pl[sl[1]] || []).reduce((a, x) => a + (byId[x[0]] ? +x[1] || 0 : 0), 0), 0);
   function previewGuide(kind, sel) {
     const was = S.plan, base = JSON.stringify(S.plan || {}); S.plan = clone(S.plan || {});
-    let items = [], next = null; try { items = guideMutate(kind, sel); next = S.plan; } finally { S.plan = was; }
+    let items = [], next = null; PINSKIP = 0; try { items = guideMutate(kind, sel); next = S.plan; } finally { S.plan = was; }
     if (!items.length) return;
-    GP = { base, next, n: items.length };
+    GP = { base, next, n: items.length, acc: {} };
     const cur = (d) => SC.plan(d, S.plan), aft = (d) => SC.plan(d, next), key = (pl) => JSON.stringify(SLOTS.map((sl) => pl[sl[1]] || []));
-    const days = ORDER.filter((d) => key(cur(d)) !== key(aft(d)));
+    const days = ORDER.filter((d) => key(cur(d)) !== key(aft(d))); days.forEach((d) => (GP.acc[d] = 1)); GP.days = days; const bud = +S.ui.budget || 0;
+    if (!days.length) { sheetUp(`<p>${PINSKIP ? "Everything this would change is pinned, so your week stays as it is." : "Nothing would change."}</p><div class="ed-foot"><span style="flex:1"></span><button class="btn" id="gpCancel">Close</button></div>`, "Preview the change"); GP = null; return; }
     const nm = (id) => esc((byId[id] || {}).name || id), weekNow = ORDER.reduce((a, d) => a + planMin(cur(d)), 0), weekAft = ORDER.reduce((a, d) => a + planMin(aft(d)), 0), dw = weekAft - weekNow;
     const list = (pl, other, d, mark) => SLOTS.filter((sl) => (pl[sl[1]] || []).length || (other[sl[1]] || []).length).map((sl) => { const o = (other[sl[1]] || []).map((x) => x[0]);
       return `<p class="gp-k">${sl[2]} · ${SC.at(sl[0], d, pl === next[d] ? next : S.plan)}</p><ol>${(pl[sl[1]] || []).map((x) => { const ch = o.indexOf(x[0]) < 0; if (!ch) o.splice(o.indexOf(x[0]), 1); return `<li${ch ? ` class="gp-${mark}"` : ""}><span>${nm(x[0])}</span><span>${x[1]} min${ch ? ` <b>${mark === "add" ? "Added" : "Taken out"}</b>` : ""}</span></li>`; }).join("") || '<li class="gp-none"><span>Nothing</span></li>'}</ol>`; }).join("");
@@ -1363,14 +1390,17 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     const sign = (n) => (n > 0 ? "+" : n < 0 ? "−" : "±") + Math.abs(n);
     sheetUp(`<div class="gp"><p class="gp-sum"><b>${days.length} ${days.length === 1 ? "day changes" : "days change"}, ${sign(dw)} min a week.</b> Your average day goes from ${hm(Math.round(weekNow / 7))} to ${hm(Math.round(weekAft / 7))}.</p>
       ${clash.length ? `<div class="status warn">${gl(G.warn)}<div><b>${clash.length === 1 ? "This creates a clash" : "This creates " + clash.length + " clashes"}.</b><ul class="bullets">${clash.map((c) => `<li>${esc(c.text)}</li>`).join("")}</ul></div></div>` : `<p class="pok">${gl(G.check, "s")}No new clashes: every changed part of the day still fits.</p>`}
-      ${days.map((d) => { const a = planMin(cur(d)), b = planMin(aft(d)); return `<section class="gp-day"><h4>${DAYN[d]}<span>${a} → ${b} min (${sign(b - a)})</span></h4><div class="gp-cols"><div><h5>Now</h5>${list(cur(d), aft(d), d, "del")}</div><div><h5>After</h5>${list(aft(d), cur(d), d, "add")}</div></div></section>`; }).join("")}
+      ${PINSKIP ? `<p class="small muted">${PINSKIP} pinned ${PINSKIP === 1 ? "placement stays" : "placements stay"} where ${PINSKIP === 1 ? "it is" : "they are"}.</p>` : ""}${days.length > 1 ? '<p class="small muted">Untick a day to leave it as it is. The ticked days are applied together, as one Undo.</p>' : ""}
+      ${days.map((d) => { const a = planMin(cur(d)), b = planMin(aft(d)); return `<section class="gp-day"><h4>${days.length > 1 ? `<label class="gp-acc"><input type="checkbox" data-gpday="${d}" checked>${DAYN[d]}</label>` : DAYN[d]}<span>${a} → ${b} min (${sign(b - a)})</span></h4>${bud && b > bud ? `<p class="gp-bud">${gl(G.warn, "s")}Over your ${hm(bud)} budget by ${b - bud} min</p>` : ""}<div class="gp-cols"><div><h5>Now</h5>${list(cur(d), aft(d), d, "del")}</div><div><h5>After</h5>${list(aft(d), cur(d), d, "add")}</div></div></section>`; }).join("")}
       ${why.length ? `<h4>Why</h4><ul class="gp-why">${why.join("")}</ul>` : ""}
       <div class="ed-foot"><button class="btn ghost" id="gpCancel">Keep my week</button><span style="flex:1"></span><button class="btn" id="gpApply">Apply ${days.length === 1 ? "this change" : "these changes"}</button></div></div>`, items.length === 1 ? "Preview the change" : `Preview ${items.length} changes`);
     $("#gpApply").focus();
   }
   function applyPreview() {
     if (!GP) return; if (JSON.stringify(S.plan || {}) !== GP.base) { closeSheet(true); toast("Your week changed since the preview. Open it again to see the current change."); GP = null; return; }
-    S.plan = GP.next; const n = GP.n, back = GP.back; GP = null; save(); closeSheet(true); RENDER[current](); if (back) openInsp(back.rid, back.at); toast(n === 1 ? "Applied to your week" : `${n} changes applied to your week`, undoLast);
+    const acc = GP.days.filter((d) => GP.acc[d]); if (!acc.length) { closeSheet(true); toast("No day was ticked, so nothing changed."); GP = null; return; }
+    if (acc.length === GP.days.length) S.plan = GP.next; else { const np = clone(S.plan || {}); acc.forEach((d) => (np[d] = clone(GP.next[d]))); S.plan = np; }
+    const n = acc.length < GP.days.length ? acc.length : GP.n, back = GP.back; GP = null; save(); closeSheet(true); RENDER[current](); if (back) openInsp(back.rid, back.at); toast(n === 1 ? "Applied to your week" : `${n} changes applied to your week`, undoLast);
   }
   function renderGuide() {
     now = new Date(); TK = dkey(now);
@@ -1387,7 +1417,8 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     $("#v-guide").innerHTML = `<header class="view-head band band-guide"><div><h1>Guide</h1><p class="lede">When, how often and in what order each routine fits. Each line says whether it comes from the OP docs or is a suggestion where they say nothing. Your week only changes when you choose Apply.</p></div><div class="head-side">${undoBar()}</div></header>
       <div class="wtool">${subnav("week", "guide")}${lensBar()}</div>
       <section class="gsum"><p><b>${tot ? `${tot} ${tot === 1 ? "suggestion" : "suggestions"} for this week.` : "Your week matches the guide."}</b> You plan about ${hm(rv.perDay)} a day now. At every suggested frequency it would be about ${hm(rv.perDayTarget)}.</p>
-        <p class="small muted"><span class="src op dot"></span> from the OP docs <span class="src ai dot"></span> suggested where the docs are silent. Fixes for a specific problem only count once you have put them in your week.</p></section>
+        <p class="small muted"><span class="src op dot"></span> from the OP docs <span class="src ai dot"></span> suggested where the docs are silent. Fixes for a specific problem only count once you have put them in your week.</p>
+        <p class="gbud"><label>Daily time budget <input type="number" id="gBudget" name="budget" min="0" max="1440" step="5" inputmode="numeric" autocomplete="off" value="${+S.ui.budget || ""}" placeholder="none"> min</label><span class="small muted">${S.ui.budget ? `${ORDER.filter((d) => dayMin(d) > S.ui.budget).length} of 7 days are over it now. Previews flag days that would go over.` : "Optional. Previews flag days that would go over it; nothing is blocked."}</span></p></section>
       <div class="gcards">
         ${card("Order within each part of the day", "Wake the body, release, then tongue and face work, then posture; warm up before lifting and release after it; breathe down last.", order.length ? '<button class="btn sm" data-gapply="order" data-gsel="all">Order every day…</button>' : "", order.map(([x, i]) => row(`${DAYN[x.d]} ${SLOTW[x.k]}: ${x.want.map(nm).join(", then ")}`, "", "op", `<button class="btn ghost sm" data-gapply="order" data-gsel="${i}">Apply…</button>`)))}
         ${card("Time of day", "Routines placed in a part of the day the guide does not suit.", time.length > 1 ? '<button class="btn sm" data-gapply="time" data-gsel="all">Move all…</button>' : "", time.map(([x, i]) => row(`${nm(x.rid)}: ${DAYN[x.d]} ${SLOTW[x.k]} → ${SLOTW[x.to]}`, x.why, x.src, `<button class="btn ghost sm" data-gapply="time" data-gsel="${i}">Move…</button>`)))}
@@ -1410,7 +1441,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
   const AREA = {}; P.areas.forEach((a) => (AREA[a.id] = a));
   const areasOf = (rid) => { const r = byId[rid]; return !r ? [] : (S.atag || {})[r.id] || P.rtAreas(r); };
   const areaW = () => { const w = {}; P.areas.forEach((a) => (w[a.id] = (S.aw || {})[a.id] != null ? +S.aw[a.id] : P.areaWeight[a.id].days)); return w; };
-  const coverNow = () => { const l = lens(); return SC.cover(S.plan, areasOf, areaW(), (rid) => inLens(byId[rid], l)); };
+  const coverNow = () => { const l = lens(); return SC.cover(S.plan, areasOf, areaW(), (rid) => inLens(byId[rid], l), pinOf); };
   const aList = (l) => l.map((a) => AREA[a].n.toLowerCase()).join(", ");
   const dayTxt = (n) => `${n} ${n === 1 ? "day" : "days"} a week`;
   function drawAreas() {
@@ -1465,13 +1496,13 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     }
     const groups = (l ? [l] : ["rt", "gym"]).map((g) => [g, cmpRows(g)]);
     $("#cmpBody").innerHTML = cmpSide() + groups.map(([g, rows]) => {
-      const tot = rows.reduce((a, x) => a + x.n, 0), per = ORDER.map((d) => rows.reduce((a, x) => a + x.pl.filter((p) => p.d === d).reduce((b, p) => b + (+p.min || 0), 0), 0)); let last = "";
-      return `<section class="cgroup cg-${g}" aria-label="${g === "gym" ? "Gym" : "Routines"}"><header class="cg-head"><span class="lsw" aria-hidden="true"></span><h2>${g === "gym" ? "Gym" : "Routines"}</h2><p>${rows.length} shown, ${tot} placed this week, ${per.reduce((a, b) => a + b, 0)} min</p></header>
+      const tot = rows.reduce((a, x) => a + x.n, 0), plc = rows.reduce((a, x) => a + x.pl.length, 0), used = rows.filter((x) => x.pl.length).length, habit = tot - plc, all = P.routines.filter((r) => gymOf(r) === g).length, per = ORDER.map((d) => rows.reduce((a, x) => a + x.pl.filter((p) => p.d === d).reduce((b, p) => b + (+p.min || 0), 0), 0)); let last = "";
+      return `<section class="cgroup cg-${g}" aria-label="${g === "gym" ? "Gym" : "Routines"}"><header class="cg-head"><span class="lsw" aria-hidden="true"></span><h2>${g === "gym" ? "Gym" : "Routines"}</h2><p class="cg-stats"><span><b>${rows.length}</b> of ${all} ${g === "gym" ? "gym sessions" : "routines"} shown</span><span><b>${used}</b> in the plan</span><span><b>${plc}</b> ${plc === 1 ? "placement" : "placements"} a week</span>${habit ? `<span><b>+${habit}</b> days covered by daily habits</span>` : ""}<span><b>${per.reduce((a, b) => a + b, 0)}</b> min planned</span></p>${rows.length < all ? `<p class="small muted">Filtered by ${[(ui.cq || "").trim() ? `“${esc(ui.cq.trim())}”` : "", ui.co ? "In my week" : ""].filter(Boolean).join(" and ")}. <button class="linkbtn" id="cmpReset">Show all</button></p>` : ""}</header>
         ${rows.length ? `<ul class="clist">${rows.map((x) => { const r = x.r, head = (ui.cs || "group") === "group" && r.cat !== last ? `<li class="chead"><span class="cdot" data-kind="${r.cat}"></span>${esc(catOf(r.cat).name || "")}</li>` : ""; last = r.cat;
           return `${head}<li class="crow${x.n ? "" : " unplaced"}${g === "gym" ? " gym" : ""}"><label class="ccheck"><input type="checkbox" data-csel="${esc(r.id)}"${CSEL.indexOf(r.id) > -1 ? " checked" : ""}${CSEL.length >= 3 && CSEL.indexOf(r.id) < 0 ? " disabled" : ""}><span class="sr">Compare ${esc(r.name)}</span></label>
             <div class="cname"><button class="linkname" data-insp="${esc(r.id)}">${g === "gym" ? gymIcon() : `<span class="cdot" data-kind="${r.cat}"></span>`}${esc(r.name)}</button><small>${(() => { const gd = SC.guideOf(r.id); return gd ? `${srcTag(gSrc(gd), true)}${esc(r.dur || "No set length")}. Guide: ${tTxt(gd.t)}, ${fTxt(gd.f)}` : `${esc(r.dur || "No set length")}${r.when ? ". " + esc(r.when) : ""}`; })()}</small>${areasOf(r.id).length ? `<small class="aworks">Works ${aList(areasOf(r.id))}</small>` : ""}</div>
             <div class="cdays" role="group" aria-label="Days for ${esc(r.name)}">${ORDER.map((d) => { const c = x.pl.filter((p) => p.d === d).length; return `<button data-cday="${esc(r.id)}|${d}" aria-pressed="${c > 0}" aria-label="${DAYN[d]}${c > 1 ? ", " + c + " times" : ""}">${DAYN[d][0]}${c > 1 ? `<i>${c}</i>` : ""}</button>`; }).join("")}</div>
-            <div class="ccount${x.off ? " off" : ""}${x.n ? "" : " zero"}"><b>${x.n}</b><small>${x.aim ? "of " + x.aim + " a week" : x.gf ? "guide " + (x.gf[0] === x.gf[1] ? x.gf[0] : x.gf[0] + "–" + x.gf[1]) : "a week"}</small><small>${x.min ? x.min + " min" : ""}</small></div></li>`; }).join("")}
+            <div class="ccount${x.off ? " off" : ""}${x.n ? "" : " zero"}"><b>${x.n}</b><small>${x.n > x.pl.length ? `${x.pl.length} placed + habit` : x.aim ? "of " + x.aim + " a week" : x.gf ? "guide " + (x.gf[0] === x.gf[1] ? x.gf[0] : x.gf[0] + "–" + x.gf[1]) : "a week"}</small><small>${x.min ? x.min + " min" : ""}</small></div></li>`; }).join("")}
           <li class="cfoot" aria-label="${g === "gym" ? "Gym" : "Routine"} minutes each day"><span></span><span>Minutes each day</span><div class="cdays">${ORDER.map((d, i) => `<span title="${DAYN[d]}"><span class="sr">${DAYN[d]} </span>${per[i]}</span>`).join("")}</div><div class="ccount"><b>${per.reduce((a, b) => a + b, 0)}</b><small>a week</small></div></li></ul>`
           : '<div class="empty"><b>Nothing matches</b>Clear the filter or turn off In my week.</div>'}</section>`;
     }).join("");
@@ -1496,6 +1527,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     if (d.lens !== undefined) { S.ui.lens = d.lens; save(); RENDER[current](); refocus(`[data-lens="${d.lens}"]`); say(d.lens ? `Showing ${d.lens === "gym" ? "gym" : "routines"} only` : "Showing everything"); return true; }
     if (t.id === "cmpOnly") { S.ui.co = !S.ui.co; save(); renderCompare(); refocus("#cmpOnly"); return true; }
     if (t.id === "cmpClear") { CSEL = []; drawCompare(); return true; }
+    if (t.id === "cmpReset") { S.ui.cq = ""; S.ui.co = false; save(); renderCompare(); refocus("#cmpQ"); return true; }
     if (d.amove) { moveForArea(d.amove); refocus("[data-amove], #v-compare .gsum"); return true; }
     if (d.awreset) { delete S.aw; save(); renderCompare(); refocus('[data-ctab="area"]'); say("Weightings back to the docs"); return true; }
     if (d.atag) { const rid = INSP.rid, cur = areasOf(rid), nx = cur.indexOf(d.atag) > -1 ? cur.filter((a) => a !== d.atag) : P.areas.map((a) => a.id).filter((a) => a === d.atag || cur.indexOf(a) > -1); S.atag = S.atag || {}; if (nx.join() === P.rtAreas(byId[rid]).join()) delete S.atag[rid]; else S.atag[rid] = nx; save(); RENDER[current](); openInsp(rid, INSP.at); refocus(`[data-atag="${d.atag}"]`); return true; }
@@ -1507,25 +1539,60 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
   let INSP = null;
   const stepper = (id, v, unit) => `<span class="stepper"><button data-step="${id}" data-v="-1" aria-label="Less">${gl("M5 12h14", "s")}</button><output id="${id}">${v}</output><button data-step="${id}" data-v="1" aria-label="More">${gl(G.plus, "s")}</button></span>${unit ? `<span class="muted">${unit}</span>` : ""}`;
   function openInsp(rid, at) {
-    const r = byId[rid]; if (!r) return; INSP = { rid, at: at || null };
+    const r = byId[rid]; if (!r) return; const tab = (INSP && INSP.rid === rid && INSP.tab) || (at ? "sch" : "ov"); INSP = { rid, at: at || null, tab };
     const pl = placed(rid), aim = +aimsNow()[rid] || 0, eq = (P.equip || {})[rid], cur = at ? at.split("|") : null, list = cur ? SC.plan(+cur[0], S.plan)[cur[1]] || [] : [], here = cur ? list[+cur[2]] : null;
     const parts = r.ex.map((e) => { if (typeof e === "string") return `<li class="h">${esc(e.replace(/^#/, ""))}</li>`; const ea = P.exAreas(exName(e)); return `<li>${esc(exName(e))}${normEx(e).d ? `<small>${esc(normEx(e).d)}</small>` : ""}${ea.length ? `<small class="exa">Works ${aList(ea)}</small>` : ""}</li>`; }).join("");
     const mine = !!(S.atag || {})[rid], works = areasOf(rid);
     const grid = `<table class="igrid"><thead><tr><td></td>${ORDER.map((d) => `<th scope="col"><span aria-hidden="true">${DAYN[d][0]}</span><span class="sr">${DAYN[d]}</span></th>`).join("")}</tr></thead><tbody>${SLOTS.map((s) => `<tr><th scope="row">${s[2]}</th>${ORDER.map((d) => { const on = pl.some((x) => x.d === d && x.k === s[1]); return `<td><button data-tog="${d}|${s[1]}" aria-pressed="${on}" aria-label="${DAYN[d]} ${s[2].toLowerCase()}">${on ? CHECK : ""}</button></td>`; }).join("")}</tr>`).join("")}</tbody></table>`;
+    const o = owned(), need = eq ? eq.map((e) => { const pn = eqProd(e); return `${esc(e)}${pn ? ` <span class="badge ${o[pn] ? "sage" : ""}">${o[pn] ? "owned" : "not owned"}</span>` : ""}`; }).join(", ") : "No equipment", step = +S.ui["pls_" + rid] || 0, nst = r.ex.filter((e) => typeof e !== "string").length;
+    const tb = (id, label) => `<button role="tab" id="it-${id}" aria-selected="${tab === id}" aria-controls="ip-${id}" tabindex="${tab === id ? 0 : -1}" data-itab="${id}">${label}</button>`, pnl = (id, html) => `<div role="tabpanel" id="ip-${id}" aria-labelledby="it-${id}"${tab === id ? "" : " hidden"}>${html}</div>`;
+    const pin = cur ? cur[0] + "|" + cur[1] + "|" + rid : "", pinned = !!(S.pins || {})[pin];
     sheetUp(`<div class="insp">
-      <p class="imeta">${isGym(r) ? gymIcon() : `<span class="cdot" data-kind="${r.cat}"></span>`}${esc(catOf(r.cat).name || "")}${isGym(r) ? '<span class="badge gymb">Gym</span>' : ""}</p>
-      <dl class="ifacts">${r.dur ? `<dt>Length</dt><dd>${esc(r.dur)}</dd>` : ""}${r.when ? `<dt>When, as written</dt><dd>${esc(r.when)}</dd>` : ""}${eq ? `<dt>Needs</dt><dd>${esc(eq.join(", "))}</dd>` : ""}</dl>
+      <div class="ihead"><p class="imeta">${isGym(r) ? gymIcon() : `<span class="cdot" data-kind="${r.cat}"></span>`}${esc(catOf(r.cat).name || "")}${isGym(r) ? '<span class="badge gymb">Gym</span>' : ""}${srcTag(r.src, true, r.who)}</p>
+        <p class="ilead-f"><span>${gl(G.clock, "s")}${esc(r.dur || "No set length")}</span><span>${gl(G.kit, "s")}${need}</span><span>${pl.length ? pl.length + " a week" : "Not in your week"}</span></p>
+        <div class="row ilead"><button class="btn" data-play="${esc(rid)}">${gl(G.play, "s")}${step ? `Resume at step ${step + 1}` : "Start"}</button><button class="btn ghost" data-addweek="${esc(rid)}">${gl(G.plus, "s")}Add to week</button></div></div>
+      <div class="tabs itabs" role="tablist" aria-label="${esc(r.name)}">${tb("ov", "Overview")}${tb("sch", "Schedule")}${tb("st", `Steps <span class="badge">${nst}</span>`)}</div>
+      ${pnl("ov", `<dl class="ifacts">${r.when ? `<dt>When, as written</dt><dd>${esc(r.when)}</dd>` : ""}${eq ? `<dt>Needs</dt><dd>${esc(eq.join(", "))}</dd>` : ""}</dl>
       ${(() => { const gd = SC.guideOf(rid); if (!gd) return ""; const rv = review(), fq = rv.freq.find((x) => x.rid === (r.base || rid)), tm = rv.time.filter((x) => x.rid === rid);
         return `<section class="iguide" aria-label="Guide"><h4>Guide</h4><dl class="ifacts"><dt>Best time</dt><dd>${srcTag(gd.ts, true)}${tTxt(gd.t)}</dd><dt>How often</dt><dd>${srcTag(gd.fs, true)}${fTxt(gd.f)}${gd.c ? ", if it applies to you" : ""}</dd></dl><p>${esc(gd.why)}</p>
-          ${fq || tm.length ? `<div class="row">${fq ? `<button class="btn ghost sm" data-gfix="freq|${esc(fq.rid)}">${fq.delta > 0 ? `Add ${fq.delta} to reach ${fTxt(fq.f)}` : `Remove ${-fq.delta}`}</button>` : ""}${tm.length ? `<button class="btn ghost sm" data-gfix="time|${esc(rid)}">Move ${tm.length > 1 ? "all " + tm.length : ""} to the ${SLOTW[gd.t[0]]}</button>` : ""}</div>` : ""}</section>`; })()}
-      ${here ? `<fieldset class="ed-slot"><legend>${DAYN[+cur[0]]} ${slotName(cur[1]).toLowerCase()}</legend><div class="irow"><span>Minutes</span>${stepper("imin", here[1])}</div>
-        <div class="row"><button class="btn ghost sm" data-iup="1"${+cur[2] > 0 ? "" : " disabled"}>Earlier</button><button class="btn ghost sm" data-idown="1"${+cur[2] < list.length - 1 ? "" : " disabled"}>Later</button><button class="btn ghost sm danger" data-irem="1">Remove from ${DAYN[+cur[0]]}</button></div></fieldset>` : ""}
-      <h4>When you do it</h4><p class="small muted" id="iCount">${pl.length} ${pl.length === 1 ? "time" : "times"} this week. Choose a square to add or remove it.</p>${grid}
-      <div class="irow"><span>Aim for</span>${stepper("iaim", aim, aim ? "a week" : "no aim set")}</div>
+          ${fq || tm.length ? `<div class="row">${fq ? `<button class="btn ghost sm" data-gfix="freq|${esc(fq.rid)}">${fq.delta > 0 ? `Add ${fq.delta} to reach ${fTxt(fq.f)}…` : `Remove ${-fq.delta}…`}</button>` : ""}${tm.length ? `<button class="btn ghost sm" data-gfix="time|${esc(rid)}">Move ${tm.length > 1 ? "all " + tm.length : ""} to the ${SLOTW[gd.t[0]]}…</button>` : ""}</div>` : ""}</section>`; })()}
       <section class="iworks" aria-label="What it works"><h4>What it works</h4><p class="small muted">${srcTag(mine ? "me" : "ai", true)}${mine ? "Your tags." : "Suggested from its exercise names: the areas at least a quarter of its steps work."} Choose an area to add or remove it. Compare by body area counts these.</p>
         <div class="chips">${P.areas.map((a) => `<button class="chip plain atag" data-atag="${a.id}" aria-pressed="${works.indexOf(a.id) > -1}">${esc(a.n)}</button>`).join("")}</div>${mine ? '<button class="linkbtn" data-atagreset="1">Back to the suggested tags</button>' : ""}</section>
-      <h4>What is in it</h4><ol class="iparts">${parts}</ol>
-      <div class="row"><button class="btn sm" data-play="${esc(rid)}">${gl(G.play, "s")}Follow along</button><button class="btn ghost sm" data-go="${esc(rid)}">Open the routine</button><button class="btn ghost sm" data-dup="${esc(rid)}">${li("copy")}Duplicate and edit</button></div></div>`, esc(r.name));
+      <div class="row"><button class="btn ghost sm" data-go="${esc(rid)}">Open the routine</button><button class="btn ghost sm" data-dup="${esc(rid)}">${li("copy")}Duplicate and edit</button></div>`)}
+      ${pnl("sch", `${here ? `<fieldset class="ed-slot"><legend>${DAYN[+cur[0]]} ${slotName(cur[1]).toLowerCase()}</legend><div class="irow"><span>Minutes</span>${stepper("imin", here[1])}</div>
+        <div class="row"><button class="btn ghost sm" data-iup="1"${+cur[2] > 0 ? "" : " disabled"}>Earlier</button><button class="btn ghost sm" data-idown="1"${+cur[2] < list.length - 1 ? "" : " disabled"}>Later</button><button class="btn ghost sm" data-ipin="${esc(pin)}" aria-pressed="${pinned}">${pinned ? "Pinned here" : "Pin here"}</button><button class="btn ghost sm danger" data-irem="1">Remove from ${DAYN[+cur[0]]}</button></div>
+        <p class="small muted">${pinned ? "Pinned: the Guide and spread suggestions leave it where it is." : "Pin it to keep the Guide and spread suggestions from moving it."}</p></fieldset>` : ""}
+      <h4>When you do it</h4><p class="small muted" id="iCount">${pl.length} ${pl.length === 1 ? "time" : "times"} this week. Choose a square to add or remove it.</p>${grid}
+      <div class="irow"><span>Aim for</span>${stepper("iaim", aim, aim ? "a week" : "no aim set")}</div>`)}
+      ${pnl("st", `<ol class="iparts">${parts}</ol><div class="row"><button class="btn sm" data-play="${esc(rid)}">${gl(G.play, "s")}Follow along</button><button class="btn ghost sm" data-dup="${esc(rid)}">${li("copy")}Duplicate and edit</button></div>`)}</div>`, esc(r.name));
+  }
+  /* ── Add to week: pick a day and part of the day, see the time, equipment and clashes, then add ── */
+  let AW = null;
+  function openAddWeek(rid, d, k) {
+    const r = byId[rid]; if (!r) return; const gd = SC.guideOf(rid), has = (x) => placed(rid).some((p) => p.d === x);
+    if (k == null) k = (gd && gd.t && gd.t[0]) || usualSlot(r); if (d == null) { const t0 = ORDER.indexOf(now.getDay()); d = ORDER.slice(t0).concat(ORDER.slice(0, t0)).find((x) => !has(x)); if (d == null) d = now.getDay(); }
+    AW = { rid, d: +d, k }; const min = (placed(rid)[0] || {}).min || SC.mins(rid), next = clone(S.plan || {}); if (!next[d]) next[d] = clone(P.plan.week[d]); ["am", "train", "pm", "bed"].forEach((x) => (next[d][x] = next[d][x] || []));
+    const sl = SC.sortSlot(next[d][k].concat([[rid, min]])); next[d][k] = sl;
+    const bid = SLOTS.find((x) => x[1] === k)[0], row = SC.day(d, next).find((x) => x.b.id === bid), was = SC.day(d, S.plan).find((x) => x.b.id === bid), it = row && row.items.find((i) => i.go === rid && i.plan);
+    const over = row ? row.over - ((was && was.over) || 0) : 0, before = SC.checks(S.plan, aimsNow()).map((c) => c.text), hard = SC.checks(next, aimsNow()).filter((c) => c.k === "hard" && before.indexOf(c.text) < 0), eq = (P.equip || {})[rid], o = owned();
+    const tot = SLOTS.reduce((n, s2) => n + (next[d][s2[1]] || []).reduce((a, x) => a + (byId[x[0]] ? +x[1] || 0 : 0), 0), 0), bud = +S.ui.budget || 0;
+    const warn = [has(d) ? `${r.name} is already on ${DAYN[d]}.` : "", over > 0 ? `${slotName(k)} would run ${over} min into the next part of the day.` : "", offTime(rid, k) ? `The guide suggests ${tTxt(gd.t)}.` : "", bud && tot > bud ? `${DAYN[d]} would be ${tot} min, over your ${hm(bud)} budget.` : ""].concat(hard.map((c) => c.text)).filter(Boolean);
+    sheetUp(`<div class="aw"><p class="small muted">Choose when. Nothing is added until you confirm.</p>
+      <div class="pstrip always" role="group" aria-label="Day">${ORDER.map((x) => `<button data-awd="${x}" aria-pressed="${x === d}" aria-label="${DAYN[x]}${has(x) ? ", already there" : ""}"><b>${DAYN[x].slice(0, 3)}</b><span>${dateOf(x).getDate()}</span><small>${has(x) ? "on it" : dayMin(x) + " min"}</small></button>`).join("")}</div>
+      <div class="seg awk" role="group" aria-label="Part of the day">${SLOTS.map((x) => `<button data-awk="${x[1]}" aria-pressed="${x[1] === k}">${x[2]}</button>`).join("")}</div>
+      <section class="awp" aria-live="polite"><h4>${DAYN[d]} ${slotName(k).toLowerCase()}</h4><p class="awf"><span>${gl(G.clock, "s")}${it && it.clock ? "Starts about " + it.clock : "Time set by the part of the day"}</span><span>${min} min</span><span>${DAYN[d]} becomes ${tot} min</span></p>
+        <p class="awf"><span>${gl(G.kit, "s")}${eq ? eq.map((e) => { const pn = eqProd(e); return esc(e) + (pn ? ` (${o[pn] ? "owned" : "not owned"})` : ""); }).join(", ") : "No equipment"}</span></p>
+        ${warn.length ? `<div class="status warn">${gl(G.warn)}<div><ul class="bullets">${warn.map((w) => `<li>${esc(w)}</li>`).join("")}</ul></div></div>` : `<p class="pok">${gl(G.check, "s")}Fits: no clashes.</p>`}</section>
+      <div class="ed-foot"><span style="flex:1"></span><button class="btn" data-awgo="1">Add to ${DAYN[d]} ${slotName(k).toLowerCase()}</button></div></div>`, "Add " + esc(r.name) + " to the week");
+  }
+  function awClick(t, d) {
+    if (d.addweek) { closeSheet(true); openAddWeek(d.addweek); refocus("[data-awgo]"); return true; }
+    if (d.awd !== undefined) { openAddWeek(AW.rid, +d.awd, AW.k); refocus(`[data-awd="${d.awd}"]`); return true; }
+    if (d.awk) { openAddWeek(AW.rid, AW.d, d.awk); refocus(`[data-awk="${d.awk}"]`); return true; }
+    if (d.awgo) { const a = AW, min = (placed(a.rid)[0] || {}).min || SC.mins(a.rid); editDay(a.d, (pl) => insertRanked(pl[a.k], [a.rid, min])); closeSheet(true); toast(`${byId[a.rid].name} added to ${DAYN[a.d]} ${slotName(a.k).toLowerCase()}`, undoLast); return true; }
+    if (d.ipin) { S.pins = S.pins || {}; const on = !S.pins[d.ipin]; if (on) S.pins[d.ipin] = 1; else delete S.pins[d.ipin]; save(); RENDER[current](); openInsp(INSP.rid, INSP.at); refocus("[data-ipin]"); toast(on ? "Pinned: suggestions will leave it here" : "Unpinned", undoLast); return true; }
+    if (d.itab) { INSP.tab = d.itab; openInsp(INSP.rid, INSP.at); refocus(`[data-itab="${d.itab}"]`); return true; }
+    return false;
   }
   function openPicker(d, k) {
     INSP = { pick: d + "|" + k };
@@ -1639,7 +1706,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     const row = (r) => { const key = "r:" + r.id, n = placed(r.id).length, th = routineThumbs(r).slice(0, 3);
       return `<details class="rt" id="r-${r.id}" data-rt="${r.id}" name="dr" data-dr="${esc(key)}"${drOpen(key)}><summary><button class="star" data-fav="${r.id}" aria-pressed="${!!S.fav[r.id]}" aria-label="Favourite ${esc(r.name)}">${STAR}</button>
           <div class="rt-main"><h3>${esc(r.name)}</h3><p>${[r.when, r.dur, n ? n + " a week" : "not in your week"].filter(Boolean).map(esc).join(" · ")}</p></div>${th.length ? `<span class="film" aria-hidden="true">${th.map((l) => pic(l)).join("")}</span>` : "<span></span>"}${srcTag(r.src, true, r.who)}${CARET}</summary>
-          <div class="rt-body">${rtBadges(r)}<div class="row"><button class="btn sm" data-play="${r.id}">${gl(G.play, "s")}Follow along</button>${r.pacer ? `<button class="btn sm ghost" data-pacer="${r.pacer}">${r.pacer === "co2" ? "Open hold timer" : "Open breath pacer"}</button>` : ""}<button class="btn sm ghost" data-expand="${r.id}">Show all steps</button></div>
+          <div class="rt-body">${rtBadges(r)}<div class="row"><button class="btn sm" data-play="${r.id}">${gl(G.play, "s")}Follow along</button>${r.pacer ? `<button class="btn sm ghost" data-pacer="${r.pacer}">${r.pacer === "co2" ? "Open hold timer" : "Open breath pacer"}</button>` : ""}<button class="btn sm ghost" data-addweek="${r.id}">${gl(G.plus, "s")}Add to week</button><button class="btn sm ghost" data-expand="${r.id}">Show all steps</button></div>
             ${r.note ? `<p class="note">${esc(r.note)}</p>` : ""}<div class="card exlist">${r.ex.map((e) => exHtml(e, r.id)).join("")}</div>
             ${r.tips ? `<ul class="badges">${r.tips.map((t) => `<li class="badge wrapok">${esc(t)}</li>`).join("")}</ul>` : ""}${r.links ? r.links.map((l) => `<a class="linkbtn" href="${esc(l[1])}" target="_blank" rel="noopener">${esc(l[0])}</a>`).join("") : ""}${eqHtml(r)}${footFor("r:" + r.id, r)}</div></details>`; };
     const base = P.routines.filter((r) => rtIn(r) && hit(r) && (!cat || r.cat === cat)), rs = base.filter((r) => srcPass("r", r.src, r.who));
@@ -1672,13 +1739,14 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     if (sel.groups) body = sel.groups.map((g, k) => `<div class="grp" id="${sec("g" + k, g.h)}"><h2>${esc(g.h)}</h2>${ddHtml(g.do, g.dont, "g" + k)}</div>`).join("");
     else {
       if (sel.dont.length) sec("t-dont", "Don't"); if (sel.do.length) sec("t-do", "Do");
-      body = `${sel.key && sel.key.length ? `<ul class="keys">${sel.key.map((k) => `<li>${esc(k)}</li>`).join("")}</ul>` : ""}${ddHtml(sel.do, sel.dont, "t")}${(sel.more || []).map((m, k) => `<div class="more" id="${sec("m" + k, m.h)}"><h2>${esc(m.h)}</h2><ul class="bullets">${m.items.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>`).join("")}`;
+      body = `${sel.key && sel.key.length ? `<ul class="keys">${sel.key.map((k) => `<li>${esc(k)}</li>`).join("")}</ul><p class="keysrc">Key numbers · ${srcTag(sel.src, false, sel.who)}</p>` : ""}${ddHtml(sel.do, sel.dont, "t")}${(sel.more || []).map((m, k) => `<div class="more" id="${sec("m" + k, m.h)}"><h2>${esc(m.h)}</h2><ul class="bullets">${m.items.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>`).join("")}`;
     }
     el.innerHTML = `<div class="detail"><div class="row"><a class="btn ghost sm" href="#library">${gl(G.back, "s")}Library</a><span style="flex:1"></span>
         <button class="btn ghost sm" data-topic="${key}" data-id="${list[(i + list.length - 1) % list.length].id}">Previous</button><button class="btn ghost sm" data-topic="${key}" data-id="${list[(i + 1) % list.length].id}">Next topic</button></div>
-      <div class="md-title">${art(sel.icon, 72)}<div><h1>${esc(sel.name)}</h1>${sel.intro ? `<p class="lede">${esc(sel.intro)}</p>` : ""}<p class="md-src">${srcTag(sel.src, false, sel.who)}<span>${esc(((LGROUPS.find((g) => g[0] === (sel.grp || "ref")) || [])[1]) || "")}</span></p></div></div>
+      <div class="md-title">${art(sel.icon, 72)}<div><h1>${esc(sel.name)}</h1>${sel.intro ? `<p class="lede">${esc(sel.intro)}</p>` : ""}<p class="md-src">${srcTag(sel.src, false, sel.who)}<span>${esc(((LGROUPS.find((g) => g[0] === (sel.grp || "ref")) || [])[1]) || "")}</span></p>
+        <div class="md-act"><button class="btn ghost sm" data-fav="t:${esc(sel.id)}" aria-pressed="${!!S.fav["t:" + sel.id]}">${STAR}Save</button>${sel.uid ? `<button class="btn ghost sm" data-add="topic" data-id="${esc(sel.uid)}">${li("edit")}Edit</button>` : `<button class="btn ghost sm" data-ov="t:${esc(sel.id)}">${li("edit")}Edit</button>`}</div></div></div>
       <div class="rdesk"><div class="rmain">${anchors.length > 1 ? `<nav class="anchors" aria-label="On this page">${anchors.map((a) => `<button class="chip plain" data-anchor="${a[0]}">${esc(a[1])}</button>`).join("")}</nav>` : ""}<div class="sbody ${sb(sel.src, sel.who)}">${body}${userNotes(sel.id)}</div></div>
-      <aside class="rside" aria-label="Sources and related">${relatedHtml(sel)}</aside></div></div>`;
+      <aside class="rside" aria-label="Sources, use and related">${weekUse("t:" + sel.id)}${sdocBlock("t:" + sel.id)}${relatedHtml(sel)}</aside></div></div>`;
   }
   const renderSystems = () => renderTopics("systems", P.systems, "sys", "Systems", "Pick a system for what to cut, what to do and the numbers worth remembering.");
   const renderExtras = () => renderTopics("extras", P.extras, "ext", "Bonus extras", "Toxin avoidance, the allergy guide and the other side protocols.");
@@ -1768,7 +1836,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
       ${tab === "wishlist" ? `<div class="seg" role="group" aria-label="Priority for ${esc(p.n)}">${PRI.map((x) => `<button data-pri="${esc(p.n)}" data-v="${x[0]}" aria-pressed="${String(S.wish[p.n]) === x[0]}">${x[1]}</button>`).join("")}</div>` : ""}
       <div class="dr-act">${prodLink(p)}${on ? `<button class="btn sm ghost" data-own="${esc(p.n)}">Not owned</button>` : `<button class="btn sm ghost" data-wish="${esc(p.n)}" aria-pressed="${!!S.wish[p.n]}">${S.wish[p.n] ? gl(G.check, "s") + (tab === "wishlist" ? "Remove from wishlist" : "On wishlist") : "Add to wishlist"}</button>`}
         ${p.uid ? `<button class="linkbtn" data-add="product" data-id="${esc(p.uid)}">Edit</button>` : `<button class="linkbtn" data-ov="${esc(ref)}">${ovOf(ref).note ? "Edit note" : "Add a note"}</button><button class="star" data-fav="${esc(ref)}" aria-pressed="${!!S.fav[ref]}" aria-label="Save ${esc(p.n)}">${STAR}</button>`}</div>
-      <p class="dr-src">${srcTag(p.src, false, p.who)}${ovOf(ref).t ? `<span class="badge gold">Edited by you · ${stamp(ovOf(ref).t)}</span>` : ""}</p>`;
+      ${relBlock(ref)}<p class="dr-src">${srcTag(p.src, false, p.who)}${ovOf(ref).p != null ? `<span>Price ${money(+ovOf(ref).p)} recorded by you on ${stamp(ovOf(ref).t)}</span>` : ovOf(ref).t ? `<span class="badge gold">Edited by you · ${stamp(ovOf(ref).t)}</span>` : ""}</p>`;
     return `<li class="slim ${sb(p.src, p.who)}"><details class="dr" name="dr" data-dr="${esc(key)}"${drOpen(key)}><summary>${pc ? ic(pc, 40) : `<span class="dr-ic" aria-hidden="true">${gl(G.kit)}</span>`}<span class="dr-main"><b>${esc(p.title || p.n)}</b><small><span class="only-m">${p.p ? money(p.p) + " · " : ""}</span>${esc(line)}</small></span><span class="dr-fact">${p.p ? money(p.p) : '<span class="muted">No price</span>'}</span>${srcTag(p.src, true, p.who)}${qa}${CARET}</summary><div class="dr-body">${body}</div></details></li>`;
   }
   const prodLink = (p) => (p.u ? `<a class="linkbtn" href="${esc(p.u)}" target="_blank" rel="noopener">Open link<span class="sr"> for ${esc(p.n)}</span></a>` : "");
@@ -1812,10 +1880,11 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
   let FIDX = null;
   function findIndex() {
     if (FIDX) return FIDX; const X = []; const add = (kind, t, sub, src, act) => X.push({ kind, t, sub, src: srcOf(src), act, k: (t + " " + (sub || "")).toLowerCase() });
-    P.routines.forEach((r) => { add("Routines", r.name, catName(r.cat), "op", ["routine", r.id]); const seen = {}; r.ex.forEach((e) => { if (typeof e === "string") return; const n = exName(e); if (!seen[n]) { seen[n] = 1; add("Exercises in routines", n, r.name, "op", ["routine", r.id]); } }); });
+    P.routines.forEach((r) => { add("Routines", r.name, catName(r.cat), "op", ["routine", r.id]); const seen = {}; r.ex.forEach((e) => { if (typeof e === "string") return; const n = exName(e); if (!seen[n]) { seen[n] = 1; add("Exercises in routines", n, "In " + r.name, "op", ["routine", r.id]); } }); });
     P.library.forEach((x) => add("Exercise library", x.n, x.al.slice(0, 2).join(", "), "op", ["lib", x.id]));
-    const topic = (list, key, kind) => list.forEach((t) => { add(kind, t.name, t.intro || "", t.src, [key, t.id]); const lines = (t.do || []).concat(t.dont || []); (t.more || []).forEach((m) => lines.push.apply(lines, m.items)); (t.groups || []).forEach((g) => lines.push.apply(lines, g.do.concat(g.dont))); lines.forEach((l) => add(kind, l, t.name, t.src, [key, t.id])); });
-    topic(P.systems, "sys", "Systems"); topic(P.extras, "ext", "Bonus extras");
+    const gname = (t) => (LGROUPS.find((g) => g[0] === (t.grp || "ref")) || [])[1] || "Library";
+    const topic = (list, key) => list.forEach((t) => { add("Topics", t.name, gname(t) + (t.intro ? " · " + t.intro : ""), t.src, [key, t.id]); const lines = (t.do || []).concat(t.dont || []); (t.more || []).forEach((m) => lines.push.apply(lines, m.items)); (t.groups || []).forEach((g) => lines.push.apply(lines, g.do.concat(g.dont))); lines.forEach((l) => add("In topics", l, "In " + t.name, t.src, [key, t.id])); });
+    topic(P.systems, "sys"); topic(P.extras, "ext");
     const N = P.nutrition; N.approved.forEach((g) => g.items.filter((i) => !hid("f:" + i)).forEach((i) => add("Nutrition", i, g.h, g.src, ["nut", "approved"])));
     N.avoid.forEach((g) => g.items.filter((i) => !hid("f:" + i)).forEach((i) => add("Nutrition", i, "Avoid: " + g.h, "op", ["nut", "avoid"])));
     N.recipes.forEach((r) => add("Nutrition", r.name, "Recipe", "op", ["nut", "recipes"])); N.nutrients.forEach((r) => add("Nutrition", r[0], r[1], "op", ["nut", "map"]));
@@ -1823,7 +1892,8 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     N.timing.forEach((r) => add("Nutrition", r[1], "Timing: " + r[0], "op", ["nut", "timing"])); N.targets.forEach((r) => add("Nutrition", r[0] + ": " + r[1], "Daily target", "both", ["nut", "plate"]));
     P.products.forEach((x) => add("Products", x.title || x.n, x.note || "", x.src, ["prod", x.n]));
     P.blocks.forEach((b) => b.items.forEach((i) => add("Daily habits", i.t, b.name, i.src || "op", ["page", "today"])));
-    userOf("food").forEach((a) => add("Nutrition", a.n, "Added food", a.src, ["nut", a.g[0] === "v" ? "avoid" : "approved"])); userOf("note").forEach((a) => !a.g ? add("Notes", a.n, "Inbox", a.src, ["page", "library"]) : add(P.systems.some((t) => t.id === a.g) ? "Systems" : "Bonus extras", a.n, "Your addition", a.src, [P.systems.some((t) => t.id === a.g) ? "sys" : "ext", a.g]));
+    userOf("food").forEach((a) => add("Nutrition", a.n, "Added food", a.src, ["nut", a.g[0] === "v" ? "avoid" : "approved"])); userOf("note").filter((a) => !a.arch).forEach((a) => !a.g ? add("Notes", a.n, "Inbox" + (a.steps && a.steps !== a.n ? " · " + a.steps.slice(0, 80) : ""), a.src, ["note", a.id]) : add("Notes", a.n, "In " + ((topicBy(a.g) || {}).name || "a topic"), a.src, ["note", a.id]));
+    (S.sdocs || []).forEach((x) => add("Source documents", x.t, [x.by, x.u ? host(x.u) : ""].filter(Boolean).join(" · "), "me", ["sdoc", x.id]));
     Object.keys(S.ov || {}).forEach((ref) => { const o = S.ov[ref], id = ref.slice(2); if (o.note) add("My notes", o.note.slice(0, 90), refName(ref) || id, "me", ref[0] === "r" ? ["routine", id] : ref[0] === "t" ? [tkey(id), id] : ref[0] === "p" ? ["prod", id] : ["nut", "approved"]); });
     X.forEach((x) => { const a = x.act, ref = a[0] === "routine" ? "r:" + a[1] : a[0] === "sys" || a[0] === "ext" ? "t:" + a[1] : a[0] === "prod" ? "p:" + a[1] : "", tg = ref && (S.tags || {})[ref]; if (tg) x.k += " " + tg.join(" "); });
     return (FIDX = X);
@@ -1843,6 +1913,8 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     else if (a[0] === "nut") { S.ui.nut = a[1]; save(); go("nutrition"); }
     else if (a[0] === "prod") { S.ui.ptab = "library"; S.ui.pg = ""; S.ui.pq = a[1]; save(); go("products"); }
     else if (a[0] === "page") go(a[1]);
+    else if (a[0] === "note") openNote(a[1]);
+    else if (a[0] === "sdoc") openSdoc(a[1]);
     else if (a[0] === "today") { S.ui.whole = false; S.ui.period = a[1]; S.ui.pday = TK; save(); go("today"); }
   }
 
@@ -1873,7 +1945,8 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     const r = byId[id]; if (!r) return; let sec = ""; const steps = [];
     r.ex.forEach((e) => { if (typeof e === "string") sec = e.slice(1); else steps.push(Object.assign({ sec }, normEx(e))); });
     if (!PL) lastFocus = document.activeElement;
-    PL = { r, steps, i: Math.min(steps.length - 1, Math.max(0, (ctx && ctx.step) || 0)), t: 0, state: "ready", last: 0, opened: Date.now(), fin: false, ctx: ctx || null }; touch(id);
+    const back = ctx ? ctx.step || 0 : +S.ui["pls_" + id] || 0;
+    PL = { r, steps, i: Math.min(steps.length - 1, Math.max(0, back)), resumed: back > 0, t: 0, state: "ready", last: 0, opened: Date.now(), fin: false, ctx: ctx || null }; touch(id);
     $("#player").hidden = false; document.body.style.overflow = "hidden"; drawPlayer(); $("#plClose").focus();
   }
   function drawPlayer() {
@@ -1883,7 +1956,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
         <p class="muted">${PL.ctx ? `Nothing is logged until you choose. Mark it done to record it on ${DAYN[PL.ctx.d]}.` : "Nothing was logged. To record it, start it from the day it is planned on."}</p><div class="row" style="justify-content:center">${PL.ctx ? '<button class="btn" id="plMark">Mark done</button><button class="btn ghost" id="plDone">Close without logging</button>' : '<button class="btn" id="plDone">Done</button><button class="btn ghost" id="plRestart">Run it again</button>'}</div></div>`; return; }
     const x = PL.steps[PL.i], nx = PL.steps[PL.i + 1], tg = target(x.d), stLabel = { ready: "Ready", running: "Running", paused: "Paused" }[PL.state];
     $("#player").innerHTML = `${top}<div class="pl-head ov-in"><div class="dots"><span class="label">Step ${PL.i + 1} of ${n}${x.sec ? " · " + esc(x.sec) : ""}</span><ol aria-hidden="true">${PL.steps.map((s, k) => `<li class="${k < PL.i ? "past" : k === PL.i ? "on" : ""}"></li>`).join("")}</ol></div>
-        <div class="pl-title"><h2 id="plName">${esc(x.n)}</h2>${x.d ? `<span class="badge sage wrapok">${esc(x.d)}</span>` : ""}</div></div>
+        ${PL.resumed ? `<p class="plres">Back at step ${PL.i + 1}, where you left it. <button class="linkbtn" data-step="0">Start from step 1</button></p>` : ""}<div class="pl-title"><h2 id="plName">${esc(x.n)}</h2>${x.d ? `<span class="badge sage wrapok">${esc(x.d)}</span>` : ""}</div></div>
       <div class="pl-grid ov-in"><div class="pl-left"><div class="card stage o2">${figure(x.n, PL.r.cat, PL.r.id)}</div>
           <div class="thumbs o4" role="group" aria-label="All steps">${PL.steps.map((s, k) => `<button data-step="${k}" class="${k < PL.i ? "past" : ""}" ${k === PL.i ? 'aria-current="step"' : ""}>${(() => { const l = libFor(s.n, PL.r.id); return l ? `<span class="tpic">${pic(l)}</span>` : ""; })()}<small>${k + 1}</small>${esc(s.n)}</button>`).join("")}</div></div>
         <div class="pl-right"><div class="card box o1"><div class="row" style="justify-content:space-between"><span class="label">Elapsed</span><span class="badge ${PL.state === "running" ? "sage" : PL.state === "paused" ? "gold" : ""}" id="plState">${stLabel}</span></div>
@@ -1895,8 +1968,8 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     paintTimer();
   }
   function paintTimer() { if (!PL || PL.fin) return; const c = $("#plClock"); if (c) c.textContent = fmt(PL.t); const b = $("#plBar"), tg = target(PL.steps[PL.i].d); if (b && tg) { b.style.width = Math.min(100, (PL.t / tg.hi) * 100) + "%"; b.className = PL.t >= tg.lo ? "hit" : ""; } }
-  function plGo(i) { PL.i = i; PL.t = 0; if (PL.ctx) { const e = (S.log || []).find((x) => x.id === PL.ctx.eid); if (e) { e.step = i; histMute = true; save(); histMute = false; } } PL.state = "ready"; drawPlayer(); $("#player").scrollTo(0, 0); $("#plNext").focus(); say("Step " + (i + 1) + ": " + PL.steps[i].n); }
-  function plFinish() { PL.fin = true; PL.state = "finished"; PL.total = (Date.now() - PL.opened) / 1000; drawPlayer(); ($("#plMark") || $("#plDone")).focus(); say(PL.r.name + ": last step reached"); }
+  function plGo(i) { PL.i = i; PL.t = 0; PL.resumed = false; S.ui["pls_" + PL.r.id] = i; save(); if (PL.ctx) { const e = (S.log || []).find((x) => x.id === PL.ctx.eid); if (e) { e.step = i; histMute = true; save(); histMute = false; } } PL.state = "ready"; drawPlayer(); $("#player").scrollTo(0, 0); $("#plNext").focus(); say("Step " + (i + 1) + ": " + PL.steps[i].n); }
+  function plFinish() { delete S.ui["pls_" + PL.r.id]; save(); PL.fin = true; PL.state = "finished"; PL.total = (Date.now() - PL.opened) / 1000; drawPlayer(); ($("#plMark") || $("#plDone")).focus(); say(PL.r.name + ": last step reached"); }
   function closeOverlay(el) { el.hidden = true; el.innerHTML = ""; document.body.style.overflow = ""; PL = null; PC = null; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
 
   /* ── breath pacer (behaviour unchanged) ── */
@@ -1998,6 +2071,40 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     drawLibrary();
   }
 
+  /* ── source documents (terms in GLOSSARY.md): entered by hand; each points at the records or claims it supports ── */
+  let SD = null;
+  const sdocsFor = (ref) => (S.sdocs || []).filter((x) => x.refs.indexOf(ref) > -1);
+  const sdocLine = (x) => `<li class="sdoc"><div><b>${x.u ? `<a href="${esc(x.u)}" target="_blank" rel="noopener">${esc(x.t)}</a>` : esc(x.t)}</b><small>${[x.by, x.pub ? "published " + x.pub : "", x.rev ? "reviewed " + x.rev : "", x.u ? host(x.u) : ""].filter(Boolean).map(esc).join(" · ")}</small>${x.cl ? `<blockquote>${esc(x.cl)}</blockquote>` : ""}</div><button class="linkbtn" data-sdoc="${x.id}">Edit<span class="sr"> ${esc(x.t)}</span></button></li>`;
+  const sdocBlock = (ref) => { const l = sdocsFor(ref); return `<div class="more sdocs"><h2>Source documents</h2>${l.length ? `<ul>${l.map(sdocLine).join("")}</ul>` : '<p class="small muted">None recorded yet. Add the page, paper or book a claim here comes from.</p>'}<button class="btn ghost sm" data-sdocnew="${esc(ref)}">${gl(G.plus, "s")}Add a source document</button></div>`; };
+  function openSdoc(id, forRef) {
+    const x = (id && (S.sdocs || []).find((d) => d.id === id)) || { refs: forRef ? [forRef] : [] }; SD = { id: x.id || null, refs: x.refs.slice() };
+    sheetUp(`<form id="sdForm" novalidate><p class="small muted">A source document is one page, paper or book. Record only what you know; leave dates empty unless they are printed on it.</p>
+      <label class="field">Title<input type="text" name="t" maxlength="200" autocomplete="off" value="${esc(x.t || "")}"></label>
+      <label class="field">Link (optional)<input type="url" name="u" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://…" value="${esc(x.u || "")}"></label>
+      <label class="field">Author or publisher (optional)<input type="text" name="by" maxlength="200" autocomplete="off" value="${esc(x.by || "")}"></label>
+      <div class="row"><label class="field">Published (optional)<input type="text" name="pub" inputmode="numeric" autocomplete="off" placeholder="2024 or 2024-05-01" value="${esc(x.pub || "")}"></label><label class="field">Reviewed (optional)<input type="text" name="rev" inputmode="numeric" autocomplete="off" placeholder="2025-01" value="${esc(x.rev || "")}"></label></div>
+      <label class="field">The claim or section it supports (optional)<textarea name="cl" rows="3" maxlength="1000">${esc(x.cl || "")}</textarea></label>
+      <fieldset class="ed-slot"><legend>Supports</legend><ul id="sdRefs" class="chips">${SD.refs.map(sdRefChip).join("")}</ul><input class="search" id="sdQ" type="search" name="sdq" autocomplete="off" aria-label="Find a record this supports" placeholder="Find a topic, routine or product…"><div id="sdRes" class="lkres">${pickRows("", SD.refs, "", "data-sdref")}</div></fieldset>
+      <div class="status warn" id="sdErr" role="alert" hidden></div>
+      <div class="ed-foot">${x.id ? `<button type="button" class="linkbtn danger" data-sddel="${x.id}">Delete</button>` : ""}<span style="flex:1"></span><button class="btn" type="submit">Save source document</button></div></form>`, x.id ? "Source document" : "Add a source document");
+    $("#sdForm input").focus();
+  }
+  const sdRefChip = (r) => `<li><span class="chip plain">${esc(refName(r) || r)}<button type="button" class="iconbtn" data-sdunref="${esc(r)}" aria-label="Remove ${esc(refName(r) || r)}">${gl(G.x, "s")}</button></span></li>`;
+  function saveSdoc(form) {
+    const v = (n) => (form.querySelector(`[name="${n}"]`).value || "").trim(), err = !v("t") ? ["t", "Give it a title."] : v("u") && !/^https?:\/\//i.test(v("u")) ? ["u", "A link needs to start with https://"] : [v("pub"), v("rev")].some((d) => d && !DATE.test(d)) ? [v("pub") && !DATE.test(v("pub")) ? "pub" : "rev", "Write a date as 2024, 2024-05 or 2024-05-01."] : null;
+    if (err) { const e = $("#sdErr"); e.hidden = false; e.textContent = err[1]; form.querySelector(`[name="${err[0]}"]`).focus(); return; }
+    const d = { id: SD.id || "d" + Date.now().toString(36), t: v("t"), u: v("u"), by: v("by"), pub: v("pub"), rev: v("rev"), cl: v("cl"), refs: SD.refs };
+    S.sdocs = cleanSdocs((S.sdocs || []).filter((x) => x.id !== d.id).concat([d])); FIDX = null; save(); closeSheet(true); RENDER[current](); toast(SD.id ? "Source document saved" : "Source document added", undoLast);
+  }
+  function sdocClick(t, d) {
+    if (d.sdoc) { openSdoc(d.sdoc); return true; }
+    if (d.sdocnew) { openSdoc(null, d.sdocnew); return true; }
+    if (d.sdref) { if (SD.refs.indexOf(d.sdref) < 0) SD.refs.push(d.sdref); $("#sdRefs").innerHTML = SD.refs.map(sdRefChip).join(""); $("#sdQ").value = ""; $("#sdRes").innerHTML = pickRows("", SD.refs, "", "data-sdref"); refocus("#sdQ"); return true; }
+    if (d.sdunref) { SD.refs = SD.refs.filter((r) => r !== d.sdunref); $("#sdRefs").innerHTML = SD.refs.map(sdRefChip).join(""); $("#sdRes").innerHTML = pickRows("", SD.refs, $("#sdQ").value, "data-sdref"); refocus("#sdQ"); return true; }
+    if (d.sddel) { S.sdocs = (S.sdocs || []).filter((x) => x.id !== d.sddel); (S.cols || []).forEach((c) => (c.items = c.items.filter((r) => r !== "s:" + d.sddel))); FIDX = null; save(); closeSheet(true); RENDER[current](); toast("Source document deleted", undoLast); return true; }
+    return false;
+  }
+
   /* ── notes: one field to capture, the Inbox to file them (terms in GLOSSARY.md) ── */
   const NKIND = { obs: "Observation", q: "Question", quote: "Quote", do: "Do", dont: "Don't" };
   const noteAt = (a) => +a.at || parseInt(String(a.id).slice(1), 36) || 0;
@@ -2006,7 +2113,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
   const excerpt = (a) => { const b = String(a.steps || "").trim(), first = b.split("\n")[0].trim(); return (first === a.n ? b.slice(first.length) : b).trim().replace(/\s+/g, " ").slice(0, 160); };
   const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
   const inboxRow = (a) => `<li class="ibx"><div class="ibx-main"><button class="ibx-t" data-note="${a.id}">${esc(a.n)}</button>${excerpt(a) ? `<p class="ibx-x">${esc(excerpt(a))}</p>` : ""}<p class="ibx-m"><time datetime="${new Date(noteAt(a)).toISOString()}">${dayFmt(noteAt(a))}</time>${NKIND[a.list] ? `<span>${NKIND[a.list]}</span>` : ""}${a.u ? `<a class="linkbtn" href="${esc(a.u)}" target="_blank" rel="noopener">${esc(host(a.u) || "Source link")}</a>` : ""}${a.rel && refName(a.rel) ? `<span>About ${esc(refName(a.rel))}</span>` : ""}${srcTag(a.src, true, a.who)}</p></div>
-    <div class="ibx-act"><button class="btn ghost sm" data-nfile="${a.id}">File<span class="sr"> ${esc(a.n)}</span></button><button class="btn ghost sm" data-ncol="${a.id}">Collect<span class="sr"> ${esc(a.n)}</span></button><button class="btn ghost sm" data-narch="${a.id}">Archive<span class="sr"> ${esc(a.n)}</span></button></div></li>`;
+    <div class="ibx-act"><button class="btn ghost sm" data-nfile="${a.id}">File<span class="sr"> ${esc(a.n)}</span></button><button class="btn ghost sm" data-ncol="${a.id}">Collect<span class="sr"> ${esc(a.n)}</span></button><button class="btn ghost sm" data-ntask="${a.id}">Put on a day<span class="sr">: ${esc(a.n)}</span></button><button class="btn ghost sm" data-narch="${a.id}">Archive<span class="sr"> ${esc(a.n)}</span></button></div></li>`;
   function inboxHtml() {
     const l = inboxNotes(), arch = userOf("note").filter((a) => a.arch);
     if (!l.length && !arch.length) return "";
@@ -2051,10 +2158,24 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     if (mode === "file") sheetUp(`<p class="small muted">File “${esc(a.n)}” under a topic. It leaves the Inbox and appears in that topic's own notes.</p><input class="search" id="nfQ" type="search" name="nfq" autocomplete="off" aria-label="Find a topic" placeholder="Find a topic…"><div id="nfList">${topicChoices().map((c) => `<button class="opt-row" data-nfileto="${esc(c[0])}" data-k="${esc(c[1].toLowerCase())}">${esc(c[1])}</button>`).join("")}</div>`, "File under a topic");
     else sheetUp(`<p class="small muted">Collections point at the note; they never copy it.</p>${(S.cols || []).map((c) => `<button class="opt-row" data-ncolto="${c.id}" aria-pressed="${c.items.indexOf("n:" + id) > -1}">${esc(c.n)}<span>${c.items.indexOf("n:" + id) > -1 ? "In it" : c.items.length + " items"}</span></button>`).join("") || '<p class="small muted">No collections yet.</p>'}<div class="row"><input type="text" id="ncName" name="colname" maxlength="60" autocomplete="off" aria-label="New collection name" placeholder="New collection…"><button class="btn sm" data-ncolnew="1">Add and collect</button></div>`, "Add to a collection");
   }
+  let NT2 = null;
+  function openTask(id, d, b) {
+    const a = userOf("note").find((x) => x.id === id); if (!a) return; const t0 = ORDER.indexOf(now.getDay()), days = ORDER.slice(t0); NT2 = { id, d: d == null ? days[0] : +d, b: b || "morning" };
+    sheetUp(`<div class="aw"><p class="small muted">“${esc(a.n)}” becomes a task on one date this week, with its source link. The note stays where it is.</p>
+      <div class="pstrip always" role="group" aria-label="Date">${days.map((x) => `<button data-ntd="${x}" aria-pressed="${x === NT2.d}"><b>${DAYN[x].slice(0, 3)}</b><span>${dateOf(x).getDate()}</span></button>`).join("")}</div>
+      <div class="seg awk" role="group" aria-label="Part of the day">${P.blocks.map((x) => `<button data-ntb="${x.id}" aria-pressed="${x.id === NT2.b}">${esc(x.name)}</button>`).join("")}</div>
+      <label class="field">Minutes<input type="number" id="ntMin" name="min" min="0" max="240" step="5" inputmode="numeric" autocomplete="off" value="10"></label>
+      <div class="ed-foot"><span style="flex:1"></span><button class="btn" data-ntgo="1">Add to ${DAYN[NT2.d]} ${NT2.d === now.getDay() ? "(today)" : dateOf(NT2.d).getDate()}</button></div></div>`, "Put on a day");
+  }
   const noteSet = (id, f) => { S.adds = (S.adds || []).map((x) => (x.id === id ? f(Object.assign({}, x)) : x)); save(); applyAdds(); };
   function noteClick(t, d) {
     if (d.note) { openNote(d.note); return true; }
     if (d.nfile) { notePicker(d.nfile, "file"); return true; }
+    if (d.ntask) { openTask(d.ntask); refocus("[data-ntgo]"); return true; }
+    if (d.ntd !== undefined) { openTask(NT2.id, +d.ntd, NT2.b); refocus(`[data-ntd="${d.ntd}"]`); return true; }
+    if (d.ntb) { openTask(NT2.id, NT2.d, d.ntb); refocus(`[data-ntb="${d.ntb}"]`); return true; }
+    if (d.ntgo) { const a = userOf("note").find((x) => x.id === NT2.id), on = occDate(NT2.d), it = { k: "item", id: "u" + Date.now().toString(36), n: a.n, g: NT2.b, min: String(Math.max(0, Math.min(240, Math.round(+$("#ntMin").value) || 0))), on, from: a.id, u: a.u || "", src: a.src, who: a.who };
+      S.adds = cleanAdds((S.adds || []).concat([it])); save(); applyAdds(); closeSheet(true); RENDER[current](); toast(`On ${DAYN[NT2.d]} as a task`, undoLast); return true; }
     if (d.ncol) { notePicker(d.ncol, "col"); return true; }
     if (d.nfileto) { const id = NOTE.id, tn = (topicChoices().find((c) => c[0] === d.nfileto) || [])[1]; noteSet(id, (x) => ((x.g = d.nfileto), x)); closeSheet(true); RENDER[current](); toast("Filed under " + tn, undoLast); return true; }
     if (d.ncolto) { const id = NOTE.id, c = S.cols.find((x) => x.id === d.ncolto), r = "n:" + id, had = c.items.indexOf(r) > -1; c.items = had ? c.items.filter((x) => x !== r) : c.items.concat([r]); save(); notePicker(id, "col"); refocus(`[data-ncolto="${d.ncolto}"]`); toast(had ? "Removed from " + c.n : "Added to " + c.n, undoLast); return true; }
@@ -2086,8 +2207,8 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
   const baseRel = (ref) => (ref[0] === "t" ? ((P.related || {})[ref.slice(2)] || []).map((id) => "r:" + id) : []);
   const relOf = (ref) => { const L = (S.links || {})[ref] || {}, del = L.del || []; return baseRel(ref).filter((x) => del.indexOf(x) < 0).map((x) => [x, 0]).concat((L.add || []).map((x) => [x, 1])); };
   const backOf = (ref) => Object.keys(P.related || {}).map((id) => "t:" + id).concat(Object.keys(S.links || {})).filter((x, i, a) => a.indexOf(x) === i && x !== ref && relOf(x).some((y) => y[0] === ref));
-  const refName = (ref) => { const id = ref.slice(2); if (ref[0] === "n") return (userOf("note").find((a) => a.id === id) || {}).n; return ref[0] === "r" ? (byId[id] || {}).name : ref[0] === "t" ? (topicBy(id) || {}).name : ref[0] === "p" ? (P.products.find((p) => p.n === id) || {}).n : id; };
-  const refAttr = (ref) => { const id = ref.slice(2); if (ref[0] === "n") return `data-note="${esc(id)}"`; return ref[0] === "r" ? `data-go="${esc(id)}"` : ref[0] === "t" ? `data-topic="${tkey(id)}" data-id="${esc(id)}"` : ref[0] === "p" ? `data-findgo='${esc(JSON.stringify(["prod", id]))}'` : 'data-jumpnut="approved"'; };
+  const refName = (ref) => { const id = ref.slice(2); if (ref[0] === "s") return ((S.sdocs || []).find((x) => x.id === id) || {}).t; if (ref[0] === "n") return (userOf("note").find((a) => a.id === id) || {}).n; return ref[0] === "r" ? (byId[id] || {}).name : ref[0] === "t" ? (topicBy(id) || {}).name : ref[0] === "p" ? (P.products.find((p) => p.n === id) || {}).n : id; };
+  const refAttr = (ref) => { const id = ref.slice(2); if (ref[0] === "s") return `data-sdoc="${esc(id)}"`; if (ref[0] === "n") return `data-note="${esc(id)}"`; return ref[0] === "r" ? `data-go="${esc(id)}"` : ref[0] === "t" ? `data-topic="${tkey(id)}" data-id="${esc(id)}"` : ref[0] === "p" ? `data-findgo='${esc(JSON.stringify(["prod", id]))}'` : 'data-jumpnut="approved"'; };
   const refChip = (ref) => (refName(ref) ? `<button class="chip plain" ${refAttr(ref)}>${esc(refName(ref))}</button>` : "");
   function relBlock(ref) {
     const rel = relOf(ref), back = backOf(ref).filter((x) => !rel.some((y) => y[0] === x)), tp = ref[0] === "t" && topicBy(ref.slice(2));
@@ -2099,22 +2220,28 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
   const favKey = (ref) => (ref[0] === "r" ? ref.slice(2) : ref);
   const footFor = (ref, rec) => `${mine(ref)}${relBlock(ref)}<p class="srcline"><span>Source: ${srcWord(rec)}.</span>${ovOf(ref).t ? `<span class="badge gold">Edited by you · ${stamp(ovOf(ref).t)}</span>` : ""}${rec.uid ? "" : `<button class="linkbtn" data-ov="${esc(ref)}">Edit</button>`}${ref[0] === "r" ? "" : `<button class="star" data-fav="${esc(favKey(ref))}" aria-pressed="${!!S.fav[favKey(ref)]}" aria-label="Save ${esc(rec.name || "")}">${STAR}</button>`}</p>`;
   const relatedHtml = (sel) => footFor("t:" + sel.id, sel);
+  /* the routines this record is linked with, and how often each sits in the week */
+  const weekUse = (ref) => { const rs = relOf(ref).map((x) => x[0]).concat(backOf(ref)).filter((r, i, a) => r[0] === "r" && a.indexOf(r) === i && byId[r.slice(2)]); if (!rs.length) return ""; return `<div class="more usedin-b"><h2>Used in your week</h2><ul class="mg">${rs.map((r) => { const id = r.slice(2), n = placed(id).length; return `<li class="slim"><span><button class="linkbtn" data-insp="${esc(id)}">${esc(byId[id].name)}</button><small>${n ? n + (n === 1 ? " time" : " times") + " a week" : "Not in your week"}</small></span><button class="btn ghost sm" data-addweek="${esc(id)}">Add to week<span class="sr">: ${esc(byId[id].name)}</span></button></li>`; }).join("")}</ul><p class="small muted">From the links on this page, including suggested ones.</p></div>`; };
   /* equipment → product record, only where data/meta.js names a real match */
   const eqProd = (name) => { const n = (P.equipProd || {})[name.replace(/ \(optional\)$/, "")]; return n && P.products.some((p) => p.n === n) ? n : null; };
   const eqHtml = (r) => { const eq = (P.equip || {})[r.id], o = owned(); return eq ? `<div class="more eqblock"><h3>Equipment</h3><ul class="eqlist">${eq.map((e) => { const p = eqProd(e); return `<li>${p ? `<button class="linkbtn" data-findgo='${esc(JSON.stringify(["prod", p]))}'>${esc(e)}</button><span class="badge ${o[p] ? "sage" : S.wish[p] ? "gold" : ""}">${o[p] ? "Owned" : S.wish[p] ? "Wishlist" : "Not recorded"}</span>` : `<span>${esc(e)}</span>`}</li>`; }).join("")}</ul><p class="small muted">Status comes from your Products lists. Plain items have no product record, and nothing here needs buying to do the routine.</p></div>` : ""; };
   const usedIn = (pn) => P.routines.filter((r) => ((P.equip || {})[r.id] || []).some((e) => eqProd(e) === pn));
   const noteRow = (a) => `<li class="slim ${sb(a.src, a.who)}">${srcTag(a.src, true, a.who)}${NKIND[a.list] ? `<span class="badge ${a.list === "dont" ? "clay" : a.list === "do" ? "sage" : ""}">${NKIND[a.list]}</span>` : ""}<span><b>${esc(a.n)}</b>${a.steps ? `<small>${esc(a.steps)}</small>` : ""}${a.u ? ` <a class="linkbtn" href="${esc(a.u)}" target="_blank" rel="noopener">Source link</a>` : ""}</span><button class="linkbtn" data-note="${a.id}">Edit<span class="sr"> ${esc(a.n)}</span></button></li>`;
 
+  const KIND = { r: "Routine", t: "Topic", p: "Product", n: "Note", s: "Source document" };
+  const linkTargets = () => P.routines.map((r) => "r:" + r.id).concat(topicsAll().map((x) => "t:" + x[0].id), P.products.map((x) => "p:" + x.n), userOf("note").map((a) => "n:" + a.id), (S.sdocs || []).map((x) => "s:" + x.id));
+  /* candidates for a picker: matching the query, never the record itself and never one already in the list */
+  const pickRows = (self, have, q, attr) => { q = q.trim().toLowerCase(); const l = linkTargets().filter((r) => r !== self && have.indexOf(r) < 0 && refName(r) && (!q || refName(r).toLowerCase().indexOf(q) > -1)).slice(0, 8); return l.length ? l.map((r) => `<button type="button" class="opt-row" ${attr}="${esc(r)}"><span>${esc(refName(r))}</span><span>${KIND[r[0]]}</span></button>`).join("") : `<p class="small muted">${q ? "Nothing else matches." : "Type to find something to link."}</p>`; };
   const relRow = (x) => `<li><span>${esc(refName(x[0]) || x[0])}${x[1] ? "" : ' <span class="badge">suggested</span>'}</span><button type="button" class="iconbtn" data-reldel="${esc(x[0])}" aria-label="Remove the link to ${esc(refName(x[0]) || "")}">${gl(G.x, "s")}</button></li>`;
   function openOv(ref) {
-    const k = ref[0], o = ovOf(ref), og = ORIG[ref] || { n: ref.slice(2) }, can = k === "r" || k === "t", name = can ? og.n : ref.slice(2), opt = (r) => `<option value="${esc(r)}">${esc(refName(r))}</option>`;
+    const k = ref[0], o = ovOf(ref), og = ORIG[ref] || { n: ref.slice(2) }, can = k === "r" || k === "t" || k === "p", name = can ? og.n : ref.slice(2), opt = (r) => `<option value="${esc(r)}">${esc(refName(r))}</option>`;
     sheetUp(`<form id="ovForm" data-ref="${esc(ref)}" novalidate>
       <p class="small muted">${can ? `You can change the title${k === "t" ? " and summary" : ""}, and add your own note, tags, links and collections.` : "You can change the wording, and add your own note, tags and collections."} The supplied text, steps, durations and source stay as written and can be restored at any time.</p>
       <label class="field">${k === "f" ? "Text" : "Title"}<input type="text" name="n" maxlength="160" autocomplete="off" value="${esc(o.n || og.n)}"></label>${k === "p" ? `<label class="field">Price in £<input type="number" name="p" min="0" step="any" inputmode="decimal" autocomplete="off" value="${esc(o.p != null ? o.p : og.p || "")}"></label><label class="field">Link<input type="text" name="u" inputmode="url" autocomplete="off" placeholder="https://…" value="${esc(o.u || og.u || "")}"></label>` : ""}${k === "t" ? `<label class="field">Summary<input type="text" name="intro" maxlength="300" autocomplete="off" value="${esc(o.intro || og.intro)}"></label>` : ""}
       <label class="field">My note<textarea name="note" rows="3" maxlength="2000">${esc(o.note || "")}</textarea></label>
       <label class="field">Tags, separated by commas<input type="text" name="tags" maxlength="200" autocomplete="off" placeholder="sleep, to research…" value="${esc(((S.tags || {})[ref] || []).join(", "))}"></label>
       ${(S.cols || []).length ? `<fieldset class="ed-slot"><legend>Collections</legend>${S.cols.map((c) => `<label class="field check"><input type="checkbox" name="col-${c.id}"${c.items.indexOf(ref) > -1 ? " checked" : ""}>${esc(c.n)}</label>`).join("")}</fieldset>` : ""}
-      ${can ? `<fieldset class="ed-slot"><legend>Links</legend><p class="small muted">Links save straight away.</p><ul id="ovRel">${relOf(ref).map(relRow).join("")}</ul><select data-reladd="1" name="reladd" aria-label="Add a link"><option value="">Link to…</option><optgroup label="Routines">${P.routines.map((r) => opt("r:" + r.id)).join("")}</optgroup><optgroup label="Topics">${topicsAll().map((x) => opt("t:" + x[0].id)).join("")}</optgroup></select></fieldset>` : ""}
+      ${can ? `<fieldset class="ed-slot"><legend>Links</legend><p class="small muted">A link is saved as soon as you add or remove it, and the message that follows has Undo. The other record shows it as a backlink.</p><ul id="ovRel">${relOf(ref).map(relRow).join("")}</ul><input class="search" id="lkQ" type="search" name="lkq" autocomplete="off" aria-label="Find a topic, routine, product, note or source document to link" placeholder="Find something to link…"><div id="lkRes" class="lkres">${pickRows(ref, relOf(ref).map((x) => x[0]), "", "data-lkadd")}</div></fieldset>` : ""}
       ${o.t ? `<details class="orig"><summary>View original</summary><p><b>Original:</b> ${esc(og.n)}</p>${k === "t" && og.intro ? `<p><b>Summary:</b> ${esc(og.intro)}</p>` : ""}<p class="small muted">Edited by you on ${stamp(o.t)}. This is your edit date, not a review date for the source.</p></details>` : ""}
       <div class="ed-foot">${o.t ? `<button type="button" class="linkbtn" id="ovRestore">Restore original</button>` : ""}<button type="button" class="linkbtn danger" data-hide="${esc(ref)}">${li("trash")}Delete</button>${k === "r" ? `<button type="button" class="linkbtn" data-dup="${esc(ref.slice(2))}">${li("copy")}Duplicate and edit</button>` : ""}<span style="flex:1"></span><button class="btn" type="submit">Save</button></div></form>`, "Edit: " + esc(name));
   }
@@ -2134,7 +2261,8 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
   function v8Click(t, d) {
     if (d.ov) { openOv(d.ov); return true; }
     if (t.id === "ovRestore") { const ref = $("#ovForm").dataset.ref, was = S.ov[ref]; delete S.ov[ref]; afterEdit("Original restored"); toast("Original restored", () => { (S.ov = S.ov || {})[ref] = was; save(); applyAdds(); RENDER[current](); }); return true; }
-    if (d.reldel) { setLink($("#ovForm").dataset.ref, d.reldel, false); t.closest("li").remove(); say("Link removed"); return true; }
+    if (d.reldel) { const ref = $("#ovForm").dataset.ref; setLink(ref, d.reldel, false); $("#ovRel").innerHTML = relOf(ref).map(relRow).join(""); $("#lkRes").innerHTML = pickRows(ref, relOf(ref).map((x) => x[0]), $("#lkQ").value, "data-lkadd"); toast(`Link to ${refName(d.reldel)} removed`, undoLast); refocus("#lkQ"); return true; }
+    if (d.lkadd) { const ref = $("#ovForm").dataset.ref; if (d.lkadd !== ref && !relOf(ref).some((x) => x[0] === d.lkadd)) setLink(ref, d.lkadd, true); $("#ovRel").innerHTML = relOf(ref).map(relRow).join(""); $("#lkQ").value = ""; $("#lkRes").innerHTML = pickRows(ref, relOf(ref).map((x) => x[0]), "", "data-lkadd"); toast(`Linked to ${refName(d.lkadd)}`, undoLast); refocus("#lkQ"); return true; }
     if (t.id === "colNew") { const n = $("#colName").value.trim(); if (!n) { $("#colName").focus(); return true; } (S.cols = S.cols || []).push({ id: "c" + Date.now().toString(36), n: n.slice(0, 60), items: [] }); save(); openSaved(); toast("Collection added"); return true; }
     if (d.coldel) { const c = S.cols.find((x) => x.id === d.coldel); S.cols = S.cols.filter((x) => x.id !== d.coldel); save(); openSaved(); toast("Collection removed", () => { S.cols.push(c); save(); }); return true; }
     if (d.lview) { S.ui.lview = d.lview; save(); renderLibrary(); refocus(`[data-lview="${d.lview}"]`); return true; }
@@ -2144,7 +2272,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     return false;
   }
   /* imported or stored personal data is rebuilt through these, like cleanAdds */
-  const REF = /^[rtpfn]:[^]{1,200}$/, objx = (x) => (x && typeof x === "object" && !Array.isArray(x) ? x : {}), refs = (l) => (Array.isArray(l) ? l : []).filter((r) => typeof r === "string" && REF.test(r)).slice(0, 500);
+  const REF = /^[rtpfns]:[^]{1,200}$/, objx = (x) => (x && typeof x === "object" && !Array.isArray(x) ? x : {}), refs = (l) => (Array.isArray(l) ? l : []).filter((r) => typeof r === "string" && REF.test(r)).slice(0, 500);
   const cleanOv = (x) => { const r = {}; Object.keys(objx(x)).forEach((k) => { const v = x[k], o = {}; if (!REF.test(k) || !v || typeof v !== "object") return; ["n", "intro", "note", "p", "u"].forEach((f) => { if (typeof v[f] === "string" && v[f].trim()) o[f] = v[f].slice(0, 2000); }); if (o.u && !/^https?:\/\//i.test(o.u)) delete o.u; if (Object.keys(o).length) { o.t = isFinite(+v.t) ? +v.t : 0; r[k] = o; } }); return r; };
   const cleanTags = (x) => { const r = {}; Object.keys(objx(x)).forEach((k) => { const l = (Array.isArray(x[k]) ? x[k] : []).filter((g) => typeof g === "string" && g.trim()).map((g) => g.trim().toLowerCase().slice(0, 30)).slice(0, 12); if (REF.test(k) && l.length) r[k] = l; }); return r; };
   const cleanLinks = (x) => { const r = {}; Object.keys(objx(x)).forEach((k) => { const a = refs(objx(x[k]).add), d = refs(objx(x[k]).del); if (REF.test(k) && (a.length || d.length)) r[k] = { add: a, del: d }; }); return r; };
@@ -2157,7 +2285,11 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
   const OCCK = /^(p:(am|train|pm|bed):[\w-]{1,60}:\d{1,2}|h:[\w-]{1,60})$/;
   const cleanLog = (x) => (Array.isArray(x) ? x : []).filter((e) => e && /^l[a-z0-9]{1,20}$/.test(e.id) && /^\d{4}-\d\d-\d\d$/.test(e.d) && OCCK.test(e.o) && /^(start|done|skip)$/.test(e.st) && isFinite(+e.at))
     .slice(-5000).map((e) => { const o = { id: e.id, d: e.d, o: e.o, st: e.st, at: +e.at, n: String(e.n || "").slice(0, 120), min: Math.max(0, Math.min(600, Math.round(+e.min) || 0)) }; if (typeof e.rid === "string" && /^[\w-]{1,60}$/.test(e.rid)) o.rid = e.rid; if (isFinite(+e.step) && +e.step >= 0) o.step = Math.min(500, Math.round(+e.step)); return o; });
-  const SCHEMA = 5; /* backup format: 1 = up to hub v7 (no schema field), 2 adds ov, tags, links, cols, 3 adds hide, freq, 4 adds aw (area weightings), atag (area tags), 5 adds log (what was started, done or skipped). Bump only when the saved shape changes. */
+  /* source documents { id, t title, u link, by author or publisher, pub and rev dates as recorded, cl the claim or section it supports, refs } and pinned placements { "<weekday>|<part>|<routine id>": 1 } */
+  const DATE = /^\d{4}(-\d\d){0,2}$/;
+  const cleanSdocs = (x) => (Array.isArray(x) ? x : []).filter((d) => d && /^d[a-z0-9]{1,20}$/.test(d.id) && typeof d.t === "string" && d.t.trim()).slice(0, 500).map((d) => { const o = { id: d.id, t: d.t.slice(0, 200) }; if (typeof d.u === "string" && /^https?:\/\//i.test(d.u)) o.u = d.u.slice(0, 500); ["by", "cl"].forEach((f) => { if (typeof d[f] === "string" && d[f].trim()) o[f] = d[f].slice(0, f === "cl" ? 1000 : 200); }); ["pub", "rev"].forEach((f) => { if (DATE.test(d[f] || "")) o[f] = d[f]; }); o.refs = refs(d.refs); return o; });
+  const cleanPins = (x) => { const r = {}; Object.keys(objx(x)).forEach((k) => { if (/^[0-6]\|(am|train|pm|bed)\|[\w-]{1,60}$/.test(k)) r[k] = 1; }); return r; };
+  const SCHEMA = 6; /* backup format: 1 = up to hub v7 (no schema field), 2 adds ov, tags, links, cols, 3 adds hide, freq, 4 adds aw (area weightings), atag (area tags), 5 added log (what was started, done or skipped), 6 adds sdocs (source documents) and pins (pinned placements). Bump only when the saved shape changes. */
 
   let JUST = "";
 
@@ -2173,7 +2305,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
       <h4>Sources</h4><p class="small muted">Each block carries a label saying where it came from. In lists a small shape repeats it.</p><div class="key">${keyHtml()}</div><button class="srcswitch" role="switch" aria-checked="${!S.ui.plain}" data-srctoggle="1"><i aria-hidden="true"></i>Source labels</button>`, "More");
   }
   function openSaved() {
-    const row = (ref) => { const n = refName(ref), k = ref[0]; return n ? `<button class="opt-row" ${refAttr(ref)}>${esc(n)}<span>${k === "r" ? esc(catName((byId[ref.slice(2)] || {}).cat) || "Routine") : k === "t" ? "Topic" : k === "p" ? "Product" : k === "n" ? "Note" : "Food"}</span></button>` : ""; };
+    const row = (ref) => { const n = refName(ref), k = ref[0]; return n ? `<button class="opt-row" ${refAttr(ref)}>${esc(n)}<span>${k === "r" ? esc(catName((byId[ref.slice(2)] || {}).cat) || "Routine") : k === "t" ? "Topic" : k === "p" ? "Product" : k === "n" ? "Note" : k === "s" ? "Source document" : "Food"}</span></button>` : ""; };
     const favs = Object.keys(S.fav || {}).map((k) => (/^[tpf]:/.test(k) ? k : "r:" + k)).filter(refName), rec = (S.recent || []).filter((id) => byId[id]).slice(0, 5).map((id) => "r:" + id);
     sheetUp(`${favs.length ? favs.map(row).join("") : `<div class="empty">${ic("illus/wellbeing-calm-stone", 64)}<b>Nothing saved yet</b>Tap the star on a routine, topic or product to keep it here.</div>`}${rec.length ? `<h4>Recently opened</h4>${rec.map(row).join("")}` : ""}
       <h4>Collections</h4>${(S.cols || []).map((c) => `<div class="col"><div class="row"><b>${esc(c.n)}</b><span class="badge">${c.items.length}</span><span style="flex:1"></span><button class="linkbtn" data-coldel="${c.id}">Remove<span class="sr"> ${esc(c.n)}</span></button></div>${c.items.length ? c.items.map(row).join("") : '<p class="small muted">Empty. Tick it in the Edit form of any routine, topic, food or product.</p>'}</div>`).join("") || '<p class="small muted">Group things you want to come back to, such as To research or Equipment to compare. A collection only points at records; it never copies them.</p>'}
@@ -2187,12 +2319,13 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     if (q.length < 2) { filt.innerHTML = ""; box.innerHTML = `<h3>Jump to</h3>${[["Your week", "week"], ["Today", "today"], ["Compare routines", "compare"], ["Guide: when and how often", "guide"], ["Routines", "routines"], ["Exercise library", "routines-lib"], ["Library", "library"], ["Nutrition", "nutrition"], ["Products", "products"]].map((j) => `<button data-jumpto="${j[1]}"><b>${j[0]}</b></button>`).join("")}<p class="small muted" style="padding:12px 6px">Type two or more letters to search all ${findIndex().length} entries.</p>`; return; }
     const words = q.split(/\s+/), all = findIndex().filter((x) => words.every((w) => x.k.indexOf(w) > -1)), groups = {}, kinds = {};
     all.forEach((h) => (kinds[h.kind] = (kinds[h.kind] || 0) + 1)); if (S.ui.fk && !kinds[S.ui.fk]) S.ui.fk = "";
-    const hits = S.ui.fk ? all.filter((h) => h.kind === S.ui.fk) : all, rank = (h) => { const t = h.t.toLowerCase(); return t === q ? 0 : t.indexOf(q) === 0 ? 1 : t.indexOf(q) > -1 ? 2 : 3; };
+    const srcs = {}; all.forEach((h) => (srcs[h.src] = (srcs[h.src] || 0) + 1)); if (S.ui.fsrc && !srcs[S.ui.fsrc]) S.ui.fsrc = "";
+    const hits = all.filter((h) => (!S.ui.fk || h.kind === S.ui.fk) && (!S.ui.fsrc || h.src === S.ui.fsrc)), rank = (h) => { const t = h.t.toLowerCase(); return t === q ? 0 : t.indexOf(q) === 0 ? 1 : t.indexOf(q) > -1 ? 2 : 3; };
     hits.sort((a, b) => rank(a) - rank(b) || a.t.length - b.t.length); hits.forEach((h) => (groups[h.kind] = groups[h.kind] || []).push(h));
     const hl = (t) => { let o = esc(t); words.forEach((w) => { o = o.replace(new RegExp("(" + w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig"), "<mark>$1</mark>"); }); return o; };
     const row = (h, kind) => `<button data-findgo='${esc(JSON.stringify(h.act))}'>${srcTag(h.src, 1)}<b>${hl(h.t)}</b><small>${kind ? esc(h.kind) + (h.sub ? " · " : "") : ""}${h.sub ? hl(h.sub.slice(0, 90)) : ""}</small></button>`;
-    const best = hits.filter((h) => rank(h) < 2).slice(0, 3);
-    filt.innerHTML = all.length ? `<button class="chip plain" data-fk="" aria-pressed="${!S.ui.fk}">All ${all.length}</button>${Object.keys(kinds).map((k) => `<button class="chip plain" data-fk="${esc(k)}" aria-pressed="${S.ui.fk === k}">${esc(k)} ${kinds[k]}</button>`).join("")}` : "";
+    const best = S.ui.fk ? [] : hits.filter((h) => rank(h) < 2).slice(0, 3); best.forEach((h) => { const l = groups[h.kind]; l.splice(l.indexOf(h), 1); if (!l.length) delete groups[h.kind]; });
+    filt.innerHTML = all.length ? `<button class="chip plain" data-fk="" aria-pressed="${!S.ui.fk}">All ${all.length}</button>${Object.keys(kinds).map((k) => `<button class="chip plain" data-fk="${esc(k)}" aria-pressed="${S.ui.fk === k}">${esc(k)} ${kinds[k]}</button>`).join("")}${Object.keys(srcs).length > 1 ? `<span class="fsep" aria-hidden="true"></span>${Object.keys(srcs).sort(sOrder).map((k) => `<button class="chip plain" data-fsrc="${k}" aria-pressed="${S.ui.fsrc === k}">${srcDot(k)}${esc(SRCN[k])} ${srcs[k]}</button>`).join("")}` : ""}` : "";
     box.innerHTML = hits.length ? (best.length ? `<h3>Best match</h3>${best.map((h) => row(h, 1)).join("")}` : "") + Object.keys(groups).map((g) => { const rows = groups[g], open = FOPEN[g] || S.ui.fk === g || rows.length <= 8; return `<h3>${esc(g)}<span>${rows.length}</span></h3>${(open ? rows : rows.slice(0, 7)).map((h) => row(h)).join("")}${open ? "" : `<button class="more-row" data-fmore="${esc(g)}">Show all ${rows.length} in ${esc(g)}</button>`}`; }).join("")
       : `<div class="empty" style="margin-top:14px">${ic("illus/wellbeing-research-magnifier", 64)}<p>Nothing matches “${esc(q)}”. Try one word, such as “thyroid”, “oyster” or “squat”.</p></div>`;
     box.scrollTop = keepScroll ? S.ui.fy || 0 : 0;
@@ -2205,6 +2338,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     if (d.saved) { openSaved(); return true; }
     if (d.jumpnut) { if (!$("#sheet").hidden) closeSheet(true); if (current === "library") S.ui.ly = window.scrollY; S.ui.nut = d.jumpnut; save(); if (location.hash === "#nutrition") route(false); else location.hash = "#nutrition"; return true; }
     if (d.fk !== undefined) { S.ui.fk = d.fk; FOPEN = {}; drawFind($("#fInput").value); refocus(`[data-fk="${d.fk}"]`); return true; }
+    if (d.fsrc !== undefined) { S.ui.fsrc = S.ui.fsrc === d.fsrc ? "" : d.fsrc; FOPEN = {}; drawFind($("#fInput").value); refocus(`[data-fsrc="${d.fsrc}"]`); return true; }
     if (d.fmore) { FOPEN[d.fmore] = 1; const y = $("#fRes").scrollTop; drawFind($("#fInput").value); $("#fRes").scrollTop = y; return true; }
     return false;
   }
@@ -2235,8 +2369,8 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     : k === "topic" ? LGROUPS : k === "product" ? P.productGroups : k === "routine" ? P.cats.map((c) => [c.id, c.name]) : k === "item" ? P.blocks.map((b) => [b.id, b.name])
     : [["", "Inbox, file it later"]].concat(P.systems.map((t) => [t.id, "Systems: " + t.name]), P.extras.map((t) => [t.id, "Extras: " + t.name]));
   const cleanAdds = (l) => (Array.isArray(l) ? l : []).filter((a) => a && ADD[a.k] && typeof a.n === "string" && a.n.trim() && /^u[a-z0-9]+$/.test(a.id)).map((a) => {
-    const o = {}; ["k", "id", "n", "g", "note", "icon", "p", "u", "list", "min", "steps", "dont", "opt", "tags", "base", "src", "who", "at", "arch", "rel"].forEach((f) => { if (a[f] != null && a[f] !== "") o[f] = String(a[f]).slice(0, 2000); });
-    if (o.u && !/^https?:\/\//i.test(o.u)) delete o.u; if (o.rel && !REF.test(o.rel)) delete o.rel; if (o.at && !/^\d{1,15}$/.test(o.at)) delete o.at; if (o.arch && !/^\d{1,15}$/.test(o.arch)) delete o.arch; if (o.list && !/^(do|dont|q|quote|obs)$/.test(o.list)) delete o.list; if (o.icon && FOODIC.indexOf(o.icon) < 0) delete o.icon; if (!SRCN[o.src] || o.src === "both" || o.src === "ai") o.src = "me"; return o;
+    const o = {}; ["k", "id", "n", "g", "note", "icon", "p", "u", "list", "min", "steps", "dont", "opt", "tags", "base", "src", "who", "at", "arch", "rel", "on", "from"].forEach((f) => { if (a[f] != null && a[f] !== "") o[f] = String(a[f]).slice(0, 2000); });
+    if (o.u && !/^https?:\/\//i.test(o.u)) delete o.u; if (o.rel && !REF.test(o.rel)) delete o.rel; if (o.at && !/^\d{1,15}$/.test(o.at)) delete o.at; if (o.arch && !/^\d{1,15}$/.test(o.arch)) delete o.arch; if (o.list && !/^(do|dont|q|quote|obs)$/.test(o.list)) delete o.list; if (o.on && !/^\d{4}-\d\d-\d\d$/.test(o.on)) delete o.on; if (o.from && !/^u[a-z0-9]+$/.test(o.from)) delete o.from; if (o.icon && FOODIC.indexOf(o.icon) < 0) delete o.icon; if (!SRCN[o.src] || o.src === "both" || o.src === "ai") o.src = "me"; return o;
   });
   const cleanPlan = (p) => { const o = {}; if (p && typeof p === "object") for (let d = 0; d < 7; d++) { const x = p[d]; if (!x || typeof x !== "object") continue; const y = { focus: String(x.focus || "").slice(0, 60), at: {} }; ["am", "train", "pm", "bed"].forEach((k) => { y[k] = (Array.isArray(x[k]) ? x[k] : []).filter((s) => Array.isArray(s) && typeof s[0] === "string").map((s) => [s[0].slice(0, 40), Math.max(1, Math.min(240, Math.round(+s[1]) || 10))]); }); Object.keys(P.plan.times).forEach((b) => { if (x.at && /^\d\d:\d\d$/.test(x.at[b])) y.at[b] = x.at[b]; }); o[d] = y; } return o; };
   const userOf = (k) => (S.adds || []).filter((a) => a.k === k);
@@ -2247,7 +2381,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     /* a copy of a supplied routine keeps the how-to and picture of every step whose name is unchanged */
     P.routines = BASE.routines.filter((r) => !hid("r:" + r.id)).concat(userOf("routine").map((a) => { const b = a.base && BASE.routines.find((x) => x.id === a.base); return { id: a.id, uid: a.id, base: a.base, cat: a.g, name: a.n, when: (b && b.when) || "Added in the hub", dur: (+a.min || 10) + " min", src: a.src, who: a.who, ex: lines(a.steps).map((st) => (st[0] === "#" ? st : (b && b.ex.find((e) => typeof e !== "string" && exName(e) === st)) || { n: st, s: [] })) }; }));
     Object.keys(byId).forEach((k) => delete byId[k]); P.routines.forEach((r) => (byId[r.id] = r));
-    P.blocks.forEach((b) => { b.items = BASE.items[b.id].filter((i) => !hid("i:" + i.id)).concat(userOf("item").filter((a) => a.g === b.id).map((a) => ({ id: a.id, uid: a.id, t: a.n, min: +a.min || 0, opt: a.opt === "1", src: a.src, who: a.who }))); });
+    P.blocks.forEach((b) => { b.items = BASE.items[b.id].filter((i) => !hid("i:" + i.id)).concat(userOf("item").filter((a) => a.g === b.id && (!a.on || ORDER.map(occDate).indexOf(a.on) > -1)).map((a) => ({ id: a.id, uid: a.id, t: a.n, min: +a.min || 0, opt: a.opt === "1", src: a.src, who: a.who, u: a.u, on: a.on, d: a.on ? "Task from your note" : "", days: a.on ? [new Date(a.on + "T12:00").getDay()] : undefined }))); });
     P.extras = BASE.extras.filter((t) => !hid("t:" + t.id)).concat(userOf("topic").map((a) => ({ id: a.id, uid: a.id, name: a.n, icon: "book", intro: a.note || "", grp: a.g, src: a.src, who: a.who, groups: [{ h: "Notes", do: lines(a.steps), dont: lines(a.dont) }] })));
     applyOv(); FIDX = null; const rk = $("#railKey"); if (rk) rk.innerHTML = keyHtml();
   }
@@ -2288,7 +2422,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
       <div class="row"><button class="btn sm" id="xExport">Export my edits</button><button class="btn ghost sm" id="xFull">Full backup</button><button class="btn ghost sm" id="xImport">Import from the box</button></div><p class="small" id="xMsg" role="status"></p>`, "My edits");
   }
   function exportTo(full) {
-    const box = $("#xBox"); box.value = JSON.stringify(full ? Object.assign({ phh: 1, schema: SCHEMA, exported: TK }, S) : { phh: 1, schema: SCHEMA, exported: TK, plan: S.plan || {}, adds: S.adds || [], ov: S.ov || {}, tags: S.tags || {}, links: S.links || {}, cols: S.cols || [], hide: S.hide || {}, freq: S.freq || {}, aw: S.aw || {}, atag: S.atag || {}, log: S.log || [] }); box.focus(); box.select();
+    const box = $("#xBox"); box.value = JSON.stringify(full ? Object.assign({ phh: 1, schema: SCHEMA, exported: TK }, S) : { phh: 1, schema: SCHEMA, exported: TK, plan: S.plan || {}, adds: S.adds || [], ov: S.ov || {}, tags: S.tags || {}, links: S.links || {}, cols: S.cols || [], hide: S.hide || {}, freq: S.freq || {}, aw: S.aw || {}, atag: S.atag || {}, log: S.log || [], sdocs: S.sdocs || [], pins: S.pins || {} }); box.focus(); box.select();
     const done = (ok) => { $("#xMsg").textContent = ok ? "Copied. Paste it somewhere safe, or send it to be made permanent." : "Selected. Copy it from the box."; };
     try { navigator.clipboard.writeText(box.value).then(() => done(true), () => done(false)); } catch (e) { done(false); }
   }
@@ -2305,7 +2439,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     n.sessions = (Array.isArray(o.sessions) ? o.sessions : []).filter((x) => x && idk(String(x.id)) && /^\d{4}-\d\d-\d\d$/.test(x.date) && isFinite(+x.secs)).map((x) => ({ id: x.id, date: x.date, secs: +x.secs }));
     Object.keys(obj(o.ui)).forEach((k) => { const v = o.ui[k]; if (idk(k) && (typeof v === "boolean" || typeof v === "number" || (typeof v === "string" && v.length <= 200))) n.ui[k] = v; });
     /* fields a backup made before schema 2 does not carry default to empty */
-    n.fav = names(o.fav); n.core = num(o.core); n.adds = cleanAdds(o.adds); n.plan = cleanPlan(o.plan); n.ov = cleanOv(o.ov); n.tags = cleanTags(o.tags); n.links = cleanLinks(o.links); n.cols = cleanCols(o.cols); n.hide = cleanHide(o.hide); n.freq = cleanFreq(o.freq); n.aw = cleanAw(o.aw); n.atag = cleanAtag(o.atag); n.log = cleanLog(o.log); return n;
+    n.fav = names(o.fav); n.core = num(o.core); n.adds = cleanAdds(o.adds); n.plan = cleanPlan(o.plan); n.ov = cleanOv(o.ov); n.tags = cleanTags(o.tags); n.links = cleanLinks(o.links); n.cols = cleanCols(o.cols); n.hide = cleanHide(o.hide); n.freq = cleanFreq(o.freq); n.aw = cleanAw(o.aw); n.atag = cleanAtag(o.atag); n.log = cleanLog(o.log); n.sdocs = cleanSdocs(o.sdocs); n.pins = cleanPins(o.pins); return n;
   };
   let IMP = null;
   function importFrom() {
@@ -2314,7 +2448,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     if (!o || typeof o !== "object" || !o.phh) { msg.textContent = "That is not a Primal Health Hub export. Nothing was changed."; return; }
     if (o.phh !== 1 || (o.schema || 1) > SCHEMA) { msg.textContent = "That export uses a newer backup format than this hub understands. Nothing was changed."; return; }
     const full = !!o.days && typeof o.days === "object", adds = cleanAdds(o.adds), plan = cleanPlan(o.plan), have = (S.adds || []).map((a) => a.id), clash = adds.filter((a) => have.indexOf(a.id) > -1).length, days = Object.keys(plan).filter((d) => (S.plan || {})[d]);
-    IMP = { o, adds, plan, ov: cleanOv(o.ov), tags: cleanTags(o.tags), links: cleanLinks(o.links), cols: cleanCols(o.cols), hide: cleanHide(o.hide), freq: cleanFreq(o.freq), aw: cleanAw(o.aw), atag: cleanAtag(o.atag), log: cleanLog(o.log) };
+    IMP = { o, adds, plan, ov: cleanOv(o.ov), tags: cleanTags(o.tags), links: cleanLinks(o.links), cols: cleanCols(o.cols), hide: cleanHide(o.hide), freq: cleanFreq(o.freq), aw: cleanAw(o.aw), atag: cleanAtag(o.atag), log: cleanLog(o.log), sdocs: cleanSdocs(o.sdocs), pins: cleanPins(o.pins) };
     msg.innerHTML = `<b>${full ? "Full backup" : "Edits"}${/^\d{4}-\d\d-\d\d$/.test(o.exported) ? " from " + o.exported : ""}.</b> ${adds.length} additions${clash ? ` (${clash} will replace ones already here)` : ""}, ${Object.keys(IMP.ov).length} personal edits and ${Object.keys(plan).length} timetable days${days.length ? ` (${days.map((d) => DAYN[d]).join(", ")} will overwrite your edited days)` : ""}.${full ? ` It also holds ${Object.keys(o.days).length} days of history. Replace everything swaps out the ${Object.keys(S.days).length} days saved here.` : ""} A recovery copy of what is here now is kept first.
       <span class="row"><button class="btn sm" id="xApply">${full ? "Merge the edits only" : "Import"}</button>${full ? '<button class="btn ghost sm" id="xReplace">Replace everything</button>' : ""}<button class="btn ghost sm" id="xCancel">Cancel</button></span>`;
     $("#xApply").focus();
@@ -2324,7 +2458,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
   function applyImport(replace) {
     if (!IMP) return; try { localStorage.setItem(BKEY, JSON.stringify(S)); } catch (e) {}
     if (replace) S = cleanState(IMP.o);
-    else { S.plan = Object.assign(S.plan || {}, IMP.plan); const ids = IMP.adds.map((a) => a.id); S.adds = (S.adds || []).filter((a) => ids.indexOf(a.id) < 0).concat(IMP.adds); S.ov = Object.assign(S.ov || {}, IMP.ov); S.tags = Object.assign(S.tags || {}, IMP.tags); S.links = Object.assign(S.links || {}, IMP.links); const cid = IMP.cols.map((c) => c.id); S.cols = (S.cols || []).filter((c) => cid.indexOf(c.id) < 0).concat(IMP.cols); S.hide = Object.assign(S.hide || {}, IMP.hide); S.freq = Object.assign(S.freq || {}, IMP.freq); S.aw = Object.assign(S.aw || {}, IMP.aw); S.atag = Object.assign(S.atag || {}, IMP.atag); const lid = {}; (S.log || []).forEach((e) => (lid[e.id] = 1)); S.log = (S.log || []).concat(IMP.log.filter((e) => !lid[e.id])); }
+    else { S.plan = Object.assign(S.plan || {}, IMP.plan); const ids = IMP.adds.map((a) => a.id); S.adds = (S.adds || []).filter((a) => ids.indexOf(a.id) < 0).concat(IMP.adds); S.ov = Object.assign(S.ov || {}, IMP.ov); S.tags = Object.assign(S.tags || {}, IMP.tags); S.links = Object.assign(S.links || {}, IMP.links); const cid = IMP.cols.map((c) => c.id); S.cols = (S.cols || []).filter((c) => cid.indexOf(c.id) < 0).concat(IMP.cols); S.hide = Object.assign(S.hide || {}, IMP.hide); S.freq = Object.assign(S.freq || {}, IMP.freq); S.aw = Object.assign(S.aw || {}, IMP.aw); S.atag = Object.assign(S.atag || {}, IMP.atag); const lid = {}; (S.log || []).forEach((e) => (lid[e.id] = 1)); S.log = (S.log || []).concat(IMP.log.filter((e) => !lid[e.id])); const did = IMP.sdocs.map((x) => x.id); S.sdocs = (S.sdocs || []).filter((x) => did.indexOf(x.id) < 0).concat(IMP.sdocs); S.pins = Object.assign(S.pins || {}, IMP.pins); }
     IMP = null; applyPlain(); afterEdit("Import done"); toast(replace ? "Everything replaced from the backup" : "Edits imported", restoreCopy);
   }
   /* clicks for the add form, My edits and backups; returns true when it handled the click */
@@ -2362,8 +2496,8 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     if (e.target.id === "find") { closeFind(); return; }
     const t = e.target.closest("button, a"); if (!t) return; const d = t.dataset;
     if (t.tagName === "BUTTON" && t.closest("summary")) e.preventDefault();
-    if (srcClick(t, d) || noteClick(t, d) || guideClick(t, d) || cmpClick(t, d) || planClick(t, d) || v8Click(t, d) || uiClick(t, d) || editClick(t, d)) { if (t.closest("summary")) e.preventDefault(); return; }
-    if (d.fav) { e.preventDefault(); if (S.fav[d.fav]) delete S.fav[d.fav]; else S.fav[d.fav] = 1; save(); t.setAttribute("aria-pressed", !!S.fav[d.fav]); say(S.fav[d.fav] ? "Added to favourites" : "Removed from favourites"); if ($("#rStrips") && !(S.ui.rq || "").trim()) $("#rStrips").innerHTML = stripsHtml(); }
+    if (srcClick(t, d) || awClick(t, d) || sdocClick(t, d) || noteClick(t, d) || guideClick(t, d) || cmpClick(t, d) || planClick(t, d) || v8Click(t, d) || uiClick(t, d) || editClick(t, d)) { if (t.closest("summary")) e.preventDefault(); return; }
+    if (d.fav) { e.preventDefault(); if (S.fav[d.fav]) delete S.fav[d.fav]; else S.fav[d.fav] = 1; save(); $$("[data-fav]").forEach((b) => { if (b !== t && b.dataset.fav === d.fav) b.setAttribute("aria-pressed", !!S.fav[d.fav]); }); t.setAttribute("aria-pressed", !!S.fav[d.fav]); say(S.fav[d.fav] ? "Added to favourites" : "Removed from favourites"); if ($("#rStrips") && !(S.ui.rq || "").trim()) $("#rStrips").innerHTML = stripsHtml(); }
     else if (d.go) { if (!$("#sheet").hidden) closeSheet(true); if (!$("#libdlg").hidden) closeLib(); if (!$("#player").hidden) closeOverlay($("#player")); S.ui.rtab = ""; openRoutine(d.go); }
     else if (d.cat !== undefined) { S.ui.rcat = d.cat; save(); $$("[data-cat]").forEach((c) => c.setAttribute("aria-pressed", c.dataset.cat === d.cat)); drawRoutines(); }
     else if (d.sheet) openSheet(d.sheet);
@@ -2408,13 +2542,16 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     else if (t.id === "pcAgain") openPacer("co2");
   });
   document.addEventListener("toggle", (e) => { const r = e.target.dataset && e.target.dataset.rt; if (r && e.target.open) touch(r); }, true);
-  document.addEventListener("input", (e) => { if (e.target.id === "rSearch") { S.ui.rq = e.target.value; drawRoutines(); } if (e.target.id === "pSearch") { S.ui.pq = e.target.value; drawProducts(); } if (e.target.id === "lSearch") { S.ui.lq = e.target.value; drawLib(); } if (e.target.id === "nfQ") { const q = e.target.value.trim().toLowerCase(); $$("#nfList .opt-row").forEach((b) => (b.hidden = !!q && b.dataset.k.indexOf(q) < 0)); } if (e.target.id === "pkQ") { const q = e.target.value.trim().toLowerCase(); $$("#pkList .prow").forEach((b) => (b.hidden = !!q && b.dataset.k.indexOf(q) < 0)); }
+  document.addEventListener("input", (e) => { if (e.target.id === "rSearch") { S.ui.rq = e.target.value; drawRoutines(); } if (e.target.id === "pSearch") { S.ui.pq = e.target.value; drawProducts(); } if (e.target.id === "lSearch") { S.ui.lq = e.target.value; drawLib(); } if (e.target.id === "lkQ") { const ref = $("#ovForm").dataset.ref; $("#lkRes").innerHTML = pickRows(ref, relOf(ref).map((x) => x[0]), e.target.value, "data-lkadd"); } if (e.target.id === "sdQ") { $("#sdRes").innerHTML = pickRows("", SD.refs, e.target.value, "data-sdref"); } if (e.target.id === "nfQ") { const q = e.target.value.trim().toLowerCase(); $$("#nfList .opt-row").forEach((b) => (b.hidden = !!q && b.dataset.k.indexOf(q) < 0)); } if (e.target.id === "pkQ") { const q = e.target.value.trim().toLowerCase(); $$("#pkList .prow").forEach((b) => (b.hidden = !!q && b.dataset.k.indexOf(q) < 0)); }
     if (e.target.id === "cmpQ") { S.ui.cq = e.target.value; drawCompare(); }
     if (e.target.id === "libQ") { S.ui.lq = e.target.value; save(); drawLibrary(); }
     if (e.target.id === "fInput") { FOPEN = {}; S.ui.fy = 0; drawFind(e.target.value); }
     if (e.target.id === "nSearch") { const q = e.target.value.trim().toLowerCase(); $$("#nutPanel .food").forEach((li) => (li.hidden = !!q && li.dataset.k.indexOf(q) < 0)); let any = false; $$("#nutPanel .fgroup").forEach((g) => { g.hidden = !$$(".food:not([hidden])", g).length; any = any || !g.hidden; }); $("#nNone").hidden = any; } });
+  document.addEventListener("keydown", (e) => { const tb = e.target.closest && e.target.closest(".itabs [role=tab]"); if (!tb || !/^(ArrowLeft|ArrowRight|Home|End)$/.test(e.key)) return; const l = $$(".itabs [role=tab]"), i = l.indexOf(tb), n = e.key === "Home" ? 0 : e.key === "End" ? l.length - 1 : (i + (e.key === "ArrowRight" ? 1 : -1) + l.length) % l.length; e.preventDefault(); l[n].click(); });
+  document.addEventListener("change", (e) => { if (e.target.dataset && e.target.dataset.gpday !== undefined && GP) { GP.acc[e.target.dataset.gpday] = e.target.checked ? 1 : 0; const n = GP.days.filter((d) => GP.acc[d]).length, b = $("#gpApply"); if (b) { b.textContent = n ? `Apply ${n === 1 ? "this day" : n + " days"}` : "Tick a day to apply"; b.disabled = !n; } return; }
+    if (e.target.id === "gBudget") { const v = Math.max(0, Math.min(1440, Math.round(+e.target.value) || 0)); if (v) S.ui.budget = v; else delete S.ui.budget; save(); RENDER[current](); refocus("#gBudget"); say(v ? "Daily budget " + hm(v) : "No daily budget"); return; } });
   document.addEventListener("change", (e) => { if (e.target.dataset && e.target.dataset.aw) { const a = e.target.dataset.aw, v = +e.target.value; S.aw = S.aw || {}; if (v === P.areaWeight[a].days) delete S.aw[a]; else S.aw[a] = v; save(); renderCompare(); refocus(`[data-aw="${a}"]`); say(`${AREA[a].n}: ${v ? dayTxt(v) : "off"}`); return; } if (e.target.id === "cmpSort") { S.ui.cs = e.target.value; save(); renderCompare(); refocus("#cmpSort"); return; } if (e.target.dataset && e.target.dataset.csel) { const id = e.target.dataset.csel; CSEL = e.target.checked ? CSEL.concat([id]).slice(0, 3) : CSEL.filter((x) => x !== id); drawCompare(); refocus(`[data-csel="${id}"]`); return; } if (e.target.id === "libGrp") { S.ui.lgrp = e.target.value; save(); drawLibrary(); $$("[data-lgrp]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lgrp === S.ui.lgrp)); return; } if (e.target.id === "libSort") { S.ui.lsort = e.target.value; save(); renderLibrary(); refocus("#libSort"); return; } editChange(e.target); });
-  document.addEventListener("submit", (e) => { if (e.target.id === "addForm") { e.preventDefault(); saveAdd(e.target); } if (e.target.id === "ovForm") { e.preventDefault(); saveOv(e.target); } if (e.target.id === "noteForm") { e.preventDefault(); saveNote(e.target); } });
+  document.addEventListener("submit", (e) => { if (e.target.id === "addForm") { e.preventDefault(); saveAdd(e.target); } if (e.target.id === "ovForm") { e.preventDefault(); saveOv(e.target); } if (e.target.id === "noteForm") { e.preventDefault(); saveNote(e.target); } if (e.target.id === "sdForm") { e.preventDefault(); saveSdoc(e.target); } });
   document.addEventListener("keydown", (e) => {
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "z" && !/INPUT|TEXTAREA|SELECT/.test((document.activeElement || {}).tagName || "") && $("#find").hidden && $("#player").hidden && $("#pacer").hidden) { e.preventDefault(); if (e.shiftKey) redoLast(); else undoLast(); return; }
     if ($("#find").hidden && (e.key === "/" || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k")) && !/INPUT|TEXTAREA/.test((document.activeElement || {}).tagName || "") && $("#player").hidden && $("#pacer").hidden) { e.preventDefault(); openFind(); return; }
@@ -2429,7 +2566,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
 
   Object.keys(S.days).sort().slice(0, -90).forEach((k) => delete S.days[k]); Object.keys(S.weeks).sort().slice(0, -12).forEach((k) => delete S.weeks[k]);
   function applyPlain() { document.documentElement.classList.toggle("plain", !!S.ui.plain); $$("[data-srctoggle]").forEach((b) => b.setAttribute("aria-checked", !S.ui.plain)); }
-  S.adds = cleanAdds(S.adds); S.plan = cleanPlan(S.plan); S.core = S.core || {}; S.ov = cleanOv(S.ov); S.tags = cleanTags(S.tags); S.links = cleanLinks(S.links); S.cols = cleanCols(S.cols); S.hide = cleanHide(S.hide); S.freq = cleanFreq(S.freq); S.aw = cleanAw(S.aw); S.atag = cleanAtag(S.atag); S.log = cleanLog(S.log); { const i = ORDER.map(occDate).indexOf(S.ui.pdate); if (i > -1) S.ui.pd = ORDER[i]; else { delete S.ui.pd; delete S.ui.pdate; } } S.ui.de = false; if (S.ui.ct === "gym") { S.ui.lens = "gym"; S.ui.ct = "rt"; } applyAdds(); lastSlice = sliceOf(); HIST = [];
+  S.adds = cleanAdds(S.adds); S.plan = cleanPlan(S.plan); S.core = S.core || {}; S.ov = cleanOv(S.ov); S.tags = cleanTags(S.tags); S.links = cleanLinks(S.links); S.cols = cleanCols(S.cols); S.hide = cleanHide(S.hide); S.freq = cleanFreq(S.freq); S.aw = cleanAw(S.aw); S.atag = cleanAtag(S.atag); S.log = cleanLog(S.log); S.sdocs = cleanSdocs(S.sdocs); S.pins = cleanPins(S.pins); { const i = ORDER.map(occDate).indexOf(S.ui.pdate); if (i > -1) S.ui.pd = ORDER[i]; else { delete S.ui.pd; delete S.ui.pdate; } } S.ui.de = false; if (S.ui.ct === "gym") { S.ui.lens = "gym"; S.ui.ct = "rt"; } applyAdds(); lastSlice = sliceOf(); HIST = [];
   document.addEventListener("error", (e) => { const t = e.target; if (t && t.tagName === "IMG") t.style.visibility = "hidden"; }, true); /* a missing picture keeps its box, so nothing jumps */
   applyPlain(); route(true);
 })();

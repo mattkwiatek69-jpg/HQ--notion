@@ -76,7 +76,7 @@
 
   /* how the week covers each area. areasOf(rid) → areas, keep(rid) → counted (the lens), weights { area: days a week 0..7 }.
      Daily habits in P.blocks count every day they run. Returns { rows, spread, twice }. */
-  P.sched.cover = function (ov, areasOf, weights, keep) {
+  P.sched.cover = function (ov, areasOf, weights, keep, pinned) {
     const byId = {}; (P.routines || []).forEach((r) => (byId[r.id] = r));
     const SL = ["am", "train", "pm", "bed"], ORD = [1, 2, 3, 4, 5, 6, 0], ok = (rid) => byId[rid] && (!keep || keep(rid));
     const HARD = /^(workout-\d|bone-density|sprints|uphill|weighted-sprints)$/;
@@ -99,7 +99,7 @@
       ORD.forEach((d) => {
         const here = hit(d, row.a); if (here.length < 2) return;
         here.forEach((x) => {
-          const g = (P.guide || {})[x.rid]; if (x.habit || HARD.test(x.rid) || used[d + x.rid] || (g && g.f && g.f[0] >= 7)) return;
+          const g = (P.guide || {})[x.rid]; if (x.habit || HARD.test(x.rid) || used[d + x.rid] || (g && g.f && g.f[0] >= 7) || (pinned && pinned(d, x.k, x.rid))) return;
           const ar = areasOf(x.rid);
           ORD.forEach((t) => {
             if (t === d || days[t].some((y) => y.rid === x.rid) || hit(t, row.a).length) return;

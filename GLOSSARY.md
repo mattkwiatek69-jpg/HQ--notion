@@ -18,7 +18,23 @@ _Avoid_: Block, slot (in prose)
 
 **Daily habit**:
 A fixed item that runs in a part of the day every day (or on named weekdays) without being a placed routine.
-_Avoid_: Task, check-in
+_Avoid_: Task (a Task happens once), check-in
+
+**Task**:
+A one-off item the owner put on one date and part of the day, usually made from a Note, keeping the Note's source link.
+_Avoid_: Reminder, to-do
+
+**Placement**:
+One routine set in one part of one weekday of the Plan; the Plan's unit, from which Occurrences are derived.
+_Avoid_: Session (for the template entry), slot
+
+**Pinned placement**:
+A Placement the owner has fixed in place, which the Guide and spread suggestions never move or remove.
+_Avoid_: Locked
+
+**Time budget**:
+The owner's chosen limit for planned minutes in a day, used only to flag days that go over it.
+_Avoid_: Target, goal
 
 **Occurrence**:
 One planned instance of a routine or daily habit on one calendar date, derived from the Plan; it exists whether or not anything is logged against it.
@@ -60,6 +76,14 @@ The place Notes wait until they are filed under a Topic or archived.
 **Source**:
 Where a piece of information came from: the OP docs, the owner's notes, a named person or document, or a Suggestion.
 _Avoid_: Reference, citation (for the attribution itself)
+
+**Source document**:
+A specific page, paper or book the owner recorded (link, title, author or publisher, dates when known), tied to the exact records or claims it supports.
+_Avoid_: Source (that is the attribution label), bookmark
+
+**Link**:
+An owner-confirmed relation between two records, held once and read from both ends (the other end shows it as a backlink).
+_Avoid_: Relation (for the suggested, unconfirmed kind, which is a Suggestion)
 
 **Override**:
 The owner's personal change to a supplied record's title, summary or note, layered over the original, which is kept.
