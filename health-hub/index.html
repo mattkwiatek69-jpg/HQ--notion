@@ -1,6 +1,6 @@
 <title>Primal Health Hub</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Manrope:wght@400;500;600;700&display=swap"><link rel="preload" href="assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* Layout: olive rail for six sections (bottom bar on phones). Each view is a working list built from the shared
    components below: chip, btn, badge, status, card, tick, sheet. Tokens follow the Primal type and colour boards. */
@@ -365,10 +365,10 @@ html.plain .kv.me dt::before, html.plain .portion.me b::before { display: none; 
 .pl-title { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; } .pl-title h2 { font: 600 clamp(2rem, 1.4rem + 3vw, 3.2rem)/1.08 var(--serif); letter-spacing: -.01em; }
 .pl-title .badge { font-size: .9375rem; padding: 4px 14px; }
 .pl-grid { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(300px, 1fr); gap: 22px; align-items: start; flex: 1; padding-bottom: 20px; }
-@media (max-width: 900px) { .pl-grid { display: flex; flex-direction: column; gap: 14px; } .pl-left, .pl-right { display: contents; } .o1 { order: 1; } .o2 { order: 2; } .o3 { order: 3; } .o4 { order: 4; } .o5 { order: 5; } }
+@media (max-width: 900px) { .pl-grid { display: flex; flex-direction: column; gap: 14px; align-items: stretch; } .pl-grid .stage, .pl-grid .box, .pl-grid .thumbs { min-width: 0; max-width: 100%; } .pl-grid .stage :not(svg) > svg { max-width: 100%; } .pl-left, .pl-right { display: contents; } .o1 { order: 1; } .o2 { order: 2; } .o3 { order: 3; } .o4 { order: 4; } .o5 { order: 5; } }
 .pl-left, .pl-right { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 .stage { display: grid; place-items: center; padding: 14px; min-height: 230px; text-align: center; }
-.stage svg { width: min(100%, 420px); height: auto; } .stage figcaption { font-size: .8125rem; color: var(--ink-3); margin-top: 6px; }
+.stage :not(svg) > svg { width: min(100%, 420px); height: auto; } .stage .libbig > svg.pic { width: 100%; height: 100%; } .stage figcaption { font-size: .8125rem; color: var(--ink-3); margin-top: 6px; }
 .stage img.move { width: 100%; max-width: 560px; height: auto; border-radius: var(--r-sm); background: var(--paper); }
 .fig-far { stroke: var(--clay); opacity: .55; } .fig-near { stroke: var(--clay); } .fig-head { fill: var(--clay); } .fig-ground { stroke: var(--line-2); stroke-width: 1.5; } .fig-prop { fill: var(--sage-soft); stroke: var(--sel); stroke-width: 1.5; }
 .fig-arrow { stroke: var(--sage-ink); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
@@ -942,6 +942,124 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
 .gp ol li b { font-weight: 600; font-size: .75rem; margin-left: 4px; } .gp-add { background: var(--accent-soft); } .gp-add b { color: var(--accent-ink); } .gp-del { background: var(--clay-soft); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--clay-ink) 60%, transparent); } .gp-del b { color: var(--clay-ink); text-decoration: none; display: inline-block; } .gp-none { color: var(--ink-3); }
 .gp-why li { display: flex; gap: 8px; align-items: baseline; font-size: .875rem; line-height: 1.45; color: var(--ink-2); padding: 4px 0; }
 @media (max-width: 520px) { .gp-cols { grid-template-columns: 1fr; } .gp .ed-foot { flex-wrap: nowrap; } .gp .ed-foot > span { display: none; } .gp .ed-foot .btn { flex: 1 1 0; padding: 0 10px; } }
+
+/* ══ v18 Primal Field Guide: a typeset field manual with a precise planner inside. Tokens first; every later rule reads them. ══ */
+@font-face { font-family: "Instrument Serif"; src: url("assets/fonts/instrument-serif.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+:root {
+  --bg: #F6F3E8; --surface: #FFFCF5; --sunk: #ECE8DA; --paper: #F1EDE0; --hair: #D7DCCD;
+  --ink: #232E24; --ink-2: #55604E; --ink-3: #5A6352; --line: #D7DCCD; --line-2: #878E7D;
+  --accent: #2E4A34; --on-accent: #FFFCF5; --accent-soft: #E6ECD9; --accent-ink: #2B4630; --ochre: #805716;
+  --primary: var(--accent); --on-primary: var(--on-accent); --sel: var(--accent-soft); --on-sel: var(--accent-ink); --link: #805716; --focus: #805716;
+  --rail: #273A2C; --rail-ink: #F8F3E5; --rail-dim: #C9D2BC; --rail-active: #E6ECD9; --rail-on: #232E24;
+  --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif; --mark: "Cormorant Garamond", Georgia, serif;
+  --r: 14px; --r-sm: 10px; --shadow: none; --lift: 0 1px 2px rgba(35, 46, 36, .06), 0 14px 32px -18px rgba(35, 46, 36, .32);
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px; --s6: 24px; --s8: 32px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #171C17; --surface: #1F261F; --sunk: #121612; --hair: #333D32; --line: #333D32; --line-2: #6F7B6C; --ink: #F1EDE1; --ink-2: #C9CEBE; --ink-3: #A9B19F; --accent: #B7C4A2; --on-accent: #171C17; --accent-soft: #2B3628; --accent-ink: #CBD7B8; --ochre: #D9AE5F; --link: #D9AE5F; --focus: #D9AE5F; --rail: #0F140F; --rail-active: #CBD7B8; --rail-on: #171C17; --lift: 0 1px 2px rgba(0, 0, 0, .3), 0 14px 32px -16px rgba(0, 0, 0, .7); } }
+:root[data-theme="dark"] { --bg: #171C17; --surface: #1F261F; --sunk: #121612; --hair: #333D32; --line: #333D32; --line-2: #6F7B6C; --ink: #F1EDE1; --ink-2: #C9CEBE; --ink-3: #A9B19F; --accent: #B7C4A2; --on-accent: #171C17; --accent-soft: #2B3628; --accent-ink: #CBD7B8; --ochre: #D9AE5F; --link: #D9AE5F; --focus: #D9AE5F; --rail: #0F140F; --rail-active: #CBD7B8; --rail-on: #171C17; --lift: 0 1px 2px rgba(0, 0, 0, .3), 0 14px 32px -16px rgba(0, 0, 0, .7); }
+html { scroll-padding-top: 16px; } body { font-size: 1rem; line-height: 1.55; -webkit-tap-highlight-color: transparent; } button, a, summary { touch-action: manipulation; }
+::selection { background: var(--accent-soft); color: var(--accent-ink); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; } .rail :focus-visible { outline-color: var(--rail-ink); }
+.brand { font-family: var(--mark); }
+/* type roles: screen title, chapter title, body, metadata */
+h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em; }
+.view-head h1 { font-size: clamp(2.375rem, 1.6rem + 2.6vw, 3.75rem); line-height: 1; letter-spacing: -.015em; }
+.lgroup h2, .cat-head h2, .drg-h, h2.rule, .tblock h2, .gshape h2, .md-title h1 { font-family: var(--serif); font-weight: 400; letter-spacing: -.005em; }
+.lgroup h2 { font-size: clamp(1.75rem, 1.5rem + .8vw, 2.125rem); line-height: 1.1; gap: 14px; } .cat-head h2 { font-size: clamp(1.625rem, 1.4rem + .7vw, 2rem); line-height: 1.1; } .drg-h { font-size: 1.625rem; line-height: 1.15; font-weight: 400; }
+.md-title h1 { font-size: clamp(2.375rem, 1.6rem + 2.6vw, 3.5rem); line-height: 1.02; } .tblock h2 { font-size: 1.5rem; font-weight: 400; }
+.lede { font-size: 1rem; line-height: 1.5; }
+.small, .badge, small { font-variant-numeric: tabular-nums; } time, .tmin, .dr-fact, .ptot, .pday span, .pcell-head time, .ccount, .gp-day h4 span { font-variant-numeric: tabular-nums; }
+/* surfaces: flat paper and hairlines for lists; gentle lift only for things that float */
+.card, .tcard, .tblock, .focal, .gcard, .planner, .drs, .pgroup ul, .mg, .lrows, .lens button, .lfilters, .gp-day, .gsum, .cgroup, .clist, .food, .fgroup.sbox, .sbox.sbox:not(.slim), .ncard.card, .stat { box-shadow: none; }
+.planner, .drs, .tblock, .focal, .gcard, .lfilters, .gsum { border-color: var(--hair); border-radius: var(--r); }
+.sheet, .findpanel, .toast, .libpanel, .overlay .card { box-shadow: var(--lift); }
+.sheet.ed { border-radius: 16px; } .findpanel { border-radius: 16px; border: 1px solid var(--hair); }
+/* controls: primary fill, quiet outline, plain text; selection is fill plus weight */
+.btn { border-radius: 10px; font-weight: 600; transition: background-color .15s var(--ease), border-color .15s var(--ease), color .15s var(--ease); }
+.btn:hover:not(:disabled) { filter: none; background: color-mix(in srgb, var(--accent) 88%, #000); }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-2); }
+.btn.ghost:hover:not(:disabled) { background: var(--sunk); border-color: var(--ink-3); }
+.btn.ghost[aria-pressed="true"], .btn.ghost[aria-expanded="true"] { background: var(--accent-soft); color: var(--accent-ink); border-color: color-mix(in srgb, var(--accent) 45%, var(--hair)); }
+.btn:disabled, .btn[disabled] { opacity: .45; cursor: not-allowed; } .btn.ghost.danger { background: transparent; border-color: color-mix(in srgb, var(--clay-ink) 40%, var(--hair)); }
+.btn .badge { margin-left: 2px; min-width: 20px; justify-content: center; }
+.chip { transition: background-color .15s var(--ease), border-color .15s var(--ease); } .chip[aria-pressed="true"], .chip[aria-selected="true"] { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 45%, var(--hair)); color: var(--accent-ink); font-weight: 700; }
+.linkbtn { color: var(--link); text-decoration-color: color-mix(in srgb, var(--link) 45%, transparent); } .linkbtn:hover { text-decoration-color: currentColor; } .linkbtn.danger { color: var(--clay-ink); }
+.search { border: 1px solid transparent; transition: border-color .15s var(--ease), background-color .15s var(--ease); } .search:focus { background: var(--surface); border-color: var(--line-2); }
+.subnav { background: var(--sunk); border-radius: 10px; } .subnav :is(a, button) { border-radius: 7px; } .subnav :is(a, button)[aria-current] { box-shadow: 0 0 0 1px var(--hair); font-weight: 700; }
+.badge { border-radius: 6px; }
+/* rail: spruce, lichen pill for the current place */
+.rail { background: var(--rail); } .nav :is(a, button)[aria-current="page"] { background: var(--rail-active); color: var(--rail-on); font-weight: 700; }
+/* headers with a banner: the Field Guide artwork on wide screens, plain on phones so content comes first */
+.view-head.band { position: relative; isolation: isolate; padding: 24px 28px; min-height: 148px; border-radius: var(--r); overflow: hidden; align-items: flex-end; background-color: var(--surface); background-repeat: no-repeat; background-position: right center; background-size: cover; border: 1px solid var(--hair); }
+.view-head.band::after { content: none; }
+.view-head.band-week { background-color: #1F2C22; background-image: url("assets/field/spruce-dusk-1440.webp"); color: #F8F3E5; border-color: #1F2C22; }
+.view-head.band-week .lede { color: #E6E1D2; } .view-head.band-week h1 { color: #F8F3E5; }
+.view-head.band-week .btn.ghost { color: #F8F3E5; border-color: rgba(248, 243, 229, .45); background: rgba(15, 22, 16, .35); } .view-head.band-week .btn.ghost:hover:not(:disabled) { background: rgba(15, 22, 16, .6); }
+.view-head.band-week :focus-visible { outline-color: #F8F3E5; }
+.view-head.band-lib .btn.ghost, .view-head.band-guide .btn.ghost { background: var(--surface); } .view-head.band-lib .btn.ghost:hover:not(:disabled), .view-head.band-guide .btn.ghost:hover:not(:disabled) { background: var(--sunk); }
+.rail .srcswitch i::after { background: var(--rail); } .rail .srcswitch[aria-checked="false"] i::after { background: var(--rail-dim); }
+.view-head.band-lib { background-image: linear-gradient(90deg, var(--bg) 0 38%, color-mix(in srgb, var(--bg) 40%, transparent) 60%, transparent 78%), url("assets/field/cedar-canopy-1440.webp"); background-color: var(--bg); }
+.view-head.band-guide { background-image: linear-gradient(90deg, var(--bg) 0 42%, color-mix(in srgb, var(--bg) 55%, transparent) 64%, transparent 86%), url("assets/field/fern-plate-960.webp"); background-color: var(--bg); background-size: auto, 62% auto; background-position: 0 0, right 40%; }
+@media (max-width: 1100px) { .view-head.band-week { background-image: url("assets/field/spruce-dusk-768.webp"); } .view-head.band-lib { background-image: linear-gradient(90deg, var(--bg) 0 38%, transparent 82%), url("assets/field/cedar-canopy-768.webp"); } .view-head.band-guide { background-image: linear-gradient(90deg, var(--bg) 0 42%, transparent 88%), url("assets/field/fern-plate-600.webp"); } }
+@media (max-width: 899px) { .view-head.band, .view-head.band-week, .view-head.band-lib, .view-head.band-guide { background: none; border: 0; padding: 0; min-height: 0; color: inherit; overflow: visible; } .view-head.band-week h1, .view-head.band-week .lede { color: inherit; } .view-head.band-week .btn.ghost { color: var(--ink); border-color: var(--line-2); background: transparent; } }
+/* Week: views, scope and Breakdown on one line; totals on the next; the grid right after */
+.wtool { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; } .wtool .subnav { flex: none; } .wsum #wBreak { margin-left: auto; }
+.lens { display: inline-grid; grid-template-columns: repeat(3, auto); gap: 2px; padding: 4px; background: var(--sunk); border-radius: 10px; align-self: flex-start; }
+.lens button { min-height: 36px; padding: 0 12px; border: 0; border-radius: 7px; background: none; display: inline-flex; align-items: center; gap: 8px; position: relative; }
+.lens button::after { content: ""; position: absolute; inset: -4px 0; }
+.lens button[aria-pressed="true"] { background: var(--surface); box-shadow: 0 0 0 1px var(--hair); } .lens button[aria-pressed="true"] b { font-weight: 700; }
+.lens small { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.lens .lsw { width: 10px; height: 10px; border-radius: 3px; }
+.wsum { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 18px; font-size: .9375rem; color: var(--ink-2); padding-bottom: 2px; border-bottom: 1px solid var(--hair); } .wsum b { color: var(--ink); font-weight: 700; } .wsum .linkbtn { min-height: 40px; }
+.wbreak { display: flex; flex-direction: column; gap: 12px; padding: 14px 16px; border: 1px solid var(--hair); border-radius: var(--r); background: var(--surface); }
+#v-week .view { gap: 18px; } #v-week { gap: 16px; }
+@media (max-width: 760px) { .wtool .subnav { flex: 1 1 100%; } .wtool .lens { flex: 1 1 0; min-width: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); } .wtool .lens { flex: 1 1 100%; } .wsum #wBreak { flex: none; padding: 0 12px; } .wsum #wBreak .bl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } #v-routines .toolbar.stick .search { flex: 1 1 100%; } #v-week .view-head .lede { display: none; } }
+@media (max-width: 400px) { .wsn { display: none; } #v-today .view-head h1 { font-size: 2.125rem; } #dayEdit .bl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } .lens button { padding: 0 4px; gap: 5px; } .lens b { font-size: .8125rem; } .wsum { font-size: .875rem; } .wtool .lens button { justify-content: center; padding: 0 6px; min-height: 44px; } .wtool .lens button::after { content: none; } }
+/* the planner: aligned day headers and parts of the day, tabular figures, ochre for today */
+.planner { border: 1px solid var(--hair); }
+.pcol { border-left-color: var(--hair); } .pcol > header { border-bottom-color: var(--hair); padding: 12px 12px 10px; } .pcell { border-bottom-color: var(--hair); }
+.pday b { font: 400 1.875rem/1 var(--serif); letter-spacing: -.01em; } .pday span { font-size: .875rem; }
+.pcol.now { background: color-mix(in srgb, var(--accent-soft) 45%, var(--surface)); } .pcol.now .pday span { background: var(--ochre); color: #FFFCF5; }
+.pcell-head { font-size: .75rem; letter-spacing: 0; } .pchip { border-radius: 8px; } .pchip b { font-size: .875rem; line-height: 1.3; }
+.pchip:hover { transform: none; box-shadow: 0 0 0 1px color-mix(in srgb, var(--cat) 55%, transparent); }
+/* Day: the focal entry on lichen, the in-progress one on the faded highlight */
+.focal { background: color-mix(in srgb, var(--accent-soft) 55%, var(--surface)); border-color: color-mix(in srgb, var(--accent) 25%, var(--hair)); }
+.focal.fin { background: var(--surface); } .focal h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.75rem, 1.4rem + 1vw, 2.125rem); line-height: 1.1; letter-spacing: -.005em; }
+.tblock { padding: 2px 20px; } .tblock > header { padding: 14px 0 8px; } .trow { border-top-color: var(--hair); }
+/* Library: a chapter index with specimens on wide screens; the group chooser, Filters and capture in reach on phones */
+.chap { width: var(--cz, 64px); height: var(--cz, 64px); object-fit: contain; flex: none; }
+.lgroup h2 .chap { width: 64px; height: 64px; margin: -6px 0; }
+.lindex button { min-height: 44px; gap: 10px; justify-content: flex-start; } .lindex button > span { flex: 1; } .lindex .chap { width: 28px; height: 28px; }
+.lindex button[aria-pressed="true"] { font-weight: 700; }
+.ncard.card { border-color: var(--hair); } @media (min-width: 1100px) { .ngrid { grid-template-columns: repeat(6, minmax(0, 1fr)); } .ncard b { font-size: .8125rem; line-height: 1.25; } }
+.lbar .subnav { flex: none; } @media (max-width: 760px) { .lbar .subnav { flex: 1 1 100%; order: -1; } }
+@media (max-width: 899px) {
+  .view-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 6px 12px; } .view-head > div:first-child { display: contents; }
+  .view-head h1 { grid-column: 1; grid-row: 1; font-size: clamp(2.375rem, 1.9rem + 2.2vw, 2.75rem); } .view-head .head-side { grid-column: 2; grid-row: 1; gap: 8px; flex-wrap: nowrap; justify-self: end; } .view-head > div:first-child > :not(h1) { grid-column: 1 / -1; }
+  .view-head .lede { font-size: .9375rem; } .lgroup h2 .chap { width: 48px; height: 48px; } }
+/* Products: filters gathered; what is active, said in words */
+.fsum { font-size: .875rem; color: var(--ink-2); display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px; } .fsum:empty { display: none; }
+#pFP .srcctl { margin: 0; }
+/* Routines: one readable row; favourites as a quiet hint until used */
+.favhint { display: flex; align-items: center; gap: 8px; } .favhint svg { width: 16px; height: 16px; flex: none; }
+.film .pic { background: var(--paper); border-color: var(--hair); }
+#v-routines .chips.only-d .chip { min-height: 40px; font-size: .8125rem; } #v-routines .chips.only-d .chip img { width: 22px; height: 22px; }
+/* Compare: an inspection table */
+.clist { border-color: var(--hair); } .crow { border-top-color: var(--hair); } .ccount b { font-family: var(--sans); }
+.cg-head h2 { font-family: var(--serif); font-weight: 400; font-size: 1.75rem; }
+/* Guide: reading measure and calmer cards */
+.gcard > header p, .glist small, .gsum p { max-width: 68ch; } .gcard h3 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; line-height: 1.15; }
+/* topic pages: a reading desk with a side rail */
+.md-title { align-items: flex-start; } .md-title .lede { max-width: 62ch; }
+.md-src { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; margin-top: 10px; font-size: .8125rem; color: var(--ink-3); }
+.rdesk { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; } .rmain { min-width: 0; display: flex; flex-direction: column; gap: 18px; } .rmain .sbody { max-width: 72ch; }
+.rmain .sbody li, .rmain .sbody p { max-width: 68ch; }
+.rside { min-width: 0; display: flex; flex-direction: column; gap: 14px; font-size: .9375rem; } .rside .more { padding: 16px; border: 1px solid var(--hair); border-radius: var(--r); background: var(--surface); }
+.rside .srcline { margin-top: 0; padding-top: 12px; border-top: 1px solid var(--hair); }
+@media (min-width: 1100px) { .rdesk { grid-template-columns: minmax(0, 1fr) 300px; align-items: start; } .rside { position: sticky; top: 24px; } }
+/* empty states and loading: quiet, never a broken box */
+.empty { border-color: var(--hair); } img.chap, .film .pic, .ic { background: transparent; }
+@media (prefers-reduced-motion: reduce) { .btn, .chip, .search { transition: none; } }
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -1134,13 +1252,16 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
       }).join("");
       return `<section class="pcol${d === today ? " now" : ""}${d === sd ? " sel" : ""}" aria-label="${DAYN[d]}"><header><button class="pday" data-openday="${d}" aria-label="Open ${DAYN[d]}"><b>${DAYN[d].slice(0, 3)}</b><span>${dateOf(d).getDate()}</span></button><p class="pfocus">${esc(pl.focus || "")}</p><div class="ptot">${splitBar(spl[d], max, l)}${(!l || l === "rt") && spl[d].rt ? `<span class="ptl">${spl[d].rt} min routines</span>` : ""}${(!l || l === "gym") && spl[d].gym ? `<span class="ptl g">${spl[d].gym} min gym</span>` : ""}${(l ? !spl[d][l] : !spl[d].rt && !spl[d].gym) ? `<span>${l === "gym" ? "No gym" : "Nothing planned"}</span>` : ""}${(S.plan || {})[d] ? '<span><span class="badge gold">Edited</span></span>' : ""}</div></header>${cells}</section>`;
     }).join("");
+    const w = weekSplit(), rv0 = review(), nSug = rv0.order.length + rv0.time.length + rv0.freq.length + rv0.gym.length, open = !!S.ui.wbo;
     $("#v-week").innerHTML = `
-      <header class="view-head"><div><h1>Your week</h1><p class="lede">${range}.<span class="only-d"> Up at ${P.plan.times.wake}, asleep by ${P.plan.bedtime}.</span></p></div><div class="head-side">${undoBar()}${Object.keys(S.plan || {}).length ? '<button class="btn ghost sm" data-resetweek="1">Reset week</button>' : ""}</div></header>
-      ${subnav("week", "week")}${lensBar()}
+      <header class="view-head band band-week"><div><h1>Your week</h1><p class="lede">${range} · ${hm(w.rt + w.gym)} planned<span class="only-d">. Up at ${P.plan.times.wake}, asleep by ${P.plan.bedtime}.</span></p></div><div class="head-side">${undoBar()}${Object.keys(S.plan || {}).length ? '<button class="btn ghost sm" data-resetweek="1">Reset week</button>' : ""}</div></header>
+      <div class="wtool">${subnav("week", "week")}${lensBar()}</div>
+      <p class="wsum"><span><b>${hm(w.rt)}</b> routines · <b>${hm(w.gym)}</b> gym<span class="wsn"> · ${w.nrt + w.ngym} sessions</span></span>${bad ? `<button class="linkbtn danger" data-wbo="1">${bad} ${bad === 1 ? "part of a day does" : "parts of days do"} not fit</button>` : ""}${nSug ? `<a class="linkbtn" href="#guide">${nSug} Guide ${nSug === 1 ? "suggestion" : "suggestions"}</a>` : ""}<button class="btn ghost sm" id="wBreak" aria-expanded="${open}" aria-controls="wBreakP">${gl(G.filter, "s")}<span class="bl">Breakdown</span>${checks.length ? `<span class="badge${bad ? " clay" : ""}">${checks.length}</span>` : ""}</button></p>
+      <div class="wbreak" id="wBreakP"${open ? "" : " hidden"}>
       <section class="pbal" aria-label="Balance"><h2 class="sr">Balance</h2>
         <div class="bchips" role="group" aria-label="Days a week for each kind of routine. Choose one to see where it sits.">${l === "gym" ? "" : ""}${P.cats.filter((c) => bal[c.id]).map((c) => `<button class="bchip" data-kind="${c.id}" data-hl="${c.id}" aria-pressed="${hl === c.id}"><i></i>${esc(c.name)}<b>${bal[c.id]}</b><small>${bal[c.id] === 1 ? "day" : "days"}</small></button>`).join("")}</div>
         ${checks.length ? `<details class="pcheck"${bad ? " open" : ""}><summary>${gl(bad ? G.warn : G.info, "s")}<span>${bad ? `${bad} ${bad === 1 ? "part of a day does" : "parts of days do"} not fit` + (checks.length > bad ? `, and ${checks.length - bad} more to look at` : "") : `${checks.length} ${checks.length === 1 ? "thing" : "things"} to look at this week`}</span>${CARET}</summary><ul class="pchecks">${checks.map((c) => `<li${c.k === "fit" ? ' class="bad"' : ""}><span>${esc(c.text)}</span>${c.rid ? `<button class="linkbtn" data-insp="${esc(c.rid)}">Adjust</button>` : `<button class="linkbtn" data-openday="${c.d}">Open ${DAYN[c.d]}</button>`}</li>`).join("")}</ul></details>` : `<p class="pok">${gl(G.check, "s")}Every day fits and nothing is doubled up.</p>`}</section>
-      ${(() => { const rv = review(), n = rv.order.length + rv.time.length + rv.freq.length + rv.gym.length; return n ? `<p class="gnote">${li("list-checks")}<span>The guide has ${n} ${n === 1 ? "suggestion" : "suggestions"} on order, time of day and frequency. A dashed edge marks a routine at a time the guide does not suit.</span><a class="linkbtn" href="#guide">Open the guide</a></p>` : ""; })()}
+      ${(() => { const rv = rv0, n = nSug; return n ? `<p class="gnote">${li("list-checks")}<span>The guide has ${n} ${n === 1 ? "suggestion" : "suggestions"} on order, time of day and frequency. A dashed edge marks a routine at a time the guide does not suit.</span><a class="linkbtn" href="#guide">Open the guide</a></p>` : ""; })()}</div>
       ${dayStrip(sd)}
       <div class="planner" id="planner">${cols}</div>
       <p class="small muted phint">Drag a routine to another slot, or choose it to see what is in it and change when and how often you do it.</p>`;
@@ -1161,8 +1282,8 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
     $("#v-today").innerHTML = `
       <header class="view-head"><div><h1>${d === today ? "Today" : DAYN[d]}</h1><p class="lede">${DAYN[d]} ${date.getDate()} ${date.toLocaleDateString("en-GB", { month: "long" })}. ${ed ? "" : esc(pl.focus ? pl.focus + ". " : "")}<span class="only-d">${dayMin(d)} minutes planned.</span></p>
         ${ed ? `<label class="field dfocus">Focus for the day<input type="text" data-dfocus="1" name="focus" maxlength="60" autocomplete="off" value="${esc(pl.focus || "")}"></label>` : ""}</div>
-        <div class="head-side">${undoBar()}${ed && edited ? `<button class="btn ghost sm" data-resetday="${d}">Reset ${DAYN[d]}</button>` : ""}<button class="btn${ed ? "" : " ghost"} sm" id="dayEdit" aria-pressed="${ed}">${ed ? "Done" : li("edit") + "Edit day"}</button></div></header>
-      ${subnav("week", "today")}${dayStrip(d, " always")}${ed ? "" : focalHtml(d)}${lensBar(d)}
+        <div class="head-side">${undoBar()}${ed && edited ? `<button class="btn ghost sm" data-resetday="${d}">Reset ${DAYN[d]}</button>` : ""}<button class="btn${ed ? "" : " ghost"} sm" id="dayEdit" aria-pressed="${ed}">${ed ? "Done" : li("edit") + '<span class="bl">Edit day</span>'}</button></div></header>
+      <div class="wtool">${subnav("week", "today")}</div>${dayStrip(d, " always")}${ed ? "" : focalHtml(d)}${lensBar(d)}
       <div class="timeline">${blocks}</div>
       <section class="tadd"><h2>Add to ${DAYN[d]}</h2><div class="chips">${SLOTS.map((s) => `<button class="chip plain" data-pick="${d}|${s[1]}">${gl(G.plus, "s")}${s[2]} routine</button>`).join("")}<button class="chip plain" data-add="item">${gl(G.plus, "s")}Daily habit</button></div></section>`;
   }
@@ -1263,8 +1384,8 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
     const shape = SLOTS.map((s) => { const ids = Object.keys(P.guide).filter((id) => byId[id] && P.guide[id].t && P.guide[id].t[0] === s[1] && inLens(byId[id], l)).sort((a, b) => SC.rank(a) - SC.rank(b)); let ph = "";
       return `<section class="gcol"><h3>${li(SLOTIC[s[1]])}${s[2]}</h3><ol>${ids.map((id) => { const gd = P.guide[id], p = phase(s[1], gd.r), head = p !== ph ? `<li class="gph">${esc(p)}</li>` : ""; ph = p; const n = placed(id).length;
         return `${head}<li><button class="gr${isGym(byId[id]) ? " gym" : ""}" data-insp="${esc(id)}">${isGym(byId[id]) ? gymIcon() : `<span class="cdot" data-kind="${byId[id].cat}"></span>`}<span>${nm(id)}</span><small>${fTxt(gd.f)}${gd.t.length > 1 ? `, also ${tTxt(gd.t.slice(1))}` : ""}${n ? `. In your week ${n}×` : ""}</small></button></li>`; }).join("")}</ol></section>`; }).join("");
-    $("#v-guide").innerHTML = `<header class="view-head"><div><h1>Guide</h1><p class="lede">When, how often and in what order each routine fits. Each line says whether it comes from the OP docs or is a suggestion where they say nothing. Your week only changes when you choose Apply.</p></div><div class="head-side">${undoBar()}</div></header>
-      ${subnav("week", "guide")}${lensBar()}
+    $("#v-guide").innerHTML = `<header class="view-head band band-guide"><div><h1>Guide</h1><p class="lede">When, how often and in what order each routine fits. Each line says whether it comes from the OP docs or is a suggestion where they say nothing. Your week only changes when you choose Apply.</p></div><div class="head-side">${undoBar()}</div></header>
+      <div class="wtool">${subnav("week", "guide")}${lensBar()}</div>
       <section class="gsum"><p><b>${tot ? `${tot} ${tot === 1 ? "suggestion" : "suggestions"} for this week.` : "Your week matches the guide."}</b> You plan about ${hm(rv.perDay)} a day now. At every suggested frequency it would be about ${hm(rv.perDayTarget)}.</p>
         <p class="small muted"><span class="src op dot"></span> from the OP docs <span class="src ai dot"></span> suggested where the docs are silent. Fixes for a specific problem only count once you have put them in your week.</p></section>
       <div class="gcards">
@@ -1360,7 +1481,7 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
     const ui = S.ui, view = ui.ct === "ex" || ui.ct === "area" ? ui.ct : "rt", bad = SC.checks(S.plan, aimsNow()).filter((c) => c.k === "fit").length, so = view === "ex" ? [["most", "Most often"], ["least", "Least often"]] : [["group", "By kind"], ["most", "Most often"], ["least", "Least often"], ["long", "Most minutes"], ["aim", "Off the guide or aim first"]];
     if (!so.some((o) => o[0] === ui.cs)) ui.cs = so[0][0];
     $("#v-compare").innerHTML = `<header class="view-head"><div><h1>Compare</h1><p class="lede">Every routine and gym session, and how often each sits in your week. Choose a day letter to add or remove it; choose a name to see what is in it and set minutes, slot and aim. By body area shows what your week works and where it doubles up.</p></div><div class="head-side">${undoBar()}</div></header>
-      ${subnav("week", "compare")}${lensBar()}
+      <div class="wtool">${subnav("week", "compare")}${lensBar()}</div>
       <div class="ctools"><div class="tabs" role="tablist" aria-label="Compare by">${[["rt", "By routine"], ["ex", "By exercise"], ["area", "By body area"]].map((t) => `<button role="tab" aria-selected="${view === t[0]}" data-ctab="${t[0]}">${t[1]}</button>`).join("")}</div>
       ${view === "area" ? "" : `<div class="toolbar"><input class="search" id="cmpQ" type="search" name="cmpq" autocomplete="off" placeholder="Filter…" aria-label="Filter the list" value="${esc(ui.cq || "")}"><select id="cmpSort" name="cmpsort" aria-label="Sort">${so.map((o) => `<option value="${o[0]}"${ui.cs === o[0] ? " selected" : ""}>${o[1]}</option>`).join("")}</select><button class="chip plain" id="cmpOnly" aria-pressed="${!!ui.co}">In my week</button></div>`}</div>
       ${view === "ex" ? '<p class="small muted">How many times a week each exercise comes up, counted from the routines you have placed. The number on a routine is how often that routine runs.</p>' : ""}
@@ -1447,6 +1568,7 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
     if (d.dstart) { const dd = selDay(), date = occDate(dd), a = agenda(dd).find((x) => x.key === d.dstart); if (!a || !a.rid) return true; let e = logOf(date, a.key); if (!e || e.st !== "start") e = logOcc(dd, a.key, "start"); renderDay(); openPlayer(a.rid, { d: dd, key: a.key, eid: e.id, step: e.step || 0 }); return true; }
     if (d.jumpnow) { const m = now.getHours() * 60 + now.getMinutes(), rows = SC.day(selDay(), S.plan), r = rows.filter((x) => x.at <= m).pop() || rows[0]; const el = r && $("#blk-" + r.b.id); if (el) { el.scrollIntoView({ block: "start" }); const f = $("button, a", el); if (f) f.focus({ preventScroll: true }); } return true; }
     if (d.startview) { S.ui.start = d.startview; save(); $$("[data-startview]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.startview === d.startview)); say(d.startview === "today" ? "The hub will open on Day" : "The hub will open on Week"); return true; }
+    if (t.id === "wBreak" || d.wbo) { S.ui.wbo = d.wbo ? true : !S.ui.wbo; save(); renderWeek(); refocus(d.wbo ? "#wBreakP .pcheck summary, #wBreak" : "#wBreak"); return true; }
     if (t.id === "dayEdit") { S.ui.de = !S.ui.de; save(); renderDay(); refocus("#dayEdit"); return true; }
     if (d.hide) { (S.hide = S.hide || {})[d.hide] = 1; save(); applyAdds(); if (!$("#sheet").hidden) closeSheet(true); RENDER[current](); toast("Deleted. You can restore it from My edits.", undoLast); return true; }
     if (d.unhide) { delete S.hide[d.unhide]; save(); applyAdds(); RENDER[current](); openManage(); return true; }
@@ -1468,7 +1590,8 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
   const pill = (r) => `<button class="chip plain" data-go="${r.id}">${esc(r.name)}</button>`;
   function stripsHtml() {
     const favs = P.routines.filter((r) => S.fav[r.id]), rec = (S.recent || []).map((id) => byId[id]).filter(Boolean).slice(0, 5);
-    return `<div><p class="label">Favourites</p>${favs.length ? `<div class="chips" style="margin-top:6px">${favs.map(pill).join("")}</div>` : `<p class="small muted">Tap the star on a routine to keep it here.</p>`}</div>${rec.length ? `<div><p class="label">Recently opened</p><div class="chips" style="margin-top:6px">${rec.map(pill).join("")}</div></div>` : ""}`;
+    if (!favs.length && !rec.length) return `<p class="small muted favhint">${STAR}Star a routine to keep it at the top.</p>`;
+    return `${favs.length ? `<div><p class="label">Favourites</p><div class="chips" style="margin-top:6px">${favs.map(pill).join("")}</div></div>` : `<p class="small muted favhint">${STAR}Star a routine to keep it here.</p>`}${rec.length ? `<div><p class="label">Recently opened</p><div class="chips" style="margin-top:6px">${rec.map(pill).join("")}</div></div>` : ""}`;
   }
   function renderRoutines() {
     const ui = S.ui;
@@ -1553,8 +1676,9 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
     }
     el.innerHTML = `<div class="detail"><div class="row"><a class="btn ghost sm" href="#library">${gl(G.back, "s")}Library</a><span style="flex:1"></span>
         <button class="btn ghost sm" data-topic="${key}" data-id="${list[(i + list.length - 1) % list.length].id}">Previous</button><button class="btn ghost sm" data-topic="${key}" data-id="${list[(i + 1) % list.length].id}">Next topic</button></div>
-      <div class="md-title">${art(sel.icon, 72)}<div><h1>${esc(sel.name)}</h1>${sel.intro ? `<p class="lede">${esc(sel.intro)}</p>` : ""}</div></div>
-      ${anchors.length > 1 ? `<nav class="anchors" aria-label="On this page">${anchors.map((a) => `<button class="chip plain" data-anchor="${a[0]}">${esc(a[1])}</button>`).join("")}</nav>` : ""}<div class="sbody ${sb(sel.src, sel.who)}">${body}${userNotes(sel.id)}${relatedHtml(sel)}</div></div>`;
+      <div class="md-title">${art(sel.icon, 72)}<div><h1>${esc(sel.name)}</h1>${sel.intro ? `<p class="lede">${esc(sel.intro)}</p>` : ""}<p class="md-src">${srcTag(sel.src, false, sel.who)}<span>${esc(((LGROUPS.find((g) => g[0] === (sel.grp || "ref")) || [])[1]) || "")}</span></p></div></div>
+      <div class="rdesk"><div class="rmain">${anchors.length > 1 ? `<nav class="anchors" aria-label="On this page">${anchors.map((a) => `<button class="chip plain" data-anchor="${a[0]}">${esc(a[1])}</button>`).join("")}</nav>` : ""}<div class="sbody ${sb(sel.src, sel.who)}">${body}${userNotes(sel.id)}</div></div>
+      <aside class="rside" aria-label="Sources and related">${relatedHtml(sel)}</aside></div></div>`;
   }
   const renderSystems = () => renderTopics("systems", P.systems, "sys", "Systems", "Pick a system for what to cut, what to do and the numbers worth remembering.");
   const renderExtras = () => renderTopics("extras", P.extras, "ext", "Bonus extras", "Toxin avoidance, the allergy guide and the other side protocols.");
@@ -1652,8 +1776,9 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
     const ui = S.ui, tab = ui.ptab || "library", o = owned(), nW = P.products.filter((p) => S.wish[p.n] && !o[p.n]).length, nO = P.products.filter((p) => o[p.n]).length;
     $("#v-products").innerHTML = `<header class="view-head"><div><h1>Products</h1><p class="lede">The full library from the OP docs and your Max doc. Add what you plan to buy to the wishlist; mark what you have as owned.</p></div><div class="head-side"><button class="btn ghost" data-add="product">${gl(G.plus, "s")}Add a product</button></div></header>
       <div class="tabs" role="tablist" aria-label="Product lists">${[["library", "Library", P.products.length], ["wishlist", "Wishlist", nW], ["owned", "Owned", nO]].map((t) => `<button role="tab" aria-selected="${tab === t[0]}" data-ptab="${t[0]}">${t[1]}<span class="badge">${t[2]}</span></button>`).join("")}</div>
-      ${tab === "library" ? `<div class="toolbar stick"><input class="search" id="pSearch" type="search" placeholder="Search products" aria-label="Search products" value="${esc(ui.pq || "")}"><button class="btn ghost sm only-m" data-sheet="pg">${gl(G.filter, "s")}Types</button><span class="badge sage only-m" id="pgLabel"></span></div>
-        <div class="chips only-d" role="group" aria-label="Filter by type"><button class="chip plain" data-pg="" aria-pressed="${!ui.pg}">All</button>${P.productGroups.map((g) => `<button class="chip plain" data-pg="${g[0]}" aria-pressed="${ui.pg === g[0]}">${esc(g[1])}</button>`).join("")}</div>` : ""}
+      ${tab === "library" ? `<div class="toolbar stick"><input class="search" id="pSearch" type="search" name="psearch" autocomplete="off" placeholder="Search products…" aria-label="Search products" value="${esc(ui.pq || "")}"><button class="btn ghost sm" id="pFilt" aria-expanded="${!!ui.pfo}" aria-controls="pFP">${gl(G.filter, "s")}Filters${(ui.pg ? 1 : 0) + (sfOf("p") ? 1 : 0) + (sgOf("p") ? 1 : 0) ? `<span class="badge sage">${(ui.pg ? 1 : 0) + (sfOf("p") ? 1 : 0) + (sgOf("p") ? 1 : 0)}</span>` : ""}</button></div>
+        <div class="lfilters" id="pFP"${ui.pfo ? "" : " hidden"}><div class="chips" role="group" aria-label="Filter by type"><button class="chip plain" data-pg="" aria-pressed="${!ui.pg}">All types</button>${P.productGroups.map((g) => `<button class="chip plain" data-pg="${g[0]}" aria-pressed="${ui.pg === g[0]}">${esc(g[1])}</button>`).join("")}</div><div id="pSrc"></div></div>
+        <p class="fsum" id="pSum"></p>` : ""}
       <div id="pList" class="drstack"></div>`;
     drawProducts();
   }
@@ -1662,9 +1787,10 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
     const rows = (l, tb) => l.map((p) => prodRow(p, tb)).join("");
     let html = "";
     if (tab === "library") {
-      const lab = $("#pgLabel"); if (lab) lab.textContent = ui.pg ? groupName(ui.pg) : "All types";
       const base = P.products.filter((p) => (!ui.pg || p.g === ui.pg) && hit(p)), ps = base.filter((p) => srcPass("p", p.src, p.who));
-      html = srcCtl("p", base, true);
+      const sc = $("#pSrc"); if (sc) sc.innerHTML = srcCtl("p", base, true);
+      const act = [ui.pg ? groupName(ui.pg) : "", sfOf("p") ? sname(sfOf("p").split(":")[0] === "x" ? "x" : sfOf("p"), sfOf("p").split(":")[1]) : "", sgOf("p") ? "grouped by source" : ""].filter(Boolean), sm = $("#pSum");
+      if (sm) sm.innerHTML = act.length ? `Showing ${ps.length} of ${P.products.length}: ${act.map(esc).join(" · ")} <button class="linkbtn" id="pClear">Clear filters</button>` : "";
       if (sgOf("p")) html += bySrc(ps, (p) => p).map((g) => drList(srcHead(g[1]), "", rows(g[2], "library"), g[2].length)).join("");
       else P.productGroups.forEach((g) => { const l = ps.filter((p) => p.g === g[0]); if (l.length) html += drList(esc(g[1]), PGART[g[0]] ? ic(PGART[g[0]], 28) : "", rows(l, "library"), l.length); });
       if (!ps.length) html += `<div class="empty"><p>No product matches that search.</p><button class="btn sm ghost" id="pClear">Clear search and filter</button></div>`;
@@ -1818,6 +1944,9 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
   const NTIC = { approved: "steak", avoid: "g:ban", plate: "g:plate", timing: "g:clock", recipes: "carrotsalad", map: "g:net" };
   const topicsAll = () => P.systems.map((t) => [t, "sys"]).concat(P.extras.map((t) => [t, "ext"]));
   const LART = { move: "movement-posture", sleep: "sleep-recovery", energy: "energy-hormones", env: "environment-personal-care", ref: "reference" };
+  /* chapter specimens (assets/field, from the Field Guide artwork): one per Library group, decorative beside the written name */
+  const CHAP = { nut: "wheat-stem", move: "cedar-root", sleep: "river-stone", energy: "flint", env: "cedar-twig", ref: "ammonite" };
+  const chap = (g, z) => (CHAP[g] ? `<img class="chap" src="assets/field/${CHAP[g]}-${z > 40 ? 192 : 64}.webp" width="${z}" height="${z}" alt="" decoding="async"${z > 40 ? "" : ' loading="lazy"'}>` : "");
   const li = (n) => `<span class="li" aria-hidden="true">${(typeof PRIMAL_ICONS !== "undefined" && PRIMAL_ICONS[n]) || ""}</span>`;
   /* one topic as a compact row: the title opens the topic; Preview shows its summary in place, one at a time */
   function topicRow(x) {
@@ -1843,8 +1972,8 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
     const head = (id, art, name, n) => `<h2>${art}${name}${n != null ? `<span class="badge">${n}</span>` : ""}</h2>`;
     let html = filtered || !show("inbox") ? "" : inboxHtml();
     if (sgOf("t")) html += bySrc(shown, (x) => x.t).map((g) => `<section class="lgroup">${head("", "", srcHead(g[1]), g[2].length)}${wrap(g[2])}</section>`).join("");
-    else if (!filtered && show("nut")) html += `<section class="lgroup" id="lg-nut">${head("nut", ic("topics/nutrition-128", 32), "Nutrition")}<div class="ngrid">${NT.map((t) => `<button class="ncard card" data-jumpnut="${t[0]}">${art(NTIC[t[0]], 28)}<b>${t[1]}</b></button>`).join("")}</div></section>`;
-    if (sgOf("t")) { /* grouped by source above */ } else if (sort === "group") html += LGROUPS.filter((g) => show(g[0])).map((g) => { const l = list.filter((x) => (x.t.grp || "ref") === g[0]); return l.length ? `<section class="lgroup" id="lg-${g[0]}">${head(g[0], ic("topics/" + LART[g[0]] + "-128", 32), g[1], l.length)}${wrap(l)}</section>` : ""; }).join("");
+    else if (!filtered && show("nut")) html += `<section class="lgroup" id="lg-nut">${head("nut", chap("nut", 64), "Nutrition")}<div class="ngrid">${NT.map((t) => `<button class="ncard card" data-jumpnut="${t[0]}">${art(NTIC[t[0]], 28)}<b>${t[1]}</b></button>`).join("")}</div></section>`;
+    if (sgOf("t")) { /* grouped by source above */ } else if (sort === "group") html += LGROUPS.filter((g) => show(g[0])).map((g) => { const l = list.filter((x) => (x.t.grp || "ref") === g[0]); return l.length ? `<section class="lgroup" id="lg-${g[0]}">${head(g[0], chap(g[0], 64), g[1], l.length)}${wrap(l)}</section>` : ""; }).join("");
     else if (shown.length) html += `<section class="lgroup">${head("", "", sort === "az" ? "A to Z" : "Edited or added by you first", shown.length)}${wrap(shown.slice().sort((a, b) => (sort === "az" ? 0 : b.ed - a.ed) || a.t.name.localeCompare(b.t.name)))}</section>`;
     if (!shown.length && grp !== "nut" && grp !== "inbox") html += `<div class="empty">${ic("illus/wellbeing-research-magnifier", 64)}<b>No topic matches</b>Clear the search and filters to see the whole Library.<button class="btn sm ghost" id="libClear">Clear search and filters</button></div>`;
     $("#libRes").innerHTML = html;
@@ -1854,9 +1983,8 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
   function renderLibrary() {
     const ui = S.ui, tags = {}, sort = ui.lsort || "group", nf = libFilters(); topicsAll().forEach((x) => tagsOf("t:" + x[0].id, x[0]).forEach((g) => (tags[g] = 1))); if (ui.ltag && !tags[ui.ltag]) ui.ltag = "";
     const grp = LGRP().some((g) => g[0] === ui.lgrp) ? ui.lgrp : "";
-    $("#v-library").innerHTML = `<header class="view-head"><div><h1>Library</h1><p class="lede only-d">What to do, what to cut and the numbers worth knowing, grouped by topic.</p></div><div class="head-side"><button class="btn ghost sm" data-add="note">${li("note")}Quick note</button><button class="btn ghost sm" data-add="topic">${gl(G.plus, "s")}<span class="only-d">Add a topic</span><span class="only-m sr">Add a topic</span></button></div></header>
-      ${subnav("library", "library")}
-      <div class="lbar"><input class="search" id="libQ" type="search" name="libq" autocomplete="off" placeholder="Search topics and tags…" aria-label="Search topics and tags" value="${esc(ui.lq || "")}">
+    $("#v-library").innerHTML = `<header class="view-head band band-lib"><div><h1>Library</h1><p class="lede only-d">What to do, what to cut and the numbers worth knowing, grouped by topic.</p></div><div class="head-side"><button class="btn ghost sm" data-add="note">${li("note")}Quick note</button><button class="btn ghost sm" data-add="topic">${gl(G.plus, "s")}<span class="only-d">Add a topic</span><span class="only-m sr">Add a topic</span></button></div></header>
+      <div class="lbar">${subnav("library", "library")}<input class="search" id="libQ" type="search" name="libq" autocomplete="off" placeholder="Search topics and tags…" aria-label="Search topics and tags" value="${esc(ui.lq || "")}">
         <label class="lgsel"><span class="sr">Group</span><select id="libGrp" name="libgrp">${[["", "All groups"]].concat(LGRP()).map((g) => `<option value="${g[0]}"${grp === g[0] ? " selected" : ""}>${g[1]}</option>`).join("")}</select></label>
         <button class="btn ghost sm" id="libFilt" aria-expanded="${!!ui.lfo}" aria-controls="libFP">${gl(G.filter, "s")}Filters${nf ? `<span class="badge sage">${nf}</span>` : ""}</button></div>
       <div class="lfilters" id="libFP"${ui.lfo ? "" : " hidden"}>
@@ -1865,7 +1993,7 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
           <button class="chip plain" id="libSaved" aria-pressed="${!!ui.lsaved}">Saved only</button>${nf ? '<button class="linkbtn" id="libClear">Clear filters</button>' : ""}</div>
         ${Object.keys(tags).length ? `<div class="chips" role="group" aria-label="Filter by tag">${Object.keys(tags).sort().map((g) => `<button class="chip plain" data-ltag="${esc(g)}" aria-pressed="${ui.ltag === g}">#${esc(g)}</button>`).join("")}</div>` : ""}
         ${srcCtl("t", libItems(), true)}</div>
-      <div class="llayout"><nav class="lindex" aria-label="Library groups"><button data-lgrp="" aria-pressed="${!grp}">All groups<b></b></button>${LGRP().map((g) => `<button data-lgrp="${g[0]}" aria-pressed="${grp === g[0]}">${g[1]}<b></b></button>`).join("")}</nav>
+      <div class="llayout"><nav class="lindex" aria-label="Library groups"><button data-lgrp="" aria-pressed="${!grp}">All groups<b></b></button>${LGRP().map((g) => `<button data-lgrp="${g[0]}" aria-pressed="${grp === g[0]}">${chap(g[0], 28)}<span>${g[1]}</span><b></b></button>`).join("")}</nav>
       <div id="libRes" class="libres"></div></div>`;
     drawLibrary();
   }
@@ -2242,7 +2370,7 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
     else if (d.sheetpick !== undefined) { S.ui[sheetKey] = d.sheetpick; save(); const k = sheetKey; closeSheet(); if (k === "rcat") renderRoutines(); else renderProducts(); refocus(`[data-sheet="${k}"]`); }
     else if (t.id === "sheetClose") closeSheet();
     else if (t.id === "rClear") { S.ui.rq = ""; S.ui.rcat = ""; save(); renderRoutines(); refocus("#rSearch"); }
-    else if (t.id === "pClear") { S.ui.pq = ""; S.ui.pg = ""; save(); renderProducts(); refocus("#pSearch"); }
+    else if (t.id === "pClear") { S.ui.pq = ""; S.ui.pg = ""; S.ui.sf_p = ""; S.ui.sg_p = false; save(); renderProducts(); refocus("#pSearch"); }
     else if (d.srctoggle) { S.ui.plain = !S.ui.plain; save(); applyPlain(); say(S.ui.plain ? "Source colours off" : "Source colours on"); }
     else if (d.find) openFind();
     else if (t.id === "findClose") closeFind();
@@ -2261,7 +2389,8 @@ html.plain .sbox.sbox[class*=" k"]:not(.slim) { border-color: var(--line); }
     else if (d.nut) { S.ui.nut = d.nut; save(); $$("[data-nut]").forEach((c) => c.setAttribute("aria-selected", c.dataset.nut === d.nut)); $("#nutPanel").innerHTML = nutPanel(d.nut); }
     else if (d.macro) { S.ui.macro = S.ui.macro === d.macro ? "" : d.macro; save(); $("#nutPanel").innerHTML = nutPanel("plate"); refocus(`[data-macro="${d.macro}"]`); }
     else if (d.ptab) { S.ui.ptab = d.ptab; save(); renderProducts(); refocus(`.tabs [data-ptab="${d.ptab}"]`); }
-    else if (d.pg !== undefined) { S.ui.pg = d.pg; save(); $$("[data-pg]").forEach((c) => c.setAttribute("aria-pressed", c.dataset.pg === d.pg)); drawProducts(); }
+    else if (d.pg !== undefined) { S.ui.pg = d.pg; save(); renderProducts(); refocus(`[data-pg="${d.pg}"]`); }
+    else if (t.id === "pFilt") { S.ui.pfo = !S.ui.pfo; save(); renderProducts(); refocus("#pFilt"); }
     else if (d.own) { const o = owned(), qa = t.classList.contains("qa"); if (o[d.own]) delete o[d.own]; else { o[d.own] = 1; delete S.wish[d.own]; } save(); renderProducts(); refocus(`${qa ? ".qa" : ""}[data-own="${CSS.escape(d.own)}"]`); say(o[d.own] ? "Marked owned" : "Marked not owned"); }
     else if (d.wish) { if (S.wish[d.wish]) delete S.wish[d.wish]; else S.wish[d.wish] = 2; save(); renderProducts(); say(S.wish[d.wish] ? "Added to wishlist" : "Removed from wishlist"); }
     else if (d.pri) { S.wish[d.pri] = +d.v; save(); drawProducts(); }

@@ -1605,5 +1605,180 @@
   "path": "assets/line/primal-icons.js",
   "count": 149,
   "note": "SVG registry from the expanded pack (24px viewBox, 1.7 stroke). Lucide-derived icons: see assets/line/LUCIDE-LICENSE.txt"
- }
+ },
+ "fieldGuide": {
+  "note": "Primal Field Guide artwork supplied by the owner (primal-field-guide-studio pack, Nov 2026). Optimised from the pack's WebPs; masters stay in the pack. Always decorative: alt=\"\" beside a written name.",
+  "artwork": [
+   {
+    "id": "ammonite",
+    "path": "assets/field/ammonite-192.webp",
+    "width": 192,
+    "height": 192,
+    "role": "Library chapter: Reference",
+    "transparent": true,
+    "decorative": true
+   },
+   {
+    "id": "ammonite",
+    "path": "assets/field/ammonite-64.webp",
+    "width": 64,
+    "height": 64,
+    "role": "Library chapter: Reference",
+    "transparent": true,
+    "decorative": true
+   },
+   {
+    "id": "cedar-canopy",
+    "path": "assets/field/cedar-canopy-1440.webp",
+    "width": 1440,
+    "height": 480,
+    "role": "Library banner (wide screens)",
+    "transparent": false,
+    "decorative": true
+   },
+   {
+    "id": "cedar-canopy",
+    "path": "assets/field/cedar-canopy-768.webp",
+    "width": 768,
+    "height": 256,
+    "role": "Library banner (wide screens)",
+    "transparent": false,
+    "decorative": true
+   },
+   {
+    "id": "cedar-root",
+    "path": "assets/field/cedar-root-192.webp",
+    "width": 192,
+    "height": 192,
+    "role": "Library chapter: Movement & posture",
+    "transparent": true,
+    "decorative": true
+   },
+   {
+    "id": "cedar-root",
+    "path": "assets/field/cedar-root-64.webp",
+    "width": 64,
+    "height": 64,
+    "role": "Library chapter: Movement & posture",
+    "transparent": true,
+    "decorative": true
+   },
+   {
+    "id": "cedar-twig",
+    "path": "assets/field/cedar-twig-192.webp",
+    "width": 192,
+    "height": 192,
+    "role": "Library chapter: Environment & personal care",
+    "transparent": true,
+    "decorative": true
+   },
+   {
+    "id": "cedar-twig",
+    "path": "assets/field/cedar-twig-64.webp",
+    "width": 64,
+    "height": 64,
+    "role": "Library chapter: Environment & personal care",
+    "transparent": true,
+    "decorative": true
+   },
+   {
+    "id": "fern-plate",
+    "path": "assets/field/fern-plate-600.webp",
+    "width": 600,
+    "height": 400,
+    "role": "Guide banner (wide screens)",
+    "transparent": false,
+    "decorative": true
+   },
+   {
+    "id": "fern-plate",
+    "path": "assets/field/fern-plate-960.webp",
+    "width": 960,
+    "height": 640,
+    "role": "Guide banner (wide screens)",
+    "transparent": false,
+    "decorative": true
+   },
+   {
+    "id": "flint",
+    "path": "assets/field/flint-192.webp",
+    "width": 192,
+    "height": 192,
+    "role": "Library chapter: Energy & hormones",
+    "transparent": true,
+    "decorative": true
+   },
+   {
+    "id": "flint",
+    "path": "assets/field/flint-64.webp",
+    "width": 64,
+    "height": 64,
+    "role": "Library chapter: Energy & hormones",
+    "transparent": true,
+    "decorative": true
+   },
+   {
+    "id": "river-stone",
+    "path": "assets/field/river-stone-192.webp",
+    "width": 192,
+    "height": 192,
+    "role": "Library chapter: Sleep & recovery",
+    "transparent": true,
+    "decorative": true
+   },
+   {
+    "id": "river-stone",
+    "path": "assets/field/river-stone-64.webp",
+    "width": 64,
+    "height": 64,
+    "role": "Library chapter: Sleep & recovery",
+    "transparent": true,
+    "decorative": true
+   },
+   {
+    "id": "spruce-dusk",
+    "path": "assets/field/spruce-dusk-1440.webp",
+    "width": 1440,
+    "height": 480,
+    "role": "Week banner (wide screens)",
+    "transparent": false,
+    "decorative": true
+   },
+   {
+    "id": "spruce-dusk",
+    "path": "assets/field/spruce-dusk-768.webp",
+    "width": 768,
+    "height": 256,
+    "role": "Week banner (wide screens)",
+    "transparent": false,
+    "decorative": true
+   },
+   {
+    "id": "wheat-stem",
+    "path": "assets/field/wheat-stem-192.webp",
+    "width": 192,
+    "height": 192,
+    "role": "Library chapter: Nutrition",
+    "transparent": true,
+    "decorative": true
+   },
+   {
+    "id": "wheat-stem",
+    "path": "assets/field/wheat-stem-64.webp",
+    "width": 64,
+    "height": 64,
+    "role": "Library chapter: Nutrition",
+    "transparent": true,
+    "decorative": true
+   }
+  ]
+ },
+ "fonts": [
+  {
+   "path": "assets/fonts/instrument-serif.woff2",
+   "family": "Instrument Serif",
+   "use": "page, chapter and day titles",
+   "licence": "assets/fonts/Instrument-Serif-OFL.txt"
+  }
+ ]
 }
