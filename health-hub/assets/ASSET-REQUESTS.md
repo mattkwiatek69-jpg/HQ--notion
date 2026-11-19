@@ -150,3 +150,11 @@ The phone strips crop the wide banners, so on a narrow screen some subjects are 
 | `strip-library.png` | `assets/field/cedar-canopy-1440.webp` |
 | `strip-products.png` | `assets/field/products-banner-1440.webp` |
 | `strip-guide.png` | `assets/field/fern-plate-960.webp` |
+
+## Earth and ember banner (proposed, Nov 2026)
+
+The Week banner (`assets/field/spruce-dusk-1440.webp`) is now the largest green area on the main page. One warmer plate would finish the Earth and ember palette. It would replace that file at the same size, with the title kept on the clear left.
+
+> Create a wide natural-history plate for the "Primal Field Guide" Week page, matching the attached reference banners in painting style. A low ember sun setting over a dry grass plain with a few dark bare trees and a thin line of distant hills; burnt orange (#A8441B), bark brown (#2A1F18), bone (#F6F1E7) and a little dusty moss, no bright green. The left 55% must be calm, dark bark-brown sky so a large cream serif title can sit on it; the sun and trees sit in the right third. Painterly, realistic, quiet. No text, people, animals, logos or frames. 2880 × 960 PNG, and a second version 1536 × 512.
+
+Files: `ember-dusk.png`, `ember-dusk-small.png`. Slot: `.view-head.band-week` (desktop banner and the phone strip).
