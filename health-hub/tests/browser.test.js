@@ -31,7 +31,8 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
   ok(await p.isVisible('.pcol[aria-label="Monday"] .pover')&&(await p.textContent('.pcheck')).includes('not fit')&&(await st0()).plan[1].am.length===5,'an overfull morning is saved but flagged as not fitting'); await p.screenshot({path:S+'/n-editor.png'});
   await p.click('#v-week [data-undo2]'); await p.click('#v-week [data-undo2]'); ok(!(await p.$('.pover'))&&(await p.$$eval('.pchip[data-insp="vagus"]',e=>e.length))===1,'Undo steps back one change at a time');
   await p.click('#v-week [data-redo2]'); ok((await p.$$eval('.pcol[aria-label="Monday"] .pchip[data-insp="ultimate"]',e=>e.length))===1,'Redo puts a change back'); await p.click('#v-week [data-undo2]');
-  await p.dragAndDrop('.pcol[aria-label="Monday"] .pchip[data-insp="vagus"]','.pcell[data-cell="2|bed"]'); ok((await p.$$eval('.pcell[data-cell="2|bed"] .pchip[data-insp="vagus"]',e=>e.length))===1&&(await p.$$eval('.pcol[aria-label="Monday"] .pchip[data-insp="vagus"]',e=>e.length))===0,'drag and drop moves a routine to another day and slot');
+  await p.setViewportSize({width:1440,height:2400}); /* both ends of the drag on screen: a person gets the browser's own auto-scroll, a synthetic drag does not */
+  await p.dragAndDrop('.pcol[aria-label="Monday"] .pchip[data-insp="vagus"]','.pcell[data-cell="2|bed"]'); await p.setViewportSize({width:1440,height:900}); ok((await p.$$eval('.pcell[data-cell="2|bed"] .pchip[data-insp="vagus"]',e=>e.length))===1&&(await p.$$eval('.pcol[aria-label="Monday"] .pchip[data-insp="vagus"]',e=>e.length))===0,'drag and drop moves a routine to another day and slot');
   await p.evaluate(()=>document.activeElement&&document.activeElement.blur()); await p.keyboard.press('Control+z'); ok((await p.$$eval('.pcol[aria-label="Monday"] .pchip[data-insp="vagus"]',e=>e.length))===1,'Ctrl+Z undoes the move');
   await p.reload(); await p.waitForTimeout(300); ok((await st0()).plan[1].pm.some(x=>x[0]==='vagus'),'edited day persists after reload');
   await p.click('.pcol[aria-label="Monday"] [data-openday]'); await p.waitForTimeout(250);
@@ -340,7 +341,7 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
   { const q=await mk(1440,1000); await q.goto(U+'#week'); await q.waitForTimeout(400); await q.evaluate(()=>document.fonts.ready);
     ok(await q.evaluate(()=>document.fonts.check('40px "Instrument Serif"')&&/Instrument Serif/.test(getComputedStyle(document.querySelector('#v-week h1')).fontFamily)),'titles use the self-hosted Instrument Serif');
     const bg=await q.$eval('.view-head.band-week',e=>getComputedStyle(e).backgroundImage); ok(/spruce-dusk-1440\.webp/.test(bg)&&await q.evaluate(async u=>(await fetch(u)).ok,bg.match(/url\("?([^")]+)/)[1]),'the Week banner is the spruce artwork and it loads');
-    ok((await q.$eval('#planner',e=>e.getBoundingClientRect().top))<760,'with the week at a glance open, the planner still starts in the first screen ('+Math.round(await q.$eval('#planner',e=>e.getBoundingClientRect().top))+'px)'); await q.click('#tmap > summary'); ok((await q.$eval('#planner',e=>e.getBoundingClientRect().top))<480&&(await q.evaluate(()=>JSON.parse(localStorage.getItem('phh:v1')).ui.tmo))===0,'folding the week at a glance brings the planner up and is remembered'); await q.click('#tmap > summary');
+    ok((await q.$eval('#planner',e=>e.getBoundingClientRect().top))<480,'the week grid starts high on desktop ('+Math.round(await q.$eval('#planner',e=>e.getBoundingClientRect().top))+'px)');
     ok(await q.$$eval('#v-week .lens button',e=>e.every(b=>/min/.test(b.textContent))),'the scope switch keeps its minutes and sessions as accessible text');
     ok(!(await q.isVisible('#wBreakP .bchip')),'Balance and checks wait in Breakdown'); await q.focus('#wBreak'); await q.keyboard.press('Enter'); ok((await q.getAttribute('#wBreak','aria-expanded'))==='true'&&await q.isVisible('#wBreakP .bchip')&&await q.isVisible('#wBreakP .pcheck'),'Breakdown opens from the keyboard and shows Balance and the checks');
     ok(await q.evaluate(()=>{const s=getComputedStyle(document.activeElement);return document.activeElement.id==='wBreak'&&s.outlineStyle==='solid'&&parseFloat(s.outlineWidth)>=2;}),'focus stays on Breakdown with a visible outline'); await q.keyboard.press('Enter');
@@ -424,13 +425,23 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
     await q.context().close(); }
   { const q=await mk(390,844,1); for(const v of ['routines','products','library','guide']){ await q.goto(U+'#'+v); await q.waitForTimeout(250); const hb=await q.$eval(`#v-${v} .view-head`,e=>({bg:getComputedStyle(e).backgroundImage,size:getComputedStyle(e).backgroundSize}));ok(/-768\.webp|-600\.webp/.test(hb.bg)&&/100px/.test(hb.size),`${v}: a 100px painted strip on a phone in dark mode (${hb.size})`); } await q.context().close(); }
 
-  // Almanac: the week at a glance (every placement at its time, habits as ticks, a now-line on today), a planner Day, view transitions
+  // Planner-first (Earth and ember): start times on every chip, part ranges, free time, one toolbar, the agenda, the palette's signals
   { const q=await mk(1440,900); await q.clock.setFixedTime(new Date('2026-11-18T09:40:00')); await q.goto(U+'#week'); await q.waitForTimeout(300);
-    const tm=await q.evaluate(()=>({rows:document.querySelectorAll('#tmap .tm-row').length,blocks:document.querySelectorAll('#tmap .tm-b').length,gym:document.querySelectorAll('#tmap .tm-b.gym').length,ticks:document.querySelectorAll('#tmap .tm-t').length,now:document.querySelectorAll('#tmap .tm-row.today .tm-now').length,chips:document.querySelectorAll('#planner .pchip').length}));
-    ok(tm.rows===7&&tm.blocks===tm.chips&&tm.gym>0&&tm.ticks>0&&tm.now===1,'the week at a glance draws every placement once, gym apart, habits as ticks and a now-line on today '+JSON.stringify(tm));
-    const lab=await q.getAttribute('#tmap .tm-row.today .tm-b','aria-label'); ok(/^Wednesday \d\d:\d\d to \d\d:\d\d: .+, \d+ min$/.test(lab),'each block says when and what ('+lab+')');
-    await q.click('#tmap .tm-row.today .tm-b'); ok(await q.isVisible('#sheet .insp, #sheet [data-itab]'),'a block opens that routine'); await q.keyboard.press('Escape');
-    await q.click('#v-week [data-lens="gym"]'); await q.waitForTimeout(150); const outN=await q.$$eval('#tmap .tm-b.out',l=>l.length); ok(outN===0||outN===tm.blocks-tm.gym,'the lens fades what it leaves out ('+outN+')'); await q.click('#v-week [data-lens=""]');
+    const ch=await q.$$eval('#planner .pchip',l=>l.map(c=>(c.querySelector('small time')||{}).textContent||'')); ok(ch.length>40&&ch.every(x=>/^\d\d:\d\d$/.test(x)),'every routine in the week shows its start time ('+ch.slice(0,4)+')');
+    const mon=await q.$$eval('.pcol[aria-label="Monday"] .pchip small time',l=>l.map(x=>x.textContent)); ok(mon[0]==='07:00'&&mon[1]==='07:05'&&mon[2]==='07:23','start times follow each other within a part of the day ('+mon.slice(0,3)+')');
+    ok(/^\d\d:\d\d–\d\d:\d\d$/.test(await q.textContent('.pcol[aria-label="Monday"] .pcell-head time')),'each part of the day shows its time range');
+    const fr=await q.$$eval('#planner .pfree',l=>l.map(x=>x.textContent)); ok(fr.length>5&&/^Free until \d\d:\d\d/.test(fr[0]),'free time between parts is shown ('+fr[0]+')');
+    ok(await q.$eval('.wtool-week',e=>!!e.querySelector('.subnav')&&!!e.querySelector('.lens')&&!!e.querySelector('.wsum')&&!!e.querySelector('#wBreak')),'views, lens, totals and Breakdown share one toolbar');
+    ok(!(await q.$('#tmap'))&&!(await q.$('.tmap')),'the week at a glance is gone');
+    const cs=await q.evaluate(()=>{const g=(s,p)=>getComputedStyle(document.querySelector(s))[p];return {btn:g('.view:not([hidden]) .lens [aria-pressed="true"]','backgroundColor'),today:g('.pcol.now .pday span','backgroundColor'),rail:g('.rail','backgroundColor')};});
+    ok(cs.today!==cs.btn&&!/rgb\(39, 58, 44\)/.test(cs.rail),'selection and today are different signals, and the rail is no longer spruce '+JSON.stringify(cs));
+    await q.click('[data-agenda="week"]'); const ag=await q.$$eval('#sheet .ag-day',l=>l.length); ok(ag===7&&(await q.textContent('#sheet .ag-page')).includes('Free '),'the week agenda lists all seven days with free time');
+    await q.click('[data-agk="day"]'); ok((await q.$$eval('#sheet .ag-day',l=>l.length))===1,'the agenda switches to one day');
+    await q.context().grantPermissions(['clipboard-read','clipboard-write']).catch(()=>{}); await q.click('[data-agcopy]'); await q.waitForTimeout(150); ok(/copied|not allowed/.test(await q.textContent('#toast')),'Copy as text answers either way');
+    await q.keyboard.press('Escape'); await q.goto(U+'#today'); await q.waitForTimeout(300); ok(!!(await q.$('#v-today [data-agenda="day"]')),'the Day has its agenda');
+    await q.context().close(); }
+  // Almanac: a planner Day, view transitions
+  { const q=await mk(1440,900); await q.clock.setFixedTime(new Date('2026-11-18T09:40:00')); await q.goto(U+'#week'); await q.waitForTimeout(300);
     await q.goto(U+'#today'); await q.waitForTimeout(300); const ft=await q.textContent('#v-today .focal .fc-foot'); ok(/planned/.test(ft)&&!/missed/i.test(ft),'the Day counts what is planned, not what was missed ('+ft.trim().slice(0,40)+')');
     ok((await q.$$('#v-today .ost.st-missed')).length===0,'rows show only what was recorded, never missed'); ok((await q.$$('#v-today .tnow')).length===1&&(await q.$$('#v-today .trow.past')).length>0,'a now marker sits between what has passed and what is next');
     ok(await q.isVisible('#v-today .focal .fc-art')&&/in \d/.test(await q.textContent('#v-today .focal .fc-rel')),'the next routine leads with its specimen and how long until it');
