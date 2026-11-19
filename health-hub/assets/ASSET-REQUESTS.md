@@ -99,7 +99,7 @@ Attach `assets/field/` specimens (any two) as the style reference every time.
 
 Send the PNGs with these names and each is wired in with one line.
 
-## Field Guide set 3 (proposed, Nov 2026): for the almanac overhaul
+## Field Guide set 3 (delivered and in place, Nov 2026)
 
 The almanac overhaul (week at a glance, planner Day, editorial topic pages, phone strips) works with what is in place now. These pictures would take it further. Each has a slot planned; none is required. Generate them in ChatGPT (or any image tool), attach two files from `assets/field/` as the style reference every time, and send the PNGs back as they are: they will be optimised, matched to their slot and listed in `assets/manifest.json`.
 
@@ -151,7 +151,7 @@ The phone strips crop the wide banners, so on a narrow screen some subjects are 
 | `strip-products.png` | `assets/field/products-banner-1440.webp` |
 | `strip-guide.png` | `assets/field/fern-plate-960.webp` |
 
-## Earth and ember banner (proposed, Nov 2026)
+## Earth and ember banner (delivered as ember-dusk, Nov 2026)
 
 The Week banner (`assets/field/spruce-dusk-1440.webp`) is now the largest green area on the main page. One warmer plate would finish the Earth and ember palette. It would replace that file at the same size, with the title kept on the clear left.
 

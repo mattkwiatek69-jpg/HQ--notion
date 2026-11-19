@@ -340,7 +340,7 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
   // v18 Field Guide presentation: artwork and type load, disclosures work from the keyboard, filters say what is active, content comes early
   { const q=await mk(1440,1000); await q.goto(U+'#week'); await q.waitForTimeout(400); await q.evaluate(()=>document.fonts.ready);
     ok(await q.evaluate(()=>document.fonts.check('40px "Instrument Serif"')&&/Instrument Serif/.test(getComputedStyle(document.querySelector('#v-week h1')).fontFamily)),'titles use the self-hosted Instrument Serif');
-    const bg=await q.$eval('.view-head.band-week',e=>getComputedStyle(e).backgroundImage); ok(/spruce-dusk-1440\.webp/.test(bg)&&await q.evaluate(async u=>(await fetch(u)).ok,bg.match(/url\("?([^")]+)/)[1]),'the Week banner is the spruce artwork and it loads');
+    const bg=await q.$eval('.view-head.band-week',e=>getComputedStyle(e).backgroundImage); ok(/ember-dusk-1440\.webp/.test(bg)&&await q.evaluate(async u=>(await fetch(u)).ok,bg.match(/url\("?([^")]+)/)[1]),'the Week banner is the ember dusk artwork and it loads');
     ok((await q.$eval('#planner',e=>e.getBoundingClientRect().top))<480,'the week grid starts high on desktop ('+Math.round(await q.$eval('#planner',e=>e.getBoundingClientRect().top))+'px)');
     ok(await q.$$eval('#v-week .lens button',e=>e.every(b=>/min/.test(b.textContent))),'the scope switch keeps its minutes and sessions as accessible text');
     ok(!(await q.isVisible('#wBreakP .bchip')),'Balance and checks wait in Breakdown'); await q.focus('#wBreak'); await q.keyboard.press('Enter'); ok((await q.getAttribute('#wBreak','aria-expanded'))==='true'&&await q.isVisible('#wBreakP .bchip')&&await q.isVisible('#wBreakP .pcheck'),'Breakdown opens from the keyboard and shows Balance and the checks');
@@ -423,7 +423,7 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
       await q.goto(U+'#today'); await q.waitForTimeout(300); await q.click('#v-today [data-dlog^="done|"]'); ok((await q.$$('#v-today .ost.just')).length===1&&!!(await q.$('#v-today .focal.swap')),'marking done stamps that row and brings in the next action');
       for(let k=0;k<60;k++){ const l=q.locator('#v-today [data-dlog^="done|"]'); if(!(await l.count())) break; await l.first().click(); } ok(await loaded('#v-today .focal.fin .fc-art'),'a finished day shows the stacked stones'); }
     await q.context().close(); }
-  { const q=await mk(390,844,1); for(const v of ['routines','products','library','guide']){ await q.goto(U+'#'+v); await q.waitForTimeout(250); const hb=await q.$eval(`#v-${v} .view-head`,e=>({bg:getComputedStyle(e).backgroundImage,size:getComputedStyle(e).backgroundSize}));ok(/-768\.webp|-600\.webp/.test(hb.bg)&&/100px/.test(hb.size),`${v}: a 100px painted strip on a phone in dark mode (${hb.size})`); } await q.context().close(); }
+  { const q=await mk(390,844,1); for(const v of ['routines','products','library','guide']){ await q.goto(U+'#'+v); await q.waitForTimeout(250); const hb=await q.$eval(`#v-${v} .view-head`,e=>({bg:getComputedStyle(e).backgroundImage,size:getComputedStyle(e).backgroundSize}));ok(/strip-[a-z]+\.webp|-768\.webp|-600\.webp/.test(hb.bg)&&/100px/.test(hb.size),`${v}: a 100px painted strip on a phone in dark mode (${hb.size})`); } await q.context().close(); }
 
   // Planner-first (Earth and ember): start times on every chip, part ranges, free time, one toolbar, the agenda, the palette's signals
   { const q=await mk(1440,900); await q.clock.setFixedTime(new Date('2026-11-18T09:40:00')); await q.goto(U+'#week'); await q.waitForTimeout(300);
@@ -439,6 +439,14 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
     await q.click('[data-agk="day"]'); ok((await q.$$eval('#sheet .ag-day',l=>l.length))===1,'the agenda switches to one day');
     await q.context().grantPermissions(['clipboard-read','clipboard-write']).catch(()=>{}); await q.click('[data-agcopy]'); await q.waitForTimeout(150); ok(/copied|not allowed/.test(await q.textContent('#toast')),'Copy as text answers either way');
     await q.keyboard.press('Escape'); await q.goto(U+'#today'); await q.waitForTimeout(300); ok(!!(await q.$('#v-today [data-agenda="day"]')),'the Day has its agenda');
+    await q.context().close(); }
+  // Firelit + set 3: solid kind cards, night headers, ember today, the art loads
+  { const q=await mk(1440,900); await q.clock.setFixedTime(new Date('2026-11-18T09:40:00')); await q.goto(U+'#week'); await q.waitForTimeout(300);
+    const c=await q.evaluate(()=>{const ch=document.querySelector('.pchip:not(.gym)'),g=getComputedStyle(ch),h=getComputedStyle(document.querySelector('.pcol:not(.now) > header')),t=getComputedStyle(document.querySelector('.pcol.now > header'));return {chip:g.backgroundColor,txt:g.color,head:h.backgroundColor,today:t.backgroundColor};});
+    ok(c.chip!=='rgb(255, 251, 245)'&&/rgb\(255, 248, 238\)/.test(c.txt)&&c.head==='rgb(23, 17, 13)'&&c.today!==c.head,'routine cards are solid kind colours with cream type, headers night, today ember '+JSON.stringify(c));
+    ok(/ember-dusk-1440/.test(await q.$eval('#v-week .view-head',e=>getComputedStyle(e).backgroundImage)),'the Week banner is the ember dusk');
+    await q.goto(U+'#today'); await q.waitForTimeout(300); ok(await q.$$eval('#v-today .tblock header img',l=>l.some(i=>/field\/day-/.test(i.src))),'the Day headings use the part-of-day specimens');
+    await q.goto(U+'#library'); await q.waitForTimeout(200); await q.click('.tr-open'); await q.waitForTimeout(300); ok(/plate-[a-z]+-1440/.test(await q.$eval('.md-plate',e=>getComputedStyle(e).backgroundImage)),'a topic page carries its chapter plate');
     await q.context().close(); }
   // Almanac: a planner Day, view transitions
   { const q=await mk(1440,900); await q.clock.setFixedTime(new Date('2026-11-18T09:40:00')); await q.goto(U+'#week'); await q.waitForTimeout(300);

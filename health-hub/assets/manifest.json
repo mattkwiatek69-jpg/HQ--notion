@@ -1607,7 +1607,7 @@
     "note": "SVG registry from the expanded pack (24px viewBox, 1.7 stroke). Lucide-derived icons: see assets/line/LUCIDE-LICENSE.txt"
   },
   "fieldGuide": {
-    "note": "Primal Field Guide artwork supplied by the owner (primal-field-guide-studio pack, Nov 2026). Optimised from the pack's WebPs; masters stay in the pack. Always decorative: alt=\"\" beside a written name. Set 2 (primal-field-guide-set-2, Nov 2026) added routine kinds, product groups, Nutrition sections, states, the Routines and Products banners, dark Library and Guide plates and the app icon (entries with \"set\": 2); its four section pictures replaced assets/illus/band-*.webp in place.",
+    "note": "Primal Field Guide artwork supplied by the owner (primal-field-guide-studio pack, Nov 2026). Optimised from the pack's WebPs; masters stay in the pack. Always decorative: alt=\"\" beside a written name. Set 2 (primal-field-guide-set-2, Nov 2026) added routine kinds, product groups, Nutrition sections, states, the Routines and Products banners, dark Library and Guide plates and the app icon (entries with \"set\": 2); its four section pictures replaced assets/illus/band-*.webp in place. Set 3 (primal-field-guide-set-3, Nov 2026) added the ember-dusk Week banner, six light/dark chapter plates for topic pages and Nutrition, four part-of-day specimens, paper grain tiles and five phone strips (\"set\": 3). strip-week (spruce) is kept as the original option, unused.",
     "artwork": [
       {
         "id": "ammonite",
@@ -2190,6 +2190,376 @@
         "transparent": true,
         "decorative": true,
         "set": 2
+      },
+      {
+        "id": "day-dawn",
+        "path": "assets/field/day-dawn.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Day part-of-day heading: dawn",
+        "transparent": true,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "day-dusk",
+        "path": "assets/field/day-dusk.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Day part-of-day heading: dusk",
+        "transparent": true,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "day-night",
+        "path": "assets/field/day-night.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Day part-of-day heading: night",
+        "transparent": true,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "day-train",
+        "path": "assets/field/day-train.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Day part-of-day heading: train",
+        "transparent": true,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "ember-dusk",
+        "path": "assets/field/ember-dusk-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Week banner (ember dusk)",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "ember-dusk",
+        "path": "assets/field/ember-dusk-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Week banner (ember dusk)",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "paper-grain-dark",
+        "path": "assets/field/paper-grain-dark.webp",
+        "width": 512,
+        "height": 512,
+        "role": "Paper grain tile (dark)",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "paper-grain",
+        "path": "assets/field/paper-grain.webp",
+        "width": 512,
+        "height": 512,
+        "role": "Paper grain tile",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-energy",
+        "path": "assets/field/plate-energy-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Topic chapter plate: energy",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-energy",
+        "path": "assets/field/plate-energy-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Topic chapter plate: energy",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-energy-dark",
+        "path": "assets/field/plate-energy-dark-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Topic chapter plate: energy (dark)",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-energy-dark",
+        "path": "assets/field/plate-energy-dark-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Topic chapter plate: energy (dark)",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-env",
+        "path": "assets/field/plate-env-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Topic chapter plate: env",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-env",
+        "path": "assets/field/plate-env-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Topic chapter plate: env",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-env-dark",
+        "path": "assets/field/plate-env-dark-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Topic chapter plate: env (dark)",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-env-dark",
+        "path": "assets/field/plate-env-dark-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Topic chapter plate: env (dark)",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-move",
+        "path": "assets/field/plate-move-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Topic chapter plate: move",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-move",
+        "path": "assets/field/plate-move-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Topic chapter plate: move",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-move-dark",
+        "path": "assets/field/plate-move-dark-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Topic chapter plate: move (dark)",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-move-dark",
+        "path": "assets/field/plate-move-dark-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Topic chapter plate: move (dark)",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-nutrition",
+        "path": "assets/field/plate-nutrition-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Topic chapter plate: nutrition",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-nutrition",
+        "path": "assets/field/plate-nutrition-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Topic chapter plate: nutrition",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-nutrition-dark",
+        "path": "assets/field/plate-nutrition-dark-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Topic chapter plate: nutrition (dark)",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-nutrition-dark",
+        "path": "assets/field/plate-nutrition-dark-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Topic chapter plate: nutrition (dark)",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-ref",
+        "path": "assets/field/plate-ref-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Topic chapter plate: ref",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-ref",
+        "path": "assets/field/plate-ref-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Topic chapter plate: ref",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-ref-dark",
+        "path": "assets/field/plate-ref-dark-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Topic chapter plate: ref (dark)",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-ref-dark",
+        "path": "assets/field/plate-ref-dark-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Topic chapter plate: ref (dark)",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-sleep",
+        "path": "assets/field/plate-sleep-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Topic chapter plate: sleep",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-sleep",
+        "path": "assets/field/plate-sleep-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Topic chapter plate: sleep",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-sleep-dark",
+        "path": "assets/field/plate-sleep-dark-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Topic chapter plate: sleep (dark)",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "plate-sleep-dark",
+        "path": "assets/field/plate-sleep-dark-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Topic chapter plate: sleep (dark)",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "strip-guide",
+        "path": "assets/field/strip-guide.webp",
+        "width": 780,
+        "height": 200,
+        "role": "Phone strip: guide",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "strip-library",
+        "path": "assets/field/strip-library.webp",
+        "width": 780,
+        "height": 200,
+        "role": "Phone strip: library",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "strip-products",
+        "path": "assets/field/strip-products.webp",
+        "width": 780,
+        "height": 200,
+        "role": "Phone strip: products",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "strip-routines",
+        "path": "assets/field/strip-routines.webp",
+        "width": 780,
+        "height": 200,
+        "role": "Phone strip: routines",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
+      },
+      {
+        "id": "strip-week",
+        "path": "assets/field/strip-week.webp",
+        "width": 780,
+        "height": 200,
+        "role": "Phone strip: week",
+        "transparent": false,
+        "decorative": true,
+        "set": 3
       }
     ]
   },

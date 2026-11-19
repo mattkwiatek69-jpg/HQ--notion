@@ -1282,6 +1282,75 @@ html[data-dir="prev"]::view-transition-new(tl), html[data-dir="prev"]::view-tran
   html.print-agenda .ag-page { max-height: none; overflow: visible; border: 0; padding: 0; }
   html.print-agenda .ag-day { break-after: page; } html.print-agenda .ag-day:last-child { break-after: auto; }
 }
+/* ══ Firelit almanac (Nov 2026; the owner: "more colour contrast, maximalised"). Night-bark chrome, bone paper, a mosaic of solid
+   routine cards in saturated earth hues with cream text, ember for the action and today, sun for keys. Set 3 art throughout. ══ */
+:root {
+  --night: #17110D; --on-night: #F7EEDF; --night-2: #2A1F18; --sun: #F0A030; --on-sun: #1E140C;
+  --accent: #C8400F; --on-accent: #FFF8EE; --today: #C23D0E; --on-today: #FFF8EE; --link: #A6340C; --focus: #A6340C;
+  --gym: #1F62A8; --rt: #4F7A26;
+  --on-cat: #FFF8EE;
+  --k-fascia: #6E3A1A; --k-myo: #8A6200; --k-face: #A8412F; --k-tape: #6B5843; --k-breath: #0F6B74; --k-lymph: #476B1F; --k-sprint: #A8241A; --k-posture: #4A4C8C; --k-nervous: #6F3D82; --k-gym: #1F62A8;
+  --grain: url("assets/field/paper-grain.webp");
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --night: #0C0907; --night-2: #241B15; --accent: #FF6A2B; --on-accent: #1A0E06; --today: #FF6A2B; --on-today: #1A0E06; --link: #FF9561; --focus: #FF9561; --gym: #2A6DB5; --grain: url("assets/field/paper-grain-dark.webp"); } }
+:root[data-theme="dark"] { --night: #0C0907; --night-2: #241B15; --accent: #FF6A2B; --on-accent: #1A0E06; --today: #FF6A2B; --on-today: #1A0E06; --link: #FF9561; --focus: #FF9561; --gym: #2A6DB5; --grain: url("assets/field/paper-grain-dark.webp"); }
+[data-kind="fascia"] { --cat: var(--k-fascia); } [data-kind="myo"] { --cat: var(--k-myo); } [data-kind="face"] { --cat: var(--k-face); } [data-kind="tape"] { --cat: var(--k-tape); } [data-kind="breath"] { --cat: var(--k-breath); }
+[data-kind="lymph"] { --cat: var(--k-lymph); } [data-kind="sprint"] { --cat: var(--k-sprint); } [data-kind="posture"] { --cat: var(--k-posture); } [data-kind="nervous"] { --cat: var(--k-nervous); }
+/* paper grain under everything; off when the reader asks for more contrast */
+body { background-image: var(--grain); background-size: 512px; background-blend-mode: multiply; }
+@media (prefers-contrast: more) { body { background-image: none; } }
+/* the week as a mosaic: solid routine cards in their kind's colour, gym in river blue, cream type */
+.pchip, .pchip.gym { background: var(--cat, var(--night-2)); border-color: transparent; color: var(--on-cat); box-shadow: 0 1px 0 var(--shade-soft), inset 0 0 0 1px color-mix(in srgb, var(--on-cat) 10%, transparent); }
+.pchip.gym { background: var(--gym); }
+.pchip b, .pchip small, .pchip small time { color: var(--on-cat); } .pchip small { opacity: .88; }
+.pchip::before { background: color-mix(in srgb, var(--on-cat) 85%, transparent) !important; }
+.pchip .gi, .pchip .gi svg, .pchip .pinm { color: var(--on-cat); stroke: currentColor; }
+.pchip.offt { box-shadow: inset 0 0 0 2px var(--on-cat), 0 0 0 2px var(--cat, var(--gym)); }
+@media (hover: hover) and (pointer: fine) { .pchip:hover { filter: brightness(1.08); } }
+/* day headers: night-bark bands, today in ember */
+.pcol > header { background: var(--night); color: var(--on-night); }
+.pcol > header .pday, .pcol > header .pday b, .pcol > header .pday span, .pcol > header .pfocus, .pcol > header .ptot, .pcol > header .ptl { color: var(--on-night); }
+.pcol > header .pfocus { color: color-mix(in srgb, var(--on-night) 80%, transparent); }
+.pcol.now > header { background: var(--today); } .pcol.now > header :is(.pday, .pday b, .pfocus, .ptot, .ptl) { color: var(--on-today); } .pcol.now > header .pday span { background: var(--on-today); color: var(--today); }
+.pcol.now { box-shadow: none; }
+.pcol > header .badge.gold { background: var(--sun); color: var(--on-sun); }
+/* the toolbar and the strip of days: night pills for the current choice */
+.wsum .wst b { color: var(--ink); }
+.pstrip [aria-current="date"], .pstrip .on { background: var(--night); color: var(--on-night); }
+.pstrip [aria-current="date"] *, .pstrip .on * { color: var(--on-night); }
+/* Day: the focal card in night bark with an ember action */
+#v-today .focal:not(.fin) { background: var(--night); border-color: var(--night); color: var(--on-night); }
+#v-today .focal:not(.fin) :is(h2, .fc-meta, .fc-meta span, .fc-foot, .ost) { color: var(--on-night); }
+#v-today .focal:not(.fin) .fc-rel { color: var(--sun); }
+#v-today .focal:not(.fin) .btn.ghost { color: var(--on-night); border-color: color-mix(in srgb, var(--on-night) 45%, transparent); background: transparent; }
+#v-today .focal:not(.fin) .linkbtn { color: var(--sun); }
+#v-today .focal:not(.fin) .fc-foot { border-top-color: color-mix(in srgb, var(--on-night) 20%, transparent); }
+.tblock > header time { color: var(--accent); }
+/* the Week banner is the ember dusk */
+.view-head.band-week { background-color: var(--night); background-image: url("assets/field/ember-dusk-1440.webp"); border-color: var(--night); }
+@media (max-width: 1100px) { .view-head.band-week { background-image: url("assets/field/ember-dusk-768.webp"); } }
+/* topic chapter plates, title on the clear left */
+.md-plate[data-plate="move"] { --plate: url("assets/field/plate-move-1440.webp"); --plate-d: url("assets/field/plate-move-dark-1440.webp"); }
+.md-plate[data-plate="sleep"] { --plate: url("assets/field/plate-sleep-1440.webp"); --plate-d: url("assets/field/plate-sleep-dark-1440.webp"); }
+.md-plate[data-plate="energy"] { --plate: url("assets/field/plate-energy-1440.webp"); --plate-d: url("assets/field/plate-energy-dark-1440.webp"); }
+.md-plate[data-plate="env"] { --plate: url("assets/field/plate-env-1440.webp"); --plate-d: url("assets/field/plate-env-dark-1440.webp"); }
+.md-plate[data-plate="ref"] { --plate: url("assets/field/plate-ref-1440.webp"); --plate-d: url("assets/field/plate-ref-dark-1440.webp"); }
+@media (min-width: 900px) { .md-plate { min-height: 220px; padding: 28px 28px 24px; border-radius: var(--r); border: 1px solid var(--hair); background: linear-gradient(90deg, var(--bg) 0 34%, color-mix(in srgb, var(--bg) 40%, transparent) 56%, transparent 74%), var(--plate) right center / cover no-repeat, var(--bg); }
+  :root[data-theme="dark"] .md-plate { background: linear-gradient(90deg, var(--bg) 0 34%, color-mix(in srgb, var(--bg) 45%, transparent) 58%, transparent 78%), var(--plate-d) right center / cover no-repeat, var(--bg); } }
+@media (min-width: 900px) and (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .md-plate { background: linear-gradient(90deg, var(--bg) 0 34%, color-mix(in srgb, var(--bg) 45%, transparent) 58%, transparent 78%), var(--plate-d) right center / cover no-repeat, var(--bg); } }
+/* Nutrition's own plate */
+.view-head.band-nut { background-color: var(--bg); background-image: linear-gradient(90deg, var(--bg) 0 34%, color-mix(in srgb, var(--bg) 45%, transparent) 56%, transparent 74%), url("assets/field/plate-nutrition-1440.webp"); background-size: auto, cover; background-position: 0 0, right center; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .view-head.band-nut { background-image: linear-gradient(90deg, var(--bg) 0 36%, color-mix(in srgb, var(--bg) 50%, transparent) 58%, transparent 78%), url("assets/field/plate-nutrition-dark-1440.webp"); } }
+:root[data-theme="dark"] .view-head.band-nut { background-image: linear-gradient(90deg, var(--bg) 0 36%, color-mix(in srgb, var(--bg) 50%, transparent) 58%, transparent 78%), url("assets/field/plate-nutrition-dark-1440.webp"); }
+/* phones: the purpose-made strips (subject whole in the right 40%) */
+@media (max-width: 899px) {
+  .view-head.band-week { background-image: url("assets/field/ember-dusk-768.webp") !important; background-size: cover !important; background-position: right center !important; }
+  .view-head.band-rt { background-image: url("assets/field/strip-routines.webp") !important; } .view-head.band-lib { background-image: url("assets/field/strip-library.webp") !important; }
+  .view-head.band-prod { background-image: url("assets/field/strip-products.webp") !important; } .view-head.band-guide { background-image: url("assets/field/strip-guide.webp") !important; }
+  .view-head.band-nut { background-image: url("assets/field/plate-nutrition-768.webp") !important; }
+  .view-head.band-rt, .view-head.band-lib, .view-head.band-prod, .view-head.band-guide, .view-head.band-nut { background-size: auto 100px !important; background-position: right top !important; }
+}
+@media (max-width: 899px) and (max-height: 700px) { .view-head.band-rt, .view-head.band-lib, .view-head.band-prod, .view-head.band-guide, .view-head.band-nut { background-size: auto 56px !important; } }
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -1395,7 +1464,7 @@ html[data-dir="prev"]::view-transition-new(tl), html[data-dir="prev"]::view-tran
      The hub plans and explains; it does not record what was done. ── */
   const SC = P.sched, DAYN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], ORDER = [1, 2, 3, 4, 5, 6, 0];
   const SLOTS = [["morning", "am", "Morning"], ["train", "train", "Training"], ["evening", "pm", "Evening"], ["bed", "bed", "Before bed"]];
-  const SLOTIC = { am: "sunrise", train: "dumbbell", pm: "sunset", bed: "bed" }, BLOCKART = { wake: "illus/wellbeing-sunlight", morning: "illus/equipment-fascia-ball", train: "illus/equipment-dumbbell", day: "illus/wellbeing-hydration", evening: "illus/wellbeing-focus-candle", bed: "illus/wellbeing-sleep-mask" };
+  const SLOTIC = { am: "sunrise", train: "dumbbell", pm: "sunset", bed: "bed" }, BLOCKART = { wake: "field/day-dawn", morning: "field/day-dawn", train: "field/day-train", day: "illus/wellbeing-hydration", evening: "field/day-dusk", bed: "field/day-night" };
   const slotName = (k) => (SLOTS.find((s) => s[1] === k) || [])[2] || "";
   const SUBS = { week: [["#week", "week", "Week"], ["#today", "today", "Day"], ["#compare", "compare", "Compare"], ["#guide", "guide", "Guide"]], routines: [["", "routines", "Routines"], ["gym", "gym", "Gym"], ["lib", "lib", "Exercise library"]], library: [["#library", "library", "All topics"], ["#nutrition", "nutrition", "Nutrition"]] };
   const subnav = (grp, cur) => `<nav class="subnav" aria-label="${grp === "routines" ? "Routines" : grp === "library" ? "Library" : "Week"} views">${SUBS[grp].map((t) => (t[0][0] === "#" ? `<a href="${t[0]}"${t[1] === cur ? ' aria-current="page"' : ""}>${t[2]}</a>` : `<button data-rtab="${t[0]}"${t[1] === cur ? ' aria-current="page"' : ""}>${t[2]}</button>`)).join("")}</nav>`;
@@ -1978,7 +2047,7 @@ html[data-dir="prev"]::view-transition-new(tl), html[data-dir="prev"]::view-tran
     }
     el.innerHTML = `<div class="detail"><div class="row"><a class="btn ghost sm" href="#library">${gl(G.back, "s")}Library</a><span style="flex:1"></span>
         <button class="btn ghost sm" data-topic="${key}" data-id="${list[(i + list.length - 1) % list.length].id}">Previous</button><button class="btn ghost sm" data-topic="${key}" data-id="${list[(i + 1) % list.length].id}">Next topic</button></div>
-      <div class="md-title">${art(sel.icon, 72)}<div><h1>${esc(sel.name)}</h1>${sel.intro ? `<p class="lede">${esc(sel.intro)}</p>` : ""}<p class="md-src">${srcTag(sel.src, false, sel.who)}<span>${esc(((LGROUPS.find((g) => g[0] === (sel.grp || "ref")) || [])[1]) || "")}</span></p>
+      <div class="md-title md-plate" data-plate="${({ move: "move", sleep: "sleep", energy: "energy", env: "env", ref: "ref" })[sel.grp || "ref"] || "ref"}">${art(sel.icon, 72)}<div><h1>${esc(sel.name)}</h1>${sel.intro ? `<p class="lede">${esc(sel.intro)}</p>` : ""}<p class="md-src">${srcTag(sel.src, false, sel.who)}<span>${esc(((LGROUPS.find((g) => g[0] === (sel.grp || "ref")) || [])[1]) || "")}</span></p>
         <div class="md-act"><button class="btn ghost sm" data-fav="t:${esc(sel.id)}" aria-pressed="${!!S.fav["t:" + sel.id]}">${STAR}Save</button>${sel.uid ? `<button class="btn ghost sm" data-add="topic" data-id="${esc(sel.uid)}">${li("edit")}Edit</button>` : `<button class="btn ghost sm" data-ov="t:${esc(sel.id)}">${li("edit")}Edit</button>`}</div></div></div>
       <div class="rdesk"><div class="rmain">${anchors.length > 1 ? `<nav class="anchors" aria-label="On this page">${anchors.map((a) => `<button class="chip plain" data-anchor="${a[0]}">${esc(a[1])}</button>`).join("")}</nav>` : ""}<div class="sbody ${sb(sel.src, sel.who)}">${body}${userNotes(sel.id)}</div></div>
       <aside class="rside" aria-label="Sources, use and related">${weekUse("t:" + sel.id)}${sdocBlock("t:" + sel.id)}${relatedHtml(sel)}</aside></div></div>`;
@@ -2023,7 +2092,7 @@ html[data-dir="prev"]::view-transition-new(tl), html[data-dir="prev"]::view-tran
   }
   function renderNutrition() {
     const cur = S.ui.nut || "approved";
-    $("#v-nutrition").innerHTML = `<div class="hero"><div><h1>Nutrition</h1><p class="lede">Raw and rare animal foods, ripe fruit, honey. No seed oils. Approved Foods merged with the diet pages of OP 1 and OP 2.</p></div>
+    $("#v-nutrition").innerHTML = `<div class="hero view-head band band-nut"><div><h1>Nutrition</h1><p class="lede">Raw and rare animal foods, ripe fruit, honey. No seed oils. Approved Foods merged with the diet pages of OP 1 and OP 2.</p></div>
         <img src="assets/primal-table.webp" width="1440" height="960" alt="Papaya, oranges, raw liver, eggs, raw milk, oysters, figs, pomegranate and berries on a table"></div>
       ${subnav("library", "nutrition")}<div class="chips" role="tablist" aria-label="Nutrition sections">${NT.map((t) => `<button class="chip plain" role="tab" aria-selected="${t[0] === cur}" data-nut="${t[0]}">${ic(NTIC[t[0]], 22)}${t[1]}</button>`).join("")}</div><div class="panel" role="tabpanel" id="nutPanel">${nutPanel(cur)}</div>`;
   }
