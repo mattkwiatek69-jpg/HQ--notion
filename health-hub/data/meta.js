@@ -39,7 +39,8 @@
     toxins: "showerfilter", allergy: "leaf", hair: "illus/wellbeing-hair-care", height: "chart", progress: "illus/wellbeing-progress-pebbles", mindset: "illus/wellbeing-calm-stone",
   };
   (P.systems || []).concat(P.extras || []).forEach((t) => { if (icons[t.id]) t.icon = icons[t.id]; });
-  const catIcons = { fascia: "fasciaball", myo: "tooth", face: "tmj", tape: "ktape", breath: "illus/wellbeing-breathwork-feather", lymph: "lymphnodes", sprint: "shoe", gym: "kettlebell", posture: "spine", nervous: "meditate" };
+  /* routine kinds: the Field Guide set 2 specimens */
+  const catIcons = { fascia: "field/kind-fascia", myo: "field/kind-myo", face: "field/kind-face", tape: "field/kind-tape", breath: "field/kind-breath", lymph: "field/kind-lymph", sprint: "field/kind-sprint", gym: "field/kind-gym", posture: "field/kind-posture", nervous: "field/kind-nervous" };
   (P.cats || []).forEach((c) => { if (catIcons[c.id]) c.icon = catIcons[c.id]; });
 
   /* Library groups. A new topic only needs a grp to show up in the Library; unknown or missing falls under Reference. */

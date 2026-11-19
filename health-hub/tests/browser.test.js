@@ -405,6 +405,25 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
     ok((await q.textContent('#pList details[open] .dr-src')).includes('Price £3.50 recorded by you on 10 Nov 2026'),'a price you recorded shows its date'); await q.fill('#pSearch','Zygotape'); await q.click('#pList details[data-dr="p:Zygotape"] summary'); ok(!(await q.textContent('#pList details[open] .dr-src')).includes('recorded'),'a supplied price claims no date');
     await q.context().close(); }
 
+  // Field Guide set 2: every specimen and state loads, banners swap for dark, phones stay plain, the app icon, motion that confirms a change
+  for(const dark of [0,1]){ const q=await mk(1440,900,dark); await q.clock.setFixedTime(new Date('2026-11-18T17:40:00')); const bg=(sel)=>q.$eval(sel,e=>getComputedStyle(e).backgroundImage);
+    const loaded=async(sel)=>q.$$eval(sel,l=>l.length>0&&l.every(i=>i.complete&&i.naturalWidth>0));
+    await q.goto(U+'#routines'); await q.waitForTimeout(300); ok(/routines-banner-1440/.test(await bg('#v-routines .view-head')),`Routines banner on desktop (${dark?'dark':'light'})`);
+    ok(await q.$$eval('[data-cat] img, .cat-head img',l=>l.length>=10&&l.every(i=>/field\/kind-/.test(i.src)&&i.naturalWidth>0)),'every routine kind shows its Set 2 specimen');
+    await q.goto(U+'#products'); await q.waitForTimeout(300); ok(/products-banner-1440/.test(await bg('#v-products .view-head')),'Products banner on desktop');
+    await q.$$eval('.drg-h img',l=>Promise.all(l.map(i=>{i.loading='eager';return i.decode().catch(()=>{});}))); ok(await q.$$eval('.drg-h img',l=>l.length>=8&&l.every(i=>/field\/pg-/.test(i.src)&&i.naturalWidth>0)),'every product group shows its Set 2 specimen');
+    await q.goto(U+'#library'); await q.waitForTimeout(300); ok((dark?/cedar-canopy-dark-1440/:/cedar-canopy-1440/).test(await bg('#v-library .view-head')),`Library banner uses the ${dark?'dark':'light'} plate`);
+    ok(await q.$$eval('.ncard img',l=>l.length===6&&l.every(i=>/field\/nut-/.test(i.src)&&i.naturalWidth>0)),'the six Nutrition cards show their Set 2 specimens');
+    await q.goto(U+'#guide'); await q.waitForTimeout(300); ok((dark?/fern-plate-dark-1440/:/fern-plate-960/).test(await bg('#v-guide .view-head')),`Guide banner uses the ${dark?'dark':'light'} plate`);
+    if(!dark){ ok(await loaded('.brand .mark')&&(await q.$$eval('link[rel=apple-touch-icon][sizes="180x180"], link[rel=icon][sizes="32x32"]',l=>l.length))===2,'the app icon is the brand mark and the page icon');
+      await q.goto(U+'#library'); await q.waitForTimeout(200); await q.fill('#libQ','zzqqxx'); await q.waitForTimeout(400); ok(await loaded('#v-library .empty img[src*="state-no-results"]'),'no match shows the magnifier state');
+      await q.goto(U+'#week'); await q.waitForTimeout(300); ok((await q.$$('.pchip.fresh')).length===0,'nothing is highlighted on arrival');
+      await q.click('#v-week [data-pick="4|train"]'); await q.click('[data-pickrid]'); await q.waitForTimeout(100); const fr=await q.$$eval('.pchip.fresh',l=>l.map(c=>c.dataset.at)); ok(fr.length===1&&/^4\|train\|/.test(fr[0]),'the chip a change added is highlighted, and only that one ('+fr+')');
+      await q.goto(U+'#today'); await q.waitForTimeout(300); await q.click('#v-today [data-dlog^="done|"]'); ok((await q.$$('#v-today .ost.just')).length===1&&!!(await q.$('#v-today .focal.swap')),'marking done stamps that row and brings in the next action');
+      for(let k=0;k<60;k++){ const l=q.locator('#v-today [data-dlog^="done|"]'); if(!(await l.count())) break; await l.first().click(); } ok(await loaded('#v-today .focal.fin .fc-art'),'a finished day shows the stacked stones'); }
+    await q.context().close(); }
+  { const q=await mk(390,844,1); for(const v of ['routines','products','library','guide']){ await q.goto(U+'#'+v); await q.waitForTimeout(250); ok(await q.$eval(`#v-${v} .view-head`,e=>getComputedStyle(e).backgroundImage==='none'),`${v}: no banner on a phone in dark mode, content first`); } await q.context().close(); }
+
   for(const [w,h] of [[360,640],[390,844],[768,1024]]){ const q=await mk(w,h); for(const v of ['today','week','compare','guide','routines','library','nutrition','systems','products','extras']){ await q.goto(U+'#'+v); await q.waitForTimeout(200); await ovf(q,v+' @'+w); }
     await q.goto(U+'#week'); await q.waitForTimeout(250); const r=await q.evaluate(()=>{const c=document.querySelector('.pcol.sel .pchip').getBoundingClientRect(),s=document.querySelector('.pstrip').getBoundingClientRect(),n=document.querySelector('.rail').getBoundingClientRect();return [Math.round(s.top),Math.round(c.top),Math.round(n.top)]}); ok(r[0]<r[2]&&r[1]<r[2],'day strip and the first routine sit inside the first viewport @'+w+'x'+h+' (strip '+r[0]+', routine '+r[1]+', nav '+r[2]+')');
     if(w===360){ await q.screenshot({path:S+'/m360-week.png'}); await q.click('.nav .more'); ok(await q.isVisible('#sheet [data-srctoggle]')&&await q.isVisible('#sheet [data-manage]')&&(await q.$$eval('.topbar .src',e=>e.length))===0,'phone: sources, My edits and backup live under More; header carries no legend'); await q.screenshot({path:S+'/m360-more.png'}); } }

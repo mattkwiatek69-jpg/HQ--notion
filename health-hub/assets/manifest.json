@@ -1,1784 +1,2204 @@
 {
- "note": "Inventory of the hub's artwork. Functional icons are inline SVG in index.html (24px viewBox, 1.7 stroke) and are not listed as files.",
- "icons": [
-  {
-   "path": "assets/icons/adrenals.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/airpurifier.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/amberjar.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/apple.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/avocado.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/balanceboard.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/banana.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/band.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/bike.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/blueberries.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/book.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/bottle.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/brain.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/broth.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/brush.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/butter.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/button-mushrooms.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/cacao.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/calendar.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/candle.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/carrotsalad.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/castiron.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/chart.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/check.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/cheese.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/cherries.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/chicken-turkey.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/clock.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/coconut.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/comb.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/cottonpads.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/cuttingboard.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/dates.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/deodorant.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/diaphragm.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/dipbelt.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/drop.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/dumbbell.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/egg.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/fascia.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/fasciaball.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/fig.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/filterjug.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/floss.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/flosser.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/foot.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/glass.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/glassbox.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/glasses.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/grapes.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/guasha.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/gut.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/hairfollicle.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/heart.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/honeycomb.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/icebath.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/journal.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/kettlebell.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/kiwi.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/knee.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/kneelchair.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/ktape.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/leaf.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/liver.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/lungs.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/lymphnodes.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/macebell.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/mango.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/maple-syrup.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/marrow.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/meditate.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/milk.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/mito.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/moon.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/mussel.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/nettletea.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/olive-oil.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/orange.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/oyster.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/papaya.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/pillow.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/pineapple.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/plyobox.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/pomegranate.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/poultry.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/pullupbar.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/pumpkin-seeds.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/raisins.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/rice-potatoes.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/roller.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/rope.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/rosewater.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/salmon.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/sardines.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/sauna.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/scale.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/seasalt.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/shoe.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/showerfilter.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/shrimp.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/slantboard.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/soles.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/spine.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/steak.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/stones.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/stretch.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/sun.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/sunrise.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/sunscreen.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/tamarind.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/tape.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/target.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/tendon.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/thermometer.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/thyroid.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/tmj.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/toespacers.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/tonguescraper.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/tooth.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/toothbrush.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/towelmarbles.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/tree.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/walk.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/walnut.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/watermelon.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  },
-  {
-   "path": "assets/icons/yogablock.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "painted icon, transparent"
-  }
- ],
- "sheets": [
-  {
-   "path": "assets/library/sheet-01.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-02.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-03.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-04.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-05.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-06.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-07.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-08.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-09.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-10.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-12.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-13.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-14.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-15.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-16.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-17.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-18.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  },
-  {
-   "path": "assets/library/sheet-19.webp",
-   "width": 1536,
-   "height": 1024,
-   "kind": "exercise reference sheet",
-   "fallback": "labelled placeholder figure"
-  }
- ],
- "banner": {
-  "path": "assets/primal-table.webp",
-  "width": 1440,
-  "height": 960,
-  "kind": "photographic banner"
- },
- "svgSymbols": {
-  "g:ban": "Avoid (exclusion symbol)",
-  "g:plate": "Daily plate",
-  "g:net": "Nutrient map",
-  "g:clock": "Timing & kitchen",
-  "g:hex": "Testosterone and Oestrogen topics (neutral, no food implied)",
-  "bowl": "fallback for a food with no picture"
- },
- "missing": [],
- "illustrations": [
-  {
-   "path": "assets/illus/band-library.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/band-plan.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/band-products.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/band-today.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-balance-board.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-cotton-pads.webp",
-   "width": 159,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-dumbbell.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-fascia-ball.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-foam-roller.webp",
-   "width": 159,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-gua-sha.webp",
-   "width": 159,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-jump-rope.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-kettlebell.webp",
-   "width": 160,
-   "height": 159,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-macebell.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-medicine-ball.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-pull-up-bar.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-resistance-band.webp",
-   "width": 160,
-   "height": 159,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-slant-board.webp",
-   "width": 160,
-   "height": 159,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-toe-spacers.webp",
-   "width": 159,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-water-bottle.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/equipment-yoga-block.webp",
-   "width": 160,
-   "height": 159,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-apple.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-avocado.webp",
-   "width": 159,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-banana.webp",
-   "width": 159,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-blueberries.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-broth.webp",
-   "width": 159,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-butter.webp",
-   "width": 144,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-cherries.webp",
-   "width": 160,
-   "height": 159,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-coconut.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-dates.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-egg.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-honey.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-kiwi.webp",
-   "width": 160,
-   "height": 159,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-mango.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-orange.webp",
-   "width": 160,
-   "height": 159,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-salmon.webp",
-   "width": 160,
-   "height": 146,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/foods-walnuts.webp",
-   "width": 160,
-   "height": 159,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-airofit-active.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-argan-oil.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-baking-soda-apple-cider-vinegar.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-barefoot-shoes.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-bb-cream.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-bee-pollen.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-boron-glycinate.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-button-on-a-string.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-camellia-oil.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-castor-oil.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-cleanser-round-lab-dokdo.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-coconut-oil.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-colostrum-powder.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-eggshell-powder.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-electric-microneedling-pen.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-emu-oil.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-eye-peptide.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-eyebrow-dye.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-fluoride-free-hydroxyapatite-toothpaste.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-froggy-mouth.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-futon-or-firm-sleep-surface.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-ginkgo-biloba.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-grapeseed-extract.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-grass-fed-beef-gelatin-powder.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-hair-powder.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-haircut.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-holy-basil-tulsi.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-jojoba-oil.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-l-glutamine.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-linen-or-organic-cotton-underwear.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-liquid-nano-magnesium.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-magnesium-chloride-spray.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-marbles.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-mastic-gum.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-minoxidil.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-moisturiser-beauty-of-joseon.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-multi-peptide.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-myobrace-a1.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-neck-brace-for-gym.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-oil-cleanser-beauty-of-joseon-ginseng.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-organic-loose-leaf-chamomile-tea.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-qi-gong-book-the-master-key.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-raw-royal-jelly.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-rhodiola-rosea.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-rosemary-oil.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-seiza-bench.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-shilajit.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-stainless-steel-or-ceramic-cookware.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-tamarind-paste-or-tea.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-taurine.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-the-ordinary-caffeine-retinal.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-the-ordinary-eyelash-serum.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-tudca.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-vitamin-d3.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-volufiline.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/product-weighted-vest-or-ankle-weights.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/topic-oestrogen.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/topic-testosterone.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-breathwork-feather.webp",
-   "width": 159,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-calm-stone.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-environment-plant.webp",
-   "width": 159,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-focus-candle.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-hair-care.webp",
-   "width": 159,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-hydration.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-nature-fern.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-oral-care.webp",
-   "width": 160,
-   "height": 159,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-progress-pebbles.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-recovery-blanket.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-reflection-pencil.webp",
-   "width": 160,
-   "height": 159,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-research-magnifier.webp",
-   "width": 160,
-   "height": 159,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-skin-care.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-sleep-mask.webp",
-   "width": 160,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-sunlight.webp",
-   "width": 159,
-   "height": 160,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  },
-  {
-   "path": "assets/illus/wellbeing-walking-shoe.webp",
-   "width": 160,
-   "height": 159,
-   "kind": "painted illustration, transparent (pack and the 62-picture grid)"
-  }
- ],
- "topicArt": [
-  {
-   "path": "assets/topics/energy-hormones-128.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "Library group illustration"
-  },
-  {
-   "path": "assets/topics/environment-personal-care-128.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "Library group illustration"
-  },
-  {
-   "path": "assets/topics/movement-posture-128.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "Library group illustration"
-  },
-  {
-   "path": "assets/topics/nutrition-128.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "Library group illustration"
-  },
-  {
-   "path": "assets/topics/reference-128.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "Library group illustration"
-  },
-  {
-   "path": "assets/topics/sleep-recovery-128.webp",
-   "width": 128,
-   "height": 128,
-   "kind": "Library group illustration"
-  }
- ],
- "lineIcons": {
-  "path": "assets/line/primal-icons.js",
-  "count": 149,
-  "note": "SVG registry from the expanded pack (24px viewBox, 1.7 stroke). Lucide-derived icons: see assets/line/LUCIDE-LICENSE.txt"
- },
- "fieldGuide": {
-  "note": "Primal Field Guide artwork supplied by the owner (primal-field-guide-studio pack, Nov 2026). Optimised from the pack's WebPs; masters stay in the pack. Always decorative: alt=\"\" beside a written name.",
-  "artwork": [
-   {
-    "id": "ammonite",
-    "path": "assets/field/ammonite-192.webp",
-    "width": 192,
-    "height": 192,
-    "role": "Library chapter: Reference",
-    "transparent": true,
-    "decorative": true
-   },
-   {
-    "id": "ammonite",
-    "path": "assets/field/ammonite-64.webp",
-    "width": 64,
-    "height": 64,
-    "role": "Library chapter: Reference",
-    "transparent": true,
-    "decorative": true
-   },
-   {
-    "id": "cedar-canopy",
-    "path": "assets/field/cedar-canopy-1440.webp",
+  "note": "Inventory of the hub's artwork. Functional icons are inline SVG in index.html (24px viewBox, 1.7 stroke) and are not listed as files.",
+  "icons": [
+    {
+      "path": "assets/icons/adrenals.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/airpurifier.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/amberjar.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/apple.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/avocado.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/balanceboard.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/banana.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/band.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/bike.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/blueberries.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/book.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/bottle.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/brain.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/broth.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/brush.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/butter.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/button-mushrooms.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/cacao.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/calendar.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/candle.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/carrotsalad.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/castiron.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/chart.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/check.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/cheese.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/cherries.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/chicken-turkey.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/clock.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/coconut.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/comb.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/cottonpads.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/cuttingboard.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/dates.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/deodorant.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/diaphragm.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/dipbelt.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/drop.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/dumbbell.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/egg.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/fascia.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/fasciaball.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/fig.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/filterjug.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/floss.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/flosser.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/foot.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/glass.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/glassbox.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/glasses.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/grapes.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/guasha.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/gut.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/hairfollicle.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/heart.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/honeycomb.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/icebath.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/journal.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/kettlebell.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/kiwi.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/knee.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/kneelchair.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/ktape.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/leaf.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/liver.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/lungs.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/lymphnodes.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/macebell.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/mango.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/maple-syrup.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/marrow.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/meditate.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/milk.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/mito.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/moon.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/mussel.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/nettletea.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/olive-oil.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/orange.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/oyster.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/papaya.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/pillow.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/pineapple.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/plyobox.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/pomegranate.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/poultry.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/pullupbar.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/pumpkin-seeds.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/raisins.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/rice-potatoes.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/roller.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/rope.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/rosewater.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/salmon.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/sardines.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/sauna.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/scale.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/seasalt.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/shoe.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/showerfilter.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/shrimp.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/slantboard.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/soles.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/spine.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/steak.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/stones.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/stretch.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/sun.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/sunrise.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/sunscreen.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/tamarind.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/tape.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/target.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/tendon.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/thermometer.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/thyroid.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/tmj.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/toespacers.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/tonguescraper.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/tooth.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/toothbrush.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/towelmarbles.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/tree.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/walk.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/walnut.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/watermelon.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    },
+    {
+      "path": "assets/icons/yogablock.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "painted icon, transparent"
+    }
+  ],
+  "sheets": [
+    {
+      "path": "assets/library/sheet-01.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-02.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-03.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-04.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-05.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-06.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-07.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-08.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-09.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-10.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-12.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-13.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-14.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-15.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-16.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-17.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-18.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    },
+    {
+      "path": "assets/library/sheet-19.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "exercise reference sheet",
+      "fallback": "labelled placeholder figure"
+    }
+  ],
+  "banner": {
+    "path": "assets/primal-table.webp",
     "width": 1440,
-    "height": 480,
-    "role": "Library banner (wide screens)",
-    "transparent": false,
-    "decorative": true
-   },
-   {
-    "id": "cedar-canopy",
-    "path": "assets/field/cedar-canopy-768.webp",
-    "width": 768,
-    "height": 256,
-    "role": "Library banner (wide screens)",
-    "transparent": false,
-    "decorative": true
-   },
-   {
-    "id": "cedar-root",
-    "path": "assets/field/cedar-root-192.webp",
-    "width": 192,
-    "height": 192,
-    "role": "Library chapter: Movement & posture",
-    "transparent": true,
-    "decorative": true
-   },
-   {
-    "id": "cedar-root",
-    "path": "assets/field/cedar-root-64.webp",
-    "width": 64,
-    "height": 64,
-    "role": "Library chapter: Movement & posture",
-    "transparent": true,
-    "decorative": true
-   },
-   {
-    "id": "cedar-twig",
-    "path": "assets/field/cedar-twig-192.webp",
-    "width": 192,
-    "height": 192,
-    "role": "Library chapter: Environment & personal care",
-    "transparent": true,
-    "decorative": true
-   },
-   {
-    "id": "cedar-twig",
-    "path": "assets/field/cedar-twig-64.webp",
-    "width": 64,
-    "height": 64,
-    "role": "Library chapter: Environment & personal care",
-    "transparent": true,
-    "decorative": true
-   },
-   {
-    "id": "fern-plate",
-    "path": "assets/field/fern-plate-600.webp",
-    "width": 600,
-    "height": 400,
-    "role": "Guide banner (wide screens)",
-    "transparent": false,
-    "decorative": true
-   },
-   {
-    "id": "fern-plate",
-    "path": "assets/field/fern-plate-960.webp",
-    "width": 960,
-    "height": 640,
-    "role": "Guide banner (wide screens)",
-    "transparent": false,
-    "decorative": true
-   },
-   {
-    "id": "flint",
-    "path": "assets/field/flint-192.webp",
-    "width": 192,
-    "height": 192,
-    "role": "Library chapter: Energy & hormones",
-    "transparent": true,
-    "decorative": true
-   },
-   {
-    "id": "flint",
-    "path": "assets/field/flint-64.webp",
-    "width": 64,
-    "height": 64,
-    "role": "Library chapter: Energy & hormones",
-    "transparent": true,
-    "decorative": true
-   },
-   {
-    "id": "river-stone",
-    "path": "assets/field/river-stone-192.webp",
-    "width": 192,
-    "height": 192,
-    "role": "Library chapter: Sleep & recovery",
-    "transparent": true,
-    "decorative": true
-   },
-   {
-    "id": "river-stone",
-    "path": "assets/field/river-stone-64.webp",
-    "width": 64,
-    "height": 64,
-    "role": "Library chapter: Sleep & recovery",
-    "transparent": true,
-    "decorative": true
-   },
-   {
-    "id": "spruce-dusk",
-    "path": "assets/field/spruce-dusk-1440.webp",
-    "width": 1440,
-    "height": 480,
-    "role": "Week banner (wide screens)",
-    "transparent": false,
-    "decorative": true
-   },
-   {
-    "id": "spruce-dusk",
-    "path": "assets/field/spruce-dusk-768.webp",
-    "width": 768,
-    "height": 256,
-    "role": "Week banner (wide screens)",
-    "transparent": false,
-    "decorative": true
-   },
-   {
-    "id": "wheat-stem",
-    "path": "assets/field/wheat-stem-192.webp",
-    "width": 192,
-    "height": 192,
-    "role": "Library chapter: Nutrition",
-    "transparent": true,
-    "decorative": true
-   },
-   {
-    "id": "wheat-stem",
-    "path": "assets/field/wheat-stem-64.webp",
-    "width": 64,
-    "height": 64,
-    "role": "Library chapter: Nutrition",
-    "transparent": true,
-    "decorative": true
-   }
+    "height": 960,
+    "kind": "photographic banner"
+  },
+  "svgSymbols": {
+    "g:ban": "Avoid (exclusion symbol)",
+    "g:plate": "Daily plate",
+    "g:net": "Nutrient map",
+    "g:clock": "Timing & kitchen",
+    "g:hex": "Testosterone and Oestrogen topics (neutral, no food implied)",
+    "bowl": "fallback for a food with no picture"
+  },
+  "missing": [],
+  "illustrations": [
+    {
+      "path": "assets/illus/band-library.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/band-plan.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/band-products.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/band-today.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-balance-board.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-cotton-pads.webp",
+      "width": 159,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-dumbbell.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-fascia-ball.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-foam-roller.webp",
+      "width": 159,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-gua-sha.webp",
+      "width": 159,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-jump-rope.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-kettlebell.webp",
+      "width": 160,
+      "height": 159,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-macebell.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-medicine-ball.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-pull-up-bar.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-resistance-band.webp",
+      "width": 160,
+      "height": 159,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-slant-board.webp",
+      "width": 160,
+      "height": 159,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-toe-spacers.webp",
+      "width": 159,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-water-bottle.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/equipment-yoga-block.webp",
+      "width": 160,
+      "height": 159,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-apple.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-avocado.webp",
+      "width": 159,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-banana.webp",
+      "width": 159,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-blueberries.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-broth.webp",
+      "width": 159,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-butter.webp",
+      "width": 144,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-cherries.webp",
+      "width": 160,
+      "height": 159,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-coconut.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-dates.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-egg.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-honey.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-kiwi.webp",
+      "width": 160,
+      "height": 159,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-mango.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-orange.webp",
+      "width": 160,
+      "height": 159,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-salmon.webp",
+      "width": 160,
+      "height": 146,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/foods-walnuts.webp",
+      "width": 160,
+      "height": 159,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-airofit-active.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-argan-oil.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-baking-soda-apple-cider-vinegar.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-barefoot-shoes.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-bb-cream.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-bee-pollen.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-boron-glycinate.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-button-on-a-string.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-camellia-oil.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-castor-oil.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-cleanser-round-lab-dokdo.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-coconut-oil.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-colostrum-powder.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-eggshell-powder.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-electric-microneedling-pen.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-emu-oil.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-eye-peptide.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-eyebrow-dye.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-fluoride-free-hydroxyapatite-toothpaste.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-froggy-mouth.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-futon-or-firm-sleep-surface.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-ginkgo-biloba.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-grapeseed-extract.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-grass-fed-beef-gelatin-powder.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-hair-powder.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-haircut.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-holy-basil-tulsi.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-jojoba-oil.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-l-glutamine.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-linen-or-organic-cotton-underwear.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-liquid-nano-magnesium.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-magnesium-chloride-spray.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-marbles.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-mastic-gum.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-minoxidil.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-moisturiser-beauty-of-joseon.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-multi-peptide.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-myobrace-a1.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-neck-brace-for-gym.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-oil-cleanser-beauty-of-joseon-ginseng.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-organic-loose-leaf-chamomile-tea.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-qi-gong-book-the-master-key.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-raw-royal-jelly.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-rhodiola-rosea.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-rosemary-oil.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-seiza-bench.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-shilajit.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-stainless-steel-or-ceramic-cookware.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-tamarind-paste-or-tea.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-taurine.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-the-ordinary-caffeine-retinal.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-the-ordinary-eyelash-serum.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-tudca.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-vitamin-d3.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-volufiline.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/product-weighted-vest-or-ankle-weights.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/topic-oestrogen.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/topic-testosterone.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-breathwork-feather.webp",
+      "width": 159,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-calm-stone.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-environment-plant.webp",
+      "width": 159,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-focus-candle.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-hair-care.webp",
+      "width": 159,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-hydration.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-nature-fern.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-oral-care.webp",
+      "width": 160,
+      "height": 159,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-progress-pebbles.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-recovery-blanket.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-reflection-pencil.webp",
+      "width": 160,
+      "height": 159,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-research-magnifier.webp",
+      "width": 160,
+      "height": 159,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-skin-care.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-sleep-mask.webp",
+      "width": 160,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-sunlight.webp",
+      "width": 159,
+      "height": 160,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    },
+    {
+      "path": "assets/illus/wellbeing-walking-shoe.webp",
+      "width": 160,
+      "height": 159,
+      "kind": "painted illustration, transparent (pack and the 62-picture grid)"
+    }
+  ],
+  "topicArt": [
+    {
+      "path": "assets/topics/energy-hormones-128.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "Library group illustration"
+    },
+    {
+      "path": "assets/topics/environment-personal-care-128.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "Library group illustration"
+    },
+    {
+      "path": "assets/topics/movement-posture-128.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "Library group illustration"
+    },
+    {
+      "path": "assets/topics/nutrition-128.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "Library group illustration"
+    },
+    {
+      "path": "assets/topics/reference-128.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "Library group illustration"
+    },
+    {
+      "path": "assets/topics/sleep-recovery-128.webp",
+      "width": 128,
+      "height": 128,
+      "kind": "Library group illustration"
+    }
+  ],
+  "lineIcons": {
+    "path": "assets/line/primal-icons.js",
+    "count": 149,
+    "note": "SVG registry from the expanded pack (24px viewBox, 1.7 stroke). Lucide-derived icons: see assets/line/LUCIDE-LICENSE.txt"
+  },
+  "fieldGuide": {
+    "note": "Primal Field Guide artwork supplied by the owner (primal-field-guide-studio pack, Nov 2026). Optimised from the pack's WebPs; masters stay in the pack. Always decorative: alt=\"\" beside a written name. Set 2 (primal-field-guide-set-2, Nov 2026) added routine kinds, product groups, Nutrition sections, states, the Routines and Products banners, dark Library and Guide plates and the app icon (entries with \"set\": 2); its four section pictures replaced assets/illus/band-*.webp in place.",
+    "artwork": [
+      {
+        "id": "ammonite",
+        "path": "assets/field/ammonite-192.webp",
+        "width": 192,
+        "height": 192,
+        "role": "Library chapter: Reference",
+        "transparent": true,
+        "decorative": true
+      },
+      {
+        "id": "ammonite",
+        "path": "assets/field/ammonite-64.webp",
+        "width": 64,
+        "height": 64,
+        "role": "Library chapter: Reference",
+        "transparent": true,
+        "decorative": true
+      },
+      {
+        "id": "cedar-canopy",
+        "path": "assets/field/cedar-canopy-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Library banner (wide screens)",
+        "transparent": false,
+        "decorative": true
+      },
+      {
+        "id": "cedar-canopy",
+        "path": "assets/field/cedar-canopy-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Library banner (wide screens)",
+        "transparent": false,
+        "decorative": true
+      },
+      {
+        "id": "cedar-root",
+        "path": "assets/field/cedar-root-192.webp",
+        "width": 192,
+        "height": 192,
+        "role": "Library chapter: Movement & posture",
+        "transparent": true,
+        "decorative": true
+      },
+      {
+        "id": "cedar-root",
+        "path": "assets/field/cedar-root-64.webp",
+        "width": 64,
+        "height": 64,
+        "role": "Library chapter: Movement & posture",
+        "transparent": true,
+        "decorative": true
+      },
+      {
+        "id": "cedar-twig",
+        "path": "assets/field/cedar-twig-192.webp",
+        "width": 192,
+        "height": 192,
+        "role": "Library chapter: Environment & personal care",
+        "transparent": true,
+        "decorative": true
+      },
+      {
+        "id": "cedar-twig",
+        "path": "assets/field/cedar-twig-64.webp",
+        "width": 64,
+        "height": 64,
+        "role": "Library chapter: Environment & personal care",
+        "transparent": true,
+        "decorative": true
+      },
+      {
+        "id": "fern-plate",
+        "path": "assets/field/fern-plate-600.webp",
+        "width": 600,
+        "height": 400,
+        "role": "Guide banner (wide screens)",
+        "transparent": false,
+        "decorative": true
+      },
+      {
+        "id": "fern-plate",
+        "path": "assets/field/fern-plate-960.webp",
+        "width": 960,
+        "height": 640,
+        "role": "Guide banner (wide screens)",
+        "transparent": false,
+        "decorative": true
+      },
+      {
+        "id": "flint",
+        "path": "assets/field/flint-192.webp",
+        "width": 192,
+        "height": 192,
+        "role": "Library chapter: Energy & hormones",
+        "transparent": true,
+        "decorative": true
+      },
+      {
+        "id": "flint",
+        "path": "assets/field/flint-64.webp",
+        "width": 64,
+        "height": 64,
+        "role": "Library chapter: Energy & hormones",
+        "transparent": true,
+        "decorative": true
+      },
+      {
+        "id": "river-stone",
+        "path": "assets/field/river-stone-192.webp",
+        "width": 192,
+        "height": 192,
+        "role": "Library chapter: Sleep & recovery",
+        "transparent": true,
+        "decorative": true
+      },
+      {
+        "id": "river-stone",
+        "path": "assets/field/river-stone-64.webp",
+        "width": 64,
+        "height": 64,
+        "role": "Library chapter: Sleep & recovery",
+        "transparent": true,
+        "decorative": true
+      },
+      {
+        "id": "spruce-dusk",
+        "path": "assets/field/spruce-dusk-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Week banner (wide screens)",
+        "transparent": false,
+        "decorative": true
+      },
+      {
+        "id": "spruce-dusk",
+        "path": "assets/field/spruce-dusk-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Week banner (wide screens)",
+        "transparent": false,
+        "decorative": true
+      },
+      {
+        "id": "wheat-stem",
+        "path": "assets/field/wheat-stem-192.webp",
+        "width": 192,
+        "height": 192,
+        "role": "Library chapter: Nutrition",
+        "transparent": true,
+        "decorative": true
+      },
+      {
+        "id": "wheat-stem",
+        "path": "assets/field/wheat-stem-64.webp",
+        "width": 64,
+        "height": 64,
+        "role": "Library chapter: Nutrition",
+        "transparent": true,
+        "decorative": true
+      },
+      {
+        "id": "app-icon",
+        "path": "assets/field/app-icon-180.png",
+        "width": 180,
+        "height": 180,
+        "role": "Square app icon: brand mark in the rail and phone top bar, page icon and home-screen icon",
+        "transparent": false,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "app-icon",
+        "path": "assets/field/app-icon-192.png",
+        "width": 192,
+        "height": 192,
+        "role": "Square app icon: brand mark in the rail and phone top bar, page icon and home-screen icon",
+        "transparent": false,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "app-icon",
+        "path": "assets/field/app-icon-32.png",
+        "width": 32,
+        "height": 32,
+        "role": "Square app icon: brand mark in the rail and phone top bar, page icon and home-screen icon",
+        "transparent": false,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "app-icon",
+        "path": "assets/field/app-icon-512.png",
+        "width": 512,
+        "height": 512,
+        "role": "Square app icon: brand mark in the rail and phone top bar, page icon and home-screen icon",
+        "transparent": false,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "app-icon",
+        "path": "assets/field/app-icon-64.png",
+        "width": 64,
+        "height": 64,
+        "role": "Square app icon: brand mark in the rail and phone top bar, page icon and home-screen icon",
+        "transparent": false,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "cedar-canopy-dark",
+        "path": "assets/field/cedar-canopy-dark-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Library banner, dark theme (wide screens)",
+        "transparent": false,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "cedar-canopy-dark",
+        "path": "assets/field/cedar-canopy-dark-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Library banner, dark theme (wide screens)",
+        "transparent": false,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "fern-plate-dark",
+        "path": "assets/field/fern-plate-dark-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Guide banner, dark theme (wide screens)",
+        "transparent": false,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "fern-plate-dark",
+        "path": "assets/field/fern-plate-dark-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Guide banner, dark theme (wide screens)",
+        "transparent": false,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "kind-breath",
+        "path": "assets/field/kind-breath.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Routine kind: breath",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "kind-face",
+        "path": "assets/field/kind-face.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Routine kind: face",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "kind-fascia",
+        "path": "assets/field/kind-fascia.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Routine kind: fascia",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "kind-gym",
+        "path": "assets/field/kind-gym.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Routine kind: gym",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "kind-lymph",
+        "path": "assets/field/kind-lymph.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Routine kind: lymph",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "kind-myo",
+        "path": "assets/field/kind-myo.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Routine kind: myo",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "kind-nervous",
+        "path": "assets/field/kind-nervous.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Routine kind: nervous",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "kind-posture",
+        "path": "assets/field/kind-posture.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Routine kind: posture",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "kind-sprint",
+        "path": "assets/field/kind-sprint.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Routine kind: sprint",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "kind-tape",
+        "path": "assets/field/kind-tape.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Routine kind: tape",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "nut-approved",
+        "path": "assets/field/nut-approved.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Nutrition section: approved",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "nut-avoid",
+        "path": "assets/field/nut-avoid.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Nutrition section: avoid",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "nut-map",
+        "path": "assets/field/nut-map.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Nutrition section: map",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "nut-plate",
+        "path": "assets/field/nut-plate.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Nutrition section: plate",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "nut-recipes",
+        "path": "assets/field/nut-recipes.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Nutrition section: recipes",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "nut-timing",
+        "path": "assets/field/nut-timing.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Nutrition section: timing",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "pg-food",
+        "path": "assets/field/pg-food.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Product group: food",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "pg-groom",
+        "path": "assets/field/pg-groom.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Product group: groom",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "pg-home",
+        "path": "assets/field/pg-home.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Product group: home",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "pg-oral",
+        "path": "assets/field/pg-oral.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Product group: oral",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "pg-posture",
+        "path": "assets/field/pg-posture.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Product group: posture",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "pg-skin",
+        "path": "assets/field/pg-skin.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Product group: skin",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "pg-tape",
+        "path": "assets/field/pg-tape.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Product group: tape",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "pg-tools",
+        "path": "assets/field/pg-tools.webp",
+        "width": 128,
+        "height": 128,
+        "role": "Product group: tools",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "products-banner",
+        "path": "assets/field/products-banner-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Products banner (wide screens)",
+        "transparent": false,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "products-banner",
+        "path": "assets/field/products-banner-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Products banner (wide screens)",
+        "transparent": false,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "routines-banner",
+        "path": "assets/field/routines-banner-1440.webp",
+        "width": 1440,
+        "height": 480,
+        "role": "Routines banner (wide screens)",
+        "transparent": false,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "routines-banner",
+        "path": "assets/field/routines-banner-768.webp",
+        "width": 768,
+        "height": 256,
+        "role": "Routines banner (wide screens)",
+        "transparent": false,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "state-day-done",
+        "path": "assets/field/state-day-done.webp",
+        "width": 256,
+        "height": 256,
+        "role": "State: Day complete (Day focal card)",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "state-empty-slot",
+        "path": "assets/field/state-empty-slot.webp",
+        "width": 256,
+        "height": 256,
+        "role": "State: Empty part of a day (planner), empty Wishlist and Owned",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "state-inbox-empty",
+        "path": "assets/field/state-inbox-empty.webp",
+        "width": 256,
+        "height": 256,
+        "role": "State: Inbox empty",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "state-no-results",
+        "path": "assets/field/state-no-results.webp",
+        "width": 256,
+        "height": 256,
+        "role": "State: No match (Find, Library, Routines, Products, exercises, Compare)",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      },
+      {
+        "id": "state-saved-empty",
+        "path": "assets/field/state-saved-empty.webp",
+        "width": 256,
+        "height": 256,
+        "role": "State: Nothing saved yet",
+        "transparent": true,
+        "decorative": true,
+        "set": 2
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "path": "assets/fonts/instrument-serif.woff2",
+      "family": "Instrument Serif",
+      "use": "page, chapter and day titles",
+      "licence": "assets/fonts/Instrument-Serif-OFL.txt"
+    }
   ]
- },
- "fonts": [
-  {
-   "path": "assets/fonts/instrument-serif.woff2",
-   "family": "Instrument Serif",
-   "use": "page, chapter and day titles",
-   "licence": "assets/fonts/Instrument-Serif-OFL.txt"
-  }
- ]
 }

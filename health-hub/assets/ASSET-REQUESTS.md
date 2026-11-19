@@ -1,6 +1,6 @@
 # Primal Health Hub: artwork still to create
 
-Nothing is required: every food, product, Library group and section has a picture. The optional Field Guide set 2 below would bring the remaining sections into the same style.
+Nothing is required: every food, product, Library group and section has a picture. Field Guide set 2 below was delivered and is in place (Nov 2026).
 
 ## Worth redoing if you want them sharper
 
@@ -19,7 +19,9 @@ The 62 pictures from the numbered grid were about 110 pixels each in the source 
 
 A new food or product you add inside the hub shows the bowl symbol or no picture. Send a picture for it the same way and it gets wired in with one line.
 
-## Field Guide set 2 (proposed, Nov 2026)
+## Field Guide set 2 (delivered and in place, Nov 2026)
+
+All 38 files matched a slot. Optimised copies are in `assets/field/` (and `assets/illus/band-*.webp` for the four section pictures) and listed in `assets/manifest.json` with `"set": 2`. The prompts below are kept for reference if a picture is ever redone.
 
 The supplied Field Guide pack (specimens and banners) now carries the Library, Week and Guide. Some parts of the hub still use the older mixed icon packs, so they look less finished beside it. This set would make every section speak one visual language. None of it is required: the hub works without it, and each item has a slot and a fallback already.
 

@@ -8,12 +8,54 @@
       "skillPath": "skills/engineering/domain-modeling/SKILL.md",
       "computedHash": "b78689833404148c769077355e12dbe5ad996a158a1e21e58ddf169e439d9d8c"
     },
+    "generate-icon": {
+      "source": "b-open-io/gemskills",
+      "commit": "4872fd74869d64fd47531d40eed437884752bf99",
+      "sourceType": "github",
+      "skillPath": "skills/generate-icon/SKILL.md",
+      "computedHash": "12c16387a12a9ff715b7a87f99b68ad1926f47709e8b66c2cb3cb7242657bfd8"
+    },
     "impeccable": {
       "source": "pbakaus/impeccable",
       "commit": "d41d9860b0094dcb68030657da63461212835aaa",
       "sourceType": "github",
       "skillPath": ".agents/skills/impeccable/SKILL.md",
       "computedHash": "077889e9782761360c17acbc2522af320d0dd0f928b09cd90884fa304f443a34"
+    },
+    "interaction-design": {
+      "source": "wshobson/agents",
+      "commit": "42203085cfc5736204bf0f6d436dff7e1da0bf3f",
+      "sourceType": "github",
+      "skillPath": "plugins/ui-design/skills/interaction-design/SKILL.md",
+      "computedHash": "584caf0ce8817a4b93ec9d253d3d36e67d2ea3d137764653652caba89002c47d"
+    },
+    "micro-interactions": {
+      "source": "dylantarre/animation-principles",
+      "commit": "83597134ba8ff59838270f94d7ac7282ffa3b54d",
+      "sourceType": "github",
+      "skillPath": "skills/01-by-domain/micro-interactions/SKILL.md",
+      "computedHash": "77db3b50eb92733e09ecad032eaf5afc236f96242e33a02f35fc8d0a40844415"
+    },
+    "ui-animation": {
+      "source": "mblode/agent-skills",
+      "commit": "7df4b7edff1dc1c991331061373d4ba42ecacdbe",
+      "sourceType": "github",
+      "skillPath": "skills/ui-animation/SKILL.md",
+      "computedHash": "27cdc9c2d83d4535bd7236e5923ce02872b4359ce6fd92123afe138bfcbcd847"
+    },
+    "ui-design": {
+      "source": "mblode/agent-skills",
+      "commit": "7df4b7edff1dc1c991331061373d4ba42ecacdbe",
+      "sourceType": "github",
+      "skillPath": "skills/ui-design/SKILL.md",
+      "computedHash": "efa3d9a6eebe9515cff195e5d0d90b4cecdf53a3132f1345865823ddf802fb3d"
+    },
+    "ui-ux-polish": {
+      "source": "oakoss/agent-skills",
+      "commit": "85e3a3919d9e0ec7f7302a5143ec4b3e66f5f6ad",
+      "sourceType": "github",
+      "skillPath": "skills/ui-ux-polish/SKILL.md",
+      "computedHash": "d2eb41b7d09515c0b6a17c380a6364fee0387a98d8ac935c9ceb8be16e80b32b"
     },
     "web-design-guidelines": {
       "source": "vercel-labs/agent-skills",
