@@ -1,12 +1,26 @@
 {
   "version": 2,
   "skills": {
+    "design-motion-principles": {
+      "source": "kylezantos/design-engineer-auditor-package",
+      "commit": "4a9ca879f24a361f4dca4174fe2da0f67b5ddee3",
+      "sourceType": "github",
+      "skillPath": "skills/design-motion-principles/SKILL.md",
+      "computedHash": "afbcdb7fd0afa5cd5aaa43e4766e7326067f2ee45901e35aef912243259d0735"
+    },
     "domain-modeling": {
       "source": "mattpocock/skills",
       "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa",
       "sourceType": "github",
       "skillPath": "skills/engineering/domain-modeling/SKILL.md",
       "computedHash": "b78689833404148c769077355e12dbe5ad996a158a1e21e58ddf169e439d9d8c"
+    },
+    "emil-design-eng": {
+      "source": "emilkowalski/skill",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/emil-design-eng/SKILL.md",
+      "computedHash": "e1b377ccde1d32743d1d3f7d8626629deb8055c9114d180c184697928cc66cc6"
     },
     "generate-icon": {
       "source": "b-open-io/gemskills",
@@ -56,6 +70,13 @@
       "sourceType": "github",
       "skillPath": "skills/ui-ux-polish/SKILL.md",
       "computedHash": "d2eb41b7d09515c0b6a17c380a6364fee0387a98d8ac935c9ceb8be16e80b32b"
+    },
+    "view-transitions": {
+      "source": "patternsdev/skills",
+      "commit": "48bf58a488cd210bcfad280b09c3a00403964d9d",
+      "sourceType": "github",
+      "skillPath": "javascript/view-transitions/SKILL.md",
+      "computedHash": "25613e22a6a23610dac48d8c899bc2e64c81da62e7c7912a1ac32412929de6a2"
     },
     "web-design-guidelines": {
       "source": "vercel-labs/agent-skills",

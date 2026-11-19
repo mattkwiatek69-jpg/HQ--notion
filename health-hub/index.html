@@ -1001,7 +1001,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
 .view-head.band-lib { background-image: linear-gradient(90deg, var(--bg) 0 38%, color-mix(in srgb, var(--bg) 40%, transparent) 60%, transparent 78%), url("assets/field/cedar-canopy-1440.webp"); background-color: var(--bg); }
 .view-head.band-guide { background-image: linear-gradient(90deg, var(--bg) 0 42%, color-mix(in srgb, var(--bg) 55%, transparent) 64%, transparent 86%), url("assets/field/fern-plate-960.webp"); background-color: var(--bg); background-size: auto, 62% auto; background-position: 0 0, right 40%; }
 @media (max-width: 1100px) { .view-head.band-week { background-image: url("assets/field/spruce-dusk-768.webp"); } .view-head.band-lib { background-image: linear-gradient(90deg, var(--bg) 0 38%, transparent 82%), url("assets/field/cedar-canopy-768.webp"); } .view-head.band-guide { background-image: linear-gradient(90deg, var(--bg) 0 42%, transparent 88%), url("assets/field/fern-plate-600.webp"); } }
-@media (max-width: 899px) { .view-head.band, .view-head.band-week, .view-head.band-lib, .view-head.band-guide, .view-head.band-rt, .view-head.band-prod { background: none; border: 0; padding: 0; min-height: 0; color: inherit; overflow: visible; } .view-head.band-week h1, .view-head.band-week .lede { color: inherit; } .view-head.band-week .btn.ghost { color: var(--ink); border-color: var(--line-2); background: transparent; } }
+@media (max-width: 899px) { .view-head.band { padding: 22px 14px 14px 16px; min-height: 100px; border-radius: 14px; align-content: start; background-size: 100% 100px, auto 100px !important; background-position: left top, right top !important; } .view-head.band .lede { padding-top: 22px; } .view-head.band-week { background-size: cover !important; background-position: center !important; } } /* phones: a 100px painted strip behind the title; the description sits on plain paper below it */ @media (max-width: 899px) and (max-height: 700px) { .view-head.band { padding-top: 6px; padding-bottom: 6px; min-height: 56px; background-size: 100% 56px, auto 56px !important; } .view-head.band .lede { padding-top: 16px; } }
 /* Week: views, scope and Breakdown on one line; totals on the next; the grid right after */
 .wtool { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; } .wtool .subnav { flex: none; } .wsum #wBreak { margin-left: auto; }
 .lens { display: inline-grid; grid-template-columns: repeat(3, auto); gap: 2px; padding: 4px; background: var(--sunk); border-radius: 10px; align-self: flex-start; }
@@ -1094,7 +1094,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .view-head.band-lib { background-image: linear-gradient(90deg, var(--bg) 0 38%, transparent 82%), url("assets/field/cedar-canopy-dark-768.webp"); } :root:not([data-theme="light"]) .view-head.band-guide { background-image: linear-gradient(90deg, var(--bg) 0 40%, transparent 86%), url("assets/field/fern-plate-dark-768.webp"); } :root:not([data-theme="light"]) .view-head.band-rt { background-image: linear-gradient(90deg, var(--bg) 0 36%, color-mix(in srgb, var(--bg) 72%, transparent) 58%, color-mix(in srgb, var(--bg) 38%, transparent)), url("assets/field/routines-banner-768.webp"); } :root:not([data-theme="light"]) .view-head.band-prod { background-image: linear-gradient(90deg, var(--bg) 0 36%, color-mix(in srgb, var(--bg) 72%, transparent) 58%, color-mix(in srgb, var(--bg) 38%, transparent)), url("assets/field/products-banner-768.webp"); } }
 :root[data-theme="dark"] .view-head.band-lib { background-image: linear-gradient(90deg, var(--bg) 0 38%, transparent 82%), url("assets/field/cedar-canopy-dark-768.webp"); } :root[data-theme="dark"] .view-head.band-guide { background-image: linear-gradient(90deg, var(--bg) 0 40%, transparent 86%), url("assets/field/fern-plate-dark-768.webp"); } :root[data-theme="dark"] .view-head.band-rt { background-image: linear-gradient(90deg, var(--bg) 0 36%, color-mix(in srgb, var(--bg) 72%, transparent) 58%, color-mix(in srgb, var(--bg) 38%, transparent)), url("assets/field/routines-banner-768.webp"); } :root[data-theme="dark"] .view-head.band-prod { background-image: linear-gradient(90deg, var(--bg) 0 36%, color-mix(in srgb, var(--bg) 72%, transparent) 58%, color-mix(in srgb, var(--bg) 38%, transparent)), url("assets/field/products-banner-768.webp"); }
 }
-@media (max-width: 899px) { .view-head.band-rt, .view-head.band-prod, .view-head.band-lib, .view-head.band-guide { background: none !important; } } /* phones put content first, in both themes */
+
 .brand { display: flex; align-items: center; gap: 12px; } .brand > span { display: block; } .brand .mark { width: 36px; height: 36px; border-radius: 9px; flex: none; box-shadow: 0 0 0 1px rgba(248, 243, 229, .22); }
 .topbar .brand { gap: 8px; } .topbar .brand .mark { width: 26px; height: 26px; border-radius: 7px; box-shadow: none; } .ov-top .brand .mark { display: none; }
 .empty .st-art { width: var(--sz, 88px); height: var(--sz, 88px); object-fit: contain; margin: -4px 0 0; } .empty .st-art[width="72"] { --sz: 72px; }
@@ -1119,6 +1119,103 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
 .dr[open] > .dr-body, details.rt[open] > .rt-body { animation: rise .2s var(--ease) both; }
 @media (hover: hover) and (pointer: fine) { .ncard.card:hover img.ic { transform: rotate(-4deg) scale(1.06); } .ncard img.ic { transition: transform .2s var(--ease); } }
 @media (prefers-reduced-motion: reduce) { .pchip.fresh, .ost.just, .focal.swap, .sheet.ed, .dr[open] > .dr-body, details.rt[open] > .rt-body { animation: none; } :is(.chip, .qa, .tlog, .opt-row, .lens button, .seg button, .tabs [role="tab"], .subnav a, .star, .linkbtn):active { transform: none; } }
+/* ── Almanac (Nov 2026): the week at a glance, a calmer Day, motion tokens ── */
+:root { --ease-out: cubic-bezier(.23, 1, .32, 1); --ease-io: cubic-bezier(.77, 0, .175, 1); }
+.tmap { --lab: 60px; display: flex; flex-direction: column; gap: 12px; padding: 18px 22px 18px; background: var(--surface); border: 1px solid var(--hair); border-radius: var(--r); }
+.tm-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 18px; }
+.tm-head h2 { font: 400 clamp(1.5rem, 1.3rem + .6vw, 1.875rem)/1.1 var(--serif); letter-spacing: -.005em; }
+.tm-key { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .8125rem; color: var(--ink-2); } .tm-key span { display: inline-flex; align-items: center; gap: 7px; }
+.tm-key .k { width: 16px; height: 8px; border-radius: 3px; background: var(--rt); } .tm-key .k.gym { background: var(--gym); } .tm-key .k.hab { width: 2px; height: 12px; border-radius: 1px; background: var(--ink-3); }
+.tm-key .only-d { color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.tm-grid { position: relative; display: grid; grid-template-columns: var(--lab) minmax(0, 1fr); row-gap: 5px; }
+.tm-scale { grid-column: 2; grid-row: 1; position: relative; height: 18px; font-size: .6875rem; line-height: 18px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.tm-scale span { position: absolute; left: var(--x); transform: translateX(-50%); } .tm-scale span.minor { opacity: .7; }
+.tm-lines { grid-column: 2; grid-row: 2 / span 7; position: relative; pointer-events: none; }
+.tm-lines i { position: absolute; left: var(--x); top: -3px; bottom: -3px; width: 1px; background: var(--hair); } .tm-lines i.major { background: color-mix(in srgb, var(--ink-3) 35%, transparent); }
+.tm-row { display: contents; }
+.tm-day { grid-column: 1; grid-row: var(--r); display: flex; align-items: baseline; gap: 6px; padding: 0; min-height: 26px; font-size: .8125rem; color: var(--ink-2); text-align: left; border-radius: 6px; }
+.tm-day b { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.tm-row.today .tm-day, .tm-row.today .tm-day b { color: var(--link); font-weight: 700; }
+.tm-row.sel .tm-day { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; text-decoration-color: var(--line-2); }
+.tm-track { grid-column: 2; grid-row: var(--r); position: relative; z-index: 1; height: 26px; border-radius: 6px; background: color-mix(in srgb, var(--sunk) 55%, transparent); }
+.tm-row.today .tm-track { background: color-mix(in srgb, var(--link) 9%, color-mix(in srgb, var(--sunk) 55%, transparent)); }
+.tm-band { position: absolute; top: 0; bottom: 0; left: var(--x); width: var(--w); background: color-mix(in srgb, var(--sunk) 70%, transparent); }
+.tm-t { position: absolute; left: var(--x); top: 8px; bottom: 8px; width: 1.5px; border-radius: 1px; background: var(--ink-3); opacity: .55; }
+.tm-b { position: absolute; top: 4px; bottom: 4px; left: var(--x); width: max(3px, calc(var(--w) - 2px)); min-height: 0; padding: 0; border-radius: 4px; background: var(--rt); transition: opacity .2s var(--ease-out), filter .15s ease; }
+.tm-b.gym { background: var(--gym); } .tm-b.out { opacity: .2; } .tm-b.dim { opacity: .28; }
+.tm-b::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 9px); left: -2px; z-index: 5; white-space: pre; padding: 5px 9px; border-radius: 7px; background: var(--ink); color: var(--bg); font: 600 .75rem/1.2 var(--sans); font-variant-numeric: tabular-nums; box-shadow: var(--lift, 0 6px 18px -8px rgba(20, 26, 20, .4)); opacity: 0; transform: translateY(3px); transition: opacity .125s var(--ease-out), transform .125s var(--ease-out); pointer-events: none; }
+.tm-b.r::after { left: auto; right: -2px; }
+.tm-b:focus-visible::after { opacity: 1; transform: none; }
+@media (hover: hover) and (pointer: fine) { .tm-b:hover { filter: brightness(1.1) saturate(1.05); } .tm-b:hover::after { opacity: 1; transform: none; } }
+.tm-b:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.tm-now { position: absolute; z-index: 3; left: var(--x); top: -5px; bottom: -5px; width: 2px; margin-left: -1px; border-radius: 1px; background: var(--link); }
+.tm-now::before { content: ""; position: absolute; top: -3px; left: -3px; width: 8px; height: 8px; border-radius: 50%; background: var(--link); box-shadow: 0 0 0 2px var(--surface); }
+@media (max-width: 620px) { .tmap { --lab: 44px; padding: 14px 14px 16px; gap: 10px; } .tm-scale span.minor { display: none; } .tm-day { font-size: .75rem; gap: 4px; } .tm-track { height: 22px; } .tm-b { top: 3px; bottom: 3px; } }
+
+/* Day: the focal action as a hero, a now marker, earlier rows at rest */
+.focal.has-art { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "art m a" "f f f"; column-gap: 22px; }
+.focal .fc-art { grid-area: art; width: 72px; height: 72px; object-fit: contain; align-self: center; }
+.fc-rel { color: var(--link); font-weight: 700; }
+.fc-film { display: flex; gap: 6px; margin-top: 8px; } .fc-film .pic { width: 66px; height: 48px; border-radius: 8px; background: var(--surface); border: 1px solid var(--hair); }
+@media (max-width: 620px) { .focal.has-art { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "art m" "a a" "f f"; column-gap: 14px; } .focal .fc-art { width: 52px; height: 52px; align-self: start; } }
+.trow.past { opacity: .6; transition: opacity .2s var(--ease-out); } .trow.past:hover, .trow.past:focus-within { opacity: 1; }
+.tnow { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 12px; align-items: center; padding: 6px 0; border-top: 1px solid var(--hair); color: var(--link); font-size: .8125rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tnow span { display: flex; align-items: center; gap: 10px; } .tnow span::after { content: ""; flex: 1; height: 2px; border-radius: 1px; background: var(--link); }
+@media (max-width: 620px) { .tnow { grid-template-columns: 44px minmax(0, 1fr); } }
+/* Day rows on phones: the check and Open no longer share a cell */
+@media (max-width: 620px) { .trow:has(.tlog) > .btn { grid-row: 2; align-self: start; } .trow:has(.tlog) > .tmin { grid-row: 2; } }
+
+/* Topic pages: key numbers as printed index cards; Do and Don't as one paper ledger */
+.md-title > .ic, .md-title > .gdisc { width: 96px; height: 96px; --z: 96px; object-fit: contain; flex: none; }
+@media (max-width: 620px) { .md-title > .ic, .md-title > .gdisc { width: 64px; height: 64px; --z: 64px; } }
+.sbody .keys, .rmain .keys { background: none; border: 0; padding: 0; gap: 10px; }
+.sbody .keys li, .rmain .keys li { padding: 12px 16px 13px; border-radius: 10px; background: var(--surface); border: 1px solid var(--hair); font: 400 1.25rem/1.25 var(--serif); letter-spacing: 0; color: var(--ink); font-variant-numeric: tabular-nums; }
+.dd { gap: 0; background: var(--surface); border: 1px solid var(--hair); border-radius: var(--r); overflow: hidden; }
+.dd > div { background: none !important; border-radius: 0; padding: 18px 22px 22px; }
+.dd > div + div { border-left: 1px solid var(--hair); }
+@media (max-width: 640px) { .dd > div + div { border-left: 0; border-top: 1px solid var(--hair); } }
+.dd h3 { font: 400 1.5rem/1.1 var(--serif); letter-spacing: 0; text-transform: none; color: var(--ink) !important; gap: 10px; }
+.dd h3 svg { width: 18px; height: 18px; flex: none; } .dd .do h3 svg { color: var(--sage-ink); } .dd .dont h3 svg { color: var(--clay-ink); }
+.dd .bullets li { line-height: 1.55; }
+
+/* Products: the shelf */
+.pshelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); gap: 8px; }
+.pshelf-i { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto; align-items: center; column-gap: 12px; padding: 10px 14px 10px 10px; min-height: 72px; text-align: left; background: var(--surface); border: 1px solid var(--hair); border-radius: 12px; transition: border-color .15s ease, transform .16s var(--ease-out); }
+.pshelf-i img { grid-row: 1 / span 2; width: 52px; height: 52px; object-fit: contain; } .pshelf-i b { align-self: end; font-size: .875rem; line-height: 1.25; font-weight: 600; } .pshelf-i small { align-self: start; color: var(--ink-3); font-size: .75rem; font-variant-numeric: tabular-nums; }
+.pshelf-i:active { transform: scale(.98); } @media (hover: hover) and (pointer: fine) { .pshelf-i:hover { border-color: var(--line-2); } .pshelf-i:hover img { transform: rotate(-4deg) scale(1.05); } .pshelf-i img { transition: transform .2s var(--ease-out); } }
+@media (min-width: 1100px) { .pshelf { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .pshelf { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pshelf-i { min-height: 60px; column-gap: 10px; padding: 8px 10px 8px 8px; } .pshelf-i img { width: 40px; height: 40px; } .pshelf-i b { font-size: .8125rem; } }
+.drg { scroll-margin-top: 84px; }
+
+/* the player's last screen */
+.finish .fin-art { width: 132px; height: 132px; object-fit: contain; }
+
+/* view transitions (vt() in the script). Each kind names only its own parts, so nothing is lifted above an open overlay mid-change. */
+html[data-vt="sec"] .rail { view-transition-name: rail; }
+html[data-vt="day"] #v-today .focal { view-transition-name: fc; } html[data-vt="day"] #v-today .timeline { view-transition-name: tl; }
+html[data-vt="step"] #player .stage { view-transition-name: pl-stage; } html[data-vt="step"] #player .pl-title { view-transition-name: pl-title; }
+html[data-vt="sec"] .md-title > .ic, html[data-vt="sec"] .md-title > .gdisc, html[data-vt="topic"] .md-title > .ic, html[data-vt="topic"] .md-title > .gdisc { view-transition-name: topic-art; }
+::view-transition-group(*) { animation-duration: .34s; animation-timing-function: var(--ease-out); }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .2s; }
+html[data-vt="sec"]::view-transition-old(root), html[data-vt="topic"]::view-transition-old(root) { animation: vt-out .16s var(--ease-out) both; }
+html[data-vt="sec"]::view-transition-new(root), html[data-vt="topic"]::view-transition-new(root) { animation: vt-in .34s var(--ease-out) both; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(8px); filter: blur(3px); } }
+html[data-dir="next"]::view-transition-old(tl), html[data-dir="next"]::view-transition-old(fc), html[data-dir="next"]::view-transition-old(pl-stage), html[data-dir="next"]::view-transition-old(pl-title) { animation: vt-left-out .2s var(--ease-out) both; }
+html[data-dir="next"]::view-transition-new(tl), html[data-dir="next"]::view-transition-new(fc), html[data-dir="next"]::view-transition-new(pl-stage), html[data-dir="next"]::view-transition-new(pl-title) { animation: vt-right-in .34s var(--ease-out) both; }
+html[data-dir="prev"]::view-transition-old(tl), html[data-dir="prev"]::view-transition-old(fc), html[data-dir="prev"]::view-transition-old(pl-stage), html[data-dir="prev"]::view-transition-old(pl-title) { animation: vt-right-out .2s var(--ease-out) both; }
+html[data-dir="prev"]::view-transition-new(tl), html[data-dir="prev"]::view-transition-new(fc), html[data-dir="prev"]::view-transition-new(pl-stage), html[data-dir="prev"]::view-transition-new(pl-title) { animation: vt-left-in .34s var(--ease-out) both; }
+@keyframes vt-left-out { to { opacity: 0; transform: translateX(-16px); filter: blur(2px); } } @keyframes vt-right-out { to { opacity: 0; transform: translateX(16px); filter: blur(2px); } }
+@keyframes vt-right-in { from { opacity: 0; transform: translateX(24px); filter: blur(3px); } } @keyframes vt-left-in { from { opacity: 0; transform: translateX(-24px); filter: blur(3px); } }
+@media (prefers-reduced-motion: reduce) { ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; } }
+/* the map folds (remembered in S.ui.tmo); its tips never widen the page */
+.tmap { overflow-x: clip; }
+.tmap > summary { list-style: none; cursor: pointer; border-radius: 8px; } .tmap > summary::-webkit-details-marker { display: none; }
+.tmap > summary .caret, .tmap > summary svg:last-child { margin-left: auto; transition: transform .2s var(--ease-out); } .tmap[open] > summary .caret, .tmap[open] > summary svg:last-child { transform: rotate(180deg); }
+.tmap:not([open]) .tm-key { display: none; } .tmap:not([open]) { padding-block: 12px; }
+.tm-head h2 { flex: 1 1 auto; } @media (max-width: 620px) { .tmap:not([open]) { padding: 10px 14px; } .tmap:not([open]) .tm-head h2 { font-size: 1.25rem; } } @media (max-width: 620px) and (max-height: 700px) { #v-week > .tmap { order: 1; } #v-week > .phint { order: 2; } .view, #v-week, #v-today { gap: 12px; } } /* short phones: the day comes first */
+/* Products shelf on phones: one row that scrolls sideways, so the first product stays in view */
+@media (max-width: 560px) { .pshelf { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-inline: -16px; padding: 2px 16px; gap: 8px; } .pshelf::-webkit-scrollbar { display: none; } .pshelf-i { flex: 0 0 176px; scroll-snap-align: start; min-height: 56px; grid-template-columns: 36px minmax(0, 1fr); } .pshelf-i img { width: 36px; height: 36px; } .pshelf-i b { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; } }
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -1282,21 +1379,48 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     const by = (s) => ag.filter((a) => st[a.key] === s), miss = by("missed"), nDone = by("done").length, nSkip = by("skip").length;
     if (!ag.length) return `<section class="focal" aria-labelledby="fcT"><div class="fc-main"><h2 id="fcT">Nothing planned for ${DAYN[d]}</h2><p class="fc-meta">Add a routine to a part of the day below, or plan it from the week.</p></div><div class="fc-act"><a class="btn ghost" href="#week">Open the week</a></div></section>`;
     const a = date > TK ? by("upcoming")[0] : by("doing")[0] || by("due")[0] || (date === TK ? by("upcoming")[0] : null) || miss[0];
-    const tally = `${nDone} of ${ag.length} done${nSkip ? `, ${nSkip} skipped` : ""}${miss.length ? `, ${miss.length} missed` : ""}`;
+    const tally = `${ag.length} planned${nDone ? `, ${nDone} marked done` : ""}${nSkip ? `, ${nSkip} skipped` : ""}`; /* a planner: what was not marked is not counted against the day */
     if (!a) return `<section class="focal fin" aria-labelledby="fcT"><img class="ic st-art fc-art" src="assets/field/state-day-done.webp" width="88" height="88" alt="" loading="lazy" decoding="async"><div class="fc-main"><h2 id="fcT">${date < TK ? DAYN[d] + " is fully logged" : "Day complete"}</h2><p class="fc-meta">${tally}. Undo is in the bar above if something was marked by mistake.</p></div></section>`;
+    const rt = a.rid && byId[a.rid], nm = now.getHours() * 60 + now.getMinutes(), rel = date === TK && a.start > nm ? `in ${hm(a.start - nm)}` : "";
+    const fa = rt ? ic(catOf(rt.cat).icon, 72).replace('class="ic"', 'class="ic fc-art"') : "", th = rt ? routineThumbs(rt).slice(0, 4) : [];
     const s = st[a.key], k = esc(a.key), when = date > TK ? `${DAYN[d]} ${SC.C(a.start)}` : `${SC.C(a.start)}${a.end > a.start ? "–" + SC.C(a.end) : ""}`;
     const pri = date > TK ? (a.rid ? `<button class="btn" data-insp="${esc(a.rid)}">See what is in it</button>` : "")
       : a.rid && s === "doing" ? `<button class="btn" data-dstart="${k}">${gl(G.play, "s")}Resume</button>`
       : a.rid && (s === "due" || s === "upcoming") ? `<button class="btn" data-dstart="${k}">${gl(G.play, "s")}Start</button>`
       : `<button class="btn" data-dlog="done|${k}">${gl(G.check, "s")}Mark done</button>`;
     const sec = date > TK ? "" : `${pri.indexOf("data-dlog") < 0 ? `<button class="btn ghost" data-dlog="done|${k}">${gl(G.check, "s")}Mark done</button>` : ""}<button class="btn ghost" data-dlog="skip|${k}">Skip</button>`;
-    return `<section class="focal st-${s}" aria-labelledby="fcT"><div class="fc-main"><h2 id="fcT">${esc(a.title)}</h2><p class="fc-meta"><span class="ost st-${s}">${STL[s]}</span><span>${when}</span>${a.it.min ? `<span>${a.it.min} min</span>` : ""}<span>${esc(a.b.name)}</span></p></div><div class="fc-act">${pri}${sec}</div><p class="fc-foot">${date > TK ? "Planned. Nothing can be logged before the day." : tally + "."}${date === TK ? ' <button class="linkbtn" data-jumpnow="1">Jump to now</button>' : ""}</p></section>`;
+    return `<section class="focal st-${s}${fa ? " has-art" : ""}" aria-labelledby="fcT">${fa}<div class="fc-main"><h2 id="fcT">${esc(a.title)}</h2><p class="fc-meta"><span class="ost st-${s}">${STL[s]}</span><span>${when}</span>${rel ? `<span class="fc-rel">${rel}</span>` : ""}${a.it.min ? `<span>${a.it.min} min</span>` : ""}<span>${esc(a.b.name)}</span></p>${th.length ? `<span class="film fc-film only-d" aria-hidden="true">${th.map((x) => pic(x)).join("")}</span>` : ""}</div><div class="fc-act">${pri}${sec}</div><p class="fc-foot">${date > TK ? "Planned. Nothing can be logged before the day." : tally + "."}${date === TK ? ' <button class="linkbtn" data-jumpnow="1">Jump to now</button>' : ""}</p></section>`;
   }
   const undoBar = () => `<button class="btn ghost sm" data-undo2="1"${HIST.length ? "" : " disabled"}>${li("undo")}Undo</button><button class="btn ghost sm" data-redo2="1"${REDO.length ? "" : " disabled"}>${li("redo")}Redo</button>`;
   const dayStrip = (sd, cls) => `<div class="pstrip${cls || ""}" role="group" aria-label="Day">${ORDER.map((d) => `<button data-pd="${d}" aria-pressed="${d === sd}"${d === now.getDay() ? ' class="now"' : ""} aria-label="${DAYN[d]}, ${dayMin(d)} minutes"><b>${DAYN[d].slice(0, 3)}</b><span>${dateOf(d).getDate()}</span><small>${dayMin(d)} min</small>${(() => { const o = daySplit(d); return splitBar(o, Math.max(1, ...ORDER.map((x) => { const p = daySplit(x); return p.rt + p.gym; })), ""); })()}</button>`).join("")}</div>`;
 
   let WSNAP = null, WNEXT = {};
   const wFresh = (d, k, rid) => { const key = d + "|" + k + "|" + rid; WNEXT[key] = 1; return WSNAP && !WSNAP[key] ? " fresh" : ""; };
+  /* the week at a glance: each day from wake to bed, every placement at its real time (routines green, gym blue, the validated pair), daily habits as ticks.
+     Kind and name are in each block's tip and label; the planner below is the full table. */
+  function timeMap(l, hl, today, sd) {
+    const T0 = SC.T(P.plan.times.wake), T1 = SC.T(P.plan.bedtime), span = Math.max(1, T1 - T0), X = (m) => +Math.max(0, Math.min(100, ((m - T0) / span) * 100)).toFixed(2);
+    const nm = now.getHours() * 60 + now.getMinutes(), hours = []; for (let h = Math.ceil(T0 / 60); h * 60 < T1; h++) hours.push(h);
+    const rows = ORDER.map((d, ri) => {
+      const pl = SC.plan(d, S.plan), nth = {}, parts = SC.day(d, S.plan);
+      const bands = parts.map((r, i) => (i % 2 ? `<i class="tm-band" style="--x:${X(r.at)}%;--w:${X(i < parts.length - 1 ? parts[i + 1].at : T1) - X(r.at)}%"></i>` : "")).join("");
+      const marks = agenda(d).map((a) => {
+        if (!a.it.plan) return a.opt ? "" : `<i class="tm-t" style="--x:${X(a.start)}%"></i>`;
+        const rt = byId[a.rid]; if (!rt) return ""; const k = SC.SLOT[a.b.id], n = (nth[k + a.rid] = (nth[k + a.rid] || 0) + 1); let i = -1, c = 0;
+        (pl[k] || []).some((x, j) => x[0] === a.rid && ++c === n && ((i = j), true));
+        const g = isGym(rt), x = X(a.start), w = Math.max(X(a.end) - x, 0.5);
+        return `<button class="tm-b${g ? " gym" : ""}${inLens(rt, l) ? "" : " out"}${hl && hl !== rt.cat ? " dim" : ""}${x > 60 ? " r" : ""}" style="--x:${x}%;--w:${w}%" data-kind="${rt.cat}" data-insp="${esc(a.rid)}" data-at="${d}|${k}|${i}" data-tip="${esc(SC.C(a.start) + "  " + rt.name)}" aria-label="${esc(`${DAYN[d]} ${SC.C(a.start)} to ${SC.C(a.end)}: ${rt.name}${g ? " (gym)" : ""}, ${a.it.min} min`)}"></button>`;
+      }).join("");
+      const nl = d === today && nm > T0 && nm < T1 ? `<i class="tm-now" style="--x:${X(nm)}%" role="img" aria-label="Now, ${SC.C(nm)}"></i>` : "";
+      return `<div class="tm-row${d === today ? " today" : ""}${d === sd ? " sel" : ""}" style="--r:${ri + 2}"><button class="tm-day" data-openday="${d}" aria-label="Open ${DAYN[d]}">${DAYN[d].slice(0, 3)}<b>${dateOf(d).getDate()}</b></button><div class="tm-track">${bands}${marks}${nl}</div></div>`;
+    }).join("");
+    const open = S.ui.tmo != null ? !!S.ui.tmo : innerWidth >= 900;
+    return `<details class="tmap" id="tmap"${open ? " open" : ""}><summary class="tm-head"><h2 id="tmH">The week at a glance</h2><p class="tm-key"><span><i class="k"></i>Routines</span><span><i class="k gym"></i>Gym</span><span><i class="k hab"></i>Daily habits</span><span class="only-d">${P.plan.times.wake} to ${P.plan.bedtime}</span></p>${CARET}</summary>
+      <div class="tm-grid"><div class="tm-scale" aria-hidden="true">${hours.map((h) => `<span style="--x:${X(h * 60)}%"${h % 3 ? ' class="minor"' : ""}>${String(h).padStart(2, "0")}</span>`).join("")}</div><div class="tm-lines" aria-hidden="true">${hours.map((h) => `<i style="--x:${X(h * 60)}%"${h % 3 ? "" : ' class="major"'}></i>`).join("")}</div>${rows}</div></details>`;
+  }
+  document.addEventListener("toggle", (e) => { if (e.target.id === "tmap") { S.ui.tmo = e.target.open ? 1 : 0; save(); } }, true);
+  /* the now-line moves with the clock, without redrawing the week */
+  setInterval(() => { const n = $(".tm-now"); if (!n) return; const T0 = SC.T(P.plan.times.wake), T1 = SC.T(P.plan.bedtime), d = new Date(), m = d.getHours() * 60 + d.getMinutes(); if (m >= T1) return n.remove(); n.style.setProperty("--x", (((m - T0) / (T1 - T0)) * 100).toFixed(2) + "%"); n.setAttribute("aria-label", "Now, " + SC.C(m)); }, 60000);
   function renderWeek() {
     now = new Date(); TK = dkey(now); WNEXT = {};
     const today = now.getDay(), sd = selDay(), checks = SC.checks(S.plan, aimsNow()), bad = checks.filter((c) => c.k === "fit").length, l = lens(), bal = {}, hl = S.ui.hl || "", spl = {}, max = Math.max(1, ...ORDER.map((d) => { const o = (spl[d] = daySplit(d)); return l ? o[l] : o.rt + o.gym; })), m = monday(now), sun = addDays(m, 6), mo = (x) => x.toLocaleDateString("en-GB", { month: "long" });
@@ -1323,6 +1447,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
         <div class="bchips" role="group" aria-label="Days a week for each kind of routine. Choose one to see where it sits.">${l === "gym" ? "" : ""}${P.cats.filter((c) => bal[c.id]).map((c) => `<button class="bchip" data-kind="${c.id}" data-hl="${c.id}" aria-pressed="${hl === c.id}"><i></i>${esc(c.name)}<b>${bal[c.id]}</b><small>${bal[c.id] === 1 ? "day" : "days"}</small></button>`).join("")}</div>
         ${checks.length ? `<details class="pcheck"${bad ? " open" : ""}><summary>${gl(bad ? G.warn : G.info, "s")}<span>${bad ? `${bad} ${bad === 1 ? "part of a day does" : "parts of days do"} not fit` + (checks.length > bad ? `, and ${checks.length - bad} more to look at` : "") : `${checks.length} ${checks.length === 1 ? "thing" : "things"} to look at this week`}</span>${CARET}</summary><ul class="pchecks">${checks.map((c) => `<li${c.k === "fit" ? ' class="bad"' : ""}><span>${esc(c.text)}</span>${c.rid ? `<button class="linkbtn" data-insp="${esc(c.rid)}">Adjust</button>` : `<button class="linkbtn" data-openday="${c.d}">Open ${DAYN[c.d]}</button>`}</li>`).join("")}</ul></details>` : `<p class="pok">${gl(G.check, "s")}Every day fits and nothing is doubled up.</p>`}</section>
       ${(() => { const rv = rv0, n = nSug; return n ? `<p class="gnote">${li("list-checks")}<span>The guide has ${n} ${n === 1 ? "suggestion" : "suggestions"} on order, time of day and frequency. A dashed edge marks a routine at a time the guide does not suit.</span><a class="linkbtn" href="#guide">Open the guide</a></p>` : ""; })()}</div>
+      ${timeMap(l, hl, today, sd)}
       ${dayStrip(sd)}
       <div class="planner" id="planner">${cols}</div>
       <p class="small muted phint">Drag a routine to another slot, or choose it to see what is in it and change when and how often you do it.</p>`;
@@ -1334,13 +1459,16 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     now = new Date(); TK = dkey(now); const LJ = LOGJUST; LOGJUST = "";
     const d = selDay(), today = now.getDay(), pl = SC.plan(d, S.plan), rows = SC.day(d, S.plan), ed = !!S.ui.de, date = dateOf(d), edited = !!(S.plan || {})[d];
     const l = lens(), vis = (i) => { const rt = i.go && byId[i.go]; return rt ? inLens(rt, l) : l !== "gym"; }, oDate = occDate(d), AG = {}; agenda(d).forEach((a) => (AG[a.it.id] = a));
-    const rec = (i) => { const a = AG[i.id]; if (!a) return ""; const s = occState(oDate, a), e = logOf(oDate, a.key); return s === "upcoming" || s === "optional" ? "" : `<p class="trec"><span class="ost st-${s}${LJ && LJ === a.key ? " just" : ""}">${STL[s]}</span>${e ? `<span>${e.d === dkey(new Date(e.at)) ? "logged " + hhmm(e.at) : "logged later"}</span>` : ""}</p>`; };
+    const rec = (i) => { const a = AG[i.id]; if (!a) return ""; const s = occState(oDate, a), e = logOf(oDate, a.key); return s === "upcoming" || s === "optional" || s === "missed" ? "" : `<p class="trec"><span class="ost st-${s}${LJ && LJ === a.key ? " just" : ""}">${STL[s]}</span>${e ? `<span>${e.d === dkey(new Date(e.at)) ? "logged " + hhmm(e.at) : "logged later"}</span>` : ""}</p>`; };
     const logBtn = (i) => { const a = AG[i.id]; if (!a || oDate > TK) return i.opt ? '<span class="badge">Optional</span>' : "<span></span>"; const s = occState(oDate, a); return s === "done" || s === "skip" ? (i.opt ? '<span class="badge">Optional</span>' : "<span></span>") : `<button class="tlog" data-dlog="done|${esc(a.key)}" aria-label="Mark ${esc(i.t)} done">${CHECK}</button>`; };
+    const nm = now.getHours() * 60 + now.getMinutes(), isT = oDate === TK; let nowDone = !isT;
+    const past = (i) => { const a = AG[i.id]; return isT && a && a.end <= nm && a.start < nm ? " past" : ""; };
+    const nowMark = (i) => { const a = AG[i.id]; if (nowDone || !a || a.start < nm) return ""; nowDone = true; return `<li class="tnow"><time>${SC.C(nm)}</time><span>Now</span></li>`; };
     const blocks = rows.map((r) => {
       const k = SC.SLOT[r.b.id];
       return `<section class="tblock${r.items.some(vis) ? "" : " out"}" id="blk-${r.b.id}"><header><time>${ed ? `<input type="time" data-attime="${r.b.id}" name="at-${r.b.id}" aria-label="${esc(r.b.name)} starts" value="${SC.at(r.b.id, d, S.plan)}">` : SC.C(r.at)}</time>${BLOCKART[r.b.id] ? ic(BLOCKART[r.b.id], 36) : ""}<h2>${esc(r.b.name)}</h2>${r.used ? `<span class="small muted">until ${SC.C(r.end)}</span>` : ""}</header>
         ${r.over ? `<div class="status warn">${gl(G.warn)}<div>Runs ${r.over} min into the next part of the day. Shorten a routine or move a start time.</div></div>` : ""}
-        <ul class="tlist">${r.items.map((i) => { const rt = i.go && byId[i.go], g = rt && isGym(rt); return `<li class="trow${g ? " gym" : ""}${vis(i) ? "" : " out"}"${rt ? ` data-kind="${rt.cat}"` : ""}><time>${i.clock || ""}</time><div><b>${g ? gymIcon() + '<span class="sr">Gym: </span>' : ""}${esc(i.t)}${i.uid ? " " + srcTag(i.src, true, i.who) : ""}</b>${i.d ? `<p>${esc(i.d)}${i.u ? ` · <a class="linkbtn" href="${esc(i.u)}" target="_blank" rel="noopener">${esc(host(i.u) || "Source")}</a>` : ""}</p>` : ""}${rec(i)}</div>${ed ? (i.opt ? '<span class="badge">Optional</span>' : "<span></span>") : logBtn(i)}${i.min ? `<span class="tmin">${i.min} min</span>` : "<span></span>"}${i.plan ? `<button class="btn ghost sm" data-insp="${esc(i.go)}" data-at="${d}|${k}|${i.pi}">${ed ? "Change" : "Details"}</button>` : ed ? (i.uid ? `<button class="btn ghost sm" data-add="item" data-id="${i.id}">Edit</button>` : `<button class="btn ghost sm danger" data-hide="${esc("i:" + i.id)}">Remove</button>`) : rt ? `<button class="btn ghost sm" data-go="${esc(i.go)}">Open</button>` : "<span></span>"}</li>`; }).join("")}</ul></section>`;
+        <ul class="tlist">${r.items.map((i) => { const rt = i.go && byId[i.go], g = rt && isGym(rt); return `${nowMark(i)}<li class="trow${g ? " gym" : ""}${vis(i) ? "" : " out"}${past(i)}"${rt ? ` data-kind="${rt.cat}"` : ""}><time>${i.clock || ""}</time><div><b>${g ? gymIcon() + '<span class="sr">Gym: </span>' : ""}${esc(i.t)}${i.uid ? " " + srcTag(i.src, true, i.who) : ""}</b>${i.d ? `<p>${esc(i.d)}${i.u ? ` · <a class="linkbtn" href="${esc(i.u)}" target="_blank" rel="noopener">${esc(host(i.u) || "Source")}</a>` : ""}</p>` : ""}${rec(i)}</div>${ed ? (i.opt ? '<span class="badge">Optional</span>' : "<span></span>") : logBtn(i)}${i.min ? `<span class="tmin">${i.min} min</span>` : "<span></span>"}${i.plan ? `<button class="btn ghost sm" data-insp="${esc(i.go)}" data-at="${d}|${k}|${i.pi}">${ed ? "Change" : "Details"}</button>` : ed ? (i.uid ? `<button class="btn ghost sm" data-add="item" data-id="${i.id}">Edit</button>` : `<button class="btn ghost sm danger" data-hide="${esc("i:" + i.id)}">Remove</button>`) : rt ? `<button class="btn ghost sm" data-go="${esc(i.go)}">Open</button>` : "<span></span>"}</li>`; }).join("")}</ul></section>`;
     }).join("");
     $("#v-today").innerHTML = `
       <header class="view-head"><div><h1>${d === today ? "Today" : DAYN[d]}</h1><p class="lede">${DAYN[d]} ${date.getDate()} ${date.toLocaleDateString("en-GB", { month: "long" })}. ${ed ? "" : esc(pl.focus ? pl.focus + ". " : "")}<span class="only-d">${dayMin(d)} minutes planned.</span></p>
@@ -1668,7 +1796,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     if (d.irem) { const a = INSP.at.split("|"); editDay(+a[0], (pl) => pl[a[1]].splice(+a[2], 1)); closeSheet(true); toast("Removed from " + DAYN[+a[0]], undoLast); return true; }
     if (d.iup || d.idown) { const a = INSP.at.split("|"), i = +a[2], j = i + (d.iup ? -1 : 1); editDay(+a[0], (pl) => { const l = pl[a[1]]; if (l[i] && l[j]) { const x = l[i]; l[i] = l[j]; l[j] = x; } }); openInsp(INSP.rid, a[0] + "|" + a[1] + "|" + j); return true; }
     if (d.openday !== undefined) { S.ui.pd = +d.openday; S.ui.pdate = occDate(+d.openday); save(); if (location.hash === "#today") route(false); else location.hash = "#today"; return true; }
-    if (d.pd !== undefined) { S.ui.pd = +d.pd; S.ui.pdate = occDate(+d.pd); save(); RENDER[current](); refocus(`[data-pd="${d.pd}"]`); return true; }
+    if (d.pd !== undefined) { const was = occDate(selDay()), to = occDate(+d.pd); vt(() => { S.ui.pd = +d.pd; S.ui.pdate = to; save(); RENDER[current](); refocus(`[data-pd="${d.pd}"]`); }, "day", to > was ? "next" : to < was ? "prev" : ""); return true; }
     if (d.hl !== undefined) { S.ui.hl = S.ui.hl === d.hl ? "" : d.hl; save(); renderWeek(); refocus(`[data-hl="${d.hl}"]`); return true; }
     if (d.resetweek) { S.plan = {}; save(); RENDER[current](); toast("Week back to the supplied timetable", undoLast); return true; }
     if (d.resetday !== undefined) { if (S.plan) delete S.plan[+d.resetday]; save(); RENDER[current](); toast(DAYN[+d.resetday] + " back to the supplied plan", undoLast); return true; }
@@ -1901,7 +2029,10 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
       const act = [ui.pg ? groupName(ui.pg) : "", sfOf("p") ? sname(sfOf("p").split(":")[0] === "x" ? "x" : sfOf("p"), sfOf("p").split(":")[1]) : "", sgOf("p") ? "grouped by source" : ""].filter(Boolean), sm = $("#pSum");
       if (sm) sm.innerHTML = act.length ? `Showing ${ps.length} of ${P.products.length}: ${act.map(esc).join(" · ")} <button class="linkbtn" id="pClear">Clear filters</button>` : "";
       if (sgOf("p")) html += bySrc(ps, (p) => p).map((g) => drList(srcHead(g[1]), "", rows(g[2], "library"), g[2].length)).join("");
-      else P.productGroups.forEach((g) => { const l = ps.filter((p) => p.g === g[0]); if (l.length) html += drList(esc(g[1]), PGART[g[0]] ? ic(PGART[g[0]], 36) : "", rows(l, "library"), l.length); });
+      else {
+        if (!q && !ui.pg && ps.length) html += `<nav class="pshelf" aria-label="Jump to a group">${P.productGroups.map((g) => { const n = ps.filter((p) => p.g === g[0]).length; return n ? `<button class="pshelf-i" data-anchor="pg-${g[0]}">${PGART[g[0]] ? ic(PGART[g[0]], 56) : ""}<b>${esc(g[1])}</b><small>${n}</small></button>` : ""; }).join("")}</nav>`;
+        P.productGroups.forEach((g) => { const l = ps.filter((p) => p.g === g[0]); if (l.length) html += drList(esc(g[1]), PGART[g[0]] ? ic(PGART[g[0]], 36) : "", rows(l, "library"), l.length).replace('<section class="drg">', `<section class="drg" id="pg-${g[0]}">`); });
+      }
       if (!ps.length) html += `<div class="empty"><img class="ic st-art" src="assets/field/state-no-results.webp" width="72" height="72" alt="" loading="lazy" decoding="async"><p>No product matches that search.</p><button class="btn sm ghost" id="pClear">Clear search and filter</button></div>`;
     } else if (tab === "wishlist") {
       const ws = P.products.filter((p) => S.wish[p.n] && !o[p.n]);
@@ -1992,7 +2123,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
   }
   function drawPlayer() {
     const n = PL.steps.length, top = `<div class="ov-top ov-in"><div class="brand">PRIMAL</div><p>Routines / <b>${esc(PL.r.name)}</b></p><button class="btn ghost sm" id="plClose">Close</button></div>`;
-    if (PL.fin) { $("#player").innerHTML = `${top}<div class="finish ov-in">${ic("check", 84)}<p class="label">Finished</p><h2 class="serif" style="font-size:clamp(2.2rem,1.5rem + 3vw,3.4rem)">${esc(PL.r.name)} complete.</h2>
+    if (PL.fin) { $("#player").innerHTML = `${top}<div class="finish ov-in">${ic(catOf(PL.r.cat).icon || "check", 132).replace('class="ic"', 'class="ic fin-art"')}<h2 class="serif" style="font-size:clamp(2.2rem,1.5rem + 3vw,3.4rem)">${esc(PL.r.name)} complete.</h2>
         <div class="stats" style="width:min(100%,460px)"><div class="card stat"><span class="label">Time</span><b class="metric">${fmt(PL.total)}</b></div><div class="card stat"><span class="label">Movements</span><b class="metric">${n}</b></div></div>
         <p class="muted">${PL.ctx ? `Nothing is logged until you choose. Mark it done to record it on ${DAYN[PL.ctx.d]}.` : "Nothing was logged. To record it, start it from the day it is planned on."}</p><div class="row" style="justify-content:center">${PL.ctx ? '<button class="btn" id="plMark">Mark done</button><button class="btn ghost" id="plDone">Close without logging</button>' : '<button class="btn" id="plDone">Done</button><button class="btn ghost" id="plRestart">Run it again</button>'}</div></div>`; return; }
     const x = PL.steps[PL.i], nx = PL.steps[PL.i + 1], tg = target(x.d), stLabel = { ready: "Ready", running: "Running", paused: "Paused" }[PL.state];
@@ -2519,15 +2650,26 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
   const NAVOF = { week: "week", today: "week", compare: "week", guide: "week", routines: "routines", library: "library", nutrition: "library", systems: "library", extras: "library", products: "products" };
   const RENDER = { week: renderWeek, today: renderDay, compare: renderCompare, guide: renderGuide, library: renderLibrary, routines: renderRoutines, nutrition: renderNutrition, systems: renderSystems, products: renderProducts, extras: renderExtras };
   let current = null;
+  /* view transitions: a calm crossfade between sections and tabs, a sideways step between days and player steps, a topic's specimen carried into its page.
+     The rail stays still. Never for a change started from the keyboard (it should feel instant), never under reduced motion. */
+  let lastKey = 0; document.addEventListener("keydown", (e) => { if (!e.repeat) lastKey = Date.now(); }, true); document.addEventListener("pointerdown", () => (lastKey = 0), true);
+  const RMQ = matchMedia("(prefers-reduced-motion: reduce)");
+  /* kind (sec, day, step, topic) decides which parts are their own layer, so nothing is lifted above an open overlay; dir (next, prev) the side it moves */
+  function vt(fn, kind, dir) {
+    const h = document.documentElement, end = () => { delete h.dataset.vt; delete h.dataset.dir; $$("[data-vtn]").forEach((x) => { x.style.viewTransitionName = ""; delete x.dataset.vtn; }); };
+    if (!document.startViewTransition || RMQ.matches || Date.now() - lastKey < 800 || document.hidden || h.dataset.vt) { end(); return fn(); }
+    h.dataset.vt = kind; if (dir) h.dataset.dir = dir;
+    try { document.startViewTransition(fn).finished.finally(end); } catch (e) { end(); fn(); }
+  }
   function route(first) {
     const v = VIEWS.indexOf(location.hash.slice(1)) > -1 ? location.hash.slice(1) : S.ui.start === "today" ? "today" : "week", navv = NAVOF[v];
     VIEWS.forEach((x) => { $("#v-" + x).hidden = x !== v; });
     document.documentElement.dataset.sec = navv; $$("[data-nav]").forEach((a) => { if (a.dataset.nav === navv) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
-    current = v; RENDER[v](); const el = $("#v-" + v); el.classList.remove("enter"); void el.offsetWidth; el.classList.add("enter");
+    current = v; RENDER[v](); const el = $("#v-" + v); el.classList.remove("enter"); if (!document.documentElement.dataset.vt) { void el.offsetWidth; el.classList.add("enter"); }
     if (!first) { window.scrollTo({ top: v === "library" ? S.ui.ly || 0 : 0, behavior: "instant" }); $("#main").focus({ preventScroll: true }); }
     if (v === "routines" && pendingOpen) { const id = pendingOpen; pendingOpen = null; openRoutine(id); }
   }
-  window.addEventListener("hashchange", () => { if (!$("#libdlg").hidden && !keepLib) closeLib(); keepLib = false; if (!$("#sheet").hidden) closeSheet(true); route(false); });
+  window.addEventListener("hashchange", () => { if (!$("#libdlg").hidden && !keepLib) closeLib(); keepLib = false; if (!$("#sheet").hidden) closeSheet(true); vt(() => route(false), "sec"); });
 
   /* ── events ── */
   const refocus = (sel) => { const b = $(sel); if (b) b.focus({ preventScroll: true }); };
@@ -2559,7 +2701,7 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     else if (d.play) openPlayer(d.play);
     else if (d.pacer) openPacer(d.pacer);
     else if (d.expand) { const box = $("#r-" + d.expand), all = $$(".ex:not(.nosteps)", box), open = all.some((x) => !x.open); all.forEach((x) => (x.open = open)); t.textContent = open ? "Hide all steps" : "Show all steps"; }
-    else if (d.topic) { if (!$("#sheet").hidden) closeSheet(true); if (current === "library") S.ui.ly = window.scrollY; S.ui[d.topic] = d.id; save(); const tv = d.topic === "sys" ? "systems" : "extras"; if (current !== tv) { location.hash = "#" + tv; return; } (d.topic === "sys" ? renderSystems : renderExtras)(); window.scrollTo(0, 0); $("#main").focus({ preventScroll: true }); }
+    else if (d.topic) { const ta = t.closest(".tr-head, .topic, .lrow"), tp = ta && ta.querySelector("img.ic, .gdisc"); if (tp && !t.closest(".detail")) { tp.style.viewTransitionName = "topic-art"; tp.dataset.vtn = "1"; } if (!$("#sheet").hidden) closeSheet(true); if (current === "library") S.ui.ly = window.scrollY; S.ui[d.topic] = d.id; save(); const tv = d.topic === "sys" ? "systems" : "extras"; if (current !== tv) { location.hash = "#" + tv; return; } vt(() => { (d.topic === "sys" ? renderSystems : renderExtras)(); window.scrollTo({ top: 0, behavior: "instant" }); $("#main").focus({ preventScroll: true }); }, "topic"); }
     else if (d.anchor) { const a = document.getElementById(d.anchor); if (a) a.scrollIntoView({ block: "start" }); }
     else if (d.nut) { S.ui.nut = d.nut; save(); $$("[data-nut]").forEach((c) => c.setAttribute("aria-selected", c.dataset.nut === d.nut)); $("#nutPanel").innerHTML = nutPanel(d.nut); }
     else if (d.macro) { S.ui.macro = S.ui.macro === d.macro ? "" : d.macro; save(); $("#nutPanel").innerHTML = nutPanel("plate"); refocus(`[data-macro="${d.macro}"]`); }
@@ -2574,9 +2716,9 @@ h1, .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em
     else if (t.id === "plRestart") openPlayer(PL.r.id);
     else if (t.id === "plRun") { PL.state = PL.state === "running" ? "paused" : "running"; PL.last = performance.now(); drawPlayer(); $("#plRun").focus(); say("Timer " + PL.state); }
     else if (t.id === "plReset") { PL.t = 0; PL.state = "ready"; drawPlayer(); $("#plRun").focus(); }
-    else if (t.id === "plPrev") { if (PL.i > 0) plGo(PL.i - 1); }
-    else if (t.id === "plNext") { if (PL.i >= PL.steps.length - 1) plFinish(); else plGo(PL.i + 1); }
-    else if (d.step !== undefined) plGo(+d.step);
+    else if (t.id === "plPrev") { if (PL.i > 0) vt(() => plGo(PL.i - 1), "step", "prev"); }
+    else if (t.id === "plNext") { if (PL.i >= PL.steps.length - 1) vt(plFinish, "step"); else vt(() => plGo(PL.i + 1), "step", "next"); }
+    else if (d.step !== undefined) { const to = +d.step; vt(() => plGo(to), "step", to >= PL.i ? "next" : "prev"); }
     else if (t.id === "pcClose") closeOverlay($("#pacer"));
     else if (t.id === "pcRun") { PC.run = !PC.run; PC.last = performance.now(); t.textContent = PC.run ? "Pause" : "Resume"; }
     else if (t.id === "pcSkip") { pacerNext(); refocus("#pcSkip, #pcAgain, #pcRun"); }

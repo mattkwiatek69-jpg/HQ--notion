@@ -98,3 +98,55 @@ Attach `assets/field/` specimens (any two) as the style reference every time.
 | `app-icon.png` | 1024 × 1024, a single spruce silhouette with a small ochre sun behind it on spruce green `#273A2C`, flat painterly, centred, no text, readable at 32px |
 
 Send the PNGs with these names and each is wired in with one line.
+
+## Field Guide set 3 (proposed, Nov 2026): for the almanac overhaul
+
+The almanac overhaul (week at a glance, planner Day, editorial topic pages, phone strips) works with what is in place now. These pictures would take it further. Each has a slot planned; none is required. Generate them in ChatGPT (or any image tool), attach two files from `assets/field/` as the style reference every time, and send the PNGs back as they are: they will be optimised, matched to their slot and listed in `assets/manifest.json`.
+
+### 1. Topic chapter plates (6) → the header of every topic page on wide screens
+
+The topic pages now read like a printed field guide, but their header is a plain specimen on paper. A wide plate per chapter, with the title on the clear left, would give every topic the presence the section banners have.
+
+> Create a wide natural-history plate for the "Primal Field Guide" chapter "[CHAPTER]", matching the attached reference banners (spruce at dusk, cedar canopy, pressed fern). Painterly and realistic, warm paper-toned background (#F6F3E8) fading to clear on the left; the subject sits only in the right third: [SUBJECT]. Soft daylight from the upper left, olive, moss, ochre and terracotta accents, calm and uncluttered. The left 55% must be empty paper so a large serif title can sit on it. No text, people, logos or frames. 2880 × 960 PNG. Then make a second version on a deep spruce background (#1F2C22 to #273A2C) for dark mode, same composition.
+
+| File (light / dark) | Chapter | Subject |
+|---|---|---|
+| `plate-nutrition.png` / `plate-nutrition-dark.png` | Nutrition | a sheaf of ripe wheat and a wooden bowl of raw honey on a linen cloth |
+| `plate-move.png` / `plate-move-dark.png` | Movement & posture | an exposed cedar root system gripping a mossy stone |
+| `plate-sleep.png` / `plate-sleep-dark.png` | Sleep & recovery | smooth river stones in shallow water at dusk, one sprig of lavender |
+| `plate-energy.png` / `plate-energy-dark.png` | Energy & hormones | a split flint nodule with amber veins lit by low morning sun (no food) |
+| `plate-env.png` / `plate-env-dark.png` | Environment & personal care | a cedar twig, a folded linen towel and a clear glass of water on a stone ledge |
+| `plate-ref.png` / `plate-ref-dark.png` | Reference | an ammonite fossil resting on an open, blank field notebook |
+
+### 2. Parts of the day (4) → the Day timeline headings (Wake, Morning, Training, Evening, Bed)
+
+The Day headings still use pictures from the older mixed packs. Four specimens in the set 1 and 2 style would make the Day read like one page of the almanac.
+
+> Create one natural-history specimen illustration of [OBJECT] for the "Primal Field Guide", matching the attached reference specimens. Painterly, realistic, softly lit from the upper left, warm neutral palette with olive, moss, ochre and terracotta accents. One object, isolated, about 70% of a square canvas, transparent background, crisp silhouette that still reads at 32px. No text, frame, ground shadow or scenery. 1024 × 1024 transparent PNG.
+
+| File | Part of the day | Object |
+|---|---|---|
+| `day-dawn.png` | Wake and morning | a grass seed head beaded with dew |
+| `day-train.png` | Training | a worn leather jump rope coiled beside a river stone |
+| `day-dusk.png` | Evening | a lit beeswax candle stub in a small clay holder |
+| `day-night.png` | Bed | a folded linen pillowcase with a sprig of dried lavender |
+
+### 3. Paper grain (2) → the page background, for a printed feel
+
+> Create a seamless, tileable texture of fine uncoated cotton paper for a printed field guide: very subtle fibres and grain, no stains, no folds, no vignette, evenly lit. Base colour #F6F3E8, variation no more than ±3% lightness so text on it stays crisp. 1024 × 1024 PNG that tiles invisibly on all four edges. Then the same texture on #171C17 for dark mode, even subtler.
+
+Files: `paper-grain.png`, `paper-grain-dark.png`. Slot: the body background at about 8% opacity, off under the high-contrast setting.
+
+### 4. Phone strips (5) → the 100px strip behind each section title on phones
+
+The phone strips crop the wide banners, so on a narrow screen some subjects are cut. Purpose-made strips would keep each subject whole.
+
+> Recompose the attached "[SECTION]" banner as a short strip for a phone: same painting style, palette and subject, but the subject fits entirely inside the right 40% of the frame and the left 60% fades to plain paper (#F6F3E8) [or deep spruce #1F2C22 for the Week strip]. No text. 1170 × 300 PNG.
+
+| File | From |
+|---|---|
+| `strip-week.png` | `assets/field/spruce-dusk-1440.webp` |
+| `strip-routines.png` | `assets/field/routines-banner-1440.webp` |
+| `strip-library.png` | `assets/field/cedar-canopy-1440.webp` |
+| `strip-products.png` | `assets/field/products-banner-1440.webp` |
+| `strip-guide.png` | `assets/field/fern-plate-960.webp` |
