@@ -2179,7 +2179,7 @@ html.plain .sbox.s-ai:not(.slim)::after { content: "Suggested"; }
       <div class="rd-body"><nav class="rd-toc" id="rdNav" aria-label="Contents of ${esc(d.n)}">${toc}</nav><article class="rd-text" id="rdText" tabindex="-1"><h1 id="rdH">${esc(secName(x))}</h1><div class="rd-copy" id="rdBody"><p class="muted">Opening the text…</p></div><footer class="rd-nav">${nav(prev, -1)}${nav(next, 1)}</footer></article></div></div>`;
     const cur = $("#rdNav [aria-current]"); if (cur) cur.scrollIntoView({ block: "center" }); $("#rdText").focus({ preventScroll: true });
     loadDocs().then((ok) => { if (RD !== id) return; const txt = ok && P.docText[id], b = $("#rdBody"); if (!b) return;
-      b.innerHTML = txt ? mdHtml(txt) : `<div class="status info">${gl(G.info)}<div><b>The full text is not on this device.</b> It is kept out of the public repository. <a href="${esc(secUrl(x))}" target="_blank" rel="noopener">Open this section in Google Docs</a></div></div>`; });
+      b.innerHTML = txt ? mdHtml(txt) : `<div class="status info">${gl(G.info)}<div><b>The full text is not included in this copy of the hub.</b> <a href="${esc(secUrl(x))}" target="_blank" rel="noopener">Open this section in Google Docs</a></div></div>`; });
   }
   /* -- Daily: everything in the day that is not a routine or gym (data/today.js items with k, and daily habits you add) -- */
   const BLOCKIC = { wake: "sunrise", morning: "sun", day: "cloud-sun", train: "dumbbell", evening: "sunset", bed: "bed" };

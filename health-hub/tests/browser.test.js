@@ -460,7 +460,7 @@ const ok=(c,m)=>console.log((c?'PASS ':'FAIL ')+m);
     await q.locator('.pcol[aria-label="Wednesday"] .dchip:has-text("Blue-light blockers")').scrollIntoViewIfNeeded(); await q.click('.pcol[aria-label="Wednesday"] .dchip:has-text("Blue-light blockers")'); const sh=await q.textContent('#sheet');
     ok(sh.includes('Sleep and screens')&&sh.includes('In the docs')&&sh.includes('OP 1')&&!!(await q.$('#sheet [data-docsec]')),'a daily item opens with its kind, time and the doc sections it comes from');
     await q.click('#sheet [data-docsec]'); await q.waitForTimeout(400); const rd=await q.textContent('#reader .rd-copy');
-    ok(await q.isVisible('#reader .rdr')&&rd.length>100&&!rd.includes('Opening the text')&&!rd.includes('not on this device')&&(await q.textContent('#reader .rd-crumb')).includes('OP 1'),'the reader opens the section with the doc\'s full text');
+    ok(await q.isVisible('#reader .rdr')&&rd.length>100&&!rd.includes('Opening the text')&&!rd.includes('not included in this copy')&&(await q.textContent('#reader .rd-crumb')).includes('OP 1'),'the reader opens the section with the doc\'s full text');
     ok((await q.$$eval('#reader .rd-toc [aria-current]',e=>e.length))===1&&!!(await q.$('#reader a[href^="https://docs.google.com/"]')),'the reader marks the section in the contents and links to Google Docs');
     const h1=await q.textContent('#rdH'); await q.click('#reader .rd-nav button:last-child'); await q.waitForTimeout(200); ok((await q.textContent('#rdH'))!==h1,'Next moves to the following section');
     ok(!(await q.$('#reader .rd-copy script'))&&!(await q.$('#reader .rd-copy [onclick]')),'the doc text is rendered as text only');
