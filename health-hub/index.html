@@ -1351,6 +1351,93 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   .view-head.band-rt, .view-head.band-lib, .view-head.band-prod, .view-head.band-guide, .view-head.band-nut { background-size: auto 100px !important; background-position: right top !important; }
 }
 @media (max-width: 899px) and (max-height: 700px) { .view-head.band-rt, .view-head.band-lib, .view-head.band-prod, .view-head.band-guide, .view-head.band-nut { background-size: auto 56px !important; } }
+/* == Hubs, Daily and the docs (Nov 2026; the owner: switch hubs by where the information came from, a Daily filter, every OP doc referenced).
+   The source colour key is gone: html.plain is always on, so panels are plain paper; only Claude's suggestions keep a word. == */
+:root { --daily: #8A5A12; --daily-soft: color-mix(in srgb, var(--sun) 16%, var(--surface)); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --daily: #F0B25A; --daily-soft: color-mix(in srgb, var(--sun) 14%, var(--surface)); } }
+:root[data-theme="dark"] { --daily: #F0B25A; --daily-soft: color-mix(in srgb, var(--sun) 14%, var(--surface)); }
+html.plain .src.sugg { display: inline-flex; } .src.sugg::before { content: none; } .src.sugg { font-size: .75rem; font-weight: 600; color: var(--ink-3); white-space: nowrap; }
+html.plain .sbox.s-ai:not(.slim)::after { content: "Suggested"; }
+/* the rail: Week above; the hub holds Routines, Library and Products under its switch */
+.hubzone { display: flex; flex-direction: column; gap: 4px; margin: 6px 0; padding: 8px 6px 6px; border-radius: 14px; border: 1px solid color-mix(in srgb, var(--rail-ink) 18%, transparent); }
+.hubs { display: grid; grid-template-columns: repeat(var(--hn, 3), minmax(0, 1fr)); gap: 2px; padding: 3px; border-radius: 11px; }
+.hubs:has(> :nth-child(4)) { --hn: 2; }
+.hubs button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 48px; padding: 4px 2px; border-radius: 8px; font-size: .75rem; font-weight: 600; line-height: 1.15; text-align: center; min-width: 0; }
+.hubs button span { overflow: hidden; text-overflow: ellipsis; max-width: 100%; white-space: nowrap; }
+.hubs .li, .hubs .li svg { width: 18px; height: 18px; }
+.rail-hubs { background: color-mix(in srgb, var(--rail-ink) 8%, transparent); margin-bottom: 4px; }
+.rail-hubs button { color: var(--rail-dim); } .rail-hubs button:hover { color: var(--rail-ink); background: color-mix(in srgb, var(--rail-ink) 10%, transparent); }
+.rail-hubs button[aria-pressed="true"] { background: var(--rail-active); color: var(--rail); }
+.sheet-hubs, .hub-m { background: var(--sunk); }
+.sheet-hubs button, .hub-m button { color: var(--ink-2); flex-direction: row; gap: 8px; min-height: 44px; font-size: .875rem; }
+.sheet-hubs button[aria-pressed="true"], .hub-m button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 0 0 1px var(--hair); font-weight: 700; }
+.hub-m { margin-bottom: -10px; } .hub-m button { min-height: 44px; padding-block: 0; }
+@media (max-width: 999px) { .hubzone { display: contents; } }
+@media (min-width: 1000px) { .hub-m { display: none; } }
+/* In the docs: the sections a record was taken from */
+.indocs { display: flex; flex-direction: column; gap: 6px; padding-top: 12px; border-top: 1px solid var(--line); }
+.indocs h4 { font: 600 .8125rem/1.3 var(--sans); color: var(--ink-3); margin: 0; }
+.indocs ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.indocs .linkbtn { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; text-align: left; }
+.indocs .linkbtn b { font-weight: 700; margin-right: 2px; }
+.rside .indocs, .dr-body .indocs { border-top: 0; padding-top: 0; }
+/* Daily: chips on paper in the Week, so they never read as sessions */
+.lens-day .lsw, .cg-day .lsw { background: var(--daily); }
+.lens { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (min-width: 761px) { .lens { grid-template-columns: repeat(4, auto); } }
+@media (max-width: 760px) { .wtool .lens { grid-template-columns: repeat(4, minmax(0, 1fr)); } .lens button { padding: 6px 4px; } }
+.dcell { gap: 6px; } .dcell.nil .pcell-head { opacity: .5; }
+.planner.daily { grid-template-rows: repeat(var(--pr), auto); } .planner.daily .pcol { grid-row: span var(--pr); }
+.dchip { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 2px 8px; align-items: start; width: 100%; text-align: left; padding: 9px 10px; border-radius: 10px; background: var(--daily-soft); border: 1px solid color-mix(in srgb, var(--daily) 30%, var(--line)); color: var(--ink); font-size: .8125rem; line-height: 1.3; }
+.dchip .li, .dchip .li svg { width: 18px; height: 18px; color: var(--daily); }
+.dchip b { font-weight: 600; } .dchip small { grid-column: 2; color: var(--ink-3); font-size: .75rem; }
+.dchip.opt { background: var(--surface); border-style: dashed; }
+@media (hover: hover) and (pointer: fine) { .dchip:hover { border-color: var(--daily); } }
+.ptl.dl::before { background: var(--daily); }
+#v-routines .dr-ic .li svg, #v-routines .drg-h .li svg { color: var(--daily); } #v-routines .drg-h .li, #v-routines .drg-h .li svg { width: 24px; height: 24px; }
+.crow.dly .cdays .cd { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-size: .75rem; font-weight: 700; color: var(--ink-3); background: var(--sunk); }
+.crow.dly .cdays .cd.on { background: var(--daily); color: var(--surface); }
+.chead .li, .chead .li svg { width: 18px; height: 18px; color: var(--daily); }
+/* the docs in the Library */
+.lindex .li { width: 28px; height: 28px; display: inline-grid; place-items: center; flex: none; color: var(--accent); } .lindex .li svg { width: 22px; height: 22px; }
+.dgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.dcard { display: flex; flex-direction: column; gap: 6px; padding: 16px; border-radius: var(--r); background: var(--surface); border: 1px solid var(--line); }
+.dc-open { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 2px 10px; text-align: left; align-items: center; }
+.dc-open .li, .dc-open .li svg { width: 28px; height: 28px; color: var(--accent); grid-row: span 2; }
+.dc-open b { font: 400 1.75rem/1.05 var(--serif); } .dc-open small { color: var(--ink-3); font-size: .8125rem; }
+.dcard .linkbtn { align-self: flex-start; display: inline-flex; gap: 6px; align-items: center; min-height: 36px; }
+.dtocs { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 18px; }
+.dtoc h3 { font: 400 1.75rem/1.1 var(--serif); margin: 0 0 6px; } .dtoc h4 { font: 600 .875rem/1.3 var(--sans); color: var(--ink-2); margin: 14px 0 2px; }
+.dtoc ul { list-style: none; margin: 0; padding: 0; } .dtoc li .linkbtn { min-height: 36px; text-align: left; }
+/* the reader: the doc's own words, set for reading */
+.rdr { text-align: left; background: var(--bg); width: min(1180px, 100%); height: min(92vh, 980px); border-radius: 18px; display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--lift); }
+.rd-top { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--night); color: var(--on-night); }
+.rd-top .btn.ghost { color: var(--on-night); border-color: color-mix(in srgb, var(--on-night) 40%, transparent); background: transparent; }
+.rd-crumb { flex: 1; min-width: 0; display: flex; flex-direction: column; } .rd-crumb b { font: 600 1rem/1.2 var(--sans); } .rd-crumb span { font-size: .8125rem; color: color-mix(in srgb, var(--on-night) 75%, transparent); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rd-tocb { display: none; }
+.rd-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 290px minmax(0, 1fr); }
+.rd-toc { overflow-y: auto; padding: 14px 12px 24px; border-right: 1px solid var(--line); background: var(--sunk); display: flex; flex-direction: column; gap: 1px; }
+.rd-toc h4 { font: 600 .8125rem/1.3 var(--sans); color: var(--ink-2); margin: 16px 8px 4px; } .rd-g { font-size: .75rem; color: var(--ink-3); margin: 8px 8px 2px; }
+.rd-toc > button { text-align: left; min-height: 36px; padding: 6px 10px; border-radius: 8px; font-size: .875rem; color: var(--ink-2); line-height: 1.3; }
+.rd-toc > button:hover { background: color-mix(in srgb, var(--sel) 60%, transparent); color: var(--ink); }
+.rd-toc > button[aria-current] { background: var(--sel); color: var(--on-sel); font-weight: 700; }
+.rd-docs { display: flex; gap: 4px; padding: 3px; background: var(--surface); border-radius: 10px; border: 1px solid var(--line); }
+.rd-docs button { flex: 1; min-height: 40px; border-radius: 7px; font-size: .875rem; font-weight: 600; color: var(--ink-2); } .rd-docs button[aria-pressed="true"] { background: var(--sel); color: var(--on-sel); }
+.rd-text { overflow-y: auto; padding: 32px clamp(18px, 4vw, 56px) 40px; outline: none; }
+.rd-text h1 { font: 400 clamp(2.125rem, 1.6rem + 1.6vw, 3rem)/1.05 var(--serif); margin: 0 0 22px; max-width: 30ch; }
+.rd-copy { max-width: 68ch; font-size: 1.0625rem; line-height: 1.65; color: var(--ink); }
+.rd-copy p { margin: 0 0 14px; } .rd-copy h3 { font: 600 1.125rem/1.3 var(--sans); margin: 26px 0 8px; }
+.rd-copy ul { margin: 0 0 14px; padding-left: 22px; } .rd-copy li { margin: 4px 0; } .rd-copy li > ul { margin: 4px 0 6px; }
+.rd-copy hr { border: 0; border-top: 1px solid var(--line); margin: 22px 0; } .rd-copy a { color: var(--link); } .rd-copy s { color: var(--ink-3); }
+.rd-nav { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; max-width: 68ch; margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); }
+.rd-nav .btn { max-width: 100%; } .rd-nav .btn span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 860px) {
+  #reader { padding: 0; } .rdr { width: 100%; height: 100%; border-radius: 0; }
+  .rd-tocb { display: inline-flex; } .rd-top .bl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .rd-body { grid-template-columns: minmax(0, 1fr); position: relative; }
+  .rd-toc { position: absolute; inset: 0; z-index: 2; display: none; border-right: 0; } .rd-toc.open { display: flex; }
+  .rd-text { padding: 22px 16px 32px; } .rd-copy { font-size: 1rem; }
+}
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -1359,13 +1446,14 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   <button class="findbtn" data-find="1"><svg class="gl s" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4"/></svg>Find anything<kbd>/</kbd></button>
   <div class="nav" id="nav">
     <a href="#week" data-nav="week"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v13H4zM4 10.5h16M8 4v4M16 4v4"/></svg>Week</a>
+    <div class="hubzone"><div class="only-rail" id="railHubs"></div>
     <a href="#routines" data-nav="routines"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 9A8 8 0 0 0 5.2 7.5L4 9M4 4.5V9h4.5M4.5 15a8 8 0 0 0 14.3 1.5L20 15M20 19.5V15h-4.5"/></svg>Routines</a>
     <a href="#library" data-nav="library"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l8.5 4.5L12 13 3.5 8.5 12 4zM3.5 12.5L12 17l8.5-4.5M3.5 16.5L12 21l8.5-4.5"/></svg>Library</a>
-    <a href="#products" data-nav="products"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 3.5h5v3h-5zM8 9a1.5 1.5 0 0 1 1.5-1.5h5A1.5 1.5 0 0 1 16 9v10.5a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V9zM8 12.5h8"/></svg>Products</a>
+    <a href="#products" data-nav="products"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 3.5h5v3h-5zM8 9a1.5 1.5 0 0 1 1.5-1.5h5A1.5 1.5 0 0 1 16 9v10.5a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V9zM8 12.5h8"/></svg>Products</a></div>
     <button class="only-rail" data-saved="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v16l-5-3.5L7 20V4z"/></svg>Saved</button>
     <button class="more" data-more="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 12h.01M12 12h.01M18.5 12h.01" stroke-width="3"/></svg>More</button>
   </div>
-  <div class="rail-foot"><div class="key" aria-label="Source key"><span>Where it came from</span><span class="keyl" id="railKey"></span><button class="srcswitch" role="switch" aria-checked="true" data-srctoggle="1"><i aria-hidden="true"></i>Source labels</button></div><div class="rail-save"><span>Saved on this device</span><button data-manage="1">My edits</button></div></div>
+  <div class="rail-foot"><div class="rail-save"><span>Saved on this device</span><button data-manage="1">My edits</button></div></div>
 </nav>
 <div class="page"><div class="wrap">
   <div class="topbar"><div><div class="brand" translate="no"><img class="mark" src="assets/field/app-icon-64.png" width="26" height="26" alt="">PRIMAL</div></div><button class="findbtn" data-find="1"><svg class="gl s" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4"/></svg>Find</button></div>
@@ -1375,18 +1463,19 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
     <section class="view" id="v-systems" hidden></section><section class="view" id="v-products" hidden></section>
     <section class="view" id="v-extras" hidden></section>
   </main>
-  <footer class="fine">Each block ends with a label saying where it came from: the OP docs, your own notes, both, or someone you named. Personal notes, not medical advice. Your week, edits and lists are saved in this browser only; export a copy from My edits.</footer>
+  <footer class="fine">The hub switch chooses whose information Routines, Library and Products show: the OP docs, your own notes, or all of it. Your week stays the same whichever you choose. Personal notes, not medical advice. Your week, edits and lists are saved in this browser only; export a copy from My edits.</footer>
 </div></div>
 <div class="scrim" id="sheet" hidden></div>
 <div class="scrim center" id="libdlg" hidden></div>
 <div class="scrim center" id="find" hidden></div>
+<div class="scrim center" id="reader" hidden></div>
 <div class="overlay" id="player" role="dialog" aria-modal="true" aria-label="Follow along" hidden></div>
 <div class="overlay" id="pacer" role="dialog" aria-modal="true" aria-label="Breath pacer" hidden></div>
 <div class="toast" id="toast" role="status" hidden></div>
 <div class="sr" aria-live="polite" id="live"></div>
 
 <script src="assets/line/primal-icons.js"></script><script src="data/routines-a.js"></script><script src="data/routines-b.js"></script><script src="data/systems.js"></script>
-<script src="data/sources.js"></script><script src="data/nutrition.js"></script><script src="data/products.js"></script><script src="data/today.js"></script><script src="data/meta.js"></script><script src="data/schedule.js"></script><script src="data/guide.js"></script><script src="data/areas.js"></script><script src="data/library.js"></script>
+<script src="data/sources.js"></script><script src="data/nutrition.js"></script><script src="data/products.js"></script><script src="data/today.js"></script><script src="data/meta.js"></script><script src="data/schedule.js"></script><script src="data/guide.js"></script><script src="data/areas.js"></script><script src="data/library.js"></script><script src="data/docindex.js"></script><script src="data/docs-private.js"></script><script src="data/docrefs.js"></script>
 <script>
 (function () {
   "use strict";
@@ -1415,11 +1504,37 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   const legacy = (k) => (["op", "me", "both", "x", "ai"].indexOf(k) > -1 ? k : SRC[k].whose === "me" ? "me" : "x");
   /* sb(): class + label for a source panel. Use inside a class attribute: class="fg ${sb(src)}" */
   const sb = (v, who) => { const k = srcOf(v); return `sbox s-${legacy(k)} ${kcl(k, who)}" data-src="${esc(sname(v, who))}`; };
-  const srcTag = (v, dot, who) => { const k = srcOf(v), n = esc(sname(v, who)); return `<span class="src ${SHC[SRC[k].shape] || "op"} ${kcl(k, who)}${dot ? " dot" : ""}"${dot ? ` title="${n}"` : ""}>${dot ? `<span class="sr">Source: ${n}</span>` : n}</span>`; };
+  /* the hubs replaced the colour key (owner, Nov 2026): a record shows no source mark, except Claude's suggestions, which always say so */
+  const srcTag = (v) => (srcOf(v) === "ai" ? '<span class="src sugg">Suggested</span>' : "");
+  /* -- hubs (owner, Nov 2026): one per source the information came from. Week, Day, Compare and Guide are the main page and never change
+     with the hub; Routines, Library (with Nutrition and the docs) and Products show only the chosen hub. "" is All. A document the owner
+     sends later becomes its own hub through its entry in data/sources.js; someone named in the hub gets one too. -- */
+  const HUBD = { "": ["All", "Everything together", "folders"], op: ["OP docs", "OP 1 and OP 2", "book-open"], me: ["Mine", "Approved Foods and the Max doc", "notebook-pen"] };
+  const CORE = ["op", "me", "both", "x", "ai"];
+  let HUBW = {};
+  function hubList() { const l = ["", "op", "me"], who = {}; Object.keys(SRC).forEach((k) => { if (CORE.indexOf(k) < 0) l.push(k); }); (S.adds || []).forEach((a) => { if (srcOf(a.src) === "x" && a.who) { const k = skey("x", a.who); if (l.indexOf(k) < 0) { l.push(k); who[k] = String(a.who).trim(); } } }); HUBW = who; return l; }
+  const hubName = (h) => (HUBD[h] ? HUBD[h][0] : SRC[h] ? SRC[h].n : HUBW[h] || String(h).replace(/^x:/, ""));
+  const hubOf = () => { const h = S.ui.hub || ""; return hubList().indexOf(h) > -1 ? h : ""; };
+  const inHub = (v, who, h) => { h = h === undefined ? hubOf() : h; if (!h) return true; const k = srcOf(v); if (h === "op") return k === "op" || k === "both" || k === "ai"; if (h === "me") return k === "me" || k === "both"; return k === h || skey(v, who) === h; };
+  const hubBar = (cls) => `<div class="hubs ${cls || ""}" role="group" aria-label="Hub: whose information Routines, Library and Products show">${hubList().map((h) => `<button data-hub="${esc(h)}" aria-pressed="${hubOf() === h}">${li(HUBD[h] ? HUBD[h][2] : "notebook")}<span>${esc(hubName(h))}</span></button>`).join("")}</div>`;
+  /* -- the docs (data/docindex.js; the text, data/docs-text.js, is private and loads when first needed) -- */
+  const DOCS = P.docs || [], DSEC = {}; DOCS.forEach((d) => d.secs.forEach((x, i) => (DSEC[x.id] = Object.assign({ doc: d, i }, x))));
+  const GENERIC = /^(routine|importance|introduction|the protocol|release routine|zygotape|sleep|training|daily routine)$/i;
+  const secName = (x) => (x.g && GENERIC.test(x.h) ? x.g.replace(/^\d+-\s*/, "") + ": " + x.h : x.h).replace(/^\d+-\s*/, "");
+  const secUrl = (x) => x.doc.url + (x.tab ? "?tab=" + x.tab : "");
+  const hubDocs = () => DOCS.filter((d) => inHub(d.src));
+  let DOCP = null;
+  const loadDocs = () => DOCP || (DOCP = new Promise((res) => { if (P.docText) return res(true); const el = document.createElement("script"); el.src = "data/docs-text.js"; el.onload = () => res(!!P.docText); el.onerror = () => res(false); document.head.appendChild(el); }));
+  const docRefs = (ref) => ((P.docRefs || {})[ref] || []).map((id) => DSEC[id]).filter(Boolean);
+  const docRefsHtml = (ref, title) => { const l = docRefs(ref); return l.length ? `<div class="indocs"><h4>${title || "In the docs"}</h4><ul>${l.map((x) => `<li><button class="linkbtn" data-docsec="${esc(x.id)}">${li("book-open")}<span><b>${esc(x.doc.n)}</b> ${esc(secName(x))}</span></button></li>`).join("")}</ul></div>` : ""; };
+  /* -- Daily items: what to do with the day that is not a routine or gym session (data/today.js, an item with k) -- */
+  const isDaily = (i) => !!i.k || (!i.go && !i.plan);
+  const DGRP = {}; (P.dailyGroups || []).forEach((g) => (DGRP[g[0]] = g));
+  const dailyAll = () => { const out = []; P.blocks.forEach((b) => b.items.forEach((i) => { if (isDaily(i)) out.push(Object.assign({ b }, i)); })); return out; };
+  const dailyOn = (d) => { const out = []; P.blocks.forEach((b) => SC.items(b, d, S.plan).forEach((i) => { if (isDaily(i)) out.push(Object.assign({ b }, i)); })); return out; };
   /* every record that carries a source, for the key */
   const srcRecs = () => P.products.concat(P.routines, P.systems, P.extras, (P.nutrition.approved || []).reduce((a, g) => a.concat([g], g.items.filter((i) => typeof i !== "string")), []), S.adds || []);
   /* the key: the four fixed sources, then every named source and person that something in the hub comes from */
-  const keyHtml = () => { const out = [["op", ""], ["me", ""], ["both", ""], ["ai", ""]], seen = { op: 1, me: 1, both: 1, ai: 1 }; srcRecs().forEach((r) => { const k = skey(r.src, r.who); if (!seen[k] && (k !== "x" || r.who)) { seen[k] = 1; out.push([srcOf(r.src), r.who || ""]); } }); return out.map((o) => srcTag(o[0], false, o[1])).join(""); };
   /* the shape alone, for places where its name is already written beside it (filters, headings, form labels) */
   const srcDot = (v, who) => { const k = srcOf(v); return `<span class="src ${SHC[SRC[k].shape] || "op"} ${kcl(k, who)} dot" aria-hidden="true"></span>`; };
   /* one stylesheet rule per source colour, for light, dark and the always-dark rail */
@@ -1466,7 +1581,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   const SLOTS = [["morning", "am", "Morning"], ["train", "train", "Training"], ["evening", "pm", "Evening"], ["bed", "bed", "Before bed"]];
   const SLOTIC = { am: "sunrise", train: "dumbbell", pm: "sunset", bed: "bed" }, BLOCKART = { wake: "field/day-dawn", morning: "field/day-dawn", train: "field/day-train", day: "illus/wellbeing-hydration", evening: "field/day-dusk", bed: "field/day-night" };
   const slotName = (k) => (SLOTS.find((s) => s[1] === k) || [])[2] || "";
-  const SUBS = { week: [["#week", "week", "Week"], ["#today", "today", "Day"], ["#compare", "compare", "Compare"], ["#guide", "guide", "Guide"]], routines: [["", "routines", "Routines"], ["gym", "gym", "Gym"], ["lib", "lib", "Exercise library"]], library: [["#library", "library", "All topics"], ["#nutrition", "nutrition", "Nutrition"]] };
+  const SUBS = { week: [["#week", "week", "Week"], ["#today", "today", "Day"], ["#compare", "compare", "Compare"], ["#guide", "guide", "Guide"]], routines: [["", "routines", "Routines"], ["gym", "gym", "Gym"], ["day", "day", "Daily"], ["lib", "lib", "Exercise library"]], library: [["#library", "library", "All topics"], ["#nutrition", "nutrition", "Nutrition"]] };
   const subnav = (grp, cur) => `<nav class="subnav" aria-label="${grp === "routines" ? "Routines" : grp === "library" ? "Library" : "Week"} views">${SUBS[grp].map((t) => (t[0][0] === "#" ? `<a href="${t[0]}"${t[1] === cur ? ' aria-current="page"' : ""}>${t[2]}</a>` : `<button data-rtab="${t[0]}"${t[1] === cur ? ' aria-current="page"' : ""}>${t[2]}</button>`)).join("")}</nav>`;
   const clone = (x) => JSON.parse(JSON.stringify(x));
   const catOf = (id) => P.cats.find((c) => c.id === id) || {};
@@ -1533,12 +1648,12 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   const wFresh = (d, k, rid) => { const key = d + "|" + k + "|" + rid; WNEXT[key] = 1; return WSNAP && !WSNAP[key] ? " fresh" : ""; };
   function renderWeek() {
     now = new Date(); TK = dkey(now); WNEXT = {};
-    const today = now.getDay(), sd = selDay(), checks = SC.checks(S.plan, aimsNow()), bad = checks.filter((c) => c.k === "fit").length, l = lens(), bal = {}, hl = S.ui.hl || "", spl = {}, max = Math.max(1, ...ORDER.map((d) => { const o = (spl[d] = daySplit(d)); return l ? o[l] : o.rt + o.gym; })), m = monday(now), sun = addDays(m, 6), mo = (x) => x.toLocaleDateString("en-GB", { month: "long" });
+    const today = now.getDay(), sd = selDay(), checks = SC.checks(S.plan, aimsNow()), bad = checks.filter((c) => c.k === "fit").length, l = lens(), bal = {}, hl = S.ui.hl || "", spl = {}, max = Math.max(1, ...ORDER.map((d) => { const o = (spl[d] = daySplit(d)); return l && l !== "day" ? o[l] : o.rt + o.gym; })), m = monday(now), sun = addDays(m, 6), mo = (x) => x.toLocaleDateString("en-GB", { month: "long" });
     ORDER.forEach((d) => { const pl = SC.plan(d, S.plan), seen = {}; SLOTS.forEach((s) => (pl[s[1]] || []).forEach((x) => { const r = byId[x[0]]; if (r && inLens(r, l) && !seen[r.cat]) { seen[r.cat] = 1; bal[r.cat] = (bal[r.cat] || 0) + 1; } })); });
     const range = m.getMonth() === sun.getMonth() ? `${m.getDate()} to ${sun.getDate()} ${mo(sun)}` : `${m.getDate()} ${mo(m)} to ${sun.getDate()} ${mo(sun)}`;
     const cols = ORDER.map((d) => {
       const pl = SC.plan(d, S.plan), rows = SC.day(d, S.plan);
-      const cells = SLOTS.map((s) => {
+      const cells = l === "day" ? dailyCells(d) : SLOTS.map((s) => {
         const list = pl[s[1]] || [], r = rows.find((x) => x.b.id === s[0]), ri = rows.indexOf(r), clk = r ? r.items.filter((it) => it.plan).map((it) => it.clock) : [];
         const nx = r ? (ri < rows.length - 1 ? rows[ri + 1].at : SC.T(P.plan.bedtime)) : 0, free = r && r.used ? nx - r.end : 0;
         return `<div class="pcell" data-cell="${d}|${s[1]}"><div class="pcell-head"><span>${li(SLOTIC[s[1]])}${s[2]}</span><time>${r && r.used ? `${SC.C(r.at)}–${SC.C(r.end)}` : SC.at(s[0], d, S.plan)}</time></div>
@@ -1546,7 +1661,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
           ${r && r.over ? `<p class="pover">${r.over} min too long</p>` : free >= 15 ? `<p class="pfree" title="Free from ${SC.C(r.end)} to ${SC.C(nx)}"><span>Free until ${SC.C(nx)}</span><b>${hm(free)}</b></p>` : ""}
           <button class="padd${list.length ? "" : " nil"}" data-pick="${d}|${s[1]}" aria-label="Add a routine to ${DAYN[d]} ${s[2].toLowerCase()}">${list.length ? "" : '<img class="pnil" src="assets/field/state-empty-slot.webp" width="24" height="24" alt="">'}${gl(G.plus, "s")}</button></div>`;
       }).join("");
-      return `<section class="pcol${d === today ? " now" : ""}${d === sd ? " sel" : ""}" aria-label="${DAYN[d]}"><header><button class="pday" data-openday="${d}" aria-label="Open ${DAYN[d]}"><b>${DAYN[d].slice(0, 3)}</b><span>${dateOf(d).getDate()}</span></button><p class="pfocus">${esc(pl.focus || "")}</p><div class="ptot">${splitBar(spl[d], max, l)}${(!l || l === "rt") && spl[d].rt ? `<span class="ptl">${spl[d].rt} min routines</span>` : ""}${(!l || l === "gym") && spl[d].gym ? `<span class="ptl g">${spl[d].gym} min gym</span>` : ""}${(l ? !spl[d][l] : !spl[d].rt && !spl[d].gym) ? `<span>${l === "gym" ? "No gym" : "Nothing planned"}</span>` : ""}${(S.plan || {})[d] ? '<span><span class="badge gold">Edited</span></span>' : ""}</div></header>${cells}</section>`;
+      return `<section class="pcol${d === today ? " now" : ""}${d === sd ? " sel" : ""}" aria-label="${DAYN[d]}"><header><button class="pday" data-openday="${d}" aria-label="Open ${DAYN[d]}"><b>${DAYN[d].slice(0, 3)}</b><span>${dateOf(d).getDate()}</span></button><p class="pfocus">${esc(pl.focus || "")}</p><div class="ptot">${splitBar(spl[d], max, l)}${(!l || l === "rt") && spl[d].rt ? `<span class="ptl">${spl[d].rt} min routines</span>` : ""}${(!l || l === "gym") && spl[d].gym ? `<span class="ptl g">${spl[d].gym} min gym</span>` : ""}${l === "day" ? `<span class="ptl dl">${dailyOn(d).length} daily items</span>` : (l ? !spl[d][l] : !spl[d].rt && !spl[d].gym) ? `<span>${l === "gym" ? "No gym" : "Nothing planned"}</span>` : ""}${(S.plan || {})[d] ? '<span><span class="badge gold">Edited</span></span>' : ""}</div></header>${cells}</section>`;
     }).join("");
     const w = weekSplit(), rv0 = review(), nSug = rv0.order.length + rv0.time.length + rv0.freq.length + rv0.gym.length, open = !!S.ui.wbo;
     $("#v-week").innerHTML = `
@@ -1558,8 +1673,8 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
         ${checks.length ? `<details class="pcheck"${bad ? " open" : ""}><summary>${gl(bad ? G.warn : G.info, "s")}<span>${bad ? `${bad} ${bad === 1 ? "part of a day does" : "parts of days do"} not fit` + (checks.length > bad ? `, and ${checks.length - bad} more to look at` : "") : `${checks.length} ${checks.length === 1 ? "thing" : "things"} to look at this week`}</span>${CARET}</summary><ul class="pchecks">${checks.map((c) => `<li${c.k === "fit" ? ' class="bad"' : ""}><span>${esc(c.text)}</span>${c.rid ? `<button class="linkbtn" data-insp="${esc(c.rid)}">Adjust</button>` : `<button class="linkbtn" data-openday="${c.d}">Open ${DAYN[c.d]}</button>`}</li>`).join("")}</ul></details>` : `<p class="pok">${gl(G.check, "s")}Every day fits and nothing is doubled up.</p>`}</section>
       ${(() => { const rv = rv0, n = nSug; return n ? `<p class="gnote">${li("list-checks")}<span>The guide has ${n} ${n === 1 ? "suggestion" : "suggestions"} on order, time of day and frequency. A dashed edge marks a routine at a time the guide does not suit.</span><a class="linkbtn" href="#guide">Open the guide</a></p>` : ""; })()}</div>
       ${dayStrip(sd)}
-      <div class="planner" id="planner">${cols}</div>
-      <p class="small muted phint">Drag a routine to another slot, or choose it to see what is in it and change when and how often you do it.</p>`;
+      <div class="planner${l === "day" ? " daily" : ""}" id="planner" style="--pr:${l === "day" ? P.blocks.length + 1 : 5}">${cols}</div>
+      <p class="small muted phint">${l === "day" ? "Everything in the day that is not a routine or gym session. Choose one to see where the docs say it." : "Drag a routine to another slot, or choose it to see what is in it and change when and how often you do it."}</p>`;
     WSNAP = WNEXT;
   }
 
@@ -1592,7 +1707,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   function renderDay() {
     now = new Date(); TK = dkey(now); const LJ = LOGJUST; LOGJUST = "";
     const d = selDay(), today = now.getDay(), pl = SC.plan(d, S.plan), rows = SC.day(d, S.plan), ed = !!S.ui.de, date = dateOf(d), edited = !!(S.plan || {})[d];
-    const l = lens(), vis = (i) => { const rt = i.go && byId[i.go]; return rt ? inLens(rt, l) : l !== "gym"; }, oDate = occDate(d), AG = {}; agenda(d).forEach((a) => (AG[a.it.id] = a));
+    const l = lens(), vis = (i) => { if (l === "day") return isDaily(i); if (l === "rt" && isDaily(i)) return false; const rt = i.go && byId[i.go]; return rt ? inLens(rt, l) : l !== "gym"; }, oDate = occDate(d), AG = {}; agenda(d).forEach((a) => (AG[a.it.id] = a));
     const rec = (i) => { const a = AG[i.id]; if (!a) return ""; const s = occState(oDate, a), e = logOf(oDate, a.key); return s === "upcoming" || s === "optional" || s === "missed" ? "" : `<p class="trec"><span class="ost st-${s}${LJ && LJ === a.key ? " just" : ""}">${STL[s]}</span>${e ? `<span>${e.d === dkey(new Date(e.at)) ? "logged " + hhmm(e.at) : "logged later"}</span>` : ""}</p>`; };
     const logBtn = (i) => { const a = AG[i.id]; if (!a || oDate > TK) return i.opt ? '<span class="badge">Optional</span>' : "<span></span>"; const s = occState(oDate, a); return s === "done" || s === "skip" ? (i.opt ? '<span class="badge">Optional</span>' : "<span></span>") : `<button class="tlog" data-dlog="done|${esc(a.key)}" aria-label="Mark ${esc(i.t)} done">${CHECK}</button>`; };
     const nm = now.getHours() * 60 + now.getMinutes(), isT = oDate === TK; let nowDone = !isT;
@@ -1619,19 +1734,21 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   const usualSlot = (r) => { const n = {}; placed(r.id).forEach((x) => (n[x.k] = (n[x.k] || 0) + 1)); const k = Object.keys(n).sort((a, b) => n[b] - n[a])[0]; return k || (isGym(r) || r.cat === "sprint" ? "train" : r.cat === "breath" ? "bed" : SC.mins(r.id) >= 15 ? "pm" : "am"); };
   let CSEL = [];
   /* ── routines and gym: one switch, shared by Week, Day and Compare. Gym = the gym kind, or anything needing gym equipment ── */
-  const LENS = [["", "Everything"], ["rt", "Routines"], ["gym", "Gym"]];
-  const lens = () => (S.ui.lens === "rt" || S.ui.lens === "gym" ? S.ui.lens : "");
-  const inLens = (r, l) => !l || (l === "gym") === isGym(r);
+  const LENS = [["", "Everything"], ["rt", "Routines"], ["gym", "Gym"], ["day", "Daily"]];
+  const lens = () => (S.ui.lens === "rt" || S.ui.lens === "gym" || S.ui.lens === "day" ? S.ui.lens : "");
+  /* views that only hold routines (Guide, By exercise, By body area) read Daily as Everything */
+  const rlens = () => (lens() === "day" ? "" : lens());
+  const inLens = (r, l) => !l || (l !== "day" && (l === "gym") === isGym(r));
   const gymOf = (r) => (isGym(r) ? "gym" : "rt");
   const daySplit = (d) => { const o = { rt: 0, gym: 0, nrt: 0, ngym: 0 }, pl = SC.plan(d, S.plan); SLOTS.forEach((s) => (pl[s[1]] || []).forEach((x) => { const r = byId[x[0]]; if (!r) return; const g = gymOf(r); o[g] += +x[1] || 0; o["n" + g]++; })); return o; };
   const weekSplit = () => { const w = { rt: 0, gym: 0, nrt: 0, ngym: 0, drt: [], dgym: [] }; ORDER.forEach((d) => { const o = daySplit(d); ["rt", "gym", "nrt", "ngym"].forEach((k) => (w[k] += o[k])); if (o.nrt) w.drt.push(d); if (o.ngym) w.dgym.push(d); }); return w; };
   const hm = (m) => (m >= 60 ? `${Math.floor(m / 60)} h${m % 60 ? " " + (m % 60) + " min" : ""}` : m + " min");
   const dayList = (l) => (l.length === 7 ? "every day" : l.length ? l.map((d) => DAYN[d].slice(0, 3)).join(", ") : "no days");
   /* the switch doubles as the legend: each option names its colour, its minutes and its days */
-  function lensBar(day) {
-    const w = day == null ? weekSplit() : null, o = day == null ? null : daySplit(day), l = lens();
-    const sub = (k) => (o ? `${o[k]} min, ${o["n" + k]} ${o["n" + k] === 1 ? "session" : "sessions"}` : `${hm(w[k])}, ${w["n" + k]} sessions, ${dayList(w["d" + k])}`);
-    return `<div class="lens" role="group" aria-label="Show routines, gym or both">${LENS.map((x) => `<button data-lens="${x[0]}" aria-pressed="${l === x[0]}" class="lens-${x[0] || "all"}"><span class="lsw" aria-hidden="true"></span><b>${x[1]}</b><small>${x[0] ? sub(x[0]) : o ? `${o.rt + o.gym} min ${day === now.getDay() ? "today" : "on " + DAYN[day]}` : `${hm(w.rt + w.gym)} a week`}</small></button>`).join("")}</div>`;
+  function lensBar(day, noDaily) {
+    const w = day == null ? weekSplit() : null, o = day == null ? null : daySplit(day), l = noDaily ? rlens() : lens();
+    const sub = (k) => (k === "day" ? (o ? `${dailyOn(day).length} things to do` : `${dailyAll().length} things, not routines or gym`) : o ? `${o[k]} min, ${o["n" + k]} ${o["n" + k] === 1 ? "session" : "sessions"}` : `${hm(w[k])}, ${w["n" + k]} sessions, ${dayList(w["d" + k])}`);
+    return `<div class="lens" role="group" aria-label="Show routines, gym, daily items or everything">${LENS.filter((x) => !noDaily || x[0] !== "day").map((x) => `<button data-lens="${x[0]}" aria-pressed="${l === x[0]}" class="lens-${x[0] || "all"}"><span class="lsw" aria-hidden="true"></span><b>${x[1]}</b><small>${x[0] ? sub(x[0]) : o ? `${o.rt + o.gym} min ${day === now.getDay() ? "today" : "on " + DAYN[day]}` : `${hm(w.rt + w.gym)} a week`}</small></button>`).join("")}</div>`;
   }
   /* one horizontal bar per day: routines then gym, scaled to the busiest day */
   const splitBar = (o, max, l) => `<span class="sbar" aria-hidden="true">${["rt", "gym"].filter((k) => (!l || l === k) && o[k]).map((k) => `<i class="s-${k}" style="width:${max ? Math.max(4, (o[k] / max) * 100).toFixed(1) : 0}%"></i>`).join("")}</span>`;
@@ -1707,7 +1824,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   }
   function renderGuide() {
     now = new Date(); TK = dkey(now);
-    const l = lens(), rv = review(), inL = (rid) => !rid || !byId[rid] || inLens(byId[rid], l), mark = (s) => srcTag(s, true);
+    const l = rlens(), rv = review(), inL = (rid) => !rid || !byId[rid] || inLens(byId[rid], l), mark = (s) => srcTag(s, true);
     const order = rv.order.map((x, i) => [x, i]).filter((x) => x[0].now.some(inL)), time = rv.time.map((x, i) => [x, i]).filter((x) => inL(x[0].rid)), freq = rv.freq.map((x, i) => [x, i]).filter((x) => inL(x[0].rid)), gym = rv.gym.map((x, i) => [x, i]).filter((x) => l !== "rt");
     const tot = order.length + time.length + freq.length + gym.length, nm = (id) => esc((byId[id] || {}).name || id);
     const card = (title, sub, all, rows) => `<section class="gcard"><header><div><h3>${title}</h3><p>${sub}</p></div>${all || ""}</header>${rows.length ? `<ul class="glist">${rows.join("")}</ul>` : `<p class="pok">${gl(G.check, "s")}Nothing to change.</p>`}</section>`;
@@ -1718,7 +1835,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
       return `<section class="gcol"><h3>${li(SLOTIC[s[1]])}${s[2]}</h3><ol>${ids.map((id) => { const gd = P.guide[id], p = phase(s[1], gd.r), head = p !== ph ? `<li class="gph">${esc(p)}</li>` : ""; ph = p; const n = placed(id).length;
         return `${head}<li><button class="gr${isGym(byId[id]) ? " gym" : ""}" data-insp="${esc(id)}">${isGym(byId[id]) ? gymIcon() : `<span class="cdot" data-kind="${byId[id].cat}"></span>`}<span>${nm(id)}</span><small>${fTxt(gd.f)}${gd.t.length > 1 ? `, also ${tTxt(gd.t.slice(1))}` : ""}${n ? `. In your week ${n}×` : ""}</small></button></li>`; }).join("")}</ol></section>`; }).join("");
     $("#v-guide").innerHTML = `<header class="view-head band band-guide"><div><h1>Guide</h1><p class="lede">When, how often and in what order each routine fits. Each line says whether it comes from the OP docs or is a suggestion where they say nothing. Your week only changes when you choose Apply.</p></div><div class="head-side">${undoBar()}</div></header>
-      <div class="wtool">${subnav("week", "guide")}${lensBar()}</div>
+      <div class="wtool">${subnav("week", "guide")}${lensBar(null, 1)}</div>
       <section class="gsum"><p><b>${tot ? `${tot} ${tot === 1 ? "suggestion" : "suggestions"} for this week.` : "Your week matches the guide."}</b> You plan about ${hm(rv.perDay)} a day now. At every suggested frequency it would be about ${hm(rv.perDayTarget)}.</p>
         <p class="small muted"><span class="src op dot"></span> from the OP docs <span class="src ai dot"></span> suggested where the docs are silent. Fixes for a specific problem only count once you have put them in your week.</p>
         <p class="gbud"><label>Daily time budget <input type="number" id="gBudget" name="budget" min="0" max="1440" step="5" inputmode="numeric" autocomplete="off" value="${+S.ui.budget || ""}" placeholder="none"> min</label><span class="small muted">${S.ui.budget ? `${ORDER.filter((d) => dayMin(d) > S.ui.budget).length} of 7 days are over it now. Previews flag days that would go over.` : "Optional. Previews flag days that would go over it; nothing is blocked."}</span></p></section>
@@ -1744,13 +1861,13 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   const AREA = {}; P.areas.forEach((a) => (AREA[a.id] = a));
   const areasOf = (rid) => { const r = byId[rid]; return !r ? [] : (S.atag || {})[r.id] || P.rtAreas(r); };
   const areaW = () => { const w = {}; P.areas.forEach((a) => (w[a.id] = (S.aw || {})[a.id] != null ? +S.aw[a.id] : P.areaWeight[a.id].days)); return w; };
-  const coverNow = () => { const l = lens(); return SC.cover(S.plan, areasOf, areaW(), (rid) => inLens(byId[rid], l), pinOf); };
+  const coverNow = () => { const l = rlens(); return SC.cover(S.plan, areasOf, areaW(), (rid) => inLens(byId[rid], l), pinOf); };
   const aList = (l) => l.map((a) => AREA[a].n.toLowerCase()).join(", ");
   const dayTxt = (n) => `${n} ${n === 1 ? "day" : "days"} a week`;
   function drawAreas() {
     const cv = coverNow(), w = areaW(), aw = S.aw || {}, rows = cv.rows, under = rows.filter((r) => r.state === "under"), over = rows.filter((r) => r.state === "over");
     const opts = (a) => [0, 1, 2, 3, 4, 5, 6, 7].map((n) => `<option value="${n}"${w[a] === n ? " selected" : ""}>${n ? `${n} a week, ${P.areaLevel(n).toLowerCase()}` : "Off"}</option>`).join("");
-    const who = (a) => P.routines.filter((r) => areasOf(r.id).indexOf(a) > -1 && inLens(r, lens())).map((r) => [r, placed(r.id).length]).sort((x, y) => y[1] - x[1] || x[0].name.localeCompare(y[0].name));
+    const who = (a) => P.routines.filter((r) => areasOf(r.id).indexOf(a) > -1 && inLens(r, rlens())).map((r) => [r, placed(r.id).length]).sort((x, y) => y[1] - x[1] || x[0].name.localeCompare(y[0].name));
     const spread = cv.spread.map((x, i) => `<li><div><b>${esc(byId[x.rid].name)}: ${DAYN[x.d]} → ${DAYN[x.to]}</b><small>${srcTag("ai", true)}${esc(AREA[x.a].n)} is worked by ${rows.find((r) => r.a === x.a).per[ORDER.indexOf(x.d)]} routines on ${DAYN[x.d]} and none on ${DAYN[x.to]}. ${DAYN[x.to]} also gains ${aList(x.gain)}${x.lose.length ? `; ${DAYN[x.d]} loses its only ${aList(x.lose)} work` : ""}. Same part of the day.</small></div><button class="btn ghost sm" data-amove="${i}">Move to ${DAYN[x.to].slice(0, 3)}</button></li>`);
     const twice = {}; cv.twice.forEach((x) => (twice[x.d] = (twice[x.d] || []).concat([x])));
     $("#cmpBody").innerHTML = `<section class="gsum"><p><b>${under.length ? `${under.length} ${under.length === 1 ? "area gets" : "areas get"} fewer days than its weighting` : "Every area gets at least the days its weighting asks for"}${over.length ? `; ${over.length} get more than it asks` : ""}.</b> ${cv.spread.length ? `${cv.spread.length} ${cv.spread.length === 1 ? "move" : "moves"} would spread doubled-up work onto days that have none.` : "Nothing doubled up can move to a day that lacks it."}</p>
@@ -1788,8 +1905,9 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
       <h4>${sets[i].length} exercises</h4><ol class="iparts">${sets[i].map((n) => `<li${shared(n) ? ' class="same"' : ""}>${esc(n)}${shared(n) ? '<small>in all of these</small>' : ""}</li>`).join("")}</ol><button class="btn ghost sm" data-insp="${esc(r.id)}">Adjust</button></div>`; }).join("")}</div></section>`;
   }
   function drawCompare() {
-    const ui = S.ui, view = ui.ct === "ex" || ui.ct === "area" ? ui.ct : "rt", l = lens();
+    const ui = S.ui, view = ui.ct === "ex" || ui.ct === "area" ? ui.ct : "rt", l = view === "rt" ? lens() : rlens();
     if (view === "area") return drawAreas();
+    if (l === "day") return drawDailyCompare();
     if (view === "ex") {
       const m = {}, q = (ui.cq || "").trim().toLowerCase();
       P.routines.filter((r) => inLens(r, l)).forEach((r) => { const t = placed(r.id).length; exNames(r).forEach((n) => { const e = (m[n] = m[n] || { n, c: 0, rs: [] }); e.c += t; e.rs.push([r, t]); }); });
@@ -1827,7 +1945,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
     if (d.cday) { const a = d.cday.split("|"), r = byId[a[0]], dd = +a[1]; if (!r) return true; const on = t.getAttribute("aria-pressed") === "true", k = usualSlot(r);
       editDay(dd, (pl) => { if (on) ["am", "train", "pm", "bed"].forEach((s) => (pl[s] = pl[s].filter((x) => x[0] !== r.id))); else pl[k].push([r.id, (placed(r.id)[0] || {}).min || SC.mins(r.id)]); }, `[data-cday="${d.cday}"]`); say(on ? "Removed from " + DAYN[dd] : `Added to ${DAYN[dd]} ${slotName(k).toLowerCase()}`); return true; }
     if (d.ctab) { S.ui.ct = d.ctab; S.ui.cq = ""; save(); renderCompare(); refocus(`[data-ctab="${d.ctab}"]`); return true; }
-    if (d.lens !== undefined) { S.ui.lens = d.lens; save(); RENDER[current](); refocus(`[data-lens="${d.lens}"]`); say(d.lens ? `Showing ${d.lens === "gym" ? "gym" : "routines"} only` : "Showing everything"); return true; }
+    if (d.lens !== undefined) { S.ui.lens = d.lens; save(); RENDER[current](); refocus(`[data-lens="${d.lens}"]`); say(d.lens ? `Showing ${d.lens === "gym" ? "gym" : d.lens === "day" ? "daily items" : "routines"} only` : "Showing everything"); return true; }
     if (t.id === "cmpOnly") { S.ui.co = !S.ui.co; save(); renderCompare(); refocus("#cmpOnly"); return true; }
     if (t.id === "cmpClear") { CSEL = []; drawCompare(); return true; }
     if (t.id === "cmpReset") { S.ui.cq = ""; S.ui.co = false; save(); renderCompare(); refocus("#cmpQ"); return true; }
@@ -1861,7 +1979,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
           ${fq || tm.length ? `<div class="row">${fq ? `<button class="btn ghost sm" data-gfix="freq|${esc(fq.rid)}">${fq.delta > 0 ? `Add ${fq.delta} to reach ${fTxt(fq.f)}…` : `Remove ${-fq.delta}…`}</button>` : ""}${tm.length ? `<button class="btn ghost sm" data-gfix="time|${esc(rid)}">Move ${tm.length > 1 ? "all " + tm.length : ""} to the ${SLOTW[gd.t[0]]}…</button>` : ""}</div>` : ""}</section>`; })()}
       <section class="iworks" aria-label="What it works"><h4>What it works</h4><p class="small muted">${srcTag(mine ? "me" : "ai", true)}${mine ? "Your tags." : "Suggested from its exercise names: the areas at least a quarter of its steps work."} Choose an area to add or remove it. Compare by body area counts these.</p>
         <div class="chips">${P.areas.map((a) => `<button class="chip plain atag" data-atag="${a.id}" aria-pressed="${works.indexOf(a.id) > -1}">${esc(a.n)}</button>`).join("")}</div>${mine ? '<button class="linkbtn" data-atagreset="1">Back to the suggested tags</button>' : ""}</section>
-      <div class="row"><button class="btn ghost sm" data-go="${esc(rid)}">Open the routine</button><button class="btn ghost sm" data-dup="${esc(rid)}">${li("copy")}Duplicate and edit</button></div>`)}
+      ${docRefsHtml("r:" + (r.base || rid))}<div class="row"><button class="btn ghost sm" data-go="${esc(rid)}">Open the routine</button><button class="btn ghost sm" data-dup="${esc(rid)}">${li("copy")}Duplicate and edit</button></div>`)}
       ${pnl("sch", `${here ? `<fieldset class="ed-slot"><legend>${DAYN[+cur[0]]} ${slotName(cur[1]).toLowerCase()}</legend><div class="irow"><span>Minutes</span>${stepper("imin", here[1])}</div>
         <div class="row"><button class="btn ghost sm" data-iup="1"${+cur[2] > 0 ? "" : " disabled"}>Earlier</button><button class="btn ghost sm" data-idown="1"${+cur[2] < list.length - 1 ? "" : " disabled"}>Later</button><button class="btn ghost sm" data-ipin="${esc(pin)}" aria-pressed="${pinned}">${pinned ? "Pinned here" : "Pin here"}</button><button class="btn ghost sm danger" data-irem="1">Remove from ${DAYN[+cur[0]]}</button></div>
         <p class="small muted">${pinned ? "Pinned: the Guide and spread suggestions leave it where it is." : "Pin it to keep the Guide and spread suggestions from moving it."}</p></fieldset>` : ""}
@@ -1967,13 +2085,13 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   function renderRoutines() {
     const ui = S.ui;
     $("#v-routines").innerHTML = `
-      <header class="view-head band band-rt"><div><h1>Routines</h1><p class="lede">${P.routines.filter((r) => !isGym(r)).length} routines and ${P.routines.filter(isGym).length} gym sessions, kept apart, and an illustrated library of ${P.library.length} exercises.</p></div><div class="head-side"><button class="btn ghost" data-add="routine">${gl(G.plus, "s")}Add a routine</button></div></header>
-      ${subnav("routines", ui.rtab === "lib" ? "lib" : ui.rtab === "gym" ? "gym" : "routines")}${ui.rtab === "gym" ? '<p class="small muted">Strength, bone and tendon sessions, and every routine that needs gym equipment. They sit in the same week as your other routines.</p>' : ""}
-      ${ui.rtab === "lib" ? libHtml() : `<div class="toolbar stick"><input class="search" id="rSearch" type="search" placeholder="Search routines and exercises" aria-label="Search routines and exercises" value="${esc(ui.rq || "")}">
+      <header class="view-head band band-rt"><div><h1>Routines</h1><p class="lede">${P.routines.filter((r) => !isGym(r) && inHub(r.src, r.who)).length} routines, ${P.routines.filter((r) => isGym(r) && inHub(r.src, r.who)).length} gym sessions and ${dailyAll().filter((i) => inHub(i.src, i.who)).length} daily items, kept apart, and an illustrated library of ${P.library.length} exercises.</p></div><div class="head-side"><button class="btn ghost" data-add="routine">${gl(G.plus, "s")}Add a routine</button></div></header>
+      ${hubBar("only-m hub-m")}${subnav("routines", ui.rtab === "lib" ? "lib" : ui.rtab === "gym" ? "gym" : ui.rtab === "day" ? "day" : "routines")}${ui.rtab === "day" ? dailyHtml() : ui.rtab === "gym" ? '<p class="small muted">Strength, bone and tendon sessions, and every routine that needs gym equipment. They sit in the same week as your other routines.</p>' : ""}
+      ${ui.rtab === "day" ? "" : ui.rtab === "lib" ? libHtml() : `<div class="toolbar stick"><input class="search" id="rSearch" type="search" placeholder="Search routines and exercises" aria-label="Search routines and exercises" value="${esc(ui.rq || "")}">
         <button class="btn ghost sm only-m" data-sheet="rcat">${gl(G.filter, "s")}Groups</button><span class="badge sage only-m" id="rcatLabel"></span></div>
       <div class="chips only-d" role="group" aria-label="Filter by group"><button class="chip plain" data-cat="" aria-pressed="${!ui.rcat}">All</button>${P.cats.filter((c) => P.routines.some((r) => r.cat === c.id && rtIn(r))).map((c) => `<button class="chip" data-cat="${c.id}" aria-pressed="${ui.rcat === c.id}">${ic(c.icon, 26)}${esc(c.name)}</button>`).join("")}</div>
       <div id="rStrips" class="strip"></div><div id="rList" class="drstack"></div>`}`;
-    if (ui.rtab === "lib") drawLib(); else drawRoutines();
+    if (ui.rtab === "lib") drawLib(); else if (ui.rtab !== "day") drawRoutines();
   }
   const LTYPES = [["", "All"], ["movement", "Start to finish"], ["static", "Held position"], ["reference", "Reference image"]];
   function libHtml() {
@@ -2017,9 +2135,87 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
     let html = srcCtl("r", base, true);
     if (sgOf("r")) html += bySrc(rs, (r) => r).map((g) => `<section class="cat"><div class="cat-head"><div style="flex:1"><h2>${srcHead(g[1])}<span class="badge">${g[2].length}</span></h2></div></div>${g[2].map(row).join("")}</section>`).join("");
     else P.cats.forEach((c) => { const l = rs.filter((r) => r.cat === c.id); if (l.length) html += `<section class="cat ${sb(c.src)}"><div class="cat-head">${ic(c.icon, 32)}<div style="flex:1"><h2>${esc(c.name)}<span class="badge">${l.length}</span></h2><p>${esc(c.blurb)}</p></div></div>${l.map(row).join("")}</section>`; });
-    $("#rList").innerHTML = rs.length ? html : html + `<div class="empty"><img class="ic st-art" src="assets/field/state-no-results.webp" width="72" height="72" alt="" loading="lazy" decoding="async"><p>No routine matches “${esc(S.ui.rq || "")}”${cat ? " in " + esc(catName(cat)) : ""}.</p><button class="btn sm ghost" id="rClear">Clear search and filter</button></div>`;
+    $("#rList").innerHTML = rs.length ? html : hubOf() && !q && !cat && base.length ? hubEmpty(S.ui.rtab === "gym" ? "gym sessions" : "routines", "routine") : html + `<div class="empty"><img class="ic st-art" src="assets/field/state-no-results.webp" width="72" height="72" alt="" loading="lazy" decoding="async"><p>No routine matches “${esc(S.ui.rq || "")}”${cat ? " in " + esc(catName(cat)) : ""}.</p><button class="btn sm ghost" id="rClear">Clear search and filter</button></div>`;
   }
+  const hubEmpty = (what, add) => `<div class="empty"><img class="ic st-art" src="assets/field/state-no-results.webp" width="72" height="72" alt="" loading="lazy" decoding="async"><b>No ${what} in ${esc(hubName(hubOf()))} yet</b>${hubOf() === "me" ? `The ${what} so far come from the OP docs. Add one of your own, or switch the hub.` : "Switch the hub to see the rest."}<div class="row"><button class="btn sm ghost" data-hub="">Show all hubs</button>${add ? `<button class="btn sm ghost" data-add="${add}">${gl(G.plus, "s")}Add your own</button>` : ""}</div></div>`;
   const touch = (id) => { S.recent = [id].concat((S.recent || []).filter((x) => x !== id)).slice(0, 8); save(); };
+  /* -- the hub switch: Routines, Library and Products follow it; the main page (Week, Day, Compare, Guide) never does -- */
+  const SCOPED = ["routines", "library", "nutrition", "products"];
+  function setHub(h, t) {
+    S.ui.hub = h; save(); const inRail = t && t.closest("#railHubs"), inView = t && t.closest("main");
+    applyPlain(); $$("[data-hub]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.hub === h));
+    const scoped = SCOPED.indexOf(current) > -1; if (scoped) RENDER[current]();
+    if (inRail) refocus(`#railHubs [data-hub="${CSS.escape(h)}"]`); else if (inView) refocus(`#v-${current} [data-hub="${CSS.escape(h)}"]`);
+    const what = h ? (h === "me" ? "your own notes" : h === "op" ? "the OP docs" : hubName(h)) : "everything";
+    say(`Hub: ${hubName(h)}. Routines, Library and Products show ${what}.`); if (!scoped && $("#sheet").hidden) toast(`Hub: ${hubName(h)}. Routines, Library and Products now show ${what}; your week stays the same.`);
+  }
+  /* the docs as plain text: headings, bold lines, lists by indent, links that start with http. Escaped first, so nothing in a doc runs. */
+  function mdHtml(text) {
+    const inl = (x) => esc(x).replace(/\\([!*`_~\-#.\[\]()'+])/g, "$1")
+      .replace(/\[([^\]]*)\]\((https?:\/\/[^\s)]+)\)/g, (m, a, u) => `<a href="${u}" target="_blank" rel="noopener">${a || esc(host(u.replace(/&amp;/g, "&")) || "link")}</a>`).replace(/\[([^\]]+)\]\(\)/g, "$1").replace(/\[\]\(\)/g, "")
+      .replace(/(^|[\s(])(https?:\/\/[^\s<)]+)/g, (m, p, u) => `${p}<a href="${u}" target="_blank" rel="noopener">${esc(host(u.replace(/&amp;/g, "&")) || "link")}</a>`)
+      .replace(/~~(.+?)~~/g, "<s>$1</s>").replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/(^|[^*\w])\*(?!\s)([^*]+?)\*(?![*\w])/g, "$1<i>$2</i>");
+    const out = []; let depth = 0; const close = (to) => { while (depth > to) { out.push("</li></ul>"); depth--; } };
+    text.split("\n").forEach((ln) => {
+      if (/^\s*(-{3,}|\*{3,}|_{3,})\s*$/.test(ln)) { close(0); out.push("<hr>"); return; }
+      const m = /^(\s*)(?:[-*•]|\d+[.)])\s+(.*)$/.exec(ln);
+      if (m) { const lv = Math.min(4, Math.floor(m[1].replace(/\t/g, "    ").length / 4)) + 1;
+        if (depth < lv) { while (depth < lv) { out.push("<ul><li>"); depth++; } out.push(inl(m[2])); } else { close(lv); out.push("</li><li>" + inl(m[2])); } return; }
+      close(0); const h = /^#{1,6}\s+(.*)$/.exec(ln), b = /^\s*\*\*([^*]+)\*\*:?\s*$/.exec(ln);
+      if (h) out.push(`<h3>${inl(h[1].replace(/\*\*/g, ""))}</h3>`); else if (b) out.push(`<h3>${inl(b[1])}</h3>`); else if (ln.trim()) out.push(`<p>${inl(ln.trim())}</p>`);
+    });
+    close(0); return out.join("");
+  }
+  let RD = null;
+  function closeDoc(keep) { RD = null; $("#reader").hidden = true; $("#reader").innerHTML = ""; document.body.style.overflow = ""; if (!keep && lastFocus && lastFocus.isConnected) lastFocus.focus(); }
+  function openDoc(id) {
+    const x = DSEC[id]; if (!x) return; if (!RD) lastFocus = document.activeElement; RD = id;
+    if (!$("#sheet").hidden) closeSheet(true); if (!$("#find").hidden) closeFind(true); if (!$("#libdlg").hidden) closeLib();
+    const d = x.doc, prev = d.secs[x.i - 1], next = d.secs[x.i + 1]; let ch = null, gp = null;
+    const toc = `<div class="rd-docs" role="group" aria-label="Documents">${DOCS.filter((y) => inHub(y.src) || y === d).map((y) => `<button data-docsec="${esc(y.secs[0].id)}" aria-pressed="${y === d}">${esc(y.n)}</button>`).join("")}</div>` + d.secs.map((y) => { let o = ""; if (y.ch !== ch) { ch = y.ch; gp = null; if (ch) o += `<h4>${esc(ch)}</h4>`; } if ((y.g || "") !== (gp || "")) { gp = y.g; if (gp) o += `<p class="rd-g">${esc(gp.replace(/^\d+-\s*/, ""))}</p>`; } return o + `<button data-docsec="${esc(y.id)}"${y.id === id ? ' aria-current="true"' : ""}>${esc(y.h.replace(/^\d+-\s*/, ""))}</button>`; }).join("");
+    const nav = (y, dir) => (y ? `<button class="btn ghost sm" data-docsec="${esc(y.id)}">${dir < 0 ? gl(G.back, "s") : ""}<span>${dir < 0 ? "Before" : "Next"}: ${esc(secName(Object.assign({}, y)))}</span>${dir > 0 ? gl(G.arrow, "s") : ""}</button>` : "<span></span>");
+    const el = $("#reader"); el.hidden = false; document.body.style.overflow = "hidden";
+    el.innerHTML = `<div class="rdr" role="dialog" aria-modal="true" aria-labelledby="rdH"><header class="rd-top"><button class="btn ghost sm rd-tocb" id="rdToc" aria-expanded="false" aria-controls="rdNav">${li("list-checks")}<span class="bl">Contents</span></button><div class="rd-crumb"><b>${esc(d.n)}</b><span>${esc([x.ch, x.g && x.g.replace(/^\d+-\s*/, "")].filter(Boolean).join(" · "))}</span></div><a class="btn ghost sm" href="${esc(secUrl(x))}" target="_blank" rel="noopener">${li("external-link")}<span class="bl">Google Docs</span></a><button class="btn ghost sm" id="rdClose">Close</button></header>
+      <div class="rd-body"><nav class="rd-toc" id="rdNav" aria-label="Contents of ${esc(d.n)}">${toc}</nav><article class="rd-text" id="rdText" tabindex="-1"><h1 id="rdH">${esc(secName(x))}</h1><div class="rd-copy" id="rdBody"><p class="muted">Opening the text…</p></div><footer class="rd-nav">${nav(prev, -1)}${nav(next, 1)}</footer></article></div></div>`;
+    const cur = $("#rdNav [aria-current]"); if (cur) cur.scrollIntoView({ block: "center" }); $("#rdText").focus({ preventScroll: true });
+    loadDocs().then((ok) => { if (RD !== id) return; const txt = ok && P.docText[id], b = $("#rdBody"); if (!b) return;
+      b.innerHTML = txt ? mdHtml(txt) : `<div class="status info">${gl(G.info)}<div><b>The full text is not on this device.</b> It is kept out of the public repository. <a href="${esc(secUrl(x))}" target="_blank" rel="noopener">Open this section in Google Docs</a></div></div>`; });
+  }
+  /* -- Daily: everything in the day that is not a routine or gym (data/today.js items with k, and daily habits you add) -- */
+  const BLOCKIC = { wake: "sunrise", morning: "sun", day: "cloud-sun", train: "dumbbell", evening: "sunset", bed: "bed" };
+  const dIcon = (i) => li((DGRP[i.k] || [])[2] || "check-circle");
+  const dWhen = (i) => `${i.b.name}${i.b.id === "train" ? ", on days you train" : i.days && i.days.length < 7 ? ", " + i.days.map((x) => DAYN[x].slice(0, 3)).join(" ") : ", every day"}`;
+  function dailyCells(d) {
+    const its = dailyOn(d);
+    /* every part of the day in every column, so the rows line up across the week */
+    return P.blocks.map((b) => { const l = its.filter((i) => i.b.id === b.id); return `<div class="pcell dcell${l.length ? "" : " nil"}"><div class="pcell-head"><span>${li(BLOCKIC[b.id] || "sun")}${esc(b.name)}</span><time>${SC.at(b.id, d, S.plan)}</time></div>${l.map((i) => `<button class="dchip${i.opt ? " opt" : ""}" data-daily="${esc(i.id)}">${dIcon(i)}<b>${esc(i.t)}</b>${i.opt ? "<small>Optional</small>" : ""}</button>`).join("")}</div>`; }).join("");
+  }
+  const dRow = (i) => { const key = "i:" + i.id, rt = i.go && byId[i.go];
+    return `<li><details class="dr" name="dr" data-dr="${esc(key)}"${drOpen(key)}><summary><span class="dr-ic" aria-hidden="true">${dIcon(i)}</span><span class="dr-main"><b>${esc(i.t)}</b><small>${esc(dWhen(i))}</small></span>${i.opt ? '<span class="badge">Optional</span>' : "<span></span>"}${srcTag(i.src)}${CARET}</summary>
+      <div class="dr-body">${i.d ? `<p>${esc(i.d)}</p>` : ""}${rt ? `<p class="small">Goes with <button class="linkbtn" data-go="${esc(rt.id)}">${esc(rt.name)}</button></p>` : ""}${docRefsHtml(key) || (i.uid ? '<p class="small muted">Added by you in the hub.</p>' : "")}</div></details></li>`; };
+  function dailyHtml() {
+    const all = dailyAll().filter((i) => inHub(i.src, i.who)), by = S.ui.dgb === "kind" ? "kind" : "part";
+    const groups = by === "kind" ? (P.dailyGroups || []).map((g) => [g[0], g[1], all.filter((i) => i.k === g[0])]).concat([["", "Your own", all.filter((i) => !i.k)]]) : P.blocks.map((b) => [b.id, b.name, all.filter((i) => i.b.id === b.id)]);
+    const habits = inHub("op") ? `<section class="drg"><h2 class="drg-h"><span>All day, every day</span><span class="badge">${P.habits.length}</span></h2><ul class="bullets">${P.habits.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>${docRefsHtml("i:habits")}</section>` : "";
+    return `<p class="small muted">Everything in your day that is not a routine or a gym session: light, food, sleep and the rest, as the docs set it out. Each one shows where it is written.</p>
+      <div class="toolbar"><div class="seg" role="group" aria-label="Group daily items"><button data-dgb="part" aria-pressed="${by === "part"}">By part of the day</button><button data-dgb="kind" aria-pressed="${by === "kind"}">By kind</button></div><span style="flex:1"></span><button class="btn ghost sm" data-add="item">${gl(G.plus, "s")}Add a daily item</button></div>
+      <div class="drstack">${all.length ? groups.filter((g) => g[2].length).map((g) => `<section class="drg"><h2 class="drg-h">${by === "kind" ? li((DGRP[g[0]] || [])[2] || "notebook") : li(BLOCKIC[g[0]] || "sun")}<span>${esc(g[1])}</span><span class="badge">${g[2].length}</span></h2><ul class="drs">${g[2].map(dRow).join("")}</ul></section>`).join("") + habits
+        : `<div class="empty"><img class="ic st-art" src="assets/field/state-no-results.webp" width="72" height="72" alt="" loading="lazy" decoding="async"><b>No daily items in ${esc(hubName(hubOf()))}</b>Switch the hub to All or OP docs to see the daily items from the docs.</div>`}</div>`;
+  }
+  function drawDailyCompare() {
+    const ui = S.ui, q = (ui.cq || "").trim().toLowerCase(), all = dailyAll().filter((i) => !q || (i.t + " " + (i.d || "")).toLowerCase().indexOf(q) > -1);
+    const ids = all.map((i) => i.id), per = ORDER.map((d) => dailyOn(d).filter((i) => ids.indexOf(i.id) > -1).length);
+    $("#cmpBody").innerHTML = `<section class="cgroup cg-day" aria-label="Daily"><header class="cg-head"><span class="lsw" aria-hidden="true"></span><h2>Daily</h2><p class="cg-stats"><span><b>${all.length}</b> daily items</span><span><b>${all.filter((i) => !i.opt).length}</b> core</span><span><b>${all.filter((i) => i.opt).length}</b> optional</span></p></header>
+      ${all.length ? `<ul class="clist">${(P.dailyGroups || []).concat([["", "Your own"]]).map((g) => { const l = all.filter((i) => (i.k || "") === g[0]); return l.length ? `<li class="chead">${li(g[2] || "notebook")}${esc(g[1])}</li>` + l.map((i) => `<li class="crow dly"><span></span><div class="cname"><button class="linkname" data-daily="${esc(i.id)}">${esc(i.t)}</button><small>${esc(i.b.name)}${i.opt ? ". Optional" : ""}</small></div><div class="cdays" aria-label="Days for ${esc(i.t)}">${ORDER.map((d) => { const on = dailyOn(d).some((x) => x.id === i.id); return `<span class="cd${on ? " on" : ""}" title="${DAYN[d]}"><span aria-hidden="true">${DAYN[d][0]}</span><span class="sr">${DAYN[d]}${on ? "" : ", not this day"}</span></span>`; }).join("")}</div><div class="ccount"><b>${ORDER.filter((d) => dailyOn(d).some((x) => x.id === i.id)).length}</b><small>a week</small></div></li>`).join("") : ""; }).join("")}
+        <li class="cfoot" aria-label="Daily items each day"><span></span><span>Items each day</span><div class="cdays">${ORDER.map((d, i) => `<span title="${DAYN[d]}"><span class="sr">${DAYN[d]} </span>${per[i]}</span>`).join("")}</div><div class="ccount"><b>${per.reduce((a, b) => a + b, 0)}</b><small>a week</small></div></li></ul>`
+        : '<div class="empty"><img class="ic st-art" src="assets/field/state-no-results.webp" width="72" height="72" alt="" loading="lazy" decoding="async"><b>Nothing matches</b>Clear the filter.</div>'}</section>`;
+  }
+  function openDaily(id) {
+    const i = dailyAll().find((x) => x.id === id); if (!i) return; const rt = i.go && byId[i.go], g = DGRP[i.k];
+    sheetUp(`<div class="insp"><div class="ihead"><p class="imeta">${dIcon(i)}${esc(g ? g[1] : "Your own")}${i.opt ? '<span class="badge">Optional</span>' : ""}${srcTag(i.src)}</p><p class="ilead-f"><span>${li(BLOCKIC[i.b.id] || "sun")}${esc(dWhen(i))}</span><span>${gl(G.clock, "s")}${esc(SC.at(i.b.id, selDay(), S.plan))}</span></p></div>
+      ${i.d ? `<p>${esc(i.d)}</p>` : ""}${rt ? `<p>Goes with <button class="linkbtn" data-go="${esc(rt.id)}">${esc(rt.name)}</button></p>` : ""}${docRefsHtml("i:" + i.id) || (i.uid ? '<p class="small muted">Added by you in the hub.</p>' : "")}
+      <div class="row"><button class="btn ghost sm" data-dailytab="1">${li("list-checks")}All daily items</button></div></div>`, esc(i.t));
+  }
   let pendingOpen = null;
   function openRoutine(id) {
     if (!byId[id]) return; S.ui.rq = ""; S.ui.rcat = ""; S.ui.rtab = isGym(byId[id]) ? "gym" : ""; touch(id);
@@ -2043,7 +2239,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
     if (sel.groups) body = sel.groups.map((g, k) => `<div class="grp" id="${sec("g" + k, g.h)}"><h2>${esc(g.h)}</h2>${ddHtml(g.do, g.dont, "g" + k)}</div>`).join("");
     else {
       if (sel.dont.length) sec("t-dont", "Don't"); if (sel.do.length) sec("t-do", "Do");
-      body = `${sel.key && sel.key.length ? `<ul class="keys">${sel.key.map((k) => `<li>${esc(k)}</li>`).join("")}</ul><p class="keysrc">Key numbers · ${srcTag(sel.src, false, sel.who)}</p>` : ""}${ddHtml(sel.do, sel.dont, "t")}${(sel.more || []).map((m, k) => `<div class="more" id="${sec("m" + k, m.h)}"><h2>${esc(m.h)}</h2><ul class="bullets">${m.items.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>`).join("")}`;
+      body = `${sel.key && sel.key.length ? `<ul class="keys">${sel.key.map((k) => `<li>${esc(k)}</li>`).join("")}</ul>${srcOf(sel.src) === "ai" ? `<p class="keysrc">${srcTag(sel.src)}</p>` : ""}` : ""}${ddHtml(sel.do, sel.dont, "t")}${(sel.more || []).map((m, k) => `<div class="more" id="${sec("m" + k, m.h)}"><h2>${esc(m.h)}</h2><ul class="bullets">${m.items.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>`).join("")}`;
     }
     el.innerHTML = `<div class="detail"><div class="row"><a class="btn ghost sm" href="#library">${gl(G.back, "s")}Library</a><span style="flex:1"></span>
         <button class="btn ghost sm" data-topic="${key}" data-id="${list[(i + list.length - 1) % list.length].id}">Previous</button><button class="btn ghost sm" data-topic="${key}" data-id="${list[(i + 1) % list.length].id}">Next topic</button></div>
@@ -2070,31 +2266,34 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   const foodLists = (gs, pre) => { const all = foodsOf(gs, pre), keep = all.filter((f) => srcPass("f", f.s.src, f.s.who));
     return srcCtl("f", all.map((f) => f.s), true) + (sgOf("f") ? bySrc(keep, (f) => f.s).map((b) => `<section class="fgroup ${sb(b[1].src, b[1].who)}"><div class="fg-head"><h3>${srcHead(b[1])}</h3><span class="badge">${b[2].length}</span></div><ul class="foods">${b[2].map((f) => foodTile(f.x, f.g.src, pre === "v")).join("")}</ul></section>`).join("") : gs.map((g, i) => foodGroup(g, i, pre)).join("")); };
   const foodBar = (what, g) => `<div class="toolbar"><input class="search" id="nSearch" type="search" placeholder="Filter ${what}" aria-label="Filter ${what}"><button class="btn ghost sm" data-add="food" data-g="${g}">${gl(G.plus, "s")}Add a food</button></div><div class="empty" id="nNone" hidden>${ic("illus/wellbeing-research-magnifier", 64)}<b>No foods match</b>Clear the filter to see the whole list.</div>`;
+  /* the Nutrition tabs this hub has something in */
+  const ntAvail = () => NT.filter((t) => ({ approved: P.nutrition.approved.some((g) => inHub(g.src)) || userOf("food").some((a) => a.g[0] === "a" && inHub(a.src, a.who)), avoid: inHub("op") || userOf("food").some((a) => a.g[0] === "v" && inHub(a.src, a.who)), plate: true, timing: inHub("op"), recipes: P.nutrition.recipes.some((r) => inHub(r.src)), map: inHub("op") })[t[0]] !== false);
+  const hb = (src, html) => (inHub(src) ? html : "");
   function nutPanel(id) {
     const N = P.nutrition;
-    if (id === "approved") return `${foodBar("approved foods", "a0")}${foodLists(N.approved, "a")}<div class="more"><h2>How the carbs were ranked</h2>${srcTag("me")}${ul(N.criteria, "me")}</div>`;
+    if (id === "approved") return `${foodBar("approved foods", "a0")}${foodLists(N.approved, "a")}${hb("me", `<div class="more"><h2>How the carbs were ranked</h2>${ul(N.criteria, "me")}</div>`)}`;
     if (id === "avoid") return `${foodBar("foods to avoid", "v0")}${foodLists(N.avoid, "v")}`;
     if (id === "plate") {
       const pick = S.ui.macro || "";
-      return P.portions.map((d) => `<section class="plate ${sb("me")}"><div class="fg-head">${ic(d.icon, 40)}<h3>${esc(d.name)}</h3></div>
+      return (inHub("me") ? P.portions : []).map((d) => `<section class="plate ${sb("me")}"><div class="fg-head">${ic(d.icon, 40)}<h3>${esc(d.name)}</h3></div>
         <div class="portions">${d.items.map((p) => `<div class="portion me"><b>${esc(p[0])}</b><span>${esc(p[1])}</span>${p[2] ? `<small>Written as ${esc(p[2])}</small>` : ""}</div>`).join("")}</div>
         ${d.totals.length ? `<div class="status warn">${gl(G.warn)}<div><b>The source lists two different totals for this day.</b> Carbs differ by about 100 g. Pick the set you are working to; the other stays visible.</div></div>
           <div class="sets">${d.totals.map((t) => `<div class="set" data-on="${pick === t.id}"><div class="row" style="justify-content:space-between"><b>${esc(t.label)}</b>${pick === t.id ? '<span class="badge sage">Your target</span>' : '<span class="badge">Source note</span>'}</div>
             <dl class="kv">${t.rows.map((r) => `<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join("")}</dl><p class="small muted">${esc(t.note)}</p><button class="btn sm ${pick === t.id ? "" : "ghost"}" data-macro="${t.id}">${pick === t.id ? gl(G.check, "s") + "Selected as my target" : "Use as my target"}</button></div>`).join("")}</div>` : `<p class="small muted">The source gives no totals for this day.</p>`}</section>`).join("") +
         `<div class="cols"><div class="fg ${sb("both")}"><div class="fg-head">${ic("target", 40)}<h3>Daily targets from the sources</h3></div><dl class="kv wide">${N.targets.map((r) => `<dt>${esc(r[0])}${(P.targetNotes || {})[r[0]] ? ' <span class="badge gold">sources differ</span>' : ""}</dt><dd>${esc(r[1])}</dd>`).join("")}</dl></div>
-        <div class="fg ${sb("op")}"><div class="fg-head">${ic("oyster", 40)}<h3>Daily and weekly staples</h3></div>${kvw(N.staples)}</div></div>
-        <div class="fg ${sb("me")}"><div class="fg-head">${ic("liver", 40)}<h3>What the plate is optimised for</h3></div><div class="cols" style="gap:7px 36px">${ul(N.principles.slice(0, 9), "me")}${ul(N.principles.slice(9), "me")}</div></div>`;
+        ${hb("op", `<div class="fg ${sb("op")}"><div class="fg-head">${ic("oyster", 40)}<h3>Daily and weekly staples</h3></div>${kvw(N.staples)}</div>`)}</div>
+        ${hb("me", `<div class="fg ${sb("me")}"><div class="fg-head">${ic("liver", 40)}<h3>What the plate is optimised for</h3></div><div class="cols" style="gap:7px 36px">${ul(N.principles.slice(0, 9), "me")}${ul(N.principles.slice(9), "me")}</div></div>`)}`;
     }
     if (id === "timing") return `<div class="status info">${gl(G.info)}<div><b>Source note.</b> The carrot salad is “empty stomach” on one page and “with a meal” on another, and its dressing is coconut oil in one place and EVOO in another.</div></div>
       <div class="cols"><div class="fg ${sb("op")}"><div class="fg-head">${ic("clock", 40)}<h3>When to eat what</h3></div>${kvw(N.timing)}</div><div class="fg ${sb("op")}"><div class="fg-head">${ic("butter", 40)}<h3>Kitchen rules</h3></div>${ul(N.kitchen)}</div></div>`;
-    if (id === "recipes") return `<ul class="drs">${N.recipes.map((r) => { const key = "n:" + r.name; return `<li class="slim ${sb(r.src)}"><details class="dr" name="dr" data-dr="${esc(key)}"${drOpen(key)}><summary><span class="dr-ic" aria-hidden="true">${gl(G.bowl)}</span><span class="dr-main"><b>${esc(r.name)}</b><small>${esc(r.when)} · ${r.items.length} ${r.items.length === 1 ? "line" : "lines"}</small></span>${srcTag(r.src, true)}${CARET}</summary><div class="dr-body">${ul(r.items, r.src)}<p class="dr-src">${srcTag(r.src)}</p></div></details></li>`; }).join("")}</ul>`;
+    if (id === "recipes") return `<ul class="drs">${N.recipes.filter((r) => inHub(r.src)).map((r) => { const key = "n:" + r.name; return `<li class="slim ${sb(r.src)}"><details class="dr" name="dr" data-dr="${esc(key)}"${drOpen(key)}><summary><span class="dr-ic" aria-hidden="true">${gl(G.bowl)}</span><span class="dr-main"><b>${esc(r.name)}</b><small>${esc(r.when)} · ${r.items.length} ${r.items.length === 1 ? "line" : "lines"}</small></span>${srcTag(r.src, true)}${CARET}</summary><div class="dr-body">${ul(r.items, r.src)}<p class="dr-src">${srcTag(r.src)}</p></div></details></li>`; }).join("")}</ul>`;
     return `<div class="cols"><div class="fg ${sb("op")}"><div class="fg-head">${ic("pomegranate", 40)}<h3>Where each nutrient comes from</h3></div>${kvw(N.nutrients)}</div><div class="fg ${sb("op")}"><div class="fg-head">${ic("leaf", 40)}<h3>Supplements and herbs named in the docs</h3></div>${ul(N.supplements)}</div></div>`;
   }
   function renderNutrition() {
-    const cur = S.ui.nut || "approved";
-    $("#v-nutrition").innerHTML = `<div class="hero view-head band band-nut"><div><h1>Nutrition</h1><p class="lede">Raw and rare animal foods, ripe fruit, honey. No seed oils. Approved Foods merged with the diet pages of OP 1 and OP 2.</p></div>
+    const av = ntAvail(), cur = av.some((t) => t[0] === S.ui.nut) ? S.ui.nut : av[0][0], h = hubOf();
+    $("#v-nutrition").innerHTML = `<div class="hero view-head band band-nut"><div><h1>Nutrition</h1><p class="lede">${h === "me" ? "Your own food notes: Approved Foods, the carb ranking and the day of eating." : h === "op" ? "What the OP docs say about food: what to eat and avoid, when, and where each nutrient comes from." : "Raw and rare animal foods, ripe fruit, honey. No seed oils. Your Approved Foods with the diet pages of OP 1 and OP 2."}</p></div>
         <img src="assets/primal-table.webp" width="1440" height="960" alt="Papaya, oranges, raw liver, eggs, raw milk, oysters, figs, pomegranate and berries on a table"></div>
-      ${subnav("library", "nutrition")}<div class="chips" role="tablist" aria-label="Nutrition sections">${NT.map((t) => `<button class="chip plain" role="tab" aria-selected="${t[0] === cur}" data-nut="${t[0]}">${ic(NTIC[t[0]], 22)}${t[1]}</button>`).join("")}</div><div class="panel" role="tabpanel" id="nutPanel">${nutPanel(cur)}</div>`;
+      ${hubBar("only-m hub-m")}${subnav("library", "nutrition")}<div class="chips" role="tablist" aria-label="Nutrition sections">${av.map((t) => `<button class="chip plain" role="tab" aria-selected="${t[0] === cur}" data-nut="${t[0]}">${ic(NTIC[t[0]], 22)}${t[1]}</button>`).join("")}</div><div class="panel" role="tabpanel" id="nutPanel">${nutPanel(cur)}</div>${h ? docRefsHtml("n:" + h, "In the docs") : docRefsHtml("n:op", "In the OP docs") + docRefsHtml("n:me", "In your Max doc")}`;
   }
 
   /* ── products: library, wishlist, owned ── */
@@ -2107,9 +2306,10 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   /* ── sources in a list: filter chips with counts and a Group by source switch. sec: p products, r routines, t topics, f foods ── */
   const SORD = Object.keys(SRC);
   const sOrder = (a, b) => SORD.indexOf(a.split(":")[0]) - SORD.indexOf(b.split(":")[0]) || a.localeCompare(b);
-  const sfOf = (sec) => S.ui["sf_" + sec] || "", sgOf = (sec) => !!S.ui["sg_" + sec];
-  const srcPass = (sec, v, who) => !sfOf(sec) || skey(v, who) === sfOf(sec);
-  function srcCtl(sec, recs, group) {
+  /* the hub switch replaced the per-section source filter (owner, Nov 2026): every list passes its records through the hub */
+  const sfOf = () => "", sgOf = () => false;
+  const srcPass = (sec, v, who) => inHub(v, who);
+  function srcCtl(sec, recs, group) { if (sec) return "";
     const n = {}, ex = {}; recs.forEach((r) => { const k = skey(r.src, r.who); n[k] = (n[k] || 0) + 1; ex[k] = ex[k] || r; });
     const keys = Object.keys(n).sort(sOrder), f = sfOf(sec);
     if (keys.length < 2 && !f) return "";
@@ -2146,12 +2346,12 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   const prodLink = (p) => (p.u ? `<a class="linkbtn" href="${esc(p.u)}" target="_blank" rel="noopener">Open link<span class="sr"> for ${esc(p.n)}</span></a>` : "");
   function renderProducts() {
     const ui = S.ui, tab = ui.ptab || "library", o = owned(), nW = P.products.filter((p) => S.wish[p.n] && !o[p.n]).length, nO = P.products.filter((p) => o[p.n]).length;
-    $("#v-products").innerHTML = `<header class="view-head band band-prod"><div><h1>Products</h1><p class="lede">The full library from the OP docs and your Max doc. Add what you plan to buy to the wishlist; mark what you have as owned.</p></div><div class="head-side"><button class="btn ghost" data-add="product">${gl(G.plus, "s")}Add a product</button></div></header>
-      <div class="tabs" role="tablist" aria-label="Product lists">${[["library", "Library", P.products.length], ["wishlist", "Wishlist", nW], ["owned", "Owned", nO]].map((t) => `<button role="tab" aria-selected="${tab === t[0]}" data-ptab="${t[0]}">${t[1]}<span class="badge">${t[2]}</span></button>`).join("")}</div>
+    $("#v-products").innerHTML = `<header class="view-head band band-prod"><div><h1>Products</h1><p class="lede">${hubOf() === "me" ? "The products from your Max doc and your own notes." : hubOf() === "op" ? "The products the OP docs name." : "The full library from the OP docs and your Max doc."} Add what you plan to buy to the wishlist; mark what you have as owned.</p></div><div class="head-side"><button class="btn ghost" data-add="product">${gl(G.plus, "s")}Add a product</button></div></header>
+      ${hubBar("only-m hub-m")}<div class="tabs" role="tablist" aria-label="Product lists">${[["library", "Library", P.products.filter((p) => inHub(p.src, p.who)).length], ["wishlist", "Wishlist", nW], ["owned", "Owned", nO]].map((t) => `<button role="tab" aria-selected="${tab === t[0]}" data-ptab="${t[0]}">${t[1]}<span class="badge">${t[2]}</span></button>`).join("")}</div>
       ${tab === "library" ? `<div class="toolbar stick"><input class="search" id="pSearch" type="search" name="psearch" autocomplete="off" placeholder="Search products…" aria-label="Search products" value="${esc(ui.pq || "")}"><button class="btn ghost sm" id="pFilt" aria-expanded="${!!ui.pfo}" aria-controls="pFP">${gl(G.filter, "s")}Filters${(ui.pg ? 1 : 0) + (sfOf("p") ? 1 : 0) + (sgOf("p") ? 1 : 0) ? `<span class="badge sage">${(ui.pg ? 1 : 0) + (sfOf("p") ? 1 : 0) + (sgOf("p") ? 1 : 0)}</span>` : ""}</button></div>
         <div class="lfilters" id="pFP"${ui.pfo ? "" : " hidden"}><div class="chips" role="group" aria-label="Filter by type"><button class="chip plain" data-pg="" aria-pressed="${!ui.pg}">All types</button>${P.productGroups.map((g) => `<button class="chip plain" data-pg="${g[0]}" aria-pressed="${ui.pg === g[0]}">${esc(g[1])}</button>`).join("")}</div><div id="pSrc"></div></div>
         <p class="fsum" id="pSum"></p>` : ""}
-      <div id="pList" class="drstack"></div>`;
+      <div id="pList" class="drstack"></div>${tab === "library" ? (hubOf() ? docRefsHtml("p:" + hubOf()) : docRefsHtml("p:op", "In the OP docs") + docRefsHtml("p:me", "In your Max doc")) : ""}`;
     drawProducts();
   }
   function drawProducts() {
@@ -2162,7 +2362,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
       const base = P.products.filter((p) => (!ui.pg || p.g === ui.pg) && hit(p)), ps = base.filter((p) => srcPass("p", p.src, p.who));
       const sc = $("#pSrc"); if (sc) sc.innerHTML = srcCtl("p", base, true);
       const act = [ui.pg ? groupName(ui.pg) : "", sfOf("p") ? sname(sfOf("p").split(":")[0] === "x" ? "x" : sfOf("p"), sfOf("p").split(":")[1]) : "", sgOf("p") ? "grouped by source" : ""].filter(Boolean), sm = $("#pSum");
-      if (sm) sm.innerHTML = act.length ? `Showing ${ps.length} of ${P.products.length}: ${act.map(esc).join(" · ")} <button class="linkbtn" id="pClear">Clear filters</button>` : "";
+      if (sm) sm.innerHTML = act.length ? `Showing ${ps.length} of ${P.products.filter((p) => inHub(p.src, p.who)).length}: ${act.map(esc).join(" · ")} <button class="linkbtn" id="pClear">Clear filters</button>` : "";
       if (sgOf("p")) html += bySrc(ps, (p) => p).map((g) => drList(srcHead(g[1]), "", rows(g[2], "library"), g[2].length)).join("");
       else {
         if (!q && !ui.pg && ps.length) html += `<nav class="pshelf" aria-label="Jump to a group">${P.productGroups.map((g) => { const n = ps.filter((p) => p.g === g[0]).length; return n ? `<button class="pshelf-i" data-anchor="pg-${g[0]}">${PGART[g[0]] ? ic(PGART[g[0]], 56) : ""}<b>${esc(g[1])}</b><small>${n}</small></button>` : ""; }).join("")}</nav>`;
@@ -2198,7 +2398,8 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
     N.supplements.forEach((x) => add("Nutrition", x, "Supplements and herbs", "op", ["nut", "map"])); N.staples.forEach((r) => add("Nutrition", r[0], "Staple: " + r[1], "op", ["nut", "plate"]));
     N.timing.forEach((r) => add("Nutrition", r[1], "Timing: " + r[0], "op", ["nut", "timing"])); N.targets.forEach((r) => add("Nutrition", r[0] + ": " + r[1], "Daily target", "both", ["nut", "plate"]));
     P.products.forEach((x) => add("Products", x.title || x.n, x.note || "", x.src, ["prod", x.n]));
-    P.blocks.forEach((b) => b.items.forEach((i) => add("Daily habits", i.t, b.name, i.src || "op", ["page", "today"])));
+    P.blocks.forEach((b) => b.items.forEach((i) => (isDaily(i) ? add("Daily", i.t, b.name + (DGRP[i.k] ? " · " + DGRP[i.k][1] : ""), i.src || "op", ["daily", i.id]) : add("Daily habits", i.t, b.name, i.src || "op", i.go ? ["routine", i.go] : ["page", "today"]))));
+    DOCS.forEach((d) => d.secs.forEach((x) => add("In the docs", secName(x), d.n + (x.ch ? " · " + x.ch : ""), d.src, ["doc", x.id])));
     userOf("food").forEach((a) => add("Nutrition", a.n, "Added food", a.src, ["nut", a.g[0] === "v" ? "avoid" : "approved"])); userOf("note").filter((a) => !a.arch).forEach((a) => !a.g ? add("Notes", a.n, "Inbox" + (a.steps && a.steps !== a.n ? " · " + a.steps.slice(0, 80) : ""), a.src, ["note", a.id]) : add("Notes", a.n, "In " + ((topicBy(a.g) || {}).name || "a topic"), a.src, ["note", a.id]));
     (S.sdocs || []).forEach((x) => add("Source documents", x.t, [x.by, x.u ? host(x.u) : ""].filter(Boolean).join(" · "), "me", ["sdoc", x.id]));
     Object.keys(S.ov || {}).forEach((ref) => { const o = S.ov[ref], id = ref.slice(2); if (o.note) add("My notes", o.note.slice(0, 90), refName(ref) || id, "me", ref[0] === "r" ? ["routine", id] : ref[0] === "t" ? [tkey(id), id] : ref[0] === "p" ? ["prod", id] : ["nut", "approved"]); });
@@ -2209,6 +2410,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
     if ($("#find").hidden) lastFocus = document.activeElement;
     $("#find").innerHTML = `<div class="findpanel" role="dialog" aria-modal="true" aria-label="Find anything"><header><input class="search" id="fInput" type="search" placeholder="Find a routine, exercise, food, product, topic…" aria-label="Find anything" autocomplete="off"><button class="btn ghost sm" id="findClose">Close</button></header><div class="chips" id="fFilt" role="group" aria-label="Filter by type"></div><div class="findres" id="fRes"></div></div>`;
     $("#find").hidden = false; document.body.style.overflow = "hidden"; $("#fInput").value = S.ui.fq || ""; drawFind(S.ui.fq || "", true); $("#fInput").focus(); $("#fInput").select();
+    if (!P.docText) loadDocs().then((ok) => { if (ok && !$("#find").hidden) drawFind($("#fInput").value, true); });
   }
   function closeFind(keep) { $("#find").hidden = true; $("#find").innerHTML = ""; document.body.style.overflow = ""; if (!keep && lastFocus && lastFocus.focus) lastFocus.focus(); }
   function findGo(a) {
@@ -2222,6 +2424,8 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
     else if (a[0] === "page") go(a[1]);
     else if (a[0] === "note") openNote(a[1]);
     else if (a[0] === "sdoc") openSdoc(a[1]);
+    else if (a[0] === "daily") openDaily(a[1]);
+    else if (a[0] === "doc") openDoc(a[1]);
     else if (a[0] === "today") { S.ui.whole = false; S.ui.period = a[1]; S.ui.pday = TK; save(); go("today"); }
   }
 
@@ -2342,7 +2546,14 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
       .filter((x) => (!q || (x.t.name + " " + (x.t.intro || "") + " " + x.tags.join(" ")).toLowerCase().indexOf(q) > -1) && (!ui.ltag || x.tags.indexOf(ui.ltag) > -1) && (!ui.lsaved || S.fav[x.ref]));
   }
   /* the Library's groups, in the order of the chooser: Inbox (when it holds notes), Nutrition, then the topic groups */
-  const LGRP = () => (inboxNotes().length ? [["inbox", "Inbox"]] : []).concat([["nut", "Nutrition"]], LGROUPS);
+  const LGRP = () => (inboxNotes().length ? [["inbox", "Inbox"]] : []).concat([["nut", "Nutrition"]], LGROUPS, hubDocs().length ? [["docs", "The docs"]] : []);
+  /* the docs in this hub: a card per document, and the full contents when the group is chosen */
+  function docsHtml(full) {
+    const ds = hubDocs(); if (!ds.length) return "";
+    const card = (d) => { const chs = []; d.secs.forEach((x) => { if (x.ch && chs.indexOf(x.ch) < 0) chs.push(x.ch); }); return `<article class="dcard"><button class="dc-open" data-docsec="${esc(d.secs[0].id)}">${li("book-open")}<b>${esc(d.n)}</b><small>${d.secs.length} sections${chs.length ? " in " + chs.length + " chapters" : ""}</small></button><a class="linkbtn" href="${esc(d.url)}" target="_blank" rel="noopener">${li("external-link")}Google Docs</a></article>`; };
+    const contents = (d) => { let ch = null; return `<section class="dtoc"><h3>${esc(d.n)}</h3>${d.secs.map((x) => { let o = ""; if (x.ch !== ch) { o += (ch !== null ? "</ul>" : "") + (x.ch ? `<h4>${esc(x.ch)}</h4>` : "") + "<ul>"; ch = x.ch; } return o + `<li><button class="linkbtn" data-docsec="${esc(x.id)}">${esc(secName(x))}</button></li>`; }).join("")}</ul></section>`; };
+    return `<section class="lgroup" id="lg-docs"><h2>${li("book-open")}The docs<span class="badge">${ds.reduce((a, d) => a + d.secs.length, 0)}</span></h2><p class="small muted">The full text, section by section. Every routine, topic and daily item links to the part it comes from.</p><div class="dgrid">${ds.map(card).join("")}</div>${full ? `<div class="dtocs">${ds.map(contents).join("")}</div>` : ""}</section>`;
+  }
   const libFilters = () => (S.ui.ltag ? 1 : 0) + (S.ui.lsaved ? 1 : 0) + (sfOf("t") ? 1 : 0) + (sgOf("t") ? 1 : 0);
   function drawLibrary() {
     const ui = S.ui, all = libItems(), list = all.filter((x) => srcPass("t", x.t.src, x.t.who)), sort = ui.lsort || "group", rows = ui.lview !== "cards", filtered = !!((ui.lq || "").trim() || ui.ltag || ui.lsaved || sfOf("t"));
@@ -2352,19 +2563,21 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
     const head = (id, art, name, n) => `<h2>${art}${name}${n != null ? `<span class="badge">${n}</span>` : ""}</h2>`;
     let html = filtered || !show("inbox") ? "" : inboxHtml();
     if (sgOf("t")) html += bySrc(shown, (x) => x.t).map((g) => `<section class="lgroup">${head("", "", srcHead(g[1]), g[2].length)}${wrap(g[2])}</section>`).join("");
-    else if (!filtered && show("nut")) html += `<section class="lgroup" id="lg-nut">${head("nut", chap("nut", 64), "Nutrition")}<div class="ngrid">${NT.map((t) => `<button class="ncard card" data-jumpnut="${t[0]}">${art(NTIC[t[0]], 40)}<b>${t[1]}</b></button>`).join("")}</div></section>`;
+    else if (!filtered && show("nut")) html += `<section class="lgroup" id="lg-nut">${head("nut", chap("nut", 64), "Nutrition")}<div class="ngrid">${ntAvail().map((t) => `<button class="ncard card" data-jumpnut="${t[0]}">${art(NTIC[t[0]], 40)}<b>${t[1]}</b></button>`).join("")}</div></section>`;
     if (sgOf("t")) { /* grouped by source above */ } else if (sort === "group") html += LGROUPS.filter((g) => show(g[0])).map((g) => { const l = list.filter((x) => (x.t.grp || "ref") === g[0]); return l.length ? `<section class="lgroup" id="lg-${g[0]}">${head(g[0], chap(g[0], 64), g[1], l.length)}${wrap(l)}</section>` : ""; }).join("");
     else if (shown.length) html += `<section class="lgroup">${head("", "", sort === "az" ? "A to Z" : "Edited or added by you first", shown.length)}${wrap(shown.slice().sort((a, b) => (sort === "az" ? 0 : b.ed - a.ed) || a.t.name.localeCompare(b.t.name)))}</section>`;
-    if (!shown.length && grp !== "nut" && grp !== "inbox") html += `<div class="empty"><img class="ic st-art" src="assets/field/state-no-results.webp" width="88" height="88" alt="" loading="lazy" decoding="async"><b>No topic matches</b>Clear the search and filters to see the whole Library.<button class="btn sm ghost" id="libClear">Clear search and filters</button></div>`;
+    if (!shown.length && grp !== "nut" && grp !== "inbox" && grp !== "docs" && hubOf() && !filtered && all.length) html += hubEmpty("topics", "topic");
+    else if (!shown.length && grp !== "nut" && grp !== "inbox" && grp !== "docs") html += `<div class="empty"><img class="ic st-art" src="assets/field/state-no-results.webp" width="88" height="88" alt="" loading="lazy" decoding="async"><b>No topic matches</b>Clear the search and filters to see the whole Library.<button class="btn sm ghost" id="libClear">Clear search and filters</button></div>`;
+    if (!filtered && show("docs")) html += docsHtml(grp === "docs");
     $("#libRes").innerHTML = html;
-    const n = {}; LGRP().forEach((g) => (n[g[0]] = g[0] === "nut" ? NT.length : g[0] === "inbox" ? inboxNotes().length : list.filter((x) => (x.t.grp || "ref") === g[0]).length));
+    const n = {}; LGRP().forEach((g) => (n[g[0]] = g[0] === "nut" ? ntAvail().length : g[0] === "docs" ? hubDocs().reduce((a, d) => a + d.secs.length, 0) : g[0] === "inbox" ? inboxNotes().length : list.filter((x) => (x.t.grp || "ref") === g[0]).length));
     $$("[data-lgrp]").forEach((b) => { const c = $("b", b); if (c) c.textContent = n[b.dataset.lgrp] != null ? n[b.dataset.lgrp] : list.length; });
   }
   function renderLibrary() {
     const ui = S.ui, tags = {}, sort = ui.lsort || "group", nf = libFilters(); topicsAll().forEach((x) => tagsOf("t:" + x[0].id, x[0]).forEach((g) => (tags[g] = 1))); if (ui.ltag && !tags[ui.ltag]) ui.ltag = "";
     const grp = LGRP().some((g) => g[0] === ui.lgrp) ? ui.lgrp : "";
-    $("#v-library").innerHTML = `<header class="view-head band band-lib"><div><h1>Library</h1><p class="lede only-d">What to do, what to cut and the numbers worth knowing, grouped by topic.</p></div><div class="head-side"><button class="btn ghost sm" data-add="note">${li("note")}Quick note</button><button class="btn ghost sm" data-add="topic">${gl(G.plus, "s")}<span class="only-d">Add a topic</span><span class="only-m sr">Add a topic</span></button></div></header>
-      <div class="lbar">${subnav("library", "library")}<input class="search" id="libQ" type="search" name="libq" autocomplete="off" placeholder="Search topics and tags…" aria-label="Search topics and tags" value="${esc(ui.lq || "")}">
+    $("#v-library").innerHTML = `<header class="view-head band band-lib"><div><h1>Library</h1><p class="lede only-d">${hubOf() === "me" ? "Your own notes: nutrition, the Max doc and what you add." : hubOf() === "op" ? "What the OP docs say to do, what to cut and the numbers worth knowing, with the docs themselves." : "What to do, what to cut and the numbers worth knowing, grouped by topic, with the docs themselves."}</p></div><div class="head-side"><button class="btn ghost sm" data-add="note">${li("note")}Quick note</button><button class="btn ghost sm" data-add="topic">${gl(G.plus, "s")}<span class="only-d">Add a topic</span><span class="only-m sr">Add a topic</span></button></div></header>
+      ${hubBar("only-m hub-m")}<div class="lbar">${subnav("library", "library")}<input class="search" id="libQ" type="search" name="libq" autocomplete="off" placeholder="Search topics and tags…" aria-label="Search topics and tags" value="${esc(ui.lq || "")}">
         <label class="lgsel"><span class="sr">Group</span><select id="libGrp" name="libgrp">${[["", "All groups"]].concat(LGRP()).map((g) => `<option value="${g[0]}"${grp === g[0] ? " selected" : ""}>${g[1]}</option>`).join("")}</select></label>
         <button class="btn ghost sm" id="libFilt" aria-expanded="${!!ui.lfo}" aria-controls="libFP">${gl(G.filter, "s")}Filters${nf ? `<span class="badge sage">${nf}</span>` : ""}</button></div>
       <div class="lfilters" id="libFP"${ui.lfo ? "" : " hidden"}>
@@ -2373,7 +2586,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
           <button class="chip plain" id="libSaved" aria-pressed="${!!ui.lsaved}">Saved only</button>${nf ? '<button class="linkbtn" id="libClear">Clear filters</button>' : ""}</div>
         ${Object.keys(tags).length ? `<div class="chips" role="group" aria-label="Filter by tag">${Object.keys(tags).sort().map((g) => `<button class="chip plain" data-ltag="${esc(g)}" aria-pressed="${ui.ltag === g}">#${esc(g)}</button>`).join("")}</div>` : ""}
         ${srcCtl("t", libItems(), true)}</div>
-      <div class="llayout"><nav class="lindex" aria-label="Library groups"><button data-lgrp="" aria-pressed="${!grp}">All groups<b></b></button>${LGRP().map((g) => `<button data-lgrp="${g[0]}" aria-pressed="${grp === g[0]}">${chap(g[0], 28)}<span>${g[1]}</span><b></b></button>`).join("")}</nav>
+      <div class="llayout"><nav class="lindex" aria-label="Library groups"><button data-lgrp="" aria-pressed="${!grp}">All groups<b></b></button>${LGRP().map((g) => `<button data-lgrp="${g[0]}" aria-pressed="${grp === g[0]}">${g[0] === "docs" ? li("book-open") : chap(g[0], 28)}<span>${g[1]}</span><b></b></button>`).join("")}</nav>
       <div id="libRes" class="libres"></div></div>`;
     drawLibrary();
   }
@@ -2525,7 +2738,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   }
   const srcWord = (rec) => esc(sname(rec.src, rec.who));
   const favKey = (ref) => (ref[0] === "r" ? ref.slice(2) : ref);
-  const footFor = (ref, rec) => `${mine(ref)}${relBlock(ref)}<p class="srcline"><span>Source: ${srcWord(rec)}.</span>${ovOf(ref).t ? `<span class="badge gold">Edited by you · ${stamp(ovOf(ref).t)}</span>` : ""}${rec.uid ? "" : `<button class="linkbtn" data-ov="${esc(ref)}">Edit</button>`}${ref[0] === "r" ? "" : `<button class="star" data-fav="${esc(favKey(ref))}" aria-pressed="${!!S.fav[favKey(ref)]}" aria-label="Save ${esc(rec.name || "")}">${STAR}</button>`}</p>`;
+  const footFor = (ref, rec) => `${mine(ref)}${relBlock(ref)}${docRefsHtml(ref)}<p class="srcline">${srcOf(rec.src) === "ai" ? "<span>Suggested by Claude where the docs are silent.</span>" : ""}${ovOf(ref).t ? `<span class="badge gold">Edited by you · ${stamp(ovOf(ref).t)}</span>` : ""}${rec.uid ? "" : `<button class="linkbtn" data-ov="${esc(ref)}">Edit</button>`}${ref[0] === "r" ? "" : `<button class="star" data-fav="${esc(favKey(ref))}" aria-pressed="${!!S.fav[favKey(ref)]}" aria-label="Save ${esc(rec.name || "")}">${STAR}</button>`}</p>`;
   const relatedHtml = (sel) => footFor("t:" + sel.id, sel);
   /* the routines this record is linked with, and how often each sits in the week */
   const weekUse = (ref) => { const rs = relOf(ref).map((x) => x[0]).concat(backOf(ref)).filter((r, i, a) => r[0] === "r" && a.indexOf(r) === i && byId[r.slice(2)]); if (!rs.length) return ""; return `<div class="more usedin-b"><h2>Used in your week</h2><ul class="mg">${rs.map((r) => { const id = r.slice(2), n = placed(id).length; return `<li class="slim"><span><button class="linkbtn" data-insp="${esc(id)}">${esc(byId[id].name)}</button><small>${n ? n + (n === 1 ? " time" : " times") + " a week" : "Not in your week"}</small></span><button class="btn ghost sm" data-addweek="${esc(id)}">Add to week<span class="sr">: ${esc(byId[id].name)}</span></button></li>`; }).join("")}</ul><p class="small muted">From the links on this page, including suggested ones.</p></div>`; };
@@ -2609,7 +2822,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   function openMore() {
     sheetUp(`<button class="opt-row" data-saved="1">${li("saved")}Saved and collections<span>${Object.keys(S.fav || {}).length}</span></button><button class="opt-row" data-manage="1">${li("download")}My edits, backup and restore<span>${(S.adds || []).length + Object.keys(S.hide || {}).length}</span></button><button class="opt-row" data-find="1">${li("search")}Find anything</button><button class="opt-row" data-add="note">${li("sticky-note")}Quick note<span>to the Inbox</span></button>
       <h4>Open the hub on</h4><div class="seg" role="group" aria-label="Open the hub on">${[["week", "Week"], ["today", "Day"]].map((x) => `<button data-startview="${x[0]}" aria-pressed="${(S.ui.start || "week") === x[0]}">${x[1]}</button>`).join("")}</div>
-      <h4>Sources</h4><p class="small muted">Each block carries a label saying where it came from. In lists a small shape repeats it.</p><div class="key">${keyHtml()}</div><button class="srcswitch" role="switch" aria-checked="${!S.ui.plain}" data-srctoggle="1"><i aria-hidden="true"></i>Source labels</button>`, "More");
+      <h4>Hub</h4><p class="small muted">Whose information Routines, Library and Products show. Your week stays the same.</p>${hubBar("sheet-hubs")}`, "More");
   }
   function openSaved() {
     const row = (ref) => { const n = refName(ref), k = ref[0]; return n ? `<button class="opt-row" ${refAttr(ref)}>${esc(n)}<span>${k === "r" ? esc(catName((byId[ref.slice(2)] || {}).cat) || "Routine") : k === "t" ? "Topic" : k === "p" ? "Product" : k === "n" ? "Note" : k === "s" ? "Source document" : "Food"}</span></button>` : ""; };
@@ -2624,15 +2837,16 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
   function drawFind(q, keepScroll) {
     S.ui.fq = q; q = q.trim().toLowerCase(); const box = $("#fRes"), filt = $("#fFilt");
     if (q.length < 2) { filt.innerHTML = ""; box.innerHTML = `<h3>Jump to</h3>${[["Your week", "week"], ["Today", "today"], ["Compare routines", "compare"], ["Guide: when and how often", "guide"], ["Routines", "routines"], ["Exercise library", "routines-lib"], ["Library", "library"], ["Nutrition", "nutrition"], ["Products", "products"]].map((j) => `<button data-jumpto="${j[1]}"><b>${j[0]}</b></button>`).join("")}<p class="small muted" style="padding:12px 6px">Type two or more letters to search all ${findIndex().length} entries.</p>`; return; }
-    const words = q.split(/\s+/), all = findIndex().filter((x) => words.every((w) => x.k.indexOf(w) > -1)), groups = {}, kinds = {};
+    const d0 = (x) => x.doc.n, words = q.split(/\s+/), all = findIndex().filter((x) => words.every((w) => x.k.indexOf(w) > -1)), groups = {}, kinds = {};
     all.forEach((h) => (kinds[h.kind] = (kinds[h.kind] || 0) + 1)); if (S.ui.fk && !kinds[S.ui.fk]) S.ui.fk = "";
-    const srcs = {}; all.forEach((h) => (srcs[h.src] = (srcs[h.src] || 0) + 1)); if (S.ui.fsrc && !srcs[S.ui.fsrc]) S.ui.fsrc = "";
-    const hits = all.filter((h) => (!S.ui.fk || h.kind === S.ui.fk) && (!S.ui.fsrc || h.src === S.ui.fsrc)), rank = (h) => { const t = h.t.toLowerCase(); return t === q ? 0 : t.indexOf(q) === 0 ? 1 : t.indexOf(q) > -1 ? 2 : 3; };
+    if (P.docText) { const seen = {}; all.forEach((h) => { if (h.act[0] === "doc") seen[h.act[1]] = 1; }); let n = 0; Object.keys(P.docText).some((id) => { const tx = P.docText[id].toLowerCase(), x = DSEC[id]; if (!x || seen[id] || !words.every((w) => tx.indexOf(w) > -1)) return false; const at = tx.indexOf(words[0]), raw = P.docText[id].slice(Math.max(0, at - 50), at + 90).replace(/[*#\\]/g, "").replace(/\s+/g, " ").trim(); all.push({ kind: "Docs text", t: secName(x), sub: d0(x) + ": …" + raw + "…", src: x.doc.src, act: ["doc", id], k: tx }); kinds["Docs text"] = (kinds["Docs text"] || 0) + 1; return ++n >= 40; }); }
+    const hbs = {}; hubList().filter(Boolean).forEach((k) => { const c = all.filter((h) => inHub(h.src, null, k)).length; if (c) hbs[k] = c; }); if (S.ui.fsrc && !hbs[S.ui.fsrc]) S.ui.fsrc = "";
+    const hits = all.filter((h) => (!S.ui.fk || h.kind === S.ui.fk) && (!S.ui.fsrc || inHub(h.src, null, S.ui.fsrc))), rank = (h) => { const t = h.t.toLowerCase(); return t === q ? 0 : t.indexOf(q) === 0 ? 1 : t.indexOf(q) > -1 ? 2 : 3; };
     hits.sort((a, b) => rank(a) - rank(b) || a.t.length - b.t.length); hits.forEach((h) => (groups[h.kind] = groups[h.kind] || []).push(h));
     const hl = (t) => { let o = esc(t); words.forEach((w) => { o = o.replace(new RegExp("(" + w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig"), "<mark>$1</mark>"); }); return o; };
-    const row = (h, kind) => `<button data-findgo='${esc(JSON.stringify(h.act))}'>${srcTag(h.src, 1)}<b>${hl(h.t)}</b><small>${kind ? esc(h.kind) + (h.sub ? " · " : "") : ""}${h.sub ? hl(h.sub.slice(0, 90)) : ""}</small></button>`;
+    const row = (h, kind) => `<button data-findgo='${esc(JSON.stringify(h.act))}'>${srcTag(h.src)}<b>${hl(h.t)}</b><small>${kind ? esc(h.kind) + (h.sub ? " · " : "") : ""}${h.sub ? hl(h.sub.slice(0, 90)) : ""}</small></button>`;
     const best = S.ui.fk ? [] : hits.filter((h) => rank(h) < 2).slice(0, 3); best.forEach((h) => { const l = groups[h.kind]; l.splice(l.indexOf(h), 1); if (!l.length) delete groups[h.kind]; });
-    filt.innerHTML = all.length ? `<button class="chip plain" data-fk="" aria-pressed="${!S.ui.fk}">All ${all.length}</button>${Object.keys(kinds).map((k) => `<button class="chip plain" data-fk="${esc(k)}" aria-pressed="${S.ui.fk === k}">${esc(k)} ${kinds[k]}</button>`).join("")}${Object.keys(srcs).length > 1 ? `<span class="fsep" aria-hidden="true"></span>${Object.keys(srcs).sort(sOrder).map((k) => `<button class="chip plain" data-fsrc="${k}" aria-pressed="${S.ui.fsrc === k}">${srcDot(k)}${esc(SRCN[k])} ${srcs[k]}</button>`).join("")}` : ""}` : "";
+    filt.innerHTML = all.length ? `<button class="chip plain" data-fk="" aria-pressed="${!S.ui.fk}">All ${all.length}</button>${Object.keys(kinds).map((k) => `<button class="chip plain" data-fk="${esc(k)}" aria-pressed="${S.ui.fk === k}">${esc(k)} ${kinds[k]}</button>`).join("")}${Object.keys(hbs).length > 1 ? `<span class="fsep" aria-hidden="true"></span>${Object.keys(hbs).map((k) => `<button class="chip plain" data-fsrc="${esc(k)}" aria-pressed="${S.ui.fsrc === k}">${li(HUBD[k] ? HUBD[k][2] : "notebook")}${esc(hubName(k))} ${hbs[k]}</button>`).join("")}` : ""}` : "";
     box.innerHTML = hits.length ? (best.length ? `<h3>Best match</h3>${best.map((h) => row(h, 1)).join("")}` : "") + Object.keys(groups).map((g) => { const rows = groups[g], open = FOPEN[g] || S.ui.fk === g || rows.length <= 8; return `<h3>${esc(g)}<span>${rows.length}</span></h3>${(open ? rows : rows.slice(0, 7)).map((h) => row(h)).join("")}${open ? "" : `<button class="more-row" data-fmore="${esc(g)}">Show all ${rows.length} in ${esc(g)}</button>`}`; }).join("")
       : `<div class="empty" style="margin-top:14px"><img class="ic st-art" src="assets/field/state-no-results.webp" width="88" height="88" alt="" loading="lazy" decoding="async"><p>Nothing matches “${esc(q)}”. Try one word, such as “thyroid”, “oyster” or “squat”.</p></div>`;
     box.scrollTop = keepScroll ? S.ui.fy || 0 : 0;
@@ -2690,7 +2904,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
     Object.keys(byId).forEach((k) => delete byId[k]); P.routines.forEach((r) => (byId[r.id] = r));
     P.blocks.forEach((b) => { b.items = BASE.items[b.id].filter((i) => !hid("i:" + i.id)).concat(userOf("item").filter((a) => a.g === b.id && (!a.on || ORDER.map(occDate).indexOf(a.on) > -1)).map((a) => ({ id: a.id, uid: a.id, t: a.n, min: +a.min || 0, opt: a.opt === "1", src: a.src, who: a.who, u: a.u, on: a.on, d: a.on ? "Task from your note" : "", days: a.on ? [new Date(a.on + "T12:00").getDay()] : undefined }))); });
     P.extras = BASE.extras.filter((t) => !hid("t:" + t.id)).concat(userOf("topic").map((a) => ({ id: a.id, uid: a.id, name: a.n, icon: "book", intro: a.note || "", grp: a.g, src: a.src, who: a.who, groups: [{ h: "Notes", do: lines(a.steps), dont: lines(a.dont) }] })));
-    applyOv(); FIDX = null; const rk = $("#railKey"); if (rk) rk.innerHTML = keyHtml();
+    applyOv(); FIDX = null; const rh = $("#railHubs"); if (rh) rh.innerHTML = hubBar("rail-hubs");
   }
   let AD = null;
   function openAdd(k, id, preset) {
@@ -2702,7 +2916,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
         : `<label class="field">${f[1]}${f[2] === "sel" ? `<select ${at}>${addOpts(k, f[0]).map((o) => `<option value="${esc(o[0])}"${o[0] === v ? " selected" : ""}>${esc(o[1])}</option>`).join("")}</select>` : f[2] === "area" ? `<textarea ${at} rows="5">${esc(v)}</textarea>` : `<input type="${f[2] === "number" ? "number" : "text"}" ${at} value="${esc(v)}" maxlength="200"${f[2] === "number" ? ' min="0" step="any" inputmode="decimal"' : f[2] === "url" ? ' inputmode="url" placeholder="https://"' : ""}>`}</label>`; };
     $("#sheet").innerHTML = `<form class="sheet ed" id="addForm" role="dialog" aria-modal="true" aria-label="${ADD[k].title}" novalidate><div class="sheet-head"><h3>${cur.id ? "Edit" : ADD[k].title}</h3><button type="button" class="btn ghost sm" id="sheetClose">Close</button></div>
       ${cur.id ? "" : `<label class="field">Type<select data-addkind="1" name="kind">${Object.keys(ADD).map((x) => `<option value="${x}"${x === k ? " selected" : ""}>${ADD[x].title.replace(/^Add an? /, "").replace(/^./, (c) => c.toUpperCase())}</option>`).join("")}</select></label>`}${ADD[k].f.map(fld).join("")}
-      <fieldset class="ed-slot"><legend>Whose is this?</legend><p class="small muted">It decides its shape, colour and label, so the key stays true.</p>${[["me", "Mine"], ["op", "From the OP docs"]].concat(Object.keys(SRC).filter((k) => ["op", "me", "both", "x", "ai"].indexOf(k) < 0).map((k) => [k, "From " + SRC[k].n]), [["x", "Someone else's, not listed"]]).map((o) => `<label class="field check"><input type="radio" name="src" value="${o[0]}"${cur.src === o[0] ? " checked" : ""}>${srcDot(o[0])}${esc(o[1])}</label>`).join("")}<label class="field">Their name, if it is someone else's<input type="text" data-f="who" maxlength="30" value="${esc(cur.who || "")}"></label></fieldset>
+      <fieldset class="ed-slot"><legend>Whose is this?</legend><p class="small muted">It decides which hub it shows in: yours, the OP docs, or a hub of its own for that person.</p>${[["me", "Mine"], ["op", "From the OP docs"]].concat(Object.keys(SRC).filter((k) => ["op", "me", "both", "x", "ai"].indexOf(k) < 0).map((k) => [k, "From " + SRC[k].n]), [["x", "Someone else's, not listed"]]).map((o) => `<label class="field check"><input type="radio" name="src" value="${o[0]}"${cur.src === o[0] ? " checked" : ""}>${srcDot(o[0])}${esc(o[1])}</label>`).join("")}<label class="field">Their name, if it is someone else's<input type="text" data-f="who" maxlength="30" value="${esc(cur.who || "")}"></label></fieldset>
       <div class="status warn" id="addErr" role="alert" hidden></div>
       <div class="ed-foot">${cur.id ? '<button type="button" class="linkbtn" id="addDel">Delete</button>' : ""}<span style="flex:1"></span><button class="btn" type="submit">${cur.id ? "Save" : "Add"}</button></div></form>`;
     $("#sheet").hidden = false; document.body.style.overflow = "hidden"; const first = $("#addForm [data-f]"); if (first) first.focus();
@@ -2804,7 +3018,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
     if (!first) { window.scrollTo({ top: v === "library" ? S.ui.ly || 0 : 0, behavior: "instant" }); $("#main").focus({ preventScroll: true }); }
     if (v === "routines" && pendingOpen) { const id = pendingOpen; pendingOpen = null; openRoutine(id); }
   }
-  window.addEventListener("hashchange", () => { if (!$("#libdlg").hidden && !keepLib) closeLib(); keepLib = false; if (!$("#sheet").hidden) closeSheet(true); vt(() => route(false), "sec"); });
+  window.addEventListener("hashchange", () => { if (!$("#reader").hidden) closeDoc(true); if (!$("#libdlg").hidden && !keepLib) closeLib(); keepLib = false; if (!$("#sheet").hidden) closeSheet(true); vt(() => route(false), "sec"); });
 
   /* ── events ── */
   const refocus = (sel) => { const b = $(sel); if (b) b.focus({ preventScroll: true }); };
@@ -2812,6 +3026,7 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
     if (e.target.id === "sheet") { closeSheet(); return; }
     if (e.target.id === "libdlg") { closeLib(); return; }
     if (e.target.id === "find") { closeFind(); return; }
+    if (e.target.id === "reader") { closeDoc(); return; }
     const t = e.target.closest("button, a"); if (!t) return; const d = t.dataset;
     if (t.tagName === "BUTTON" && t.closest("summary")) e.preventDefault();
     if (srcClick(t, d) || awClick(t, d) || sdocClick(t, d) || noteClick(t, d) || guideClick(t, d) || cmpClick(t, d) || planClick(t, d) || v8Click(t, d) || uiClick(t, d) || editClick(t, d)) { if (t.closest("summary")) e.preventDefault(); return; }
@@ -2823,7 +3038,13 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
     else if (t.id === "sheetClose") closeSheet();
     else if (t.id === "rClear") { S.ui.rq = ""; S.ui.rcat = ""; save(); renderRoutines(); refocus("#rSearch"); }
     else if (t.id === "pClear") { S.ui.pq = ""; S.ui.pg = ""; S.ui.sf_p = ""; S.ui.sg_p = false; save(); renderProducts(); refocus("#pSearch"); }
-    else if (d.srctoggle) { S.ui.plain = !S.ui.plain; save(); applyPlain(); say(S.ui.plain ? "Source colours off" : "Source colours on"); }
+    else if (d.hub !== undefined) setHub(d.hub, t);
+    else if (d.daily) { if (!$("#sheet").hidden) closeSheet(true); openDaily(d.daily); }
+    else if (d.dailytab) { closeSheet(true); S.ui.rtab = "day"; save(); if (current !== "routines") location.hash = "#routines"; else renderRoutines(); }
+    else if (d.dgb) { S.ui.dgb = d.dgb; save(); renderRoutines(); refocus(`[data-dgb="${d.dgb}"]`); }
+    else if (d.docsec) openDoc(d.docsec);
+    else if (t.id === "rdClose") closeDoc();
+    else if (t.id === "rdToc") { const n = $("#rdToc"); n.classList.toggle("open"); t.setAttribute("aria-expanded", n.classList.contains("open")); }
     else if (d.find) openFind();
     else if (t.id === "findClose") closeFind();
     else if (d.findgo) findGo(JSON.parse(d.findgo));
@@ -2875,15 +3096,15 @@ body { background-image: var(--grain); background-size: 512px; background-blend-
     if ($("#find").hidden && (e.key === "/" || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k")) && !/INPUT|TEXTAREA/.test((document.activeElement || {}).tagName || "") && $("#player").hidden && $("#pacer").hidden) { e.preventDefault(); openFind(); return; }
     if (!$("#find").hidden && e.key === "Enter" && document.activeElement.id === "fInput") { const b = $("#fRes button"); if (b) b.click(); return; }
     if (!$("#find").hidden && e.key === "ArrowDown" && document.activeElement.id === "fInput") { const b = $("#fRes button"); if (b) { e.preventDefault(); b.focus(); } return; }
-    const ov = !$("#find").hidden ? $("#find") : !$("#libdlg").hidden ? $("#libdlg") : !$("#sheet").hidden ? $("#sheet") : !$("#player").hidden ? $("#player") : !$("#pacer").hidden ? $("#pacer") : null; if (!ov) return;
-    if (e.key === "Escape") { if (ov.id === "find") closeFind(); else if (ov.id === "libdlg") closeLib(); else if (ov.id === "sheet") closeSheet(); else closeOverlay(ov); return; }
+    const ov = !$("#find").hidden ? $("#find") : !$("#reader").hidden ? $("#reader") : !$("#libdlg").hidden ? $("#libdlg") : !$("#sheet").hidden ? $("#sheet") : !$("#player").hidden ? $("#player") : !$("#pacer").hidden ? $("#pacer") : null; if (!ov) return;
+    if (e.key === "Escape") { if (ov.id === "find") closeFind(); else if (ov.id === "reader") closeDoc(); else if (ov.id === "libdlg") closeLib(); else if (ov.id === "sheet") closeSheet(); else closeOverlay(ov); return; }
     if (e.key === "Tab") { const f = $$("button:not([disabled]), a[href], input, select, textarea", ov); if (!f.length) return; const a = f[0], z = f[f.length - 1]; if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); } }
     if (ov.id === "player" && PL && !PL.fin) { if (e.key === "ArrowRight") $("#plNext").click(); if (e.key === "ArrowLeft" && PL.i > 0) $("#plPrev").click(); }
   });
   document.addEventListener("visibilitychange", () => { if (!document.hidden && dkey(new Date()) !== TK) route(true); });
 
   Object.keys(S.days).sort().slice(0, -90).forEach((k) => delete S.days[k]); Object.keys(S.weeks).sort().slice(0, -12).forEach((k) => delete S.weeks[k]);
-  function applyPlain() { document.documentElement.classList.toggle("plain", !!S.ui.plain); $$("[data-srctoggle]").forEach((b) => b.setAttribute("aria-checked", !S.ui.plain)); }
+  function applyPlain() { document.documentElement.classList.add("plain"); const r = $("#railHubs"); if (r) r.innerHTML = hubBar("rail-hubs"); }
   S.adds = cleanAdds(S.adds); S.plan = cleanPlan(S.plan); S.core = S.core || {}; S.ov = cleanOv(S.ov); S.tags = cleanTags(S.tags); S.links = cleanLinks(S.links); S.cols = cleanCols(S.cols); S.hide = cleanHide(S.hide); S.freq = cleanFreq(S.freq); S.aw = cleanAw(S.aw); S.atag = cleanAtag(S.atag); S.log = cleanLog(S.log); S.sdocs = cleanSdocs(S.sdocs); S.pins = cleanPins(S.pins); { const i = ORDER.map(occDate).indexOf(S.ui.pdate); if (i > -1) S.ui.pd = ORDER[i]; else { delete S.ui.pd; delete S.ui.pdate; } } S.ui.de = false; if (S.ui.ct === "gym") { S.ui.lens = "gym"; S.ui.ct = "rt"; } applyAdds(); lastSlice = sliceOf(); HIST = [];
   [["icon", "32", "image/png"], ["icon", "192", "image/png"], ["apple-touch-icon", "180", ""]].forEach((x) => { if (document.head.querySelector(`link[rel="${x[0]}"][sizes="${x[1]}x${x[1]}"]`)) return; const l = document.createElement("link"); l.rel = x[0]; l.sizes = x[1] + "x" + x[1]; if (x[2]) l.type = x[2]; l.href = `assets/field/app-icon-${x[1]}.png`; document.head.appendChild(l); });
   document.addEventListener("error", (e) => { const t = e.target; if (t && t.tagName === "IMG") t.style.visibility = "hidden"; }, true); /* a missing picture keeps its box, so nothing jumps */

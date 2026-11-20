@@ -1,16 +1,18 @@
 /* Primal Health Hub — the one combined daily routine.
    Merged from: OP 1 Ch. I "Daily Routine", Ch. II "Daily Rhythm", Ch. III "Daily Routine", the puberty "Routine",
    sleep / sunlight / posture pages, and OP 2 "Daily Routine" + "Training Week".
-   Item: { id, t text, d detail, opt optional (not counted), go routine id, n repeat count, days [0=Sun…6=Sat] } */
+   Item: { id, t text, d detail, opt optional (not counted), go routine id, n repeat count, days [0=Sun…6=Sat],
+         k daily group (an item with k is a Daily item: not a routine or gym, P.dailyGroups), src (op, both) }.
+   Where each item is written in the docs: data/docrefs.js ("i:<id>"). */
 (function (P) {
   P.blocks = [
     {
       id: "wake", name: "Wake", span: "First 30 minutes", items: [
         { id: "w-pand", t: "Full-body pandiculation in bed", d: "Inhale and contract everything, exhale and release", go: "pandiculation" },
-        { id: "w-sun", t: "Outside within 20–30 min: 10–20 min of morning sun", d: "On skin and eyes, no sunglasses, barefoot on the ground if you can" },
+        { id: "w-sun", k: "light", src: "both", t: "Outside within 20–30 min: 10–20 min of morning sun", d: "On skin and eyes, no sunglasses, barefoot on the ground if you can" },
         { id: "w-big6", t: "Quick Lymphatic Reset (Big 6)", d: "≈2 min, rub 10 and tap 10 at each point", go: "big6" },
         { id: "w-tape", t: "Remove Zygotape", d: "Peel in the direction applied. Keep it on through the morning routine if you can", go: "stella-morning" },
-        { id: "w-alarm", t: "Woke without an alarm", opt: true },
+        { id: "w-alarm", k: "sleep", src: "op", t: "Woke without an alarm", opt: true },
         { id: "w-digest", t: "Digestion fascia release", d: "If bloated or digestion is slow", opt: true, go: "digestion-release" },
       ],
     },
@@ -20,8 +22,8 @@
         { id: "m-release", t: "Fascia Activation Routine", d: "Swap for the Full Body Release a few times a week", go: "fascia-activation" },
         { id: "m-myo", t: "Myo Routine, finishing with lunge thumbpulling", d: "Or run the full Ultimate Routine. Short on time: Myo only", go: "myo-routine" },
         { id: "m-wall", t: "Wall thumbpulling: front, middle and back palate", d: "Outside in the sun if possible", go: "thumbpulling-daily" },
-        { id: "m-carrot", t: "Raw carrot salad", d: "Grated, with apple cider vinegar and coconut oil" },
-        { id: "m-breakfast", t: "Breakfast: eggs, raw dairy, grass-fed meat", d: "After training on sprint days" },
+        { id: "m-carrot", k: "food", src: "both", t: "Raw carrot salad", d: "Grated, with apple cider vinegar and coconut oil" },
+        { id: "m-breakfast", k: "food", src: "both", t: "Breakfast: eggs, raw dairy, grass-fed meat", d: "After training on sprint days" },
         { id: "m-flymph", t: "Facial lymphatic drainage before thumbpulling", opt: true, go: "facial-lymph" },
         { id: "m-face", t: "Stella's morning face routine", d: "Oil massage, zygo pushing, lymph taps, rose water", opt: true, go: "stella-morning" },
       ],
@@ -36,52 +38,61 @@
         { id: "t-tendon", t: "Tendon isometrics for any areas under load", go: "tendon", days: [6] },
         { id: "t-rec1", t: "Full body fascia release with the fascial ball", go: "full-body-release", days: [0] },
         { id: "t-rec2", t: "Bar hang pandiculation", go: "pandiculation", days: [0] },
-        { id: "t-rec3", t: "Barefoot grounding outside, 30 min minimum", d: "No structured training today", days: [0] },
-        { id: "t-carbs", t: "Carbs after training: fruit, raw honey, raw dairy", days: [1, 2, 3, 4, 5, 6] },
-        { id: "t-vitc", t: "Whole-food vitamin C 30 min before training", opt: true, days: [1, 2, 3, 4, 5, 6] },
+        { id: "t-rec3", k: "outdoor", src: "both", t: "Barefoot grounding outside, 30 min minimum", d: "No structured training today", days: [0] },
+        { id: "t-carbs", k: "food", src: "op", t: "Carbs after training: fruit, raw honey, raw dairy", days: [1, 2, 3, 4, 5, 6] },
+        { id: "t-vitc", k: "supp", src: "op", t: "Whole-food vitamin C 30 min before training", opt: true, days: [1, 2, 3, 4, 5, 6] },
       ],
     },
     {
       id: "day", name: "Through the day", span: "Between sessions", items: [
         { id: "d-thumb", t: "Thumbpulling, 2–3 min every 1–2 hours", d: "Four sessions minimum", n: 4, go: "thumbpulling-daily" },
         { id: "d-rotate", t: "One extra session of your choice", d: "Breathwork, lymph drainage, tongue-tie release, Midday Reset or face exercises: whichever your body responds to", go: "midday-reset" },
-        { id: "d-mastic", t: "Mastic gum, 5–10 min", d: "Masseter drives, both sides evenly", go: "hollow-cheeks" },
-        { id: "d-steps", t: "Walk 10,000 steps outdoors", d: "Spiral gait, tongue on the palate", go: "spiral-walking" },
-        { id: "d-midsun", t: "Midday sun, 20–45 min", d: "As much skin as is comfortable; shade if it tingles" },
-        { id: "d-barefoot", t: "Barefoot on grass, sand or soil", d: "A few minutes, ideally with your sun" },
+        { id: "d-mastic", k: "body", src: "both", t: "Mastic gum, 5–10 min", d: "Masseter drives, both sides evenly", go: "hollow-cheeks" },
+        { id: "d-steps", k: "outdoor", src: "op", t: "Walk 10,000 steps outdoors", d: "Spiral gait, tongue on the palate", go: "spiral-walking" },
+        { id: "d-midsun", k: "light", src: "both", t: "Midday sun, 20–45 min", d: "As much skin as is comfortable; shade if it tingles" },
+        { id: "d-barefoot", k: "outdoor", src: "both", t: "Barefoot on grass, sand or soil", d: "A few minutes, ideally with your sun" },
         { id: "d-hang", t: "Bar hang, 30–60 s", go: "pandiculation" },
-        { id: "d-broth", t: "Bone broth" },
+        { id: "d-broth", k: "food", src: "both", t: "Bone broth" },
+        { id: "d-water", k: "food", src: "both", t: "Spring water in glass, or filtered water", d: "Not tap water, and nothing stored or heated in plastic", opt: true },
+        { id: "d-salt", k: "supp", src: "both", t: "Celtic sea salt for sodium, more when you train", d: "Coconut water with Celtic sea salt, and bone broth, give sodium and potassium", opt: true },
+        { id: "d-calcium", k: "supp", src: "op", t: "Calcium, 1 g a day", d: "Through dairy and eggshell powder", opt: true },
         { id: "d-ground", t: "Groundwork reset between long sits", opt: true, go: "groundwork" },
         { id: "d-airofit", t: "Airofit, 5–10 min at F-6", opt: true, go: "airofit" },
         { id: "d-froggy", t: "Froggy Mouth or Myobrace, 30 min", opt: true, go: "froggy" },
-        { id: "d-scalp", t: "Scalp massage, 5 min", opt: true },
-        { id: "d-pom", t: "Pomegranate juice, 300 ml", opt: true },
-        { id: "d-nettle", t: "Nettle tea", opt: true },
+        { id: "d-scalp", k: "body", src: "op", t: "Scalp massage, 5 min", opt: true },
+        { id: "d-pom", k: "food", src: "both", t: "Pomegranate juice, 300 ml", opt: true },
+        { id: "d-nettle", k: "food", src: "op", t: "Nettle tea", opt: true },
       ],
     },
     {
       id: "evening", name: "Evening", span: "Longer session two", items: [
         { id: "e-session", t: "Fascia release + Myo session or the Fasciapulling routine", d: "Stella's thumbpulling routine fits here", go: "ultimate" },
-        { id: "e-dinner", t: "Dinner: ancestral plate, finished 3 hours before bed", d: "Organ meats 2–3 times a week" },
-        { id: "e-sunset", t: "Outside at sunset" },
-        { id: "e-blue", t: "Blue-light blockers on after sundown", d: "Screens off 60–90 min before bed" },
-        { id: "e-mag", t: "Liquid nano magnesium" },
-        { id: "e-tea", t: "Chamomile tea with raw honey" },
+        { id: "e-dinner", k: "food", src: "both", t: "Dinner: ancestral plate, finished 3 hours before bed", d: "Organ meats 2–3 times a week" },
+        { id: "e-sunset", k: "light", src: "both", t: "Outside at sunset" },
+        { id: "e-blue", k: "sleep", src: "both", t: "Blue-light blockers on after sundown", d: "Screens off 60–90 min before bed" },
+        { id: "e-mag", k: "supp", src: "both", t: "Liquid nano magnesium" },
+        { id: "e-tea", k: "food", src: "both", t: "Chamomile tea with raw honey" },
+        { id: "e-late", k: "food", src: "op", t: "Something small late? Raw milk and honey only", d: "Nothing else in the 3 hours before bed", opt: true },
       ],
     },
     {
       id: "bed", name: "Bed", span: "Asleep before 11 pm", items: [
-        { id: "b-oil", t: "Facial oil about 40 min before taping" },
+        { id: "b-oil", k: "body", src: "op", t: "Facial oil about 40 min before taping" },
         { id: "b-breath", t: "A few minutes of breathwork", d: "Oscar's Buteyko + Vortex routine 2–3 nights a week", go: "oscar-breathwork" },
         { id: "b-tape", t: "Zygotape on: cheeks and chin X", d: "Full set adds forehead, nose and eyes", go: "zygotape" },
-        { id: "b-wifi", t: "WiFi off, phone away from the bed" },
-        { id: "b-room", t: "Room fully dark, cool and quiet", d: "Same bedtime as yesterday" },
-        { id: "b-side", t: "Side sleep: feet crossed, tongue up, hips back, head slightly forward" },
+        { id: "b-wifi", k: "sleep", src: "both", t: "WiFi off, phone away from the bed" },
+        { id: "b-room", k: "sleep", src: "both", t: "Room fully dark, cool and quiet", d: "Same bedtime as yesterday" },
+        { id: "b-side", k: "sleep", src: "op", t: "Side sleep: feet crossed, tongue up, hips back, head slightly forward" },
+        { id: "b-bed", k: "sleep", src: "op", t: "Bed only for sleep", d: "No work, scrolling or watching in bed" },
+        { id: "b-firm", k: "sleep", src: "op", t: "Work toward a firmer surface: a futon or the floor", d: "Over time, not all at once", opt: true },
         { id: "b-digest", t: "Digestion fascia release before sleep", opt: true, go: "digestion-release" },
         { id: "b-brace", t: "Myobrace overnight", opt: true, go: "myobrace" },
       ],
     },
   ];
+
+  /* Daily items (the Daily filter and the Routines › Daily tab): what to do with the day that is not a routine or gym session */
+  P.dailyGroups = [["light", "Sun and light", "sun"], ["outdoor", "Outdoors and barefoot", "footprints"], ["food", "Food and drink", "utensils-crossed"], ["supp", "Supplements", "droplets"], ["sleep", "Sleep and screens", "moon"], ["body", "Body care", "hand-heart"]];
 
   P.dayFocus = ["Recovery", "Strength: Workout 1", "Sprint and walk", "Strength: Workout 2", "Sprint and walk", "Strength: Workout 3", "Bone density and tendons"];
 

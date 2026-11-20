@@ -20,6 +20,10 @@ _Avoid_: Block, slot (in prose)
 A fixed item that runs in a part of the day every day (or on named weekdays) without being a placed routine.
 _Avoid_: Task (a Task happens once), check-in
 
+**Daily item**:
+A Daily habit that is not a routine or gym session: light, food and drink, supplements, sleep and screens, outdoors, body care (midday sun, blue-light blockers on, woke without an alarm). What the Daily filter shows.
+_Avoid_: Habit (on its own), routine
+
 **Task**:
 A one-off item the owner put on one date and part of the day, usually made from a Note, keeping the Note's source link.
 _Avoid_: Reminder, to-do
@@ -76,6 +80,14 @@ The place Notes wait until they are filed under a Topic or archived.
 **Source**:
 Where a piece of information came from: the OP docs, the owner's notes, a named person or document, or a Suggestion.
 _Avoid_: Reference, citation (for the attribution itself)
+
+**Hub**:
+One Source's view of the Library, Routines and Products: OP docs, Mine, a named person or document, or All. Switching hubs never changes the Plan or the Week.
+_Avoid_: Workspace, profile, filter (for the hub itself)
+
+**Doc section**:
+One headed part of a supplied document (OP 1, OP 2, the Max doc), readable in full in the reader; records point at the sections they were taken from.
+_Avoid_: Page, chapter (a chapter holds many sections), Source document (that is one the owner recorded by hand)
 
 **Source document**:
 A specific page, paper or book the owner recorded (link, title, author or publisher, dates when known), tied to the exact records or claims it supports.

@@ -1,3 +1,7 @@
 # Hallmark linter records (before/after runs), not part of the hub
 .hallmark/
 .claude/settings.local.json
+
+# The full text of the docs (a paid programme): published with the private artifact only, never committed
+health-hub/data/docs-text.js
+health-hub/data/docs-private.js

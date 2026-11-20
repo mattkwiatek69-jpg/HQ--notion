@@ -29,4 +29,20 @@ fs.readdirSync(DATA).filter((f) => f.endsWith(".js") && f !== "sources.js").forE
 const recs = [].concat(P.products, P.routines, P.systems, P.extras, P.cats, P.nutrition.approved, P.nutrition.approved.reduce((a, g) => a.concat(g.items.filter((i) => typeof i !== "string")), []));
 recs.forEach((r) => { if (r && r.src) assert(SRC[r.src] || ALIAS[r.src], `${r.name || r.n || r.h || r.id}: src "${r.src}" is not registered`); });
 console.log("sources:", Object.keys(SRC).join(", "), "· used in data:", JSON.stringify(used));
+
+/* the docs: every doc names its hub; every link from a record points at a real section; every OP section is linked from something */
+["docindex", "docrefs"].forEach((f) => require(path.join(DATA, f + ".js")));
+/* the owner's own docs' index is private (never committed); without it, links into those docs cannot be checked here */
+const PRIV = fs.existsSync(path.join(DATA, "docs-private.js")); if (PRIV) require(path.join(DATA, "docs-private.js"));
+const SEC = {}; P.docs.forEach((d) => { assert(SRC[d.src] && d.url && /^https:\/\/docs\.google\.com\//.test(d.url), d.n + ": a doc has a registered src and its Google link"); d.secs.forEach((x) => { assert(!SEC[x.id], "section ids are unique: " + x.id); SEC[x.id] = d; }); });
+const linked = new Set();
+Object.keys(P.docRefs).forEach((ref) => { assert(/^[rtinpw]:/.test(ref), ref + ": a ref starts with r:, t:, i:, n:, p: or w:"); P.docRefs[ref].forEach((id) => { if (!PRIV && /^max-/.test(id)) return; assert(SEC[id], `${ref}: section "${id}" is not in data/docindex.js`); linked.add(id); }); });
+P.docs.filter((d) => d.src === "op").forEach((d) => d.secs.forEach((x) => assert(linked.has(x.id), `${d.n} › ${x.h} is not linked from any record (data/docrefs.js)`)));
+P.routines.forEach((r) => assert(P.docRefs["r:" + r.id], "routine " + r.id + " says where in the docs it comes from"));
+P.systems.concat(P.extras).forEach((t) => assert(P.docRefs["t:" + t.id], "topic " + t.id + " says where in the docs it comes from"));
+/* Daily items: a known group, a registered source, and where the docs say it */
+const DG = new Set(P.dailyGroups.map((g) => g[0])); let nd = 0;
+P.blocks.forEach((b) => b.items.forEach((i) => { if (!i.k) return; nd++; assert(DG.has(i.k), i.id + ": daily group " + i.k + " is in P.dailyGroups"); assert(SRC[i.src], i.id + ": daily item has a registered src"); assert(P.docRefs["i:" + i.id], i.id + ": daily item says where the docs say it"); }));
+assert(nd >= 30, "the daily items are all there (" + nd + ")");
+console.log("docs:", P.docs.map((d) => d.n + " " + d.secs.length).join(", "), "· sections linked:", linked.size, "· daily items:", nd);
 console.log("data ok");
